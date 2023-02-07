@@ -1,0 +1,534 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>CH01-Introduction | TCH056</title>
+
+		<link rel="stylesheet" href="../revealjs/reset.css">
+		<link rel="stylesheet" href="../revealjs/reveal.css">
+		<link rel="stylesheet" href="../revealjs/theme/ets.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+		<style>
+		.two_columns_layout{
+		  display: flex;
+		}
+		.col {
+		  flex: 1;
+		  font-size: 0.9em !important;
+		}
+		.col_larger {
+		  flex: 2;
+		  font-size: 0.9em !important;
+		}
+
+		span.highlight{
+			color: rgb(221, 72, 59);
+			font-weight: bold;
+		}
+		
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img src='../images/logo_ets.png' />
+					<h4 class="">TCH056 - Programmation Web</h4>
+					<h2 class="r-fit-text">Chapitre 01: Introduction</h2>
+					<br /><br />
+					<p>
+						<strong>Anis Boubaker, Ph.D.</strong><br />
+						<em>Maitre d'enseignement en informatique</em>
+					</p>
+				</section>
+
+
+				<!-- PLAN DE LA SÉANCE -->
+				<section>
+					<h2>Plan de la séance</h2>
+					<ul class="r-fit-text">
+						<li class="fragment">Qu’est-ce qu'application/site Web?</li>
+						<li class="fragment">Bref historique du Web</li>
+						<li class="fragment">Les technologies et les langages du Web</li>
+						<li class="fragment">Démonstration: TCH056 en 10mn</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Définitions: Qu'est-ce que le développement Web?</h2>
+					<img src="./edho-pratama-T6fDN60bMWY-unsplash.jpg">
+				</section>
+				
+				<section>
+					<h2>Définition: Développement Web</h2>
+					<p class="fragment" data-fragment-index="1">L'ensemble des tâches nécessaires à la conception, le développement et la mise en place de sites Web. Le développement
+						web peut aller du développement d'une simple page texte statique à des applications Web complexes, aux sites de commerce électronique
+						ou de réseaux sociaux. <cite>Source: <a href='https://en.wikipedia.org/wiki/Web_development'>Wikipedia</a></cite>
+					</p>
+					<img class="fragment" data-fragment-index="1" src='./conception-site-papier.jpg'>
+				</section>
+
+				<section  data-auto-animate>
+					<h2>Définition: Page Web</h2>
+					<p class="fragment">
+						Document pouvant être interprété et affiché par un navigateur.
+					</p>
+					<pre  class="fragment"><code>
+&lt;html>
+	&lt;head>&lt;title>Ma première page&lt;/title>&lt;/head>
+	&lt;body>
+		<h1>Bonjour le monde!</h1>
+		<p>Ceci est ma première page Web!</p>
+	&lt;/body>
+&lt;/html>
+					</code></pre>
+				</section>
+
+				<section  data-auto-animate>
+					<h2>Définition: Page Web</h2>
+					<p>
+						Document pouvant être interprété et affiché par un navigateur.
+					</p>
+					<img src="./premier_page_shot.png" >
+				</section>
+
+				<section data-auto-animate>
+					<h3>Page Web: Document interprété par le navigateur</h3>
+					<ul>
+						<li class="">La structure du document est définie dans le langage <strong>de balisage</strong> HTML</li>
+					</ul>
+					<pre  class=""><code>
+&lt;html>
+	&lt;head>&lt;title>Ma première page&lt;/title>&lt;/head>
+	&lt;body>
+		<h1>Bonjour le monde!</h1>
+		<p>Ceci est ma première page Web!</p>
+	&lt;/body>
+&lt;/html>
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3>Page Web: Document interprété par le navigateur</h3>
+					<ul>
+						<li class="">La structure du document est définie dans le langage <strong>de balisage</strong> HTML</li>
+						<li>Les aspects visuels du document sont codés dans un langage <strong>déclaratif</strong>: le CSS</li>
+					</ul>
+					<pre  class=""><code class="css">
+.fancy {
+	font-weight: bold;
+	text-shadow: 4px 4px 3px #77f;
+}
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3>Page Web: Document interprété par le navigateur</h3>
+					<ul>
+						<li class="">La structure du document est définie dans le langage <strong>de balisage</strong> HTML</li>
+						<li class="">Les aspects visuels du document sont codés dans un langage <strong>déclaratif</strong>: le CSS</li>
+						<li class="">Les aspects dynamiques (réaction aux évévements, modification du contenu de la page, etc.) sont codés dans un langage 
+							<strong>de programmation</strong>: le Javascript. 
+						</li>
+					</ul>
+					<pre  class="" ><code class="javascript">
+function toCelsius(fahrenheit) {
+	return (5/9) * (fahrenheit-32);
+}
+document.getElementById("temp").innerHTML = toCelsius(77);
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Définition: Site Web</h2>
+					<p class="fragment"  data-fragment-index="1">
+						Un ensemble de pages web et de ressources reliées par des hyperliens, défini et accessible par une adresse web. 
+						<cite>Souce: <a href='https://fr.wikipedia.org/wiki/Site_web'>Wikipedia</a></cite>
+					</p>
+					<img class='fragment' data-fragment-index="1" src="./Website-illustration.jpeg" >
+				</section>
+
+				<section>
+					<h2>Définition: Application Web</h2>
+					<p class="fragment" >
+						Une application manipulable directement en ligne grâce à un navigateur web et qui ne nécessite donc pas d'installation sur les machines clientes. 
+						<cite>Souce: <a href='https://fr.wikipedia.org/wiki/Application_web'>Wikipedia</a></cite>
+					</p>
+					<div class="r-stack">
+						<img class='fragment' src="./webapp-gmail.png" >
+						<img class='fragment' src="./webapp-trello.jpeg" style="transform: rotate(10deg);" >
+						<img class='fragment' src="./webapp-onshape.jpeg" style="transform: rotate(20deg);" >
+						<img class='fragment' src="./webapp-clipchamp.jpeg" style="transform: rotate(-10deg);" >
+						<img class='fragment' src="./webapp-gdocs.png" style="transform: rotate(-20deg);" >
+					</div>
+				</section>
+
+				<section>
+					<h2>Comment ça marche?</h2>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/dYgNvn98Nag" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+				</section>
+
+				<section  data-transition="convex" data-background-image="./web.jpg">
+					<h1 style="padding-top: 300px; color: white;">Bref historique...</h1>
+					<!-- Photo by Miguel Á. Padriñán: https://www.pexels.com/photo/web-text-1591060/ -->
+				</section>
+
+				<section>
+					<h2>Historique du Web</h2>
+					<h3>Internet</h3>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/dFmTbZMGRdQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+				</section>
+
+				<section>
+					<h2>Historique du Web</h2>
+					<ul>
+						<li><a href="https://www.youtube.com/watch?v=dFmTbZMGRdQ">Histoire d'Internet</a></li>
+						<li><a href="https://www.youtube.com/watch?v=7a84nV-db50">L'évolution des navigateurs</a></li>
+						<li><a href="https://www.youtube.com/watch?v=XYTwYmOjqQs">L'évolution de la conception Web (graphique)</a></li>
+						<li><a href="https://www.youtube.com/watch?v=41mnNyMxPOA">Rétrospective assez complète</a> (sarcastique/humouristique, un peu trop en faveur de MS)</li>
+					</ul>
+				</section>
+
+				
+
+				<section>
+					<h2>Anatomie d'une WebApp</h2>
+					<div class="two_columns_layout">
+						<div class="col fragment">
+							<h4>Côté-client:</h4>
+							<ul>
+								<li>HTML/DOM</li>
+								<li>CSS</li>
+								<li>JavaScript</li>
+								<li>Ressources statiques</li>
+								<li>“Navigateur” (qui fournit certains services)</li>
+							</ul>
+						</div>
+						<div class="col fragment">
+							<h4>Côté-serveur:</h4>
+							<ul>
+								<li>Infrastructure serveur web (Apache, IIS, NodeJs, etc.)</li>
+								<li>Code côté-serveur: JavaScript, PHP, ou autre langage/plate-forme</li>
+							</ul>
+						</div>
+					</div> <!-- Two columns -->
+					<aside class="notes">
+						- Communication entre le client et le serveur: ajax ou transfert de données. 
+					</aside>
+				</section>
+
+				<section>
+					<h2>HTML (Hyper-Text Markup Language)</h2>
+					<div class="two_columns_layout">
+						<div class="col">
+							<img src="../images/cours01/html.jpg" />
+						</div>
+						<div class="col_larger">
+							<ul>
+								<li>Décrire la structure et le contenu de la page initiale</li>
+								<li>Contient des pointeurs vers du code JavaScript (e.g., balises &lt;script&gt;)</li>
+								<li>Est récupéré par le navigateur, analysé, puis converti sous forme d'arbre (DOM)</li>
+							</ul>
+						</div>
+				</section>
+
+
+
+				<section>
+					<h2>DOM (Document Object Model)</h2>
+					<div class="two_columns_layout">
+						<div class="col">
+							<img src="../images/cours01/dom.png" />
+						</div>
+						<div class="col_larger">
+							<ul>
+								<li>Structure et API permettant l'intéraction avec la page</li>
+								<li>Peut être lu et modifié par le code JavaScript</li>
+								<li>Les modifications au DOM sont <em>rendues</em> par le navigateurs</li>
+							</ul>
+						</div>
+				</section>
+
+
+				<section>
+					<h2>CSS (Cascading Style Sheets)</h2>
+					<div class="two_columns_layout">
+						<div class="col">
+							<img src="../images/cours01/css.png" />
+						</div>
+						<div class="col_larger">
+							<ul>
+								<li>Séparation du contenu de la page de sa présentation</li>
+								<li>Ensemble de règles déclaratives:</li>
+									<ul>
+										<li>Élément(s) visé(s) (“target”) à gauche</li>
+										<li>Actions à droite</li>
+									</ul>								
+								<li>Uniformisation par l'application de règles à tous éléments de la page dans le DOM</li>
+							</ul>
+						</div>
+				</section>
+
+
+
+				<section>
+					<h2>JavaScript</h2>
+					<div class="two_columns_layout">
+						<div class="col">
+							<img src="../images/cours01/JS.jpg" />
+						</div>
+						<div class="col_larger" style="font-size: 0.9em !important;">
+							<ul class="">
+								<li>Langage de premier plan pour les applications web modernes</li>
+								<li>Permet l'intéractivité des applications web</li>
+								<li>Exécuté lorsqu'une balise &lt;script&gt; est détectée, ou lorsque des événements du DOM sont déclenchés</li>
+								<li>Est un langage de programmation complet avec plusieurs fonctionnalités avancées (des bonnes et des mauvaises!)</li>
+							</ul>
+						</div>
+				</section>
+
+
+
+				<section>
+					<h2>Technologies côté serveur</h2>
+					<div class="two_columns_layout">
+						<div class="col">
+							<img src="../images/cours01/serveur.png" />
+						</div>
+						<div class="col_larger" style="">
+							<ul class="">
+								<li>Répondent aux requêtes HTTP (et AJAX), agnostique au langage</li>
+								<li>Logiciel ou cadriciel qui intercepte les requêtes (Apache, IIS, Node.js, Django, etc.</li>
+								<li>Langages typiquement utilisés: Java, .Net, RoR, PHP, Python, JS</li>
+								<li>JS est de plus en plus populaire (dev full stack)</li>
+							</ul>
+						</div>
+				</section>
+
+
+				<section>
+					<h2>Maintenance de l'état</h2>
+					<div class="two_columns_layout">
+						<div class="col">
+							<img src="../images/cours01/database.png" />
+						</div>
+						<div class="col_larger" style="">
+							<ul class="">
+								<li>Fichiers témoins (Cookies)</li>
+								<li>Stockage local persistant (HTML5)</li>
+								<li>Base de données et mécanismes de stockage côté serveur</li>
+							</ul>
+						</div>
+				</section>
+
+				<!-- 
+					********** LANGAGE HTML **************
+				-->
+
+				<section>
+					<h1>Le langage de balisage HTML</h2>
+				</section>
+
+				<section>
+					<h2>HTML?</h2>
+					<div class="two_columns_layout">
+						<div class="col">
+							<img src="../images/cours01/html5.png" />
+						</div>
+						<div class="col_larger" style="">
+							<ul class="">
+								<li><strong>H</strong>yper <strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage</li>
+								<li>Langage qui décrit le contenu d'un document hérarchiquement en vue de son affichage</li>
+								<li>Le contenu est décrit à l'aide de balises ("tags") - Exemple: ceci est un titre, un paragraphe, etc.</li>
+								<li>Les balises ne décrivent - idéalement - que la sémantique (souvent pas vrai!)</li>
+							</ul>
+						</div>
+				</section>
+
+
+				<section>
+					<h3>Les balises (<em>tags</em>)</h3>
+					<p>Un héritage du XML (XHTML), pour qu'une balide soit bien formée: </p>
+					<ul>
+						<li>Une balise ouvrante et une balise fermante: 
+							<pre><code data-line-numbers><script type="text/template"><nav> .. contenu.. </nav></script></code></pre>
+						</li>
+						<li>Une balise vide (pas de contenu): 
+							<pre><code data-line-numbers><script type="text/template"><img src="....." alt="..."></script></code></pre>
+						</li>
+						<li>Une balise vide (retro-compatibilité): 
+							<pre><code data-line-numbers><script type="text/template"><img src="....." alt="..." /></script></code></pre>
+						</li>
+					</ul>
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Une balise comprend...</h3>
+					<p><strong>Un type</strong> tel que défini par la spécification HTML5<br>(ex.: p, div, nav, span, etc. ) </p>
+					<br><br>
+					<p style="font-size: 0.7em">
+						&lt<span class="highlight">nom_balise</span> prop1="valeur" prop2="valeur"&gt; ...Contenu...&lt;/<span class="highlight">nom_balise</span>&gt;
+					</p>
+				</section>
+				<section data-auto-animate>
+					<h3>Une balise comprend...</h3>
+					<p>Des propriétés (optionnelles) selon le type de balise</p>
+					<br><br><br>
+					<p style="font-size: 0.7em">
+						&ltnom_balise <span class="highlight">prop1="valeur" prop2="valeur"</span>&gt; ...Contenu...&lt;/nom_balise&gt;
+					</p>
+				</section>
+				<section data-auto-animate>
+					<h3>Une balise comprend...</h3>
+					<p>Du contenu (optionnel) - Texte ou hiérarchie de balises</p>
+					<br><br><br>
+					<p style="font-size: 0.7em">
+						&ltnom_balise prop1="valeur" prop2="valeur"&gt; <span class="highlight">...Contenu...</span>&lt;/nom_balise&gt;
+					</p>
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h2>Un premier exemple</h2>
+					<pre><code data-line-numbers><script type="text/template"><!doctype html>
+<html>
+  <head>
+    <title>Rapport de stage</title>
+  </head>
+
+  <body>
+    <section>
+      <h2>Introduction</h2>
+      <img src="./moi_au_bureau.png" alt="Moi au bureau" />
+    </section>
+    ...
+  </body>
+</html>
+					</script></code></pre>
+						
+				</section>
+
+				<section data-auto-animate>
+					<h2>La racine du document</h2>
+					<p>Les balises <strong>&lt;html&gt;...&lt;/html&gt;</strong> encapsulent le document</p>
+					<pre><code data-line-numbers="2,14"><script type="text/template"><!doctype html>
+<html>
+  <head>
+    <title>Rapport de stage</title>
+  </head>
+
+  <body>
+    <section>
+      <h2>Introduction</h2>
+      <img src="./moi_au_bureau.png" alt="Moi au bureau" />
+    </section>
+    ...
+  </body>
+</html>
+					</script></code></pre>
+						
+				</section>
+
+				<section data-auto-animate>
+					<h2>L'entête (<em>head</em>)</h2>
+					<p>Comprend des méta-données sur la page</p>
+					<pre><code data-line-numbers="3-5"><script type="text/template"><!doctype html>
+<html>
+  <head>
+    <title>Rapport de stage</title>
+  </head>
+
+  <body>
+    <section>
+      <h2>Introduction</h2>
+      <img src="./moi_au_bureau.png" alt="Moi au bureau" />
+    </section>
+    ...
+  </body>
+</html>
+					</script></code></pre>
+						
+				</section>
+
+				<section data-auto-animate>
+					<h2>Le corps du document (<em>body</em>)</h2>
+					<p>Le contenu effectif du document (entre autres)</p>
+					<pre><code data-line-numbers="7-13"><script type="text/template"><!doctype html>
+<html>
+  <head>
+    <title>Rapport de stage</title>
+  </head>
+
+  <body>
+    <section>
+      <h2>Introduction</h2>
+      <img src="./moi_au_bureau.png" alt="Moi au bureau" />
+    </section>
+    ...
+  </body>
+</html>
+					</script></code></pre>
+						
+				</section>
+
+				<section>
+					<h2>Principales balises (Démonstration)</h2>
+					<br>
+					<img src="../images/Demonstration.png"  height="300px" alt="Démonstration" />
+				</section>
+
+				<section>
+					<h2>Références</h2>
+					<br>
+					<ul>
+						<li><a href="https://dev.w3.org/html5/html-author/" target="_blank">Référence officielle du langage HTML5 (W3C)</a></li>
+						<li><a href="https://validator.w3.org" target="_blank">Outil de validation de page HTML5</a></li>
+						<li><a href="https://developer.mozilla.org/fr/docs/Web/HTML" target="_blank">Mozilla Developer Network</a><br>(excellente documentation en français)</li>
+						<li><a href="https://www.w3schools.com/TAGS/default.ASP" target="_blank">W3School (Référence populaire)</a></li>
+						<li><a href="https://www.w3schools.com/html/html_exercises.asp" target="_blank">Séries d'exercices (W3School)</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Avant le prochain laboratoire:</h3>
+					<br>
+					<div class="two_columns_layout">
+						<div class="col">
+							<img src="../images/the_end.png" alt="Fin du cours" />
+						</div>
+						<div class="col_larger">
+							<ul>
+								<li>Parcourir la documentation HTML de Mozilla ou W3School</li>
+								<li>Lire l'énoncé du laboratoire</li>
+								<li>Faire quelques exercices du site W3School (au besoin)</li>
+							</ul>
+						</div>
+					</div>
+					
+				</section>
+
+
+
+			</div>
+		</div>
+
+		<script src="../revealjs/reveal.js"></script>
+		<script src="../revealjs/plugin/notes/notes.js"></script>
+		<script src="../revealjs/plugin/markdown/markdown.js"></script>
+		<script src="../revealjs/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

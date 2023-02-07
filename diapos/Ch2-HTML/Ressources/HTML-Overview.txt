@@ -1,0 +1,2178 @@
+Notes for HTML - Overview
+
+By Scott Granneman & Jans Carton
+
+Find the presentation at http://www.granneman.com/presentations/
+
+## Slide 3
+
+http://www.granneman.com
+
+## Slide 4
+
+http://www.granneman.com → http://www.granneman.com/teaching/web-development-granneman-way/
+
+## Slide 5
+
+http://www.granneman.com/teaching/web-development-granneman-way/css-overview/dom/
+
+## Slide 7
+
+Some HTML elements are conveniences for avoiding writing CSS (e.g., <b>, <i>, <s>) or for structure (<div> & <span>)
+
+Some CSS inserts content (e.g., ::before & ::after) or modifies behavior (e.g., animate & transition)
+
+Some JavaScript modifies HTML & CSS to change meaning or presentation, not for behavior
+
+## Slide 12
+
+The appearance to a viewer would be the same, but the non-semantic code on the right has a different structure (only 1 object in the document tree, not 2 as on the left) AND a different meaning (it’s not 2 paragraphs, it’s 1)
+
+## Slide 15
+
+“In Finland planners are known to visit their parks immediately after the first snowfall, when the existing paths are not visible. People naturally choose desire lines, which are then clearly indicated by their footprints and can be used to guide the routing of paths.” From “3.3 Public Space: The Lost River Park”, found in Earls Court Project Application 1, Royal Borough of Kensington & Chelsea Cultural Strategy, June 2011, pg. 95. https://www.rbkc.gov.uk/idoxWAM/doc/Other-777167.pdf?extension=.pdf&id=777167&location=VOLUME2&contentType=application/pdf&pageCount=1
+“Two Desire Paths, Battersea Park”, by Gordon Joly on Flickr (image 251134757_f32eb686d6_o), September 23, 2006. CC BY-SA 2.0. https://www.flickr.com/photos/loopzilla/251134757/in/pool-desire_paths/.
+
+## Slide 16
+
+Looking through your code, the semantic elements on the right would be far easier to understand
+
+Structurally & visually, the semantic elements on the right are exactly like those on the left, but they have meaning that those on the left do not
+
+## Slide 18
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+
+## Slide 19
+
+http://codepen.io/shaman_tito/pen/IAtgc
+
+## Slide 22
+
+Why the change? Categorizing everything as block-level or inline wasn’t really accurate & was way too limiting, especially as HTML got more complex, so it was abandoned (that said, block & inline are used in CSS, where they are very important, but not as a way to categorize HTML)
+
+## Slide 25
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-address-element
+
+## Slide 26
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
+
+## Slide 27
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#content-models
+
+## Slide 28
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#content-models
+
+## Slide 29
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#content-models
+
+## Slide 30
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#content-models
+
+## Slide 31
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#content-models
+
+## Slide 32
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#content-models
+
+## Slide 33
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#content-models
+
+## Slide 34
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#content-models
+
+## Slide 36
+
+https://html.spec.whatwg.org/multipage/syntax.html#elements-2
+
+https://html.spec.whatwg.org/multipage/syntax.html#void-elements
+
+## Slide 37
+
+https://html.spec.whatwg.org/multipage/syntax.html#void-elements
+
+For more on void elements, see Web Development: The Absolute Basics & HTML Overview in Categorization
+
+## Slide 38
+
+https://html.spec.whatwg.org/multipage/syntax.html#foreign-elements
+
+## Slide 42
+
+MDN used to stand for Mozilla Developer Network
+
+## Slide 43
+
+https://html.spec.whatwg.org/#toc-semantics
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+
+## Slide 44
+
+https://html.spec.whatwg.org/#toc-semantics
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+
+## Slide 45
+
+https://html.spec.whatwg.org/#embedded-content
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Image_and_multimedia
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element#Embedded_content
+
+## Slide 54
+
+<base> is covered in Bonus
+
+## Slide 55
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-title-element
+
+## Slide 58
+
+https://www.stlzoo.org/animals/abouttheanimals/reptiles/lizards/inlandbeardeddragon
+
+## Slide 59
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-meta-element
+
+## Slide 60
+
+shrink-to-fit: https://bitsofco.de/ios-safari-and-shrink-to-fit/
+
+## Slide 62
+
+https://wiki.whatwg.org/wiki/MetaExtensions
+
+## Slide 63
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element
+
+## Slide 64
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-style-element
+
+## Slide 65
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#the-script-element
+
+## Slide 68
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*
+
+## Slide 70
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes
+
+https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques
+
+## Slide 77
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#classes
+
+## Slide 78
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#the-id-attribute
+
+## Slide 79
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#the-style-attribute
+
+## Slide 80
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#the-title-attribute
+
+## Slide 81
+
+http://codepen.io/websanity/pen/lykGt
+
+## Slide 82
+
+https://twitter.com/karlgroves/status/941809410401275905
+
+## Slide 84
+
+https://codepen.io/websanity/pen/wvMgdPR?editors=1000
+
+## Slide 85
+
+https://codepen.io/websanity/pen/wvMgdPR?editors=1000
+
+## Slide 86
+
+https://codepen.io/websanity/pen/wvMgdPR?editors=1000
+
+## Slide 87
+
+https://codepen.io/websanity/pen/wvMgdPR?editors=1000
+
+## Slide 88
+
+https://codepen.io/websanity/pen/wvMgdPR?editors=1000
+
+## Slide 91
+
+https://getbootstrap.com/docs/4.5/components/tooltips/
+
+## Slide 92
+
+https://getbootstrap.com/docs/4.5/components/tooltips/
+
+## Slide 94
+
+class, id, & style in IE & Firefox: https://web.archive.org/save/http://www.webdevout.net/browser-support-html
+
+## Slide 95
+
+accesskey: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/accesskey & https://web.archive.org/web/20200617231019/http://www.webdevout.net/browser-support-html  
+
+draggable: https://caniuse.com/#feat=mdn-html_global_attributes_draggable
+
+hidden: https://caniuse.com/#feat=hidden
+
+tabindex: https://caniuse.com/#feat=tabindex-attr 
+
+tabindex on Chrome for Android: https://blog.chromium.org/2017/09/chrome-62-beta-network-quality.html
+
+title: https://caniuse.com/#feat=mdn-html_global_attributes_title & http://www.webdevout.net/browser-support-html
+
+## Slide 101
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/elements.html#attr-data-*
+
+## Slide 103
+
+http://codepen.io/websanity/pen/seaDd
+
+## Slide 104
+
+https://caniuse.com/#feat=dataset
+
+## Slide 105
+
+A string is a “sequence of alphanumeric text or other symbols” <https://web.archive.org/web/20200622231440/https://en.wikipedia.org/wiki/String>
+Attribute values are always strings: https://html.spec.whatwg.org/#attributes 
+
+## Slide 111
+
+https://html.spec.whatwg.org/#boolean-attribute
+
+## Slide 112
+
+https://codepen.io/websanity/pen/gOPggVr?editors=1000 
+
+## Slide 113
+
+$ curl -s "https://html.spec.whatwg.org" | grep -C 3 "boolean\s*attribute"
+
+## Slide 122
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-nav-element
+
+## Slide 123
+
+http://codepen.io/websanity/pen/qKvpc 
+
+## Slide 124
+
+http://codepen.io/websanity/pen/qKvpc
+
+## Slide 125
+
+https://html.spec.whatwg.org/multipage/sections.html#the-article-element 
+
+## Slide 126
+
+Diffbot: https://www.diffbot.com 
+
+Mercury Web Parser: https://mercury.postlight.com/web-parser/ 
+
+Instapaper: https://www.instapaper.com 
+
+Pocket: https://getpocket.com 
+
+Mercury Reader (Chromium-based): https://chrome.google.com/webstore/detail/mercury-reader/oknpjjbmpnndlpmnhmekjpocelpnlfdi 
+
+Reader Mode (Chromium-based): https://readermode.io  
+
+Safari Reader: https://www.apple.com/safari/ & https://support.apple.com/guide/safari/hide-ads-when-reading-articles-sfri32632/mac 
+
+Firefox Reader View: https://support.mozilla.org/en-US/kb/firefox-reader-view-clutter-free-web-pages 
+
+Edge Immersive Reader: https://support.microsoft.com/en-us/help/4000734/microsoft-edge-accessibility-features 
+
+## Slide 127
+
+https://www.nytimes.com/2016/08/14/travel/hp-lovecraft-providence.html?_r=0
+
+## Slide 128
+
+https://www.nytimes.com/2016/08/14/travel/hp-lovecraft-providence.html?_r=0
+
+## Slide 129
+
+https://www.nytimes.com/2016/08/14/travel/hp-lovecraft-providence.html?_r=0
+
+Chrome on Android has a feature like this, but you have to enable it first: http://www.androidguys.com/2017/09/06/enable-reader-mode-in-chrome-for-android-how-to/
+
+## Slide 130
+
+https://www.nytimes.com/2016/08/14/travel/hp-lovecraft-providence.html?_r=0
+
+## Slide 131
+
+https://www.nytimes.com/2016/08/14/travel/hp-lovecraft-providence.html?_r=0
+
+https://support.apple.com/guide/safari/read-articles-clutter-free-sfri32632
+
+## Slide 132
+
+https://www.nytimes.com/2016/08/14/travel/hp-lovecraft-providence.html?_r=0
+
+## Slide 133
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-aside-element
+
+## Slide 135
+
+https://codepen.io/websanity/pen/gtIAc?editors=1000
+
+## Slide 136
+
+https://codepen.io/websanity/pen/gtIAc?editors=1000 
+
+## Slide 137
+
+http://codepen.io/websanity/pen/Dkhrl?editors=100
+
+## Slide 138
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-section-element
+
+## Slide 139
+
+http://codepen.io/websanity/pen/EFJht
+
+## Slide 140
+
+https://en.wikipedia.org/wiki/H._P._Lovecraft
+
+http://dagonbytes.com/thelibrary/lovecraft/thecallofcthulhu.htm
+
+## Slide 142
+
+http://codepen.io/websanity/pen/AoaBl
+
+## Slide 146
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements
+
+## Slide 149
+
+https://www.granneman.com/presentations/all-presentations 
+
+11-yr-old Table of Contents JavaScript found at https://github.com/dcneiner/TableOfContents 
+
+## Slide 150
+
+http://codepen.io/websanity/pen/ptgzc
+
+## Slide 157
+
+https://codepen.io/websanity/pen/BwbYVp?editors=1000 
+
+## Slide 158
+
+https://codepen.io/websanity/pen/BwbYVp?editors=1000 
+
+## Slide 161
+
+http://codepen.io/websanity/pen/AoapB
+
+## Slide 164
+
+Google gives extra weight to words inside headings; Google gives no extra weight to words inside paragraphs
+
+## Slide 166
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-header-element
+
+## Slide 167
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-header-element
+
+## Slide 168
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-header-element
+
+## Slide 169
+
+http://codepen.io/websanity/pen/hCefd?editors=100
+
+## Slide 170
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-footer-element
+
+## Slide 171
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-footer-element
+
+## Slide 172
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-footer-element
+
+## Slide 173
+
+http://codepen.io/websanity/pen/nDdHq
+
+## Slide 174
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-footer-element
+
+## Slide 175
+
+http://codepen.io/websanity/pen/EFJht
+
+## Slide 176
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/sections.html#the-address-element
+
+## Slide 178
+
+https://codepen.io/websanity/pen/jOWJZaj?editors=1000
+
+## Slide 179
+
+http://codepen.io/websanity/pen/djmCE 
+
+https://www.hplovecraft.com/writings/texts/fiction/cdw.aspx 
+
+## Slide 181
+
+https://www.w3.org/TR/2013/NOTE-html5-author-20130528/the-hgroup-element.html#the-hgroup-element
+
+https://html.spec.whatwg.org/multipage/sections.html#the-hgroup-element
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup
+
+## Slide 182
+
+http://www.w3.org/html/wg/drafts/html/CR/common-idioms.html#sub-head
+
+## Slide 183
+
+https://www.w3.org/TR/html52/common-idioms-without-dedicated-elements.html#subheadings-subtitles-alternative-titles-and-taglines 
+
+## Slide 184
+
+https://www.w3.org/TR/html52/common-idioms-without-dedicated-elements.html#subheadings-subtitles-alternative-titles-and-taglines 
+
+## Slide 185
+
+https://www.w3.org/TR/html52/common-idioms-without-dedicated-elements.html#subheadings-subtitles-alternative-titles-and-taglines 
+
+## Slide 186
+
+https://www.w3.org/TR/html52/common-idioms-without-dedicated-elements.html#subheadings-subtitles-alternative-titles-and-taglines 
+
+## Slide 187
+
+https://www.w3.org/TR/html52/common-idioms-without-dedicated-elements.html#subheadings-subtitles-alternative-titles-and-taglines 
+
+## Slide 188
+
+https://caniuse.com/#feat=mdn-html_elements_nav 
+
+https://caniuse.com/#feat=mdn-html_elements_article 
+
+https://caniuse.com/#feat=mdn-html_elements_aside 
+
+https://caniuse.com/#feat=mdn-html_elements_section 
+
+https://caniuse.com/#feat=mdn-html_elements_header 
+
+https://caniuse.com/#feat=mdn-html_elements_footer 
+
+https://caniuse.com/#feat=mdn-html_elements_hgroup 
+
+## Slide 193
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-p-element
+
+## Slide 194
+
+http://codepen.io/websanity/pen/udpsi
+
+## Slide 195
+
+All will validate. 1st one is best because it’s easy to scan down your code & make sure you closed all start tags. 2nd is OK if you have a very short amount of content. 3rd one is bad form & makes no sense.
+
+## Slide 196
+
+Christian’s Rule
+
+When you save your file in your editor with auto-formatting on, it will format like this, which you do not want
+
+## Slide 197
+
+Free-floating text might not go in a <p> — e.g., you might use a <blockquote>, <h2>, or <li> — but it has to go into something
+
+## Slide 198
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-hr-element
+
+## Slide 199
+
+http://codepen.io/websanity/pen/FhdKw
+
+## Slide 201
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-blockquote-element
+
+## Slide 202
+
+http://codepen.io/websanity/pen/kxwte
+
+## Slide 203
+
+Chris’s Rule
+
+## Slide 204
+
+Eddie’s Rule
+
+## Slide 206
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-figure-element 
+
+## Slide 210
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-figcaption-element
+
+## Slide 211
+
+http://codepen.io/websanity/pen/aFjLq
+
+## Slide 214
+
+Eli’s Rule
+
+## Slide 216
+
+https://codepen.io/websanity/pen/KrLREG?editors=1000
+
+## Slide 217
+
+OK, the other exception is &nbsp;, discussed in Character Entities
+
+## Slide 218
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-pre-element 
+
+Note that CSS can change all of these default characteristics
+
+## Slide 219
+
+https://en.wikipedia.org/wiki/ASCII_art
+
+## Slide 220
+
+https://en.wikipedia.org/wiki/ASCII_art
+
+## Slide 221
+
+http://codepen.io/websanity/pen/mjBox
+
+From “[in Just-]” by e. e. cummings <http://www.poetryfoundation.org/poem/176657>
+
+## Slide 222
+
+https://www.granneman.com/personal/journals/2003westcoast/20030810
+
+## Slide 223
+
+<p> & <pre> are both block-level elements; <p> does not respect space while <pre> does, so it makes no sense to put a <pre> inside a <p>
+
+## Slide 224
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-main-element 
+
+## Slide 227
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main.html
+
+http://caniuse.com/#feat=html5semantic 
+
+## Slide 234
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-br-element
+
+## Slide 235
+
+http://codepen.io/websanity/pen/KFEjm
+
+From Robert Frost’s “Stopping by Woods on a Snowy Evening” <http://www.poetryfoundation.org/poem/171621>
+
+## Slide 237
+
+https://codepen.io/websanity/pen/pogrqgv?editors=1100 
+
+Text from H.P. Lovecraft’s “The Dunwich Horror” <http://www.lovecraft-stories.com/story/the-dunwich-horror>
+
+## Slide 238
+
+https://codepen.io/websanity/pen/pogrqgv?editors=1100 
+
+Text from H.P. Lovecraft’s “The Dunwich Horror” <http://www.lovecraft-stories.com/story/the-dunwich-horror>
+
+## Slide 240
+
+https://codepen.io/pen?editors=1100 
+
+## Slide 241
+
+https://codepen.io/pen?editors=1100 
+
+## Slide 242
+
+https://codepen.io/pen?editors=1100 
+
+## Slide 244
+
+https://codepen.io/websanity/pen/yLeoQwB?editors=1100 
+
+## Slide 245
+
+The first <br> adds additional new line to the start of the paragraph, which never makes sense (if you want additional margining above a paragraph, use CSS)
+
+With thanks to the great Ogden Nash
+
+## Slide 246
+
+Chris’s Rule
+
+## Slide 247
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-wbr-element  
+
+## Slide 248
+
+http://codepen.io/websanity/pen/jtJLD
+
+## Slide 250
+
+http://codepen.io/websanity/pen/giFtl?editors=100
+
+## Slide 254
+
+https://codepen.io/websanity/pen/KOvaRx?editors=1100
+
+## Slide 255
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-em-element 
+
+## Slide 256
+
+http://codepen.io/websanity/pen/tKFoA
+
+## Slide 257
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-strong-element
+
+## Slide 258
+
+http://codepen.io/websanity/pen/uhoLB
+
+## Slide 259
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-i-element
+
+## Slide 260
+
+http://codepen.io/websanity/pen/IvxmJ
+
+## Slide 261
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-b-element
+
+## Slide 262
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-b-element
+
+## Slide 263
+
+http://codepen.io/websanity/pen/xjJhE
+
+Why is that text bold? Because it’s more important? Because it should be strongly emphasized? Or because it looks nice bold?
+
+http://heartbleed.com
+
+http://www.hplovecraft.com/writings/texts/fiction/mm.aspx
+
+## Slide 264
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-mark-element 
+
+## Slide 265
+
+http://codepen.io/websanity/pen/lzJop
+
+## Slide 266
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data 
+
+https://en.wikipedia.org/wiki/Microsoft_Edge 
+
+https://developer.microsoft.com/en-us/microsoft-edge/platform/status/dataelement/?q=data 
+
+## Slide 267
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-s-element
+
+## Slide 268
+
+http://codepen.io/websanity/pen/xynaj
+
+## Slide 269
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-u-element
+
+## Slide 270
+
+http://codepen.io/websanity/pen/CbfGj
+
+## Slide 271
+
+https://lh3.ggpht.com/-lDHkH919w48/TavRb0BbjaI/AAAAAAAAA9k/tVqkSuW8698/s1600/POW2.jpg
+
+## Slide 272
+
+Gerhyrah’s Rule
+
+## Slide 275
+
+https://codepen.io/websanity/pen/RXZKBp?editors=1100
+
+## Slide 276
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-small-element 
+
+## Slide 277
+
+http://codepen.io/websanity/pen/smfIb?editors=100
+
+## Slide 278
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-small-element
+
+## Slide 279
+
+http://codepen.io/websanity/pen/lhkwu
+
+## Slide 280
+
+http://codepen.io/websanity/pen/lhkwu
+
+## Slide 283
+
+https://codepen.io/websanity/pen/jgLBWJ?editors=1100
+
+## Slide 284
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-sub-and-sup-elements
+
+## Slide 285
+
+http://codepen.io/websanity/pen/CIwoA
+
+## Slide 286
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-sub-and-sup-elements
+
+## Slide 287
+
+http://codepen.io/websanity/pen/JsDmB
+
+## Slide 289
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-code-element 
+
+## Slide 290
+
+http://codepen.io/websanity/pen/hLguw
+
+## Slide 291
+
+https://codepen.io/websanity/pen/GVvWjx?editors=1100
+
+## Slide 292
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-code-element 
+
+## Slide 293
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-code-element 
+
+## Slide 294
+
+http://codepen.io/websanity/pen/ngdLx
+
+## Slide 296
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-q-element
+
+## Slide 297
+
+http://codepen.io/websanity/pen/KHFqk
+
+## Slide 298
+
+https://html.spec.whatwg.org/multipage/rendering.html#quotes
+
+http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
+
+## Slide 300
+
+“Weekend Update Segment - Chris Farley as Bennett Brauer”. Saturday Night Live, March 19, 1994. <https://www.nbc.com/saturday-night-live/video/weekend-update-segment-chris-farley-as-bennett-brauer/3505988>.
+
+## Slide 303
+
+i2 = −1 defined imaginary numbers
+
+## Slide 304
+
+Mooney, Kate. “The Em Dash Divides”. The New York Times (August 14, 2019). https://www.nytimes.com/2019/08/14/style/em-dash-punctuation.html.
+
+## Slide 305
+
+Minus sign is slightly thinner than en dash & has a sliver of space between itself & adjacent characters
+
+## Slide 308
+
+https://codepen.io/websanity/pen/aeyJpm?editors=1100
+
+## Slide 309
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-dfn-element 
+
+## Slide 310
+
+http://codepen.io/websanity/pen/FwEqx
+
+## Slide 311
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-abbr-element
+
+Abbreviation examples: MO (Missouri), USMC (United States Marine Corps.)
+
+Supported by IE 7, Edge 12, Firefox 4, Safari 3, iOS Safari, Chrome 4, Chrome for Android <https://caniuse.com/#feat=mdn-html_elements_abbr>
+
+## Slide 312
+
+http://codepen.io/websanity/pen/xythK
+
+## Slide 313
+
+SPecial Executive for Counter-intelligence, Terrorism, Revenge and Extortion
+
+## Slide 314
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-cite-element
+
+## Slide 315
+
+https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-cite-element 
+
+## Slide 316
+
+http://codepen.io/websanity/pen/lwGzK 
+
+## Slide 318
+
+http://codepen.io/websanity/pen/kxwte 
+
+## Slide 321
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-div-element
+
+## Slide 322
+
+http://codepen.io/websanity/pen/tEHnx
+
+http://www.hplovecraft.com/writings/texts/fiction/cdw.aspx
+
+## Slide 323
+
+http://codepen.io/websanity/pen/tEHnx
+
+http://www.hplovecraft.com/writings/texts/fiction/cdw.aspx
+
+## Slide 324
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-span-element
+
+## Slide 325
+
+http://codepen.io/websanity/pen/EKvas
+
+## Slide 330
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-li-element
+
+## Slide 331
+
+https://codepen.io/websanity/pen/xxKeLeZ?editors=1000
+
+## Slide 333
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-ul-element
+
+## Slide 334
+
+http://codepen.io/websanity/pen/ECcLp
+
+## Slide 335
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-ol-element
+
+## Slide 336
+
+http://codepen.io/websanity/pen/FhwCo
+
+https://en.wikipedia.org/wiki/Gnomes_(South_Park)
+
+## Slide 337
+
+a (lowercase letters), A (uppercase letters), i (lowercase Roman numerals), I (uppercase Roman numerals), & 1 (Arabic numerals)
+
+## Slide 338
+
+https://caniuse.com/#feat=ol-reversed 
+
+## Slide 340
+
+http://codepen.io/websanity/pen/BjJdZd?editors=110
+
+## Slide 342
+
+http://codepen.io/websanity/pen/DpGHo
+
+## Slide 343
+
+http://codepen.io/websanity/pen/GthmI
+
+## Slide 345
+
+http://codepen.io/websanity/pen/mIkfw
+
+## Slide 347
+
+http://codepen.io/websanity/pen/Jheac
+
+## Slide 348
+
+https://html.spec.whatwg.org/multipage/grouping-content.html#the-menu-element 
+
+## Slide 349
+
+https://codepen.io/websanity/pen/LYGjXRN?editors=1100 
+
+## Slide 350
+
+https://codepen.io/websanity/pen/LYGjXRN?editors=1100 
+
+## Slide 351
+
+https://caniuse.com/mdn-html_elements_menuitem 
+
+## Slide 352
+
+https://caniuse.com/#feat=menu — note that this is not up to date!
+
+## Slide 353
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-dl-element
+
+## Slide 354
+
+http://codepen.io/websanity/pen/oxFmq
+
+https://en.wikisource.org/wiki/The_Call_of_Cthulhu/Chapter_II
+
+## Slide 355
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-dt-element
+
+## Slide 356
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/grouping-content.html#the-dd-element
+
+## Slide 357
+
+http://codepen.io/websanity/pen/oxFmq
+
+https://en.wikisource.org/wiki/The_Call_of_Cthulhu/Chapter_II
+
+## Slide 359
+
+http://codepen.io/websanity/pen/ifwxB
+
+## Slide 360
+
+https://en.wikipedia.org/wiki/Tsathoggua
+
+## Slide 361
+
+David’s Rule
+
+## Slide 362
+
+Eddie’s Rule
+
+## Slide 365
+
+http://codepen.io/websanity/pen/oxnzL
+
+https://en.wikipedia.org/wiki/URL
+
+https://tools.ietf.org/html/rfc3986
+
+## Slide 366
+
+http://codepen.io/websanity/pen/oxnzL
+
+https://en.wikipedia.org/wiki/URL
+
+https://tools.ietf.org/html/rfc3986
+
+## Slide 367
+
+http://codepen.io/websanity/pen/oxnzL
+
+https://en.wikipedia.org/wiki/URL
+
+https://tools.ietf.org/html/rfc3986
+
+## Slide 368
+
+http://codepen.io/websanity/pen/oxnzL
+
+https://en.wikipedia.org/wiki/URL
+
+https://tools.ietf.org/html/rfc3986
+
+## Slide 369
+
+http://codepen.io/websanity/pen/oxnzL
+
+https://en.wikipedia.org/wiki/URL
+
+https://tools.ietf.org/html/rfc3986
+
+## Slide 370
+
+http://codepen.io/websanity/pen/oxnzL
+
+https://en.wikipedia.org/wiki/URL
+
+https://tools.ietf.org/html/rfc3986
+
+## Slide 371
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/text-level-semantics.html#the-a-element
+
+For a list of values possible for the type attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types 
+
+## Slide 372
+
+http://codepen.io/websanity/pen/mjith
+
+## Slide 381
+
+https://www.nytimes.com
+
+## Slide 393
+
+Actually, more than just a file or folder, but I’m keeping this simple
+
+Windows will accept / as a path separator, but not on the command line, because / was used as a switch delimiter (e.g., /all) in MS-DOS 1.0
+
+## Slide 412
+
+Brackets’ Live Preview is a web server!
+
+## Slide 414
+
+http://codepen.io/websanity/pen/lGfLw
+
+## Slide 417
+
+https://css-tricks.com/use-target_blank/
+
+## Slide 418
+
+https://css-tricks.com/use-target_blank/
+
+## Slide 419
+
+https://css-tricks.com/use-target_blank/
+“About rel=noopener: What problems does it solve?”: https://mathiasbynens.github.io/rel-noopener/ 
+
+## Slide 420
+
+Good, short fake id’s to use: #_, #null, #0
+
+## Slide 422
+
+http://codepen.io/websanity/pen/Bflri
+
+## Slide 424
+
+https://www.chainsawonatireswing.com/2015/05/03/a-guide-to-getting-webmail-services-to-work-with-mailto-links/
+
+## Slide 425
+
+Vaha-Sipila, A. “Request for Comments: 2806: URLs for Telephone Calls”. Internet Engineering Task Force, April 2000, https://www.ietf.org/rfc/rfc2806.txt.
+
+## Slide 427
+
+On my Mac, it opens FaceTime
+
+On Jans’ Mac, he is prompted to use FaceTime or Skype
+
+On Windows, you’re asked to pick an app
+
+## Slide 429
+
+Apple Inc. “Phone Links”. Apple URL Scheme Reference,19 September 2017, https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/PhoneLinks/PhoneLinks.html#//apple_ref/doc/uid/TP40007899-CH6-SW1.
+
+## Slide 430
+
+Apple Inc. “FaceTime Links”. Apple URL Scheme Reference,19 September 2017, https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/FacetimeLinks/FacetimeLinks.html#//apple_ref/doc/uid/TP40007899-CH2-SW1
+
+## Slide 431
+
+http://www.hplovecraft.com/creation/sites/rhode.aspx 
+
+Apple Inc. “Map Links”. Apple URL Scheme Reference,19 September 2017, https://developer.apple.com/library/content/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html.
+
+## Slide 432
+
+Apple Inc. “Map Links”. Apple URL Scheme Reference,19 September 2017, https://developer.apple.com/library/content/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html.
+
+## Slide 433
+
+Mayrhofer, A. & C. Spanring. “Request for Comments: 5870: A Uniform Resource Identifier for Geographic Locations (’geo’ URI)”. Internet Engineering Task Force, June 2010, https://tools.ietf.org/pdf/rfc5870.pdf. 
+
+## Slide 434
+
+https://msdn.microsoft.com/en-us/library/windows/apps/xaml/jj635237.aspx
+
+https://msdn.microsoft.com/en-us/library/dn217138.aspx
+
+https://docs.microsoft.com/en-us/windows/uwp/launch-resume/launch-maps-app
+
+https://developer.android.com/guide/components/intents-common.html#Maps
+
+https://developers.google.com/maps/documentation/urls/guide
+
+## Slide 435
+
+Again, Brackets’ Live Preview & Visual Studio Code’s Live Server is a web server
+
+## Slide 437
+
+https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
+
+## Slide 439
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/the-map-element.html#the-map-element
+
+## Slide 440
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/the-map-element.html#the-area-element
+
+For a list of values possible for the type attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types 
+
+## Slide 441
+
+http://codepen.io/websanity/pen/AJGjz?editors=100
+
+Image from http://www.lovecraftcountry.com/comic/map.shtml, under a Creative Commons Attribution-NonCommercial-ShareAlike 2.5 license
+
+## Slide 442
+
+http://codepen.io/websanity/pen/AJGjz?editors=100
+
+Image from http://www.lovecraftcountry.com/comic/map.shtml, under a Creative Commons Attribution-NonCommercial-ShareAlike 2.5 license
+
+## Slide 445
+
+https://codepen.io/websanity/pen/VwezRqz?editors=1000 
+
+## Slide 446
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-link-element 
+
+For a list of values possible for the type attribute, see https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types 
+
+## Slide 448
+
+https://twitter.com/googlewmc/status/1108726443251519489
+
+https://twitter.com/igrigorik/status/1108881728653967365
+
+## Slide 449
+
+https://html.spec.whatwg.org/multipage/links.html 
+
+https://caniuse.com/#search=link%20element%20rel 
+
+## Slide 450
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types 
+
+https://html.spec.whatwg.org/multipage/links.html#rel-alternate
+
+https://html.spec.whatwg.org/multipage/links.html#rel-icon
+
+https://html.spec.whatwg.org/multipage/links.html#link-type-nofollow
+
+https://code.google.com/archive/p/shortlink/wikis/Specification.wiki
+
+## Slide 451
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types 
+
+https://html.spec.whatwg.org/multipage/links.html#link-type-preconnect 
+
+https://html.spec.whatwg.org/multipage/links.html#link-type-prefetch
+
+https://html.spec.whatwg.org/multipage/links.html#link-type-preload
+
+https://html.spec.whatwg.org/multipage/links.html#link-type-prerender
+
+https://html.spec.whatwg.org/multipage/links.html#link-type-dns-prefetch 
+
+## Slide 452
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link 
+
+## Slide 453
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link 
+
+## Slide 454
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link 
+
+## Slide 455
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link 
+
+## Slide 456
+
+http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions 
+
+## Slide 457
+
+http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions 
+
+## Slide 458
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link 
+
+Subresource Integrity, W3C Recommendation 23 June 2016: https://www.w3.org/TR/SRI/ 
+
+## Slide 461
+
+https://www.srihash.org/ (2020-06-30)
+
+## Slide 462
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+
+## Slide 463
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+
+XMLHttpRequest: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
+
+Fetch APIs: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+@font-face: see the CSS - Typography presentation
+
+WebGL textures: https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL 
+
+drawImage(): https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage
+
+CSS Shapes from images: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Shapes/Shapes_From_Images 
+
+## Slide 464
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin
+
+## Slide 465
+
+https://granneman.com 
+
+## Slide 466
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+
+## Slide 467
+
+https://caniuse.com/#feat=mdn-http_headers_access-control-allow-origin
+
+## Slide 468
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin
+
+## Slide 469
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/crossorigin
+
+## Slide 475
+
+https://caniuse.com/#feat=mdn-html_elements_link_rel 
+
+https://caniuse.com/#feat=link-rel-dns-prefetch
+
+https://caniuse.com/#feat=link-rel-preconnect
+
+https://caniuse.com/#feat=link-rel-prefetch
+
+https://caniuse.com/#feat=link-rel-preload 
+
+https://caniuse.com/#feat=link-rel-prerender
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link 
+
+## Slide 476
+
+https://caniuse.com/#feat=mdn-html_elements_link_integrity
+
+https://caniuse.com/#feat=mdn-html_elements_link_crossorigin
+
+## Slide 479
+
+Replaced block-level? A replaced element with display: block applied to it, or one that is floated.
+
+## Slide 480
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/edits.html#the-img-element 
+
+## Slide 481
+
+If you are not using responsive design, & you do not specify a width & height (either using these attributes or in CSS), then your webpage will reflow the content as images load, which doesn’t look great & can be disconcerting for the user
+
+## Slide 482
+
+https://w3c.github.io/html-aria/#el-img
+
+## Slide 483
+
+http://codepen.io/websanity/pen/EjwvL
+
+## Slide 490
+
+https://unsplash.com
+
+## Slide 491
+
+https://picsum.photos/ 
+
+## Slide 492
+
+https://dummyimage.com/ 
+
+## Slide 493
+
+https://codepen.io/websanity/pen/eQbJPv
+
+## Slide 494
+
+Https://placeholder.com
+
+## Slide 495
+
+https://placeholder.com/600x250/333/ff8000&text=The+Call+of+Cthulhu
+
+## Slide 496
+
+https://codepen.io/websanity/pen/eQbJPv?editors=1000
+
+## Slide 497
+
+http://placebear.com 
+
+## Slide 498
+
+http://www.fillmurray.com 
+
+## Slide 499
+
+http://www.placecage.com 
+
+## Slide 500
+
+http://imsky.github.io/holder/ 
+
+## Slide 501
+
+https://en.wikipedia.org/w/index.php?title=StyleGAN&oldid=972405036
+
+https://thispersondoesnotexist.com 
+
+## Slide 502
+
+https://en.wikipedia.org/w/index.php?title=StyleGAN&oldid=972405036
+
+https://thispersondoesnotexist.com 
+
+## Slide 503
+
+https://thispersondoesnotexist.com 
+
+## Slide 504
+
+https://thispersondoesnotexist.com 
+
+## Slide 505
+
+https://thispersondoesnotexist.com 
+
+## Slide 506
+
+https://thispersondoesnotexist.com 
+
+## Slide 507
+
+https://thispersondoesnotexist.com 
+
+## Slide 509
+
+https://thispersondoesnotexist.com 
+
+## Slide 510
+
+https://thispersondoesnotexist.com 
+
+## Slide 511
+
+https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types
+
+https://caniuse.com/#feat=webp 
+
+## Slide 512
+
+https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Image_types
+
+https://caniuse.com/#feat=apng
+
+## Slide 513
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
+
+## Slide 515
+
+https://caniuse.com/#feat=picture
+
+## Slide 516
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#the-video-element
+
+## Slide 518
+
+http://www.jwplayer.com/html5/
+
+https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/Using_HTML5_Audio_Video/AudioandVideoTagBasics/AudioandVideoTagBasics.html#//apple_ref/doc/uid/TP40009523-CH2-SW1
+
+## Slide 519
+
+http://www.jwplayer.com/html5/
+
+https://developer.jwplayer.com/articles/html5-report/tag-attributes-and-apis/autoplay-loop-muted.html
+
+## Slide 520
+
+https://codepen.io/websanity/pen/rvYRwV?editors=1000
+
+## Slide 521
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#the-source-element
+
+## Slide 522
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source
+
+## Slide 523
+
+https://en.wikipedia.org/wiki/Media_type
+
+https://mimesniff.spec.whatwg.org/
+
+## Slide 524
+
+https://en.wikipedia.org/wiki/Media_type
+
+https://www.iana.org/assignments/media-types/media-types.xhtml
+
+## Slide 525
+
+https://en.wikipedia.org/wiki/Media_type
+
+https://www.iana.org/assignments/media-types/media-types.xhtml
+
+2013: as of RFC 6838, published in January 2013
+
+## Slide 526
+
+https://en.wikipedia.org/wiki/Media_type
+
+https://www.iana.org/assignments/media-types/media-types.xhtml
+
+## Slide 527
+
+https://en.wikipedia.org/wiki/Media_type
+
+https://www.iana.org/assignments/media-types/media-types.xhtml
+
+## Slide 528
+
+https://en.wikipedia.org/wiki/Media_type
+
+https://www.iana.org/assignments/media-types/media-types.xhtml
+
+Apple & video/x-m4v: https://stackoverflow.com/questions/15277147/m4v-mimetype-video-mp4-or-video-m4v
+
+## Slide 529
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
+
+## Slide 530
+
+https://www.iana.org/assignments/media-types/media-types.xhtml
+
+## Slide 531
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source
+
+## Slide 533
+
+https://codepen.io/websanity/pen/sEKHp?editors=1000
+
+## Slide 534
+
+https://codepen.io/websanity/pen/sEKHp?editors=1000
+
+## Slide 536
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#the-track-element
+
+## Slide 538
+
+WebVTT: http://dev.w3.org/html5/webvtt/
+
+Live WebVTT Validator: http://quuz.org/webvtt/
+
+TTML: http://www.w3.org/TR/ttaf1-dfxp/
+
+## Slide 540
+
+http://codepen.io/websanity/pen/BqKxy
+
+## Slide 541
+
+https://caniuse.com/#feat=ogv
+
+https://caniuse.com/#feat=ogg-vorbis
+
+https://caniuse.com/#feat=mpeg4
+
+https://caniuse.com/#feat=hevc
+
+https://caniuse.com/#feat=webm
+
+## Slide 542
+
+For Mac, also see Media Converter (media-converter.sourceforge.net)
+
+For Windows, also see Freemake Video Converter (www.freemake.com)
+
+Others include Amazon Elastic Transcoder (aws.amazon.com/elastictranscoder/) & Handbrake (handbrake.fr)
+
+## Slide 543
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#the-audio-element
+
+## Slide 546
+
+https://codepen.io/websanity/pen/PeOLJB?editors=1000
+
+## Slide 548
+
+http://codepen.io/websanity/pen/AcxhF
+
+## Slide 549
+
+https://caniuse.com/#feat=ogg-vorbis
+
+https://caniuse.com/#feat=mp3
+
+https://caniuse.com/#feat=aac
+
+https://caniuse.com/#feat=webm
+
+https://caniuse.com/#feat=wav
+
+## Slide 550
+
+For Mac, also see Media Converter (media-converter.sourceforge.net)
+
+For Windows, also see Freemake Audio Converter (www.freemake.com)
+
+Others include Amazon Elastic Transcoder (aws.amazon.com/elastictranscoder/) & Handbrake (handbrake.fr)
+
+## Slide 551
+
+Matt’s Rule
+
+## Slide 552
+
+video: https://caniuse.com/#feat=video
+
+audio: 
+
+source: http://www.standardista.com/browsers/web-development-for-the-iphone-html-css-js-support/ (Safari support)
+
+track: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track 
+
+## Slide 553
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/the-iframe-element.html#the-iframe-element
+
+## Slide 554
+
+http://codepen.io/websanity/pen/JGLbk
+
+## Slide 556
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe 
+
+## Slide 558
+
+https://codepen.io/websanity/pen/PooYOrX
+
+## Slide 559
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe 
+
+https://caniuse.com/#feat=iframe-srcdoc 
+
+## Slide 560
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/frame 
+
+More about Frames in the Bonus section at the end
+
+## Slide 561
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/the-iframe-element.html#the-object-element
+
+## Slide 563
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/the-iframe-element.html#the-param-element
+
+## Slide 564
+
+http://codepen.io/websanity/pen/FHwsd
+
+## Slide 565
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/the-iframe-element.html#the-embed-element 
+
+## Slide 568
+
+https://www.granneman.com/presentations/html-css-responsive-web-design#tables--lists-organized-data
+
+## Slide 571
+
+https://www.granneman.com/presentations/html-css-responsive-web-design#forms
+
+## Slide 574
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
+
+## Slide 575
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
+
+## Slide 576
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
+
+## Slide 577
+
+https://codepen.io/websanity/pen/BajwjMB?editors=1100 
+
+## Slide 578
+
+https://codepen.io/websanity/pen/BajwjMB?editors=1100 
+
+## Slide 579
+
+https://codepen.io/websanity/pen/BajwjMB?editors=1100 
+
+## Slide 580
+
+https://codepen.io/websanity/pen/BajwjMB?editors=1100 
+
+## Slide 581
+
+https://codepen.io/websanity/pen/BajwjMB?editors=1100 
+
+## Slide 582
+
+https://codepen.io/websanity/pen/oNbGbRa?editors=1100 
+
+## Slide 583
+
+https://codepen.io/websanity/pen/oNbGbRa?editors=1100 
+
+## Slide 584
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary 
+
+## Slide 585
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog 
+
+## Slide 589
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#the-script-element
+
+http://chimera.labs.oreilly.com/books/1230000000545/ch11.html#RESOURCE_INLINING
+
+Other resource inlining examples: <style> & base64 encoding in Data URLs
+
+## Slide 590
+
+http://codepen.io/websanity/pen/lBkJq
+
+## Slide 591
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#the-noscript-element
+
+## Slide 593
+
+http://codepen.io/websanity/pen/xcqzE
+
+## Slide 594
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/the-canvas-element.html#the-canvas-element
+
+## Slide 597
+
+Thanks to Faheel on Stack Overflow for this answer: https://stackoverflow.com/a/49531850 
+
+## Slide 599
+
+http://www.sitepoint.com/html5-canvas-tutorial-introduction/
+
+## Slide 600
+
+Adobe After Effects + bodymovin: https://graphicdesign.stackexchange.com/a/101518 
+
+## Slide 601
+
+https://www.awwwards.com/web-animation-infographics-a-map-of-the-best-animation-libraries-for-javascript-and-css3-plus-performance-tips.html
+
+## Slide 602
+
+https://www.awwwards.com/web-animation-infographics-a-map-of-the-best-animation-libraries-for-javascript-and-css3-plus-performance-tips.html
+
+## Slide 603
+
+http://codepen.io/websanity/pen/mpHGo
+
+Example from https://en.wikipedia.org/wiki/Canvas_element
+
+## Slide 604
+
+http://codepen.io/jackrugile/pen/ohFbx
+
+## Slide 605
+
+http://codepen.io/TimPietrusky/pen/Bsegb
+
+## Slide 606
+
+http://codepen.io/kennethcachia/pen/Fhvie
+
+## Slide 609
+
+https://html.spec.whatwg.org/multipage/syntax.html#character-references 
+
+## Slide 612
+
+https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references 
+
+https://dev.w3.org/html5/html-author/charref
+
+## Slide 614
+
+https://dev.w3.org/html5/html-author/charref
+¶ is the pilcrow, or paragraph sign
+
+## Slide 616
+
+For those who know regular expressions, &([0-9A-Za-z]+;)
+
+https://html.spec.whatwg.org/multipage/syntax.html#syntax-ambiguous-ampersand 
+
+https://html.spec.whatwg.org/multipage/syntax.html#character-references 
+
+http://mathiasbynens.be/notes/ambiguous-ampersands 
+
+## Slide 617
+
+https://html.spec.whatwg.org/multipage/syntax.html#character-references 
+
+http://mathiasbynens.be/notes/ambiguous-ampersands 
+
+## Slide 618
+
+https://mothereff.in/ampersands
+
+## Slide 619
+
+https://mothereff.in/ampersands
+
+## Slide 620
+
+https://mothereff.in/ampersands
+
+## Slide 624
+
+The Basic Latin block, the 1st in Unicode, contains all the letters & control codes of ASCII: 128 characters, including C0 controls (e.g., null, bell, backspace, line feed, & escape), ASCII punctuation & symbols, ASCII digits, both uppercase & lowercase letters of English alphabet, & the delete control character (<https://en.wikipedia.org/wiki/Basic_Latin_(Unicode_block)>, 2020-08-06)
+
+http://www.fileformat.info/info/unicode/block/basic_latin/index.htm, 2020-08-05
+
+## Slide 625
+
+http://www.fileformat.info/info/unicode/block/latin_supplement/index.htm, 2020-08-05
+
+Capitalization of letters does not matter — usually all letters are capitalized, but you don’t have to
+
+## Slide 626
+
+↑ is 2191 • ↬ is 21aC • ⇉ is 21c9 • ⇦ is 21e6
+
+## Slide 631
+
+http://codepen.io/websanity/pen/sypxK
+
+## Slide 633
+
+http://codepen.io/websanity/pen/bBcID
+
+## Slide 635
+
+http://codepen.io/websanity/pen/sdyuH
+
+From H. P. Lovecraft’s “The Shadow Over Innsmouth” (http://www.hplovecraft.com/writings/texts/fiction/soi.aspx)
+
+## Slide 637
+
+Nice reference that provides (a) all 252 allowed entities, & (b) both names & decimal numbers
+
+http://www.elizabethcastro.com/html/extras/entities.html 
+
+## Slide 638
+
+https://en.wikipedia.org/w/index.php?title=List_of_XML_and_HTML_character_entity_references&oldid=967855330, 2020-08-06
+
+## Slide 639
+
+http://www.fileformat.info/info/unicode/char/search.htm, 2020-08-06
+
+## Slide 640
+
+http://www.fileformat.info/info/unicode/block/index.htm
+
+## Slide 641
+
+CSS - Typography covers a few special kinds of spaces & punctuation marks where you really need to use character entities
+
+## Slide 659
+
+⌥ = Option/Alt
+⇧ = Shift
+
+## Slide 661
+
+https://www.microsoft.com/en-us/WindowsForBusiness/End-of-IE-support
+
+## Slide 663
+
+http://modernizr.com
+
+## Slide 665
+
+https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills
+
+## Slide 666
+
+https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-browser-Polyfills
+
+## Slide 667
+
+http://modernizr.com/download/
+
+## Slide 668
+
+https://github.com/aFarkas/html5shiv 
+
+## Slide 674
+
+http://interviewly.com/i/internet-explorer-aug-2014-reddit
+
+http://reddit.com/r/IAmA/comments/2dk60t/we_build_internet_explorer_i_know_right_ask_us/
+
+## Slide 675
+
+http://html5media.info
+
+https://github.com/etianen/html5media
+
+## Slide 680
+
+https://pinboard.in/u:rsgranne/t:html
+
+## Slide 681
+
+https://pinboard.in/u:rsgranne/t:html5
+
+## Slide 682
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element 
+
+## Slide 683
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+
+2020-07-03
+
+## Slide 684
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element
+
+2020-07-03
+
+## Slide 685
+
+https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes 
+
+## Slide 686
+
+http://caniuse.com
+
+## Slide 688
+
+http://apps.workflower.fi/vocabs/html/en 
+
+## Slide 689
+
+http://apps.workflower.fi/vocabs/html/en#attribute-name
+
+## Slide 692
+
+https://developers.google.com/web/tools/chrome-devtools/
+
+## Slide 694
+
+https://developer.mozilla.org/en-US/docs/Tools
+
+## Slide 696
+
+https://developer.apple.com/library/content/documentation/NetworkingInternetWeb/Conceptual/Web_Inspector_Tutorial/Introduction/Introduction.html#//apple_ref/doc/uid/TP40017576-CH1-SW1
+
+## Slide 697
+
+https://developer.apple.com/library/content/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007874
+
+## Slide 699
+
+https://docs.microsoft.com/en-us/microsoft-edge/f12-devtools-guide
+
+## Slide 700
+
+https://msdn.microsoft.com/en-us/library/bg182326(v=vs.85).aspx
+
+## Slide 702
+
+http://validator.w3.org
+
+## Slide 703
+
+http://validator.w3.org/unicorn/
+
+## Slide 704
+
+https://html5.validator.nu
+
+## Slide 707
+
+https://css-tricks.com
+
+https://web.dev
+
+## Slide 714
+
+http://caniuse.com/#search=referrer
+
+http://caniuse.com/#search=meta
+
+## Slide 715
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#the-base-element
+
+## Slide 719
+
+http://codepen.io/websanity/pen/rsKIc
+
+## Slide 721
+
+http://codepen.io/websanity/pen/hLKoJ
+
+Supported in IE 6, Firefox 2, Safari 3, Chrome, & Opera 9
+
+## Slide 723
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/the-video-element.html#the-video-element
+
+## Slide 725
+
+http://codepen.io/websanity/pen/lvCea
+
+## Slide 728
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/the-iframe-element.html#the-embed-element
+
+## Slide 730
+
+http://codepen.io/websanity/pen/BKagD
+
+## Slide 734
+
+http://www.omnitec.net, 2014-04-30
+
+## Slide 735
+
+http://www.omnitec.net, 2014-04-30
+
+## Slide 736
+
+http://www.omnitec.net, 2014-04-30
+
+## Slide 737
+
+http://www.whatwg.org/specs/web-apps/current-work/multipage/rendering.html#frames-and-framesets
+
+## Slide 738
+
+http://www.omnitec.net, 2014-04-30
+
+## Slide 739
+
+http://www.omnitec.net, 2014-04-30
+
+## Slide 740
+
+http://www.omnitec.net, 2014-04-30
+
+## Slide 741
+
+http://www.omnitec.net, 2014-04-30
+
+## Slide 742
+
+http://www.omnitec.net, 2014-04-30
+
+## Slide 743
+
+http://www.omnitec.net, 2014-04-30
+
+## Slide 744
+
+http://www.omnitec.net, 2014-04-30
+
+## Slide 745
+
+http://www.omnitec.net, 2014-04-30
+
+## Slide 746
+
+http://www.omnitec.net, 2014-04-30
+
+## Slide 750
+
+http://meiert.com/en/indices/html-elements/ 
+
+## Slide 753
+
+http://web-design-weekly.com 
+
+## Slide 755
+
+https://www.codecademy.com
+
+## Slide 756
+
+https://www.codecademy.com 
+
+## Slide 757
+
+https://www.khanacademy.org 
+
+## Slide 758
+
+https://www.khanacademy.org 
+
+## Slide 762
+
+http://codepen.io/websanity/pen/olfBG
+
+## Slide 764
+
+http://codepen.io/websanity/pen/rpxdy
+
+## Slide 768
+
+http://codepen.io/websanity/pen/IJlCe
+
+## Slide 772
+
+http://codepen.io/websanity/pen/uEilc
+
+## Slide 778
+
+Original image from <http://www.java2s.com/Code/Java/Chart/JFreeChartBubblyBubblesDemo.htm>
+
+## Slide 780
+
+http://www.the-pope.com/nextid.html
+
