@@ -1,0 +1,94 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Les technologies du Web</title>
+    
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+    <meta name="author" content="Bartek Szopka" />
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <link href="../impress/impress-demo.css" rel="stylesheet" />
+    <link href="../impress/impress-common.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<div id="impress"
+    data-transition-duration="1000"
+    
+    data-width="1024"
+    data-height="768"
+    data-max-scale="3"
+    data-min-scale="0"
+    data-perspective="1000"
+    
+    data-autoplay="0">
+
+
+    <div id="background1" class="step skip" data-x="-1000" data-y="-1000" data-z="" data-scale="5">
+        <img src="./images/Technos_langages_overview.png"
+             style="position: absolute; left: -300px; top: -300px; z-index: -1; height: 800px;" />
+    </div>
+
+    <div  class="step" data-x="-1000" data-y="-1700" data-autoplay="0"  data-scale="2" style="width: 500px;height:500px;">
+       
+    </div>
+
+    <div  class="step" data-x="0" data-y="-1700" data-autoplay="0"  data-scale="2">
+       
+    </div>
+   
+    <div  class="step" data-x="1000" data-y="-500" data-autoplay="0"  data-scale="2">
+       
+    </div>
+
+    <div  class="step" data-x="0" data-y="-500" data-autoplay="0"  data-scale="3">
+       
+    </div>
+
+    <div  class="step" data-x="-3000" data-y="-500" data-autoplay="0"  data-scale="4" data-rotate="-90">
+       
+    </div>
+
+    <!--
+    <div id="overview" class="step" data-x="0" data-y="0" data-z="0" data-scale="1">
+    </div>
+    -->
+
+</div>
+
+<div id="impress-toolbar"></div>
+
+<!--
+<div class="hint">
+    <p>Cliquez sur la page pour activer l'animation, puis utilisez la barre d'espacement pour naviguer.</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Swipe left or right to navigate</p>";
+}
+</script>
+-->
+
+
+<script src="../impress/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
+
+

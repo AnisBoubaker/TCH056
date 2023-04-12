@@ -1,0 +1,732 @@
+/* Reset all rules for an example */
+*.example {
+  /* We need the "bdo:-moz-has-dir-attr" bit because "bdo" has lower
+  specificity than the ":-moz-has-dir-attr" selector above. */
+  /* blocks */
+  /* tables */
+  /* border collapse rules */
+  /* Set hidden if we have 'frame' or 'rules' attribute.
+  	Set it on all sides when we do so there's more consistency
+  	in what authors should expect */
+  /* Put this first so 'border' and 'frame' rules can override it. */
+  /* 'border' before 'frame' so 'frame' overrides
+  	A border with a given value should, of course, pass that value
+  	as the border-width in pixels -> attr mapping */
+  /* :-moz-table-border-nonzero is like [border]:not([border="0"]) except it
+  	also checks for other zero-like values according to HTML attribute
+  	parsing rules */
+  /* specificity must beat table:-moz-table-border-nonzero rule above */
+  /* Internal Table Borders */
+  /* 'border' cell borders first */
+  /* collapse only if rules are really specified */
+  /* only specified rules override 'border' settings
+  (increased specificity to achieve this) */
+  /* caption inherits from table not table-outer */
+  /* for XHTML tables without tbody */
+  /* inlines */
+  /* titles */
+  /* lists */
+  /* nested lists have no top/bottom margins */
+  /* 2 deep unordered lists use a circle */
+  /* 3 deep (or more) unordered lists use a square */
+  /* leafs */
+  /* <hr> noshade and color attributes are handled completely by
+  * the nsHTMLHRElement attribute mapping code
+  */
+  /* focusable content: anything w/ tabindex >=0 is focusable, but we
+  skip drawing a focus outline on a few things that handle it
+  themselves. */
+  /* hidden elements */
+  /* media elements */
+  /**
+  * The pseudo element won't inheirt CSS styles from its direct parent, `::cue`
+  * would acutally inherit styles from video because it's video's pseudo element.
+  * Therefore, we have to explicitly set some styles which are aleady defined in
+  * its parent element in vtt.jsm.
+  */
+  /* details & summary */
+  /* <dialog> element styles */
+  /* Ruby */
+  /* Shadow DOM v1
+  * https://drafts.csswg.org/css-scoping/#slots-in-shadow-tree */
+}
+*.example address,
+*.example article,
+*.example aside,
+*.example blockquote,
+*.example body,
+*.example caption,
+*.example center,
+*.example col,
+*.example colgroup,
+*.example dd,
+*.example dir,
+*.example div,
+*.example dl,
+*.example dt,
+*.example fieldset,
+*.example figcaption,
+*.example figure,
+*.example footer,
+*.example form,
+*.example h1,
+*.example h2,
+*.example h3,
+*.example h4,
+*.example h5,
+*.example h6,
+*.example header,
+*.example hgroup,
+*.example hr,
+*.example html,
+*.example legend,
+*.example li,
+*.example listing,
+*.example main,
+*.example marquee,
+*.example menu,
+*.example nav,
+*.example noframes,
+*.example ol,
+*.example p,
+*.example plaintext,
+*.example pre,
+*.example section,
+*.example summary,
+*.example table,
+*.example tbody,
+*.example td,
+*.example tfoot,
+*.example th,
+*.example thead,
+*.example tr,
+*.example ul,
+*.example xmp {
+  unicode-bidi: isolate;
+  font-size: 16px;
+  text-align: left;
+}
+*.example bdi, *.example output {
+  unicode-bidi: isolate;
+}
+*.example bdo, *.example bdo:-moz-has-dir-attr {
+  unicode-bidi: isolate-override;
+}
+*.example textarea:-moz-dir-attr-like-auto,
+*.example pre:-moz-dir-attr-like-auto {
+  unicode-bidi: plaintext;
+}
+*.example article,
+*.example aside,
+*.example details,
+*.example div,
+*.example dt,
+*.example figcaption,
+*.example footer,
+*.example form,
+*.example header,
+*.example hgroup,
+*.example html,
+*.example main,
+*.example nav,
+*.example section,
+*.example summary {
+  display: block;
+}
+*.example p, *.example dl, *.example multicol {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+*.example dd {
+  display: block;
+  margin-inline-start: 40px;
+}
+*.example blockquote, *.example figure {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+}
+*.example address {
+  display: block;
+  font-style: italic;
+}
+*.example center {
+  display: block;
+  text-align: -moz-center;
+}
+*.example blockquote[type=cite] {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 1em;
+  border-inline-start: solid;
+  border-color: blue;
+  border-width: thin;
+}
+*.example span[_moz_quote=true] {
+  color: blue;
+}
+*.example pre[_moz_quote=true] {
+  color: blue;
+}
+*.example h1 {
+  display: block;
+  font-size: 2em !important;
+  font-weight: bold;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+}
+*.example h2,
+*.example :-moz-any(article, aside, nav, section) h1 {
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+}
+*.example h3,
+*.example :-moz-any(article, aside, nav, section) :-moz-any(article, aside, nav, section) h1 {
+  display: block;
+  font-size: 1.17em;
+  font-weight: bold;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+*.example h4,
+*.example :-moz-any(article, aside, nav, section) :-moz-any(article, aside, nav, section) :-moz-any(article, aside, nav, section) h1 {
+  display: block;
+  font-size: 1em;
+  font-weight: bold;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+}
+*.example h5,
+*.example :-moz-any(article, aside, nav, section) :-moz-any(article, aside, nav, section) :-moz-any(article, aside, nav, section) :-moz-any(article, aside, nav, section) h1 {
+  display: block;
+  font-size: 0.83em;
+  font-weight: bold;
+  margin-block-start: 1.67em;
+  margin-block-end: 1.67em;
+}
+*.example h6,
+*.example :-moz-any(article, aside, nav, section) :-moz-any(article, aside, nav, section) :-moz-any(article, aside, nav, section) :-moz-any(article, aside, nav, section) :-moz-any(article, aside, nav, section) h1 {
+  display: block;
+  font-size: 0.67em;
+  font-weight: bold;
+  margin-block-start: 2.33em;
+  margin-block-end: 2.33em;
+}
+*.example listing {
+  display: block;
+  font-family: -moz-fixed;
+  font-size: medium;
+  white-space: pre;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+*.example xmp, *.example pre, *.example plaintext {
+  display: block;
+  font-family: -moz-fixed;
+  white-space: pre;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+*.example table {
+  display: table;
+  border-spacing: 2px;
+  border-collapse: separate;
+  /* XXXldb do we want this if we're border-collapse:collapse ? */
+  box-sizing: border-box;
+  text-indent: 0;
+}
+*.example table[align=left] {
+  float: left;
+}
+*.example table[align=right] {
+  float: right;
+  text-align: start;
+}
+*.example table[rules] {
+  border-width: thin;
+  border-style: hidden;
+}
+*.example table:-moz-table-border-nonzero {
+  border-width: thin;
+  border-style: outset;
+}
+*.example table[frame] {
+  border: thin hidden;
+}
+*.example table[frame=void] {
+  border-style: hidden;
+}
+*.example table[frame=above] {
+  border-style: outset hidden hidden hidden;
+}
+*.example table[frame=below] {
+  border-style: hidden hidden outset hidden;
+}
+*.example table[frame=lhs] {
+  border-style: hidden hidden hidden outset;
+}
+*.example table[frame=rhs] {
+  border-style: hidden outset hidden hidden;
+}
+*.example table[frame=hsides] {
+  border-style: outset hidden;
+}
+*.example table[frame=vsides] {
+  border-style: hidden outset;
+}
+*.example table[frame=box],
+*.example table[frame=border] {
+  border-style: outset;
+}
+*.example table:-moz-table-border-nonzero > * > tr > td,
+*.example table:-moz-table-border-nonzero > * > tr > th,
+*.example table:-moz-table-border-nonzero > * > td,
+*.example table:-moz-table-border-nonzero > * > th,
+*.example table:-moz-table-border-nonzero > td,
+*.example table:-moz-table-border-nonzero > th {
+  border-width: thin;
+  border-style: inset;
+}
+*.example table[rules]:not([rules=none]):not([rules=""]) {
+  border-collapse: collapse;
+}
+*.example table[rules]:not([rules=""]) > tr > td,
+*.example table[rules]:not([rules=""]) > * > tr > td,
+*.example table[rules]:not([rules=""]) > tr > th,
+*.example table[rules]:not([rules=""]) > * > tr > th,
+*.example table[rules]:not([rules=""]) > td,
+*.example table[rules]:not([rules=""]) > th {
+  border-width: thin;
+  border-style: none;
+}
+*.example table[rules][rules=none] > tr > td,
+*.example table[rules][rules=none] > * > tr > td,
+*.example table[rules][rules=none] > tr > th,
+*.example table[rules][rules=none] > * > tr > th,
+*.example table[rules][rules=none] > td,
+*.example table[rules][rules=none] > th {
+  border-width: thin;
+  border-style: none;
+}
+*.example table[rules][rules=all] > tr > td,
+*.example table[rules][rules=all] > * > tr > td,
+*.example table[rules][rules=all] > tr > th,
+*.example table[rules][rules=all] > * > tr > th,
+*.example table[rules][rules=all] > td,
+*.example table[rules][rules=all] > th {
+  border-width: thin;
+  border-style: solid;
+}
+*.example table[rules][rules=rows] > tr,
+*.example table[rules][rules=rows] > * > tr {
+  border-block-start-width: thin;
+  border-block-end-width: thin;
+  border-block-start-style: solid;
+  border-block-end-style: solid;
+}
+*.example table[rules][rules=cols] > tr > td,
+*.example table[rules][rules=cols] > * > tr > td,
+*.example table[rules][rules=cols] > tr > th,
+*.example table[rules][rules=cols] > * > tr > th {
+  border-inline-start-width: thin;
+  border-inline-end-width: thin;
+  border-inline-start-style: solid;
+  border-inline-end-style: solid;
+}
+*.example table[rules][rules=groups] > colgroup {
+  border-inline-start-width: thin;
+  border-inline-end-width: thin;
+  border-inline-start-style: solid;
+  border-inline-end-style: solid;
+}
+*.example table[rules][rules=groups] > tfoot,
+*.example table[rules][rules=groups] > thead,
+*.example table[rules][rules=groups] > tbody {
+  border-block-start-width: thin;
+  border-block-end-width: thin;
+  border-block-start-style: solid;
+  border-block-start-style: solid;
+}
+*.example caption {
+  display: table-caption;
+  text-align: center;
+}
+*.example table[align=center] > caption {
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+}
+*.example table[align=center] > caption[align=left]:dir(ltr) {
+  margin-inline-end: 0;
+}
+*.example table[align=center] > caption[align=left]:dir(rtl) {
+  margin-inline-start: 0;
+}
+*.example table[align=center] > caption[align=right]:dir(ltr) {
+  margin-inline-start: 0;
+}
+*.example table[align=center] > caption[align=right]:dir(rtl) {
+  margin-inline-end: 0;
+}
+*.example tr {
+  display: table-row;
+  vertical-align: inherit;
+}
+*.example col {
+  display: table-column;
+}
+*.example colgroup {
+  display: table-column-group;
+}
+*.example tbody {
+  display: table-row-group;
+  vertical-align: middle;
+}
+*.example thead {
+  display: table-header-group;
+  vertical-align: middle;
+}
+*.example tfoot {
+  display: table-footer-group;
+  vertical-align: middle;
+}
+*.example table > tr {
+  vertical-align: middle;
+}
+*.example td {
+  display: table-cell;
+  vertical-align: inherit;
+  text-align: unset;
+  padding: 1px;
+}
+*.example th {
+  display: table-cell;
+  vertical-align: inherit;
+  font-weight: bold;
+  padding: 1px;
+}
+*.example tr > form:-moz-is-html, *.example tbody > form:-moz-is-html,
+*.example thead > form:-moz-is-html, *.example tfoot > form:-moz-is-html,
+*.example table > form:-moz-is-html {
+  /* Important: don't show these forms in HTML */
+  display: none !important;
+}
+*.example table[bordercolor] > tbody,
+*.example table[bordercolor] > thead,
+*.example table[bordercolor] > tfoot,
+*.example table[bordercolor] > col,
+*.example table[bordercolor] > colgroup,
+*.example table[bordercolor] > tr,
+*.example table[bordercolor] > * > tr,
+*.example table[bordercolor] > tr > td,
+*.example table[bordercolor] > * > tr > td,
+*.example table[bordercolor] > tr > th,
+*.example table[bordercolor] > * > tr > th {
+  border-color: inherit;
+}
+*.example q:before {
+  content: open-quote;
+}
+*.example q:after {
+  content: close-quote;
+}
+*.example b, *.example strong {
+  font-weight: bolder;
+}
+*.example i, *.example cite, *.example em, *.example var, *.example dfn {
+  font-style: italic;
+}
+*.example tt, *.example code, *.example kbd, *.example samp {
+  font-family: -moz-fixed;
+}
+*.example u, *.example ins {
+  text-decoration: underline;
+}
+*.example s, *.example strike, *.example del {
+  text-decoration: line-through;
+}
+*.example big {
+  font-size: larger;
+}
+*.example small {
+  font-size: smaller;
+}
+*.example sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+*.example sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+*.example nobr {
+  white-space: nowrap;
+}
+*.example mark {
+  background: yellow;
+  color: black;
+}
+*.example abbr[title], *.example acronym[title] {
+  text-decoration: dotted underline;
+}
+*.example ul, *.example menu, *.example dir {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  padding-inline-start: 40px;
+}
+*.example menu[type=context] {
+  display: none !important;
+}
+*.example ul, *.example ol, *.example menu {
+  counter-reset: list-item;
+  -moz-list-reversed: false;
+}
+*.example ol[reversed] {
+  -moz-list-reversed: true;
+}
+*.example ol {
+  display: block;
+  list-style-type: decimal;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  padding-inline-start: 40px;
+}
+*.example li {
+  display: list-item;
+  text-align: match-parent;
+}
+*.example :-moz-any(ul, ol, dir, menu, dl) ul,
+*.example :-moz-any(ul, ol, dir, menu, dl) ol,
+*.example :-moz-any(ul, ol, dir, menu, dl) dir,
+*.example :-moz-any(ul, ol, dir, menu, dl) menu,
+*.example :-moz-any(ul, ol, dir, menu, dl) dl {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+*.example :-moz-any(ol, ul, menu, dir) ul,
+*.example :-moz-any(ol, ul, menu, dir) menu,
+*.example :-moz-any(ol, ul, menu, dir) dir {
+  list-style-type: circle;
+}
+*.example :-moz-any(ol, ul, menu, dir) :-moz-any(ol, ul, menu, dir) ul,
+*.example :-moz-any(ol, ul, menu, dir) :-moz-any(ol, ul, menu, dir) menu,
+*.example :-moz-any(ol, ul, menu, dir) :-moz-any(ol, ul, menu, dir) dir {
+  list-style-type: square;
+}
+*.example hr {
+  display: block;
+  border: 1px inset;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  color: gray;
+  -moz-float-edge: margin-box;
+  box-sizing: content-box;
+}
+*.example hr[size="1"] {
+  border-style: solid none none none;
+}
+*.example img:-moz-broken::before, *.example input:-moz-broken::before,
+*.example img:-moz-user-disabled::before, *.example input:-moz-user-disabled::before {
+  content: -moz-alt-content !important;
+  unicode-bidi: isolate;
+}
+*.example object:-moz-any(:-moz-broken, :-moz-user-disabled) > *|* {
+  /*
+  	Inherit in the object's alignment so that if we aren't aligned explicitly
+  	we'll end up in the right place vertically.  See bug 36997.  Note that this
+  	is not !important because we _might_ be aligned explicitly.
+  */
+  vertical-align: inherit;
+}
+*.example img:-moz-suppressed, *.example input:-moz-suppressed, *.example object:-moz-suppressed,
+*.example embed:-moz-suppressed {
+  /*
+  	Set visibility too in case the page changes display.  Note that we _may_
+  	want to just set visibility and not display, in general, if we find that
+  	display:none breaks too many layouts.  And if we decide we really do want
+  	people to be able to right-click blocked images, etc, we need to set
+  	neither one, and hack the painting code.... :(
+  */
+  display: none !important;
+  visibility: hidden !important;
+}
+*.example img[usemap], *.example object[usemap] {
+  color: blue;
+}
+*.example frameset {
+  display: block !important;
+  overflow: -moz-hidden-unscrollable;
+  position: static !important;
+  float: none !important;
+  border: none !important;
+}
+*.example link {
+  display: none;
+}
+*.example frame {
+  border-radius: 0 !important;
+}
+*.example iframe {
+  border: 2px inset;
+}
+*.example noframes {
+  display: none;
+}
+*.example spacer {
+  position: static !important;
+  float: none !important;
+}
+*.example canvas {
+  user-select: none;
+}
+*.example :-moz-focusring:not(input):not(button):not(select):not(textarea):not(iframe):not(frame):not(body):not(html),
+*.example input[type=file]:-moz-focusring {
+  /* Don't specify the outline-color, we should always use initial value. */
+  outline: 1px dotted;
+}
+*.example base, *.example basefont, *.example datalist, *.example head, *.example meta, *.example script, *.example style, *.example title,
+*.example noembed, *.example param, *.example template {
+  display: none;
+}
+*.example area {
+  /* Don't give it frames other than its imageframe */
+  display: none !important;
+}
+*.example iframe:fullscreen {
+  /* iframes in full-screen mode don't show a border. */
+  border: none !important;
+  padding: unset !important;
+}
+*.example video {
+  object-fit: contain;
+}
+*.example video > img:-moz-native-anonymous {
+  /* Video poster images should render with the video element's "object-fit" &
+  	"object-position" properties */
+  object-fit: inherit !important;
+  object-position: inherit !important;
+}
+*.example audio:not([controls]) {
+  display: none;
+}
+*.example audio[controls] {
+  /* This ensures that intrinsic sizing can reliably shrinkwrap our
+  	controls (which are also always horizontal) and produce a
+  	reasonable intrinsic size from them. */
+  writing-mode: horizontal-tb !important;
+}
+*.example *|*::-moz-html-canvas-content {
+  display: block !important;
+  /* we want to be an absolute and fixed container */
+  transform: translate(0) !important;
+}
+*.example video > .caption-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+*.example ::cue {
+  color: rgb(255, 255, 255);
+  white-space: pre-line;
+  background-color: rgba(0, 0, 0, 0.8);
+  font: var(--cue-font-size) sans-serif;
+  writing-mode: var(--cue-writing-mode, inherit);
+  overflow-wrap: break-word;
+  /* TODO : enable unicode-bidi, right now enable it would cause incorrect
+  			display direction, maybe related with bug 1558431. */
+}
+*.example details > summary:first-of-type,
+*.example details > summary:-moz-native-anonymous {
+  display: list-item;
+  counter-increment: list-item 0;
+  list-style: disclosure-closed inside;
+}
+*.example details[open] > summary:first-of-type,
+*.example details[open] > summary:-moz-native-anonymous {
+  list-style-type: disclosure-open;
+}
+*.example details > summary:first-of-type > *|* {
+  /* Cancel "list-style-position: inside" inherited from summary. */
+  list-style-position: initial;
+}
+*.example dialog {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  color: black;
+  margin: auto;
+  border-width: initial;
+  border-style: solid;
+  border-color: initial;
+  border-image: initial;
+  padding: 1em;
+  background: white;
+  width: -moz-fit-content;
+}
+*.example dialog:not([open]) {
+  display: none;
+}
+*.example marquee {
+  inline-size: -moz-available;
+  display: inline-block;
+  vertical-align: text-bottom;
+  text-align: start;
+}
+*.example marquee[direction=up], *.example marquee[direction=down] {
+  block-size: 200px;
+}
+*.example ruby {
+  display: ruby;
+}
+*.example rb {
+  display: ruby-base;
+  white-space: nowrap;
+}
+*.example rp {
+  display: none;
+}
+*.example rt {
+  display: ruby-text;
+}
+*.example rtc {
+  display: ruby-text-container;
+}
+*.example rtc, *.example rt {
+  white-space: nowrap;
+  font-size: 50%;
+  -moz-min-font-size-ratio: 50%;
+  line-height: 1;
+}
+*.example rtc, *.example rt {
+  text-emphasis: none;
+}
+*.example rtc:lang(zh), *.example rt:lang(zh) {
+  ruby-align: center;
+}
+*.example rtc:lang(zh-TW), *.example rt:lang(zh-TW) {
+  font-size: 30%; /* bopomofo */
+  -moz-min-font-size-ratio: 30%;
+}
+*.example rtc > rt {
+  font-size: unset;
+}
+*.example ruby, *.example rb, *.example rt, *.example rtc {
+  unicode-bidi: isolate;
+}
+*.example slot {
+  display: contents;
+}
+
+/*# sourceMappingURL=examples_general.css.map */

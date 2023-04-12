@@ -1,0 +1,31 @@
+
+*.example1{
+    h1 { 
+        color: blue;	 	/* de couleur bleue */
+        font-size: 7vh !important;	/* de taille 16px */
+        font-weight: bold;	/* écrits en gras */
+        text-decoration:underline; /* Souligné*/
+    }
+}
+
+*.example2{
+    p.demo {
+        color: rgb(247, 45, 213);
+    }
+}
+
+*.example3{
+    p.demo {
+        border: 1px solid blue;
+    }
+}
+
+*.example4{
+    p.demo {
+        border: 1px solid blue;
+    }
+
+    p.demo > span{
+        border: inherit;
+    }
+}

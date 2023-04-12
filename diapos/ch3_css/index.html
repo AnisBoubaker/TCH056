@@ -1,0 +1,1129 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>CH03- CSS | TCH056</title>
+
+		<link rel="stylesheet" href="../revealjs/reset.css">
+		<link rel="stylesheet" href="../revealjs/reveal.css">
+		<link rel="stylesheet" href="../revealjs/theme/ets.css" id="theme">
+		<link rel="stylesheet" href="../revealjs/theme/normalize.css">
+		<link rel="stylesheet" href="./css/examples_general.css">
+		<link rel="stylesheet" href="./css/examples.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../revealjs/plugin/highlight/docco.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="titre_cours">TCH056 - Programmation Web</div>
+			<div class="slides">
+				<section>
+					<img src='../images/logo_ets.png' />
+					<h4 class="">TCH056 - Programmation Web</h4>
+					<h2 class="r-fit-text">Chapitre 03: CSS</h2>
+					<br /><br />
+					<p>
+						<strong>Anis Boubaker, Ph.D.</strong><br />
+						<em>Maitre d'enseignement en informatique</em>
+					</p>
+				</section>
+
+
+<!-- Plan du chapitre -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-current">Introduction</li>
+								<li class="">Le DOM (<em>Document Object Model</em>)
+									<!--<ul>
+										<li>Rappel: Structure arborescente d'un document HTML</li>
+										<li>Le DOM</li>
+										<li>Relations entre les éléments du DOM</li>
+										<li>Identification des éléments: classes et identifiants</li>
+									</ul>
+									-->
+								</li>
+								<li>Construction d'une règle CSS
+								<!--	<ul>
+										<li class="">Le sélecteur</li>
+										<li class="">La déclaration</li>
+									</ul>
+								-->
+								</li>
+								<li class="">Algorithme de cascade</li>
+								<li class="">Le positionnement (<em>Layout</em>)</li>
+								<li>Cadriciels et pré-processeurs CSS</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul style="margin:0">
+								<li>Qu'est-ce que CSS?</li>
+								<li>Concept de règle</li>
+								<li>Anatomie d'une règle CSS</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+<!-- Définition et structure d'un document HTML -->
+				<section>
+					<h2>CSS: <em>Cascade Style Sheet</em></h2>
+					<ul>
+						<li class="fragment">Feuille de style en cascade</li>
+						<li class="fragment">Langage permettant de définir l'apparence (le&nbsp;<em>style</em>) des éléments d'un document HTML.</li>
+						<li class="fragment">On s'intéresse à la <strong>présentation</strong> de la page WEB et non à son <strong>contenu/sémantique</strong>, ni à son <strong>comportement</strong> </li>
+						<li class="fragment">Plusieurs styles (<em>règles</em>) peuvent s'appliquer "en&nbsp;cascade" au même élément HTML: l'algorithme de cascade lève l'ambiguïté</li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>Découplage entre le contenu et le visuel</h2>
+						<p>Naviguez vers le bas pour voir la démonstration du site csszengarden.com</p>
+					</section>
+					<section
+						data-background-iframe="https://www.csszengarden.com" 
+						data-background-interactive
+						data-menu-title="CSS Zen Garden">
+					</section>
+				</section>
+
+				<section>
+					<h2>Notion de règle (en général)</h2>
+					<ul>
+						<li class="fragment">La programmation à base de règles est un des paradigmes de programmation.</li>
+						<li class="fragment">Un programme est écrit sous la forme d'un ensemble de règles (la base de règles)</li>
+						<li class="fragment">Une règle a deux parties: la partie gauche ou la condition, et la partie droite ou l'action:
+							<p style="text-align:center"><span class="highlight">Condition</span> => <span class="highlight2">Action</span></p>
+						</li>
+						<li class="fragment">
+							À un instant <em>t</em>, si la <strong>condition</strong> d'une règle est vérifiée, son <strong>action</strong> est alors exécutée.
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Les règles CSS</h2>
+					<p>Une <strong>règle CSS</strong> se compose de deux parties:</p>
+					<ul>
+						<li class="fragment"><span class="highlight">Le sélecteur:</span> Qui identifie les éléments auxquels s'applique une règle</li>
+						<li class="fragment"><span class="highlight2">La déclaration:</span> Qui définit le style à appliquer aux éléments sélectionnés</li>
+					</ul>
+					
+					
+					<pre class="fragment"><code class="css" data-trim><script type="text/template">
+					/* Le sélecteur est h1: 
+						tous les éléments de la page de type h1 seront...*/
+					h1 { 
+						color: blue;	 	/* de couleur bleue */
+						font-size: 16px;	/* de taille 16px */
+						font-weight: bold;	/* écrits en gras */
+					}
+					</script></code></pre>
+				</section>
+				
+				<section data-auto-animate>
+					<h2>Exemple de règle CSS</h2>
+					
+					<pre data-badge="CSS"><code class="css" data-trim><script type="text/template">
+						/* Le sélecteur est h1: 
+							tous les éléments de la page de type h1 seront...*/
+						h1 { 
+							color: blue;	 /* de couleur bleue */
+							font-size: 7vh;	 /* de taille 7% de la hauteur de l'écran */
+							font-weight: bold;	/* écrits en gras */
+							text-decoration:underline; /* Souligné*
+						}
+					</script></code></pre>
+					<pre data-id="example1"><code class="html" data-trim><script type="text/template">
+						<h1>Carvel</h1>
+						<p>
+							<em>Carvel</em> est un 
+							<a href="https://fr.wikipedia.org/wiki/Hameau">
+									hameau</a> en <strong>Alberta</strong>,
+							dans le centre de la province.
+						</p>
+						<p>
+							Sa population est estimée à environ 19 habitants 
+							(recensement de 2019) et son indicatif régional est 
+							le 780.
+						</p>
+					</script></code></pre>
+				</section>
+
+				<section data-auto-animate>
+					<h2>Exemple de règle CSS</h2>
+					
+					<pre><code class="css" data-trim><script type="text/template">
+						/* Le sélecteur est h1: 
+							tous les éléments de la page de type h1 seront...*/
+						h1 { 
+							color: blue;	 /* de couleur bleue */
+							font-size: 7vh;	 /* de taille 7% de la hauteur de l'écran */
+							font-weight: bold;	/* écrits en gras */
+							text-decoration:underline; /* Souligné*
+						}
+					</script></code></pre>
+					<div  data-id="example1" class="r-frame example example1" style="">
+						<h1>Carvel</h1>
+						<p>
+							<em>Carvel</em> est un 
+							<a href="https://fr.wikipedia.org/wiki/Hameau">
+									hameau </a>en <strong>Alberta</strong>,
+							dans le centre de la province.
+						</p>
+						<p>
+							Sa population est estimée à environ 19 habitants 
+							(recensement de 2019) et son indicatif régional est 
+							le 780.
+						</p>
+					</div>
+				</section>
+
+				
+				<section data-auto-animate="">
+					<h2>Où placer le code CSS?</h2>
+					<p>Trois possibilités, seule la dernière est recommandée: </p>
+					<ul class="r-fit-text">
+						<li>Directement dans l'élément HTML concerné, via l'attribut&nbsp;<strong>style</strong> <span class="note">(pas de sélecteur)</span>
+						<pre class="fragment"><code data-trim><script type="text/template">
+							<p style="color:red; font-weight:bold;">
+								Ce texte s'affichera en gras et en rouge.
+							</p>
+						</script></code></pre>
+						</li>
+						<li>Règles internes, dans une balise d'en-tête <strong>style</strong></li>
+						<li>Dans un fichier <em>.css</em> séparé, inclus avec une balise <strong>link</strong></li>
+					</ul>
+				</section>
+
+				<section data-auto-animate="">
+					<h2>Où placer le code CSS?</h2>
+					<p>Trois possibilités, seule la dernière est recommandée: </p>
+					<ul class="r-fit-text">
+						<li>Directement dans l'élément HTML concerné, via l'attribut&nbsp;<strong>style</strong> <span class="note">(pas de sélecteur)</span></li>
+						<li>Règles internes, dans une balise d'en-tête <strong>style</strong>
+							<pre><code data-trim class="html"><script type="text/template">
+								<head>
+									...
+									<style>
+										p {
+											color: red;
+											font-weight: bold;
+										}
+									</style>
+									...
+								</head>
+							</script></code></pre>
+						</li>
+						<li>Dans un fichier <em>.css</em> séparé, inclus avec une balise <strong>link</strong></li>
+					</ul>
+				</section>
+
+				<section data-auto-animate="">
+					<h2>Où placer le code CSS?</h2>
+					<p>Trois possibilités, seule la dernière est recommandée: </p>
+					<ul class="r-fit-text">
+						<li>Directement dans l'élément HTML concerné, via l'attribut&nbsp;<strong>style</strong> <span class="note">(pas de sélecteur)</span></li>
+						<li>Règles internes, dans une balise d'en-tête <strong>style</strong></li>
+						<li>Dans un fichier <em>.css</em> séparé, inclus avec une balise <strong>link</strong>
+							<pre><code data-trim class="html"><script type="text/template">
+								<head>
+									...
+									<link rel="stylesheet" href="./mes_styles.css">
+									...
+								</head>
+							</script></code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-current">Le DOM (<em>Document Object Model</em>)</li>
+								<li>Construction d'une règle CSS
+								<!--	<ul>
+										<li class="">Le sélecteur</li>
+										<li class="">La déclaration</li>
+									</ul>
+								-->
+								</li>
+								<li class="">Algorithme de cascade</li>
+								<li class="">Le positionnement (<em>Layout</em>)</li>
+								<li>Cadriciels et pré-processeurs CSS</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul>
+								<li>Rappel: Structure arborescente d'un document HTML</li>
+								<li>Le DOM</li>
+								<li>Relations entre les éléments du DOM</li>
+								<li>Identification des éléments: classes et identifiants</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				
+				<section>
+					<h2 data-id="structure_titre">Rappel: Arborescence HTML</h2>
+					<img  data-id="structure_code" src="./images/html_tree.png">
+				</section>
+
+
+				<section>
+					<h2>Le Document Object Model</h2>
+					<ul>
+						<li class="fragment">Le navigateur stocke les éléments d'une page Web sous forme d'arborescence en mémoire</li>
+						<li class="fragment">Cette représentation permet au navigateur d'analyser et de traiter le contenu la page en vue d'en faire le rendu à l'écran</li>
+						<li class="fragment">Cette <strong>représentation mémoire de l'arborescence des éléments HTML</strong> d'une page est ce qu'on appelle le DOM (Document Object Model)</li>
+						<li class="fragment">Le DOM est accessible aux développeu.rs.ses pour cibler des éléments de la page (en CSS et en Javascript)
+					</ul>
+				</section>
+
+				<section>
+					<h2>CSS et DOM pour le rendu</h2>
+					<img src="./images/rendering.svg">
+					<p class="note">Source: <a href="https://developer.mozilla.org/fr/docs/Learn/CSS/First_steps/How_CSS_works">Site MDN</a></p>
+				</section>
+
+				<section>
+					<h2>Utilisation de l'arborescence</h2>
+					<ul>
+						<li class="fragment">Dans une arboresence, chaque élément (<em>noeud</em>) est l'<strong>enfant</strong> d'au plus un autre noeud, et est le <strong>parent</strong> de 0 ou plusieurs enfants </li>
+						<li class="fragment">Deux cas particuliers:
+							<ul>
+								<li><strong>La racine</strong>: le seul noeud qui n'a pas de parent</li>
+								<li><strong>Les feuilles</strong>: qui n'ont aucun enfant</li>
+							</ul>
+						</li>
+						<li class="fragment">D'autres types de relations peuvent être exploitées (et qui nous serviront): <strong>les ancètres</strong>, <strong>les descendants</strong>, <strong>les frêres</strong></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2 data-id="structure_titre">Racine et Feuilles</h2>
+					<img  data-id="structure_code" src="./images/html_tree.png">
+					<div style="position:absolute; top: 0px; left: 0px; min-width: 100%;">
+						<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 500 500">
+							<defs>
+							<g id="svg-callout">
+								<polygon points="0,30 50,3 50,57" />
+								<ellipse cx="70" cy="30" rx="50" ry="30" />
+							</g>
+							</defs>
+							<g transform="translate(250,40)" class="fragment">
+								<use href="#svg-callout" fill="rgb(232, 23, 96)" stroke="rgb(232, 23, 96)"/>
+								<text text-anchor="middle" x="70" y="35" style="font-size: 0.3em;" fill="#fff" >Racine</text>
+							</g>
+							<g class="fragment">
+								<polygon points="100,140 100,320 400,320 400,140 330,140 330,185 260,185 260,140" fill="none" stroke="rgb(232, 23, 96)" />
+								<g transform="translate(370,210)">
+									<use href="#svg-callout" fill="rgb(232, 23, 96)" stroke="rgb(232, 23, 96)"/>
+									<text text-anchor="middle" x="70" y="35" style="font-size: 0.3em;" fill="#fff" >Feuilles</text>
+								</g>
+							</g>
+							
+						</svg>
+					</div>
+				</section>
+
+				<section>
+					<h2 data-id="structure_titre">Descendants et ancètres</h2>
+					<img  data-id="structure_code" src="./images/html_tree.png">
+					<div style="position:absolute; top: 0px; left: 0px; min-width: 100%;">
+						<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 500 500">
+							<defs>
+							<g id="svg-callout">
+								<polygon points="0,30 50,3 50,57" />
+								<ellipse cx="70" cy="30" rx="50" ry="30" />
+							</g>
+							</defs>
+							<g class="fragment">
+								<g transform="translate(345,215)">
+									<use href="#svg-callout" fill="rgb(232, 23, 96)" stroke="rgb(232, 23, 96)"/>
+									<text text-anchor="middle" x="70" y="35" style="font-size: 0.3em;" fill="#fff" >Descendant</text>
+								</g>
+							</g>
+							<g class="fragment">
+								<line x1="248" y1="80" x2="350" y2="100" stroke="rgb(232, 23, 96)" />
+								<line x1="326" y1="120" x2="350" y2="100" stroke="rgb(232, 23, 96)" />
+								<line x1="326" y1="160" x2="350" y2="100" stroke="rgb(232, 23, 96)" />
+								<g transform="translate(349,70)">
+									<use href="#svg-callout" fill="rgb(232, 23, 96)" stroke="rgb(232, 23, 96)"/>
+									<text text-anchor="middle" x="70" y="35" style="font-size: 0.3em;" fill="#fff" >Ancètres</text>
+								</g>
+							</g>
+							
+							
+						</svg>
+					</div>
+				</section>
+
+				<section>
+					<h2 data-id="structure_titre">Frères (siblings)</h2>
+					<img  data-id="structure_code" src="./images/html_tree.png">
+					<div style="position:absolute; top: 0px; left: 0px; min-width: 100%;">
+						<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 500 500">
+							<defs>
+							<g id="svg-callout">
+								<polygon points="0,30 50,3 50,57" />
+								<ellipse cx="70" cy="30" rx="50" ry="30" />
+							</g>
+							</defs>
+							<g class="fragment">
+								<rect x="190" y="140" width="220" height="40"  stroke="rgb(232, 23, 96)" fill="none" />
+							</g>
+						</svg>
+					</div>
+				</section>
+
+				<section>
+					<h2>Identification des éléments (1/2)</h2>
+					<ul>
+						<li class="fragment">
+							Tout élément HTML peut avoir un identifiant <strong>unique</strong>
+							
+						</li>
+						<li class="fragment">L'identifiant est spécifié à travers l'attribut <em>id</em>:
+							<pre><code class="html" data-trim><script type="text/template">
+								<nav id="menu_principal">
+									<a href="./">Acceuil</a>
+									<a href="./produits/">Nos produits</a>
+									...
+								</nav>
+							</script></code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Identification des éléments (2/2)</h2>
+					<ul>
+						<li class="fragment">
+							Tout élément HTML peut aussi appartenir à une catégorie ou classe d'éléments
+						</li>
+						<li class="fragment">La classe est spécifiée à travers l'attribut <em>class</em>:
+							<pre><code class="html" data-trim><script type="text/template">
+								<p class="desc_courte_produit">....</p>
+								...
+								<p class="desc_courte_produit">....</p>
+								...
+							</script></code></pre>
+						</li>
+						<li class="fragment">Généralement, plusieurs éléments sont dans la même classe.</li>
+						<li class="fragment">Un élément peut avoir plus d'une classe, séparées par des espaces:
+							<pre><code class="html" data-trim><script type="text/template">
+								<p class="desc_courte_produit selectionne">....</p>
+								...
+							</script></code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-visited">Le DOM (<em>Document Object Model</em>)</li>
+								<li class="plan-current">Construction d'une règle CSS</li>
+								<li class="">Algorithme de cascade</li>
+								<li class="">Le positionnement (<em>Layout</em>)</li>
+								<li>Cadriciels et pré-processeurs CSS</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul>
+								<li class="plan-current">Le sélecteur
+									<ul>
+										<li>Sélecteurs de base</li>
+										<li>Combinaison de sélecteurs</li>
+										<li>Pseudo-classes et pseudo-éléments</li>
+									</ul>
+								</li>
+								<li class="">La déclaration
+									<ul>
+										<li>Stylage du texte</li>
+										<li>Stylage des boites et le modèle en boite</li>
+										<li>Unités de mesure</li>
+										<li>L'héritage de styles</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Rappel: Règle CSS</h2>
+					<ul>
+						<li><strong>Le sélecteur:</strong> Partie qui définit à quel(s) élément(s) s'appliquera la règle</li>
+						<li><strong>La déclaration:</strong> Règles de style qui seront appliquées aux éléments sélectionnés</li>
+					</ul>
+					<pre class="fragment"><code class="css" data-trim><script type="text/template">
+						/* Le sélecteur est h1: 
+							tous les éléments de la page de type h1 seront...*/
+						h1 { 
+							color: blue;	 	/* de couleur bleue */
+							font-size: 16px;	/* de taille 16px */
+							font-weight: bold;	/* écrits en gras */
+						}
+					</script></code></pre>
+				</section>
+
+				<section>
+					<h2>Sélecteurs de base (1/3)</h2>
+					<ul>
+						<li>Sélecteur universel (*):
+							<pre class="fragment"><code class="css" data-trim><script type="text/template">
+								/* Tous les éléments auront une taille de 12px...*/
+								* { 
+									font-size: 12px;
+								}
+							</script></code></pre>
+						</li>
+						<li>Sélection par type:
+							<pre class="fragment"><code class="css" data-trim><script type="text/template">
+								/* Tous les éléments A auront la couleur Cyan...*/
+								a { 
+									color: cyan;
+								}
+							</script></code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Sélecteurs de base (2/3)</h2>
+					<ul>
+						<li>Par identifiant:
+							<pre class="fragment"><code class="css" data-trim><script type="text/template">
+								/* L'élément ayant pour identifiant "titre" sera en rouge.*/
+								#titre { 
+									color: red;
+								}
+							</script></code></pre>
+							<pre class="fragment"><code class="css" data-trim><script type="text/template">
+								/* L'élément h1 ayant pour identifiant "titre" sera en rouge.*/
+								h1#titre { 
+									color: red;
+								}
+							</script></code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Sélecteurs de base (3/3)</h2>
+					<ul>
+						<li>Par classe:
+							<pre class="fragment"><code class="css" data-trim><script type="text/template">
+								/* Les éléments de classe "pas_important" s'afficheront
+								   en gris clair */
+								.pas_important { 
+									color: rgb(200, 200, 200);
+								}
+								/* equivalent à:  *.pas_important */ 
+							</script></code></pre>
+							<pre class="fragment"><code class="css" data-trim><script type="text/template">
+								/* Les liens de classe "externe" seront en rose */
+								a.externe { 
+									color: pink;
+								}
+							</script></code></pre>
+							<pre class="fragment"><code class="css" data-trim><script type="text/template">
+								/* Les paragraphes de classe "detail" ET 
+									"important" */
+								p.detail.important { 
+									text-align: center;
+								}
+							</script></code></pre>
+						</li>
+						
+					</ul>
+				</section>
+
+				<section>
+					<h2>Sélecteurs combinés: Listes</h2>
+					<ul>
+						<li><strong>Liste de sélecteurs:</strong>  définie à l'aide de l'opérateur <em>virgule</em> (,)</li>
+						<li>Les éléments répondant à au moins un des sélecteurs seront affectés:</li>
+							<pre class="fragment"><code class="css" data-trim><script type="text/template">
+								/* Tous les niveaux de titres seront soulignés et 
+								   décalés de 20px à gauche */
+								h1, h2, h3, h4, h5, h6 { 
+									text-decoration: underline;
+									padding-left: 20px;
+								}
+							</script></code></pre>
+						</li>
+						
+					</ul>
+				</section>
+
+				<section>
+					<h2>Sélecteurs combinés: Descendants</h2>
+					<ul>
+						<li><strong>A B:</strong> Sélectionne tous les éléments sélectionnés pas B qui sont un 
+						descendant d'un élément sélectionné par A.
+							<pre class="fragment"><code class="css" data-trim><script type="text/template">
+								/* Met en rouge les éléments "em" de classe "rouge"
+								   qui sont des descendants d'un élément "p" */
+								p em.rouge { 
+									text-decoration: underline;
+									padding-left: 20px;
+								}
+							</script></code></pre>
+
+							<pre class="fragment"><code class="css" data-trim><script type="text/template">
+								/* Met en gras les liens qui sont des descendants d'un 
+								   élément LI ayant pour classe "courant" si ces derniers
+								   sont eux-mêmes descendant d'un élément NAV ayant pour 
+								   classe "principal" */
+								nav.principal li.courant a { 
+									font-weight: bold;
+								}
+							</script></code></pre>
+						</li>
+						
+					</ul>
+				</section>
+
+				<section>
+					<h2>Sélecteurs combinés: Enfants</h2>
+					<ul>
+						<li><strong>A > B:</strong> Sélectionne tous les éléments sélectionnés pas B qui sont un 
+						enfant (direct) d'un élément sélectionné par A.
+							<pre class="fragment"><code class="css" data-trim><script type="text/template">
+								/* Les liens qui sont un enfant direct d'un élément 
+								   "aside" de classe "complément" seront affichés 
+								   comme un bouton de bordure noire */
+								aside.complement > a { 
+									display: block; 
+									padding: 10px;
+									border: 1px solid #000;
+								}
+							</script></code></pre>
+						</li>
+						
+					</ul>
+				</section>
+
+				<section>
+					<h2>Sélecteurs combinés: Frère adjacent</h2>
+					<ul>
+						<li><strong>A + B:</strong> Sélectionne tous les éléments sélectionnés par B qui: 
+							<ol>
+								<li>Ont le même parent qu'un élément sélectionné par A; et</li>
+								<li>Qui suivent directement l'élément sélectionné par A dans l'arbre.</li>
+							<pre class="fragment"><code class="css" data-trim><script type="text/template">
+								/* Tous les éléments P qui suivent immédiatement un 
+								élément h3 de classe "entete" et qui ont le même parent 
+								auront une bordure noire de 1px de large */
+								h3.entete + p { 
+									border: 1px solid #000;
+								}
+							</script></code></pre>
+						</li>
+						
+					</ul>
+				</section>
+
+				<section>
+					<h2>Sélecteurs combinés: Frère antérieur</h2>
+					<ul>
+						<li><strong>A ~ B:</strong> Sélectionne tous les éléments sélectionnés par B qui
+							<ol>
+								<li>Ont le même parent qu'un élément sélectionné par&nbsp;A;  et </li>
+								<li>Qui viennent après l'élément sélectionné par&nbsp;A dans l'arbre.</ul>
+							</ol>
+							<pre class="fragment"><code class="css" data-trim><script type="text/template">
+								/* Tous les éléments span qui suivent ont le même 
+								parent qu'un élément div qui les précède, auront 
+								du texte en rouge */
+								div ~ span { 
+									color: #f00;
+								}
+							</script></code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Sélection par attribut</h2>
+					<p>La sélection se base sur un attribut spécifique et sa valeur:</p>
+					<pre class="fragment"><code class="css" data-trim><script type="text/template">
+						/* Liens dont l'attribut "target" vaut "_blank" */
+						a[target="_blank"] {  ... }
+					</script></code></pre>
+					<pre class="fragment"><code class="css" data-trim><script type="text/template">
+						/* Les images ayant un attribut "alt" */
+						img[alt] {  ... }
+					</script></code></pre>
+					<pre class="fragment"><code class="css" data-trim><script type="text/template">
+						/* Liens dont l'adresse contient etsmtl.ca */
+						a[href*="etsmtl.ca"] {  ... }
+					</script></code></pre>
+					<p class="fragment">&#8594; Consulter les différents opérateurs sur le <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Attribute_selectors">site MDN</a>.</p>
+				</section>
+
+				<section>
+					<h2>Pseudo-classes</h2>
+					<ul>
+						<li>Une pseudo-classe identifie un état particulier d'un élément. </li>
+						<li>La pseudo-classe est ajoutée à la suite du sélecteur, en les séparant par un <strong>:</strong></li>
+						<li>Liste complète sur le <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-classes" target="_blank">site MDN</a></li>
+					</ul>
+					<pre class="fragment"><code class="css" data-trim><script type="text/template">
+						/* Lien sur lequel la souris est positionnée */
+						a:hover {  color: red; }
+					</script></code></pre>
+					<pre class="fragment"><code class="css" data-trim><script type="text/template">
+						/* Un élément Input de type Text, dont la valeur 
+						   saisie est invalide */
+						input[type="text"]:invalid {  ... }
+					</script></code></pre>
+					<pre class="fragment"><code class="css" data-trim><script type="text/template">
+						/* Les premiers éléments des listes non ordonnées */
+						ul li:first-child {  ... }
+					</script></code></pre>
+				</section>
+
+				<section>
+					<h2>Pseudo-éléments</h2>
+					<ul>
+						<li>Un pseudo-élément vise à sélectionner <strong>une portion</strong> de l'élément sélectionné.</li>
+						<li>Le pseudo-élément est ajouté à la suite du sélecteur, en les séparant par un <strong>::</strong></li>
+						<li>Liste complète sur le <a href="https://developer.mozilla.org/fr/docs/Web/CSS/Pseudo-elements" target="_blank">site MDN</a></li>
+					</ul>
+					<pre class="fragment"><code class="css" data-trim><script type="text/template">
+						/* La première lettre d'un paragraphe s'affiche
+						   en gros, brun et en gras */
+						p::first-letter {
+							font-size: 1.5rem;
+							font-weight: bold;
+							color: brown;
+						}						
+					</script></code></pre>
+				</section>
+
+				<section>
+					<h2>Sujet d'un sélecteur</h2>
+					<p><strong>Dans le cas d'un sélecteur combiné:</strong> Ce sont toujours les éléments correspond à <span class="highlight2">la partie la plus à droite</span> du sélecteur qui seront sélectionnés!</p>
+					<pre class="fragment"><code class="css" data-trim><script type="text/template">
+						ul > li a[href*="etsmtl.ca"] { ... }	
+					</script></code></pre>
+					<p class="note">Dans l'exemple ci-dessus, seuls des éléments <strong>A</strong> seront sélectionnés. Il faudra toutefois qu'ils soient descendants d'un LI qui lui même est un descendant direct d'un UL</p>
+				</section>
+
+
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-visited">Le DOM (<em>Document Object Model</em>)</li>
+								<li class="plan-current">Construction d'une règle CSS</li>
+								<li class="">Algorithme de cascade</li>
+								<li class="">Le positionnement (<em>Layout</em>)</li>
+								<li>Cadriciels et pré-processeurs CSS</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul>
+								<li class="plan-visited">Le sélecteur
+									<ul>
+										<li>Sélecteurs de base</li>
+										<li>Combinaison de sélecteurs</li>
+										<li>Pseudo-classes et pseudo-éléments</li>
+									</ul>
+								</li>
+								<li class="plan-current">La déclaration
+									<ul>
+										<li>Stylage du texte</li>
+										<li>Stylage des boites et le modèle en boite</li>
+										<li>Valeurs: unités de mesure et couleurs</li>
+										<li>L'héritage de styles</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				
+				<section>
+					<h2>Déclarations de style</h2>
+					<ul>
+						<li>Une déclaration de style est un ensemble de paires de clé-valeur, encapsulées entre des { } et séparées par des ; </li>
+						<li>Clé: Élément de style à altérer</li>
+						<li>Valeur: La valeur définissant l'apparence désirée</li>
+					</ul>
+					<pre style="width: 100%;"><code class="css" data-trim><script type="text/template">
+						????? { 
+							font-size:  20px;
+							padding: 10px 0 0 20px;
+							background-color: #1270a1;
+						}
+					</script></code></pre>
+				</section>
+
+				<section>
+					<h2>Stylage du texte (1/2)</h2>
+					Ensemble de déclarations permettant de modifier l'apparence du texte, tels que:
+					<ul>
+						<li>La police: <span class="note">Voir: <a href="https://www.cssfontstack.com">https://www.cssfontstack.com</a></span>
+						<pre class="fragment" style="margin:0; width: 100%;"><code class="css" data-trim><script type="text/template">
+							XXX { font-family: "Trebuchet MS", Verdana, sans-serif;}
+						</script></code></pre>
+						</li>
+						<li>La taille:
+						<pre class="fragment" style="margin:0; width: 100%;"><code class="css" data-trim><script type="text/template">
+							XXX { font-size: 1.2rem}
+						</script></code></pre>
+						</li>
+						<li>La couleur:
+							<pre class="fragment" style="margin:0; width: 100%;"><code class="css" data-trim><script type="text/template">
+								XXX { color: rgb(123, 67, 89) }
+							</script></code></pre>
+						</li>
+						<li>Le style:
+							<pre class="fragment" style="margin:0; width: 100%;"><code class="css" data-trim><script type="text/template">
+								XXX { 
+									font-style: oblique;
+									font-weight: bolder;
+								}
+							</script></code></pre>
+						</li>
+						<li>Consulter le site MDN pour connaitre <a href="https://developer.mozilla.org/fr/docs/Learn/CSS/Styling_text/Fundamentals" target="_blank">les principaux éléments de styles du texte</a>.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Stylage du texte (2/2)</h2>
+					<p>D'autres références associées aux déclarations de style du texte:</p>
+					<ul>
+						<li><a href="https://developer.mozilla.org/fr/docs/Learn/CSS/Styling_text/Styling_lists" target="_blank">Stylage des listes</a></li>
+						<li><a href="https://developer.mozilla.org/fr/docs/Learn/CSS/Styling_text/Styling_links" target="_blank">Stylage des liens</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Le modèle en boite</h2>
+					<p>Le rendu des éléments à l'écran s'effectue de deux manières:</p>
+					<ul>
+						<li><strong>En ligne:</strong> À la suite de l'élément qui le suit (le texte, les liens, les span, ...)</li>
+						<li><strong>En boite:</strong> Le contenu est encapsulé au sein d'une boite englobante qui se détache (par défaut) du flux normal du contenu (i.e. revient à la ligne)</li>
+						<li>Il est possible d'altérer le style par défaut en modifiant la propriété <strong>display</strong>: <em>inline</em> ou <em>block</em>:
+							
+						</li>
+						<li class="note">Il existe d'autres valeurs possibles pour la propriété display que nous verrons dans la section Positionnement.</li>
+					</ul>
+					
+				</section>
+
+				<section>
+					<h2>Le modèle en boite</h2>
+					<pre style="width: 100%;"><code class="css" data-trim><script type="text/template">
+						a.en_boite {/* Un lien qui s'affiche en boite plutôt qu'en-ligne */
+							display: block;
+							...
+						}
+					</script></code></pre>
+				</section>
+
+				<section>
+					<h2>Structure d'une boite</h2>
+					<img src="./images/modeleBoite.jpeg" >
+					<p class="note">Soucre: Vincent De Oliveira, Formation Microsoft tech-days 2014</p>
+				</section>
+
+				<section>
+					<h2>Stylage de boites</h2>
+					<ul>
+						<li>Nous pouvons agir de façons indépendante sur chaque constituante de la boite:</li>
+					</ul>
+					<pre style="width: 100%;"><code class="css" data-trim><script type="text/template">
+						p.beau_paragraphe {
+							color: #f38630;
+							margin-top: 12px;
+							margin-right: 0px; 
+							margin-bottom: 10px;
+							margin-left: 20px;
+							border: 1px solid #222222;
+							padding: 10px 0 10px 5px;
+							background-color: #fafafa;
+						}
+					</script></code></pre>
+				</section>
+				
+				<section>
+					<h2>Valeurs CSS</h2>
+					<ul>
+						<li>Chaque déclaration CSS comporte une valeur.</li>
+						<li>La valeur peut être de plusieurs types (même pour la même propriété!)</li>
+						<li>Un type de valeur donné doit être utilisé dans le contexte approprié<br />
+							<span class="note">Ex.: Il n'est pas possible de mettre une valeur de type image pour spécifier la taille d'une marge...</span>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Types de valeurs</h2>
+					<ul>
+						<li><strong>Numérique</strong>: <pre style="display: inline;"><code class="css">50px, 5cm, 1.5em, 3rem, 10vh, 20%</code></pre></li>
+						<li><strong>Couleur</strong>: <pre style="display: inline;"><code class="css">darkblue, #12a4b7, #faf, rgb(109, 234, 234), ...</code></pre></li>
+						<li><strong>Image</strong>: <pre style="display: inline;"><code class="css">background-image: url(../images/logo_ets.png)</code></pre></li>
+						<li><strong>Position</strong>: <pre style="display: inline;"><code class="css">center, left, right, middle, ...</code></pre></li>
+						<li><strong>Chaines de caracteres</strong>: <pre style="display: inline;"><code class="css">content: "Bizarrerie de CSS"</code></pre></li>
+						<li><strong>Fonctions</strong>: <pre style="display: inline;"><code class="css">width: calc(100px + 20%)</code></pre></li>
+					</ul>
+					<p class="note">Nous allons nous intéresser spécifiquement aux valeurs numériques de taille et aux couleurs. Pour une référence complète, voir <a href="https://developer.mozilla.org/fr/docs/Learn/CSS/Building_blocks/Values_and_units#numbers_lengths_and_percentages" target="_blank">le site MDN</a>.</p>
+				</section>
+
+				<section>
+					<h2>Les unités de taille</h2>
+					<ul>
+						<li>Une taille peut-être:  
+							<ul>
+								<li><strong>absolue</strong>: valeur numérique sans dépendance (ex.: cm, in, px), ou</li>
+								<li><strong>relative</strong>: valeur dépendant d'une autre valeur (typiquement du parent).</li>
+							</ul>
+						</li>
+						<li>L'unité utilisée détermine le type de longueur</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Unités absolues</h2>
+					<ul>
+						<li>Pixel (px): unité de base d'un écran.</li>
+						<li>Pouces (in): On assume que 1 in = 96px </li>
+						<li>Centimètres (cm): 25.2/64in = 37.8px</li>
+						<li>Millimètre (mm): 1/10cm = 3.78px</li>
+						<li>Point (pt): 1/72 in</li>
+						<li>Picas (pc): 1/6 in</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Unités relatives</h2>
+					<ul>
+						<li>em: Taille de la police du parent.</li>
+						<li>rem: Taille de la police de la racine (html) </li>
+						<li>vh: 1% de la hauteur de la partie visible de l'écran</li>
+						<li>vw: 1% de la largeur de la partie visible de l'écran</li>
+						<li>lh: hauteur de l'élément</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Couleurs</h2>
+					<ul>
+						<li><strong>Nommées: </strong>yellow, red, ... liste disponible <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/named-color" target="_blank">sur MDN</a>. </li>
+						<li><strong>Hexadécimal:</strong>Valeur du Rouge, Vert et Bleu, sur deux digits hexa chacun (#xxxxxx)</li>
+						<li><strong>RGB</strong>: En utilisant la fonction rgb() et en passant des valeurs décimales pour le rouge, vert et bleu. </li>
+						<li><strong>RGBA</strong>: Comme RGB mais avec un 4e paramètre qui représente l'opacité (0: opaque, 1: transparent)
+							<pre style="width: 100%;"><code class="css" data-trim><script type="text/template">
+								p.demo {
+									color: rgb(120, 45, 20);
+									background-color: rgba(34,23,123, .5);
+								}
+							</script></code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Héritage</h2>
+					<ul>
+						<li>En CSS, l'héritage contrôle l'apparence d'un élément lorsqu'aucune valeur n'a été spécifiée</li>
+						<li>Les propriétés CSS sont soit:
+							<ul>
+								<li><strong>Héritables</strong>: Sa valeur est définie, par défaut, à la valeur calculée du parent</li>
+								<li><strong>Non-héritables</strong>: Sa valeur est définie, par défaut, à la valeur initiale de la propriété</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Propriétés héritées</h2>
+					<pre style="width: 100%;"><code class="css" data-trim><script type="text/template">
+						p.demo {
+							color: rgb(247, 45, 213);
+						}
+					</script></code></pre>
+					<pre style="width: 100%;"><code class="html" data-trim><script type="text/template">
+						<p class="demo">
+							Ceci est une <span>démonstration</span> de l'héritage.
+						</p>
+					</script></code></pre>
+					<div class="r-frame example example2">
+						<p class="demo">Cest est une <span>démonstration</span> de l'héritage.</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>Propriétés non-héritées</h2>
+					<pre style="width: 100%;"><code class="css" data-trim><script type="text/template">
+						p.demo {
+							border: 1px solid blue;
+						}
+					</script></code></pre>
+					<pre style="width: 100%;"><code class="html" data-trim><script type="text/template">
+						<p class="demo">
+							Ceci est une <span>démonstration</span> de l'héritage.
+						</p>
+					</script></code></pre>
+					<div class="r-frame example example3">
+						<p class="demo">Cest est une <span>démonstration</span> de l'héritage.</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>Altérer l'héritage</h2>
+					<pre style="width: 100%;"><code class="css" data-trim><script type="text/template">
+						p.demo {
+							border: 1px solid blue;
+						}
+
+						p.demo > span{
+							border: inherit;
+						}
+					</script></code></pre>
+					<pre style="width: 100%;"><code class="html" data-trim><script type="text/template">
+						<p class="demo">
+							Ceci est une <span>démonstration</span> de l'héritage.
+						</p>
+					</script></code></pre>
+					<div class="r-frame example example4">
+						<p class="demo">Cest est une <span>démonstration</span> de l'héritage.</p>
+					</div>
+					<ul>
+						<li>La propriété <em>all</em> peut être utilisée si on souhaite modifier le mode d'héritage de toutes les propriétés dans une déclaration. <a href="https://developer.mozilla.org/fr/docs/Web/CSS/all" target="_blank">Voir la syntaxe ici.</a> </li>
+					</ul>
+				</section>
+
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-visited">Le DOM (<em>Document Object Model</em>)</li>
+								<li class="plan-visited">Construction d'une règle CSS</li>
+								<li class="plan-current">Algorithme de cascade</li>
+								<li class="">Le positionnement (<em>Layout</em>)</li>
+								<li>Cadriciels et pré-processeurs CSS</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul>
+								<li>Motivation</li>
+								<li>Vue d'ensemble de l'algorithme</li>
+								<li>Les origines CSS</li>
+								<li>Spcécificité d'une règle</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Motivation</h2>
+					<ul>
+						<li class="fragment">Un document peut inclure plusieurs feuilles de style CSS, des éléments peuvent avoir des style enligne</li>
+						<li class="fragment">D'autres feuilles de style sont utilisées, en plus de celles créées par la personne qui développe le site (navigateur, préférences personnelles)</li>
+						<li class="fragment">Il est fréquent que, pour un élément donné et une propriété donnée, plusieurs valeurs s'opposent</li>
+						<li class="fragment">Quelle valeur choisir? <strong>&#x21e8; Algorithme de cascade</strong></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Algorithme de cascade</h2>
+					<img  src="./images/algo_cascade.png">
+				</section>
+
+
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-visited">Le DOM (<em>Document Object Model</em>)</li>
+								<li class="plan-visited">Construction d'une règle CSS</li>
+								<li class="plan-visited">Algorithme de cascade</li>
+								<li class="plan-current">Le positionnement (<em>Layout</em>)</li>
+								<li>Cadriciels et pré-processeurs CSS</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul>
+								<li>Historique</li>
+								<li>Divers mécanismes de positionnement</li>
+								<li>Conteneurs et éléments <em>div</em> et <em>span</em></li>
+								<li>Positionnement Flex</li>
+								<li>Positionnement Grid</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+<!-- FIN THE END -->
+				<section data-menu-title="Fin">
+					<img src="../images/the_end.png" >
+				</section>
+			</div>
+		</div>
+
+		<script src="../revealjs/reveal.js"></script>
+		<script src="../revealjs/plugin/notes/notes.js"></script>
+		<script src="../revealjs/plugin/markdown/markdown.js"></script>
+		<script src="../revealjs/plugin/highlight/highlight.js"></script>
+		<script src="../revealjs/plugin/menu/menu.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMenu ], 
+				
+				menu: {
+					side: 'left',
+					width: 'wide', //'normal', 'wide', 'third', 'half', 'full', or css valid length
+					numbers: false,
+					titleSelector: 'h1, h2, h3, h4, h5, h6',
+					useTextContentForMissingTitles: true,
+					hideMissingTitles: false,
+					markers: true,
+					custom: false,
+					themes: false,
+					themesPath: 'dist/theme/',
+					transitions: false,
+					openButton: true,
+					openSlideNumber: false,
+					keyboard: true,
+					sticky: false,
+					autoOpen: true,
+					delayInit: false,
+					openOnInit: false,
+					loadIcons: true
+				}
+			});
+		</script>
+	</body>
+</html>

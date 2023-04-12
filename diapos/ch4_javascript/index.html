@@ -1,0 +1,1133 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>CH04- Javascript | TCH056</title>
+
+		<link rel="stylesheet" href="../revealjs/reset.css">
+		<link rel="stylesheet" href="../revealjs/reveal.css">
+		<link rel="stylesheet" href="../revealjs/theme/ets.css" id="theme">
+		<link rel="stylesheet" href="../revealjs/theme/normalize.css">
+		<link rel="stylesheet" href="./css/examples_general.css">
+		<link rel="stylesheet" href="./css/examples.css">
+		<link rel="stylesheet" href="../timeline/css/timeline.min.css" />
+		<link rel="stylesheet" href="./ch4.css" />
+		<link rel="stylesheet" href="../jqtree.css" />
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../revealjs/plugin/highlight/docco.css" id="highlight-theme">
+
+		<script src="../jquery-3.6.4.min.js"></script>
+	</head>
+	<body>
+		<!--
+					
+		-->
+		<div class="reveal">
+			<div id="slide_nb" style="display:none;">Attention...</div>
+			<div class="titre_cours">TCH056 - Programmation Web</div>
+			<div class="slides">
+				<section>
+					<img src='../images/logo_ets.png' />
+					<h4 class="">TCH056 - Programmation Web</h4>
+					<h2 class="r-fit-text">Chapitre 04: Javascript</h2>
+					<br /><br />
+					<p>
+						<strong>Anis Boubaker, Ph.D.</strong><br />
+						<em>Maitre d'enseignement en informatique</em>
+					</p>
+				</section>
+
+<!-- Plan du chapitre -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-current">Introduction</li>
+								<li >Éléments de base du langage</li>
+								<li>Manipulation du DOM</li>
+								<li>Programmation événementielle</li>
+								<li>Cadriciels et librairies</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul style="margin:0">
+								<li>Historique</li>
+								<li>Motivation</li>
+								<li>Normes</li>
+								<li>Syntaxe de base</li>
+								<li>Comment inclure du Javascript?</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+
+<!-- Introduction -->
+				<section style="background: fixed url(./images/eich.jpeg) bottom right no-repeat;">
+					<h2>Génèse du langage</h2>
+					<div style="min-height: 70vh; width: 58%; border: 10px solid #000; text-align: initial;">
+						<time style="display: inline-block; margin:0 10px 0 0; background: #000; color: #fff; padding: 5px;">1995</time>
+						<span>Créé en 10 jours par Brendan Eich, un employé de Netscape.</span><br /><br />
+						<span><em>JavaScript (JS) had to “look like Java” only less so, be Java’s dumb kid brother or boy-hostage sidekick. Plus, I had to be done in ten days or something worse than JS would have happened</em></span>
+					</div>
+				</section>
+
+				<section data-menu-title="Java vs Javascript">
+					<img src="./images/java-vs-javascript.png" >
+				</section>
+
+				<section>
+					<h2>Historique</h2>
+					<span class="note">Faites défiler la ligne du temps avec la flêche.
+						<i>Rechargez la page si la ligne du temps ne s'affiche pas.</i></span>
+					<div class="timeline" data-mode="horizontal"  data-force-vertical-mode="600">
+						<div class="timeline__wrap">
+							<div class="timeline__items">
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>1996 - Version 1.0</strong><br />
+										Intégrée dans Netscape 2
+									</div>
+								</div>
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>1997 - Première norme (ECMA)</strong><br />
+										ECMAScript1 (ES1)<br />
+										IE4 est le premier navigateur à l'implémenter
+									</div>
+								</div>
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>1998 - Javascript 1.3</strong><br />
+										Netscape continue le développement indépendant de Javascript pour son navigateur
+									</div>
+								</div>
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>1999</strong><br />
+										ECMAScript 3 (ES3)
+									</div>
+								</div>
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>2000 - Firefox et Javascript 1.5</strong><br />
+										La fondation Mozilla effectue une refonte de Netscape: le navigateur Firefox qui inclut JS 1.5
+									</div>
+								</div>
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>2008-2009 - ES5</strong><br />
+										Abandon de ES4 et sortie de ES5
+									</div>
+								</div>
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>2015 - ES6</strong><br />
+										Sortie de ES6 qui comporte l'essentiel des améliorations modernes du langage
+									</div>
+								</div>
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>2018</strong><br />
+										Support de ES6 dans tous les navigateurs modernes (sauf IE11)
+									</div>
+								</div>
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>Aujourd'hui</strong><br />
+										Chaque année une version de ECMAScript est publiée (ES 20xx) rendant l'évolution du langage plus agile.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Motivation</h2>
+					<ul>
+						<li><strong>HTML</strong> nous a permis de définir le contenu</li>
+						<li><strong>CSS</strong> nous a permis de définir l'apparence des pages</li>
+						<li><strong>Javascript</strong> nous permettra d'ajouter des aspects dynamiques à nos pages. Ex.: 
+							<ul>
+								<li>Réagir aux actions de l'usager</li>
+								<li>Charger du contenu dynamiquement</li>
+								<li>Animations</li>
+								<li>...</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section  data-vertical-align-top>
+					<h2>Environnements </h2>
+					<p  style="font-family: 'GloriaHallelujah', Marker Felt, cursive;">Le seul langage de programmation qui s'exécute dans un navigateur! mais aussi...</p>
+					<div class="two_columns_layout" style="padding-top: 20px;">
+						<div class="col fragment">
+							<h4>Côté serveur</h4>
+							<a href="https://nodejs.org/fr" target="_blank"><img src="./images/nodejs-image.png" ></a>
+						</div>
+						<div class="col fragment">
+							<h4>Applications de bureau</h4>
+							<a href="https://www.electronjs.org/fr" target="_blank"><img src="./images/electron-logo.svg" ></a>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Un langage populaire</h2>
+					<p class="note">Sondage <a href="https://survey.stackoverflow.co/2022/" target="_blank">StackOverflow 2022</a>, mené auprès des développeurs</p>
+					<img class="stretch" src="./images/classement_langages-stackoverflow_2022.png">
+				</section>
+
+				<section>
+					<h2>Une syntaxe connue...</h2>
+					<div style="display:grid; grid-template-columns: repeat(2, 50%);">
+						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+							// Instructions se terminent 
+							// par un ;
+							instruction;
+							instruction;
+							instruction;
+							...
+						</script></code></pre>
+						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+							/* Blocs délimités 
+								par des { } */
+							if( condition ){
+								instructions ;
+							}
+						</script></code></pre>
+						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+							/* Les boucles 
+							   traditionnelles (for, 
+							   while, do..while) */
+							for(init; cond; incr){
+								... instructions ...
+							}
+						</script></code></pre>
+						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+							/* Le mot clé "function" 
+								pour définir une fonction */
+							function nom(arg1, arg2){
+								... instructions ...
+								return valeur;
+							}
+						</script></code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h2>Philosophie</h2>
+					<div style="display:grid; grid-template-columns: repeat(2, 50%);">
+						<div class="col fragment">
+							<h4>Tout est objet</h4>
+							<ul>
+								<li>Les types primitifs</li>
+								<li>Les fonctions</li>
+								<li>Le code!</li>
+							</ul>
+						</div>
+						<div class="col fragment">
+							<h4>Non-typé</h4>
+							<ul>
+								<li>Typage dynamique (Duck typing)</li>
+								<li>Le type est mutable</li>
+							</ul>
+						</div>
+						<div class="col fragment">
+							<h4>Protoypal</h4>
+							<ul>
+								<li>Langage orienté-objet</li>
+								<li>Différent des langages OO traditionnels</li>
+							</ul>
+						</div>
+						<div class="col fragment">
+							<h4>Évenementiel</h4>
+							<ul>
+								<li>Cycle d'exécution non bloquant basé sur les événement</li>
+								<li>Modèle asynchrone</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Javascript: Où dans une page Web?</h2>
+					<div class="r-fit">
+						<div class="col fragment">
+							<h4>Comme attribut (très mauvais!)</h4>
+							<pre ><code class="html" data-trim data-line-numbers="2">
+								<p>...</p>
+								<a onclick="alert('Bonjour le monde!');">Cliquez ici!</a>
+							</code></pre>
+						</div>
+						<div class="col fragment">
+							<h4>Balise <em>script</em> (éviter)</h4>
+							<pre ><code class="html" data-trim data-line-numbers="2-4">
+								<p>...</p>
+								&lt;script type="text/javascript">
+									alert("Bonjour le monde!");
+								&lt;/script>
+							</code></pre>
+						</div>
+						<div class="col fragment">
+							<h4>Dans un fichier externe (Mieux!)</h4>
+							<pre ><code class="html" data-trim data-line-numbers="2-4">
+								<head>
+									...
+									<script type="text/javascript" src="./mon_code.js"></script>
+								</head>
+							</code></pre>
+						</div>
+						<div class="col fragment">
+							<h4>Dans un fichier externe comme module (Parfait!)</h4>
+							<pre ><code class="html" data-trim data-line-numbers="2-4">
+								<head>
+									...
+									<script type="module" src="./mon_code.js"></script>
+								</head>
+							</code></pre>
+						</div>
+					</div>
+				</section>
+
+<!-- Plan du chapitre -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-current">Éléments de base du langage</li>
+								<li>Manipulation du DOM</li>
+								<li>Programmation événementielle</li>
+								<li>Cadriciels et librairies</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul style="margin:0">
+								<li class="plan-current">Variables et types de données</li>
+								<li>Objets et tableaux</li>
+								<li>Chaines de caractères</li>
+								<li>Fonctions</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Préambule</h2>
+					<ul>
+						<li class="fragment">On ne reviendra pas sur la syntaxe evidente (structures conditionnelles et itératives) - c.f. INF155/INF111</li>
+						<li class="fragment">Pas de conception OO (classes, prototypes, etc.) mais n'utiliserons des objets existants et leurs propriétés/méthodes</li>
+						<li class="fragment">Certains concepts avancés ne seront pas abordés (ex.: fermetures, promesses, async)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Les variables</h2>
+					<p>Le mot clé <em>let</em> permet de déclarer une variable.</p>
+					<pre><code class="javascript" data-trim><script type="text/template">
+						let age = 25;
+						let cours = "TCH056";
+						let note = 87.5;
+					</script></code></pre>
+					<p>Les variables sont typées dynamiquement. <br />La fonction <em>typeof</em> permet de déterminer le type inféré:</p>
+					<pre><code class="javascript" data-trim><script type="text/template">
+						typeof(age)
+						>> 'number'
+						typeof(cours)
+						>> 'string'
+						typeof(note)
+						>> 'number'
+					</script></code></pre>
+				</section>
+
+				<section class="slidenb" data-slidenb="Attention...">
+					<h2>Le mot clé <em>var</em></h2>
+					<p>On peut aussi déclarer des variables avec le mot clé <em>var</em>:</p>
+					<pre><code class="javascript" data-trim><script type="text/template">
+						var une_variable = 50;
+					</script></code></pre>
+					<ul>
+						<li>Ce mot clé existe encore par compatibilité ascendante</li>
+						<li>Il a un fonctionnement particulier (problématique pour le périmètre et l'élévation -- <em>hoisting</em> -- des variable)</li>
+						<li class="highlight2">Son utilisation depuis ES6 est à proscrire!</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>tout ce qui est déclaré avec var appartient au scope global</li>
+							<li>Comme exemple: prendre une fonction f qui déclare une variable ma_var dans f avec var. Après appel de la fonction, la variable ma_var sera définie et existe dans window.</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Booléens et vérité</h2>
+					<p>En Javascript, le type booléan existe et peut prendre la valeur <em>true</em> ou <em>false</em></p>
+					<pre><code class="javascript" data-trim><script type="text/template">
+						let est_majeur = true;
+						typeof(est_majeur)
+						>> 'boolean'
+					</script></code></pre>
+					<p>MAIS... Toute valeur "véridique" (<em>truthy</em>) sera considérée comme vraie et une valeur "non-véridique" (<em>falsy</em>) sera considérée comme fausse</p>
+				</section>
+
+				<section>
+					<h2>Valeur véridique</h2>
+					<ul>
+						<li class="fragment">Toute valeur n'étant pas <em>false</em>, 0, -0, "", <em>null</em>, <em>undefined</em> et <em>NaN</em>.</li>
+						<li class="fragment">Ou encore: toute valeur qui n'est pas <em>true</em> lorsque convertie en Booléen avec <em>Boolean()</em></li>
+					</ul>
+					<p></p>
+					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+						Boolean(10)
+						>> true
+						Boolean("0")
+						>> true
+						Boolean(0)
+						>> false
+						Boolean(undefined)
+						>> false
+					</script></code></pre>
+				</section>
+
+				<section class="slidenb" data-slidenb="Mêlant...">
+					<h2><em>null</em> et <em>undefined</em>??</h2>
+					<ul>
+						<li class="fragment">
+							<em>undefined</em> est un <strong>type</strong> associé aux variables inexistantes et aux variables qui n'ont pas reçu de valeur.
+							<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+								typeof(var_inexistante)
+								>> undefined
+								let une_variable; //Non définie
+								typeof(une_variable)
+								>> undefined
+								une_variable = 10;
+								typeof(une_variable)
+								>> 'number'
+							</script></code></pre>
+						</li>
+						<li class="fragment">
+							<em>null</em> est un <strong>objet</strong> qu'on affecte à une variable pour indiquer qu'elle a une valeur nulle.
+							<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+								let ma_variable = null;
+								typeof(ma_variable); >> 'object'
+							</script></code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Undefined c'est aussi...</h2>
+					<ul>
+						<li>La valeur de propriétés iniexistantes dans un objet</li>
+						<li>La valeur de retour d'une fonction de type "void"</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Conversion explicite de types</h2>
+					<p>Les fonctions <em>Boolean()</em>, Number() et String() permettent de convertir entre type de données (<em>type casting</em>):</p>
+					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+						let note = '85.5'
+						let moyenne = (Number(note) + 95) / 2
+					</script></code></pre>
+				</section>
+
+				<section class="slidenb" data-slidenb="Très mêlant!">
+					<h2>Conversion implicite de types</h2>
+					<ul>
+						<li class="fragment">Javascript étant un langage typé dynamiquement, des conversion ont lieu atomatiquement dès qu'on effectue des opérations entre données de type différents.</li>
+						<li class="fragment">La logique de conversion n'est pas toujours intuitive...</li>
+					</ul>
+					<p></p>
+					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+						'10' / 5
+						>> 2   //Résultat number
+						'80' + 15
+						>> '8015' //Résultat string
+						true || null
+						>> true //Résultat boolean
+						true && null
+						>> null //Résultat object
+					</script></code></pre>
+					<aside class="notes">
+						D'autres bizarreries sur https://wtfjs.com...
+					</aside>
+				</section>
+
+				<section class="slidenb" data-slidenb="Très mêlant!">
+					<h2>Opérations Booléennes</h2>
+					<ul>
+						<li>Le résultat d'une opération Booléenne (ex.: &&, ||) n'est pas obligatoirement une valeur Booléenne.</li>
+					</ul>
+					<p></p>
+					<table>
+						<tr>
+							<th>Expression</th>
+							<th>Résultat</th>
+						</tr>
+						<tr>
+							<td>a && b</td>
+							<td>
+								b si Boolean(a) est true, sinon a.
+							</td>
+						</tr>
+						<tr>
+							<td>a || b</td>
+							<td>
+								a si Boolean(a) est true, sinon b.
+							</td>
+						</tr>
+					</table>
+				</section>
+
+<!-- Plan du chapitre -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-current">Éléments de base du langage</li>
+								<li>Manipulation du DOM</li>
+								<li>Programmation événementielle</li>
+								<li>Cadriciels et librairies</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul style="margin:0">
+								<li class="plan-visited">Variables et types de données</li>
+								<li class="plan-current">Objets et tableaux</li>
+								<li>Chaines de caractères</li>
+								<li>Fonctions</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Définition d'un objet</h2>
+					<p>Un objet est un ensemble de propriétés de type clé-valeur. On peut définir un objet à l'aide d'un littéral en notation JSON { ... }</p>
+					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+						let etudiant = {
+							"nom": "Valjean",
+							"prenom": "Jean",
+							"age": 35
+						}
+					</script></code></pre>
+					<p>
+						On accède aux propriétés d'un objet à l'aide de la notation xxx.yyy:
+						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+							console.log(etudiant.nom)
+							>> 'Valjean'
+						</script></code></pre>
+					</p>
+				</section>
+
+				<section>
+					<h2>Tableaux</h2>
+					<p>En JS, un tableau est une structure pouvant contenir plusieurs éléments <span class="highlight">pas forcément du même type</span></p>
+					<pre ><code class="javascript" data-trim data-line-numbers="1-3|5-8"><script type="text/template">
+						let tab1 = ["Une chaine", 10, 34.5, true];
+						console.log(tab1[1]);
+						>> 10
+
+						let tab2 = [];
+						tab2[0] = 10;
+						tab2[1] = null;
+						tab2[2] = undefined
+					</script></code></pre>
+				</section>
+
+				<section>
+					<h2>Tableaux - Méthodes et attributs utiles</h2>
+					<pre ><code class="javascript" data-trim data-line-numbers="1-3|1,5-9|7,11-15"><script type="text/template">
+						let resultats = [85, 76, 64.5, 92.5, 68, 80, 84.5];
+						console.log( resultats.length )
+						>> 7
+
+						resultats.push(89);
+						console.log( resultats );
+						>> [85, 76, 64.5, 92.5, 68, 80, 84.5, 89]
+						console.log( resultats.length );
+						>> 8
+						
+						let dernier = resultats.pop();
+						console.log( dernier )
+						>> 89
+						console.log( resultats )
+						>> [85, 76, 64.5, 92.5, 68, 84.5]
+					</script></code></pre>
+				</section>
+
+				<section>
+					<h2>Modification d'un objet</h2>
+					<ul>
+						<li>Les objets en JS n'ont pas de structure pré-établie* (i.e. pas de classes, comme en Java)</li>
+						<li>Il est possible d'ajouter/supprimer des propriété à tout moment</li>
+					</ul>
+					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+						let etudiant = {
+							"nom": "Valjean",
+							"prenom": "Jean",
+							"age": 35
+						}
+						etudiant.moyenne = 85;
+						console.log(etudiant);
+						>> {"nom": "Valjean", "prenom": "Jean", "age": 35, 
+							"moyenne": 85 }
+					</script></code></pre>
+					<aside class="notes">Il existe en réalité une structure pré-établie: le prototype d'un objet. Nous n'aborderons pas les prototypes dans le cadre de ce cours ni la conception OO qui permet de créer des objets qui partagent le même prototype. Ainsi, tout objet qu'on créera aura son propre protoype </aside>
+				</section>
+
+				<section>
+					<h2>Modification d'un objet (2)</h2>
+					<ul>
+						<li>On peut accéder aux propriétés d'un objet comme un tableau associatif: </li>
+					</ul>
+					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+						let etudiant = {
+							"nom": "Valjean",
+							"prenom": "Jean",
+							"age": 35
+						}
+						etudiant.moyenne = 85;
+						etudiant["prenom"]="Jean-Michel";
+						console.log(etudiant);
+						>> {"nom": "Valjean", "prenom": "Jean-Michel", "age": 35, 
+							"moyenne": 85 }
+						console.log(etudiant["age"]);
+						>> 35
+					</script></code></pre>
+					
+				</section>
+
+				<section>
+					<h2>Objets et tableaux</h2>
+					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+						let resultats = [85, 76, 64.5, 92.5, 68, 80, 84.5];
+						resultats.moyenne = 78.65;
+						
+						console.log( resultats.length );
+						>> ????
+
+						console.log( resultats );
+						>> ????
+
+						console.log( resultats["moyenne"] )
+						>> ????
+
+						console.log( resultats["moyenne"] )
+						>> ????
+					</script></code></pre>
+				</section>
+
+<!-- Plan du chapitre -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-current">Éléments de base du langage</li>
+								<li>Manipulation du DOM</li>
+								<li>Programmation événementielle</li>
+								<li>Cadriciels et librairies</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul style="margin:0">
+								<li class="plan-visited">Variables et types de données</li>
+								<li class="plan-visited">Objets et tableaux</li>
+								<li class="plan-current">Chaines de caractères</li>
+								<li>Fonctions</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Chaines de caractères</h2>
+					<ul>
+						<li>Le type chaine de caractères (<em>string</em>) est un type de base en JS<br />
+							<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+								let cours = "TCH016";
+								console.log(cours);
+								>> TCH016
+							</script></code></pre>
+						</li>
+						<li>Syntaxe:
+						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+							let s1 = "chaine 1";
+							let s2 = "chaine 2"
+							let s3 = `chaine 3`
+							let nb = 4;
+							let s4 = `chaine ${nb}`
+							console.log( s4 );
+							>> chaine 4
+						</script></code></pre>
+						</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Caractères dans une chaine</h2>
+					<ul>
+						<li>On accède aux caractères par indice, avec la notation tableau ou la méthode <em>at</em></li>
+						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+							let cours = "TCH016";
+							console.log(cours[5]);
+							>> 6
+							console.log(cours.at(0));
+							>> T
+						</script></code></pre>
+						<li>Une chaine de caractères est immutable
+						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+							let cours = "TCH016";
+							cours[5] = 9;	
+							console.log( cours );
+							>> TCH016
+							cours[6] = 'x'
+							console.log( cours.length );
+							>> 6
+						</script></code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section  class="slidenb" data-slidenb="À connaitre!">
+					<h2>Chaines : Méthodes utiles</h2>
+					<p>Plusieurs méthodes sont disponibles pour manipuler les chaines de caractères</p>
+					<table>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase" target="_blank">toLowerCase</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase" target="_blank">toUpperCase</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf" target="_blank">indexOf</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf" target="_blank">lastIndexOf</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/includes" target="_blank">includes</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith" target="_blank">startsWith</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith" target="_blank">endsWith</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/slice" target="_blank">slice</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/substring" target="_blank">substring</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/substr" target="_blank">substr</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare" target="_blank">localeCompare</a></td>
+							<td></td>
+						</tr>
+					</table>
+				</section>
+
+<!-- Plan du chapitre -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-current">Éléments de base du langage</li>
+								<li>Manipulation du DOM</li>
+								<li>Programmation événementielle</li>
+								<li>Cadriciels et librairies</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul style="margin:0">
+								<li class="plan-visited">Variables et types de données</li>
+								<li class="plan-visited">Objets et tableaux</li>
+								<li class="plan-visited">Chaines de caractères</li>
+								<li class="plan-current">Fonctions</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Fonctions</h2>
+					<p>Plusieurs façon d'en déclarer:</p>
+					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+						function surfaceCercle(rayon){
+							const PI = 3.1416;
+							return PI * rayon**2;
+						}
+					</script></code></pre>
+					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+						let surfaceCercle = function (rayon){
+							const PI = 3.1416;
+							return PI * rayon**2;
+						}
+					</script></code></pre>
+					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+						let surfaceCercle = rayon => 3.1416 * rayon**2;
+					</script></code></pre>
+				</section>
+
+				<section>
+					<h2>Appel d'une fonction</h2>
+					<ul>
+						<li>Syntaxe semblable aux autres langages de la famille C: il suffit de spécifier le nom de la fonction, suivi des paramètres effectifs entre parenthèse.
+						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+							let resultat = surfaceCercle( 11.5 );
+						</script></code></pre>
+						</li>
+						<li>Si la fonction est un attribut d'un objet, on l'invoque en utilisant la notation "point"
+							<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+								console.log( etudiant.calculerMoyenne() );
+							</script></code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Paramètres d'une fonction</h2>
+					<ul>
+						<li>Aucune règle sur les paramètres: les types sont dynamiquement typés et le nombre de paramètres peut varier du nombre de paramètres défini</li>
+						<pre><code class="javascript" data-trim><script type="text/template">
+							let somme = function(a, b){
+								return a+b;
+							}
+
+							console.log( somme(10, 34, 178, 100) );
+							>> 44 (10 + 34)
+						</script></code></pre>
+						<li class="fragment">
+							Si un paramètre est omis lors de l'appel, alors sa valeur sera <em>undefined</em>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Valeurs de paramètres par défaut</h2>
+					<ul>
+						<li>Pour éviter qu'un paramètre omis lors de l'appel ait la valeur <em>undefined</em>, il est possible de donner des valeur par défaut aux paramètres: 
+						<pre><code class="javascript" data-trim><script type="text/template">
+							function direBonjour(nom="Inconnu.e"){
+								console.log("Bonjour "+nom);
+							}
+
+							direBonjour();
+							>> Bonjour Inconnu.e
+						</script></code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Valeur de retour</h2>
+					<ul>
+						<li>Une fonction ne peut retourner plus d'une valeur</li>
+						<li>La valeur retournée peut être un type simple (number, string), un objet (ex.: array, ou objet personnalisé), et même une fonction (voir plus loin)</li>
+						<li>Une fonction qui ne retourne aucune valeur retournera la valeur <em>undefined</em></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fonctions variadiques</h2>
+					<ul>
+						<li>On appelle une <strong>fonction variadique</strong> dont le nombre total de paramètres n'est pas défini d'avance</li>
+						<li>En JS, toute fonction peut recevoir plus d'arguments que spécifié, il suffit alors d'accéder aux autres paramètres à l'aide du tableau <em><strong>arguments</strong></em>
+						<pre><code class="javascript" data-trim><script type="text/template">
+							let somme = function(val1, val2){
+								let resultat = val1+val2;
+								for (let i=2; i < arguments.length; i++) { 
+									resultat += arguments[ i ];	
+								}
+								return resultat;
+							}
+						</script></code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fonctions variadiques</h2>
+					<ul>
+						<li>ES6 a introduit une nouvelle syntaxe pour définir des fonctions variadiques en utilisant la notation ellipse (...)
+							<pre><code class="javascript" data-trim><script type="text/template">
+								let somme = function(val1, val2, ...autres){
+									let resultat = val1+val2;
+									for (let i=0; i < autres.length; i++) { 
+										resultat += autres[ i ];	
+									}
+									return resultat;
+								}
+							</script></code></pre>
+						</li>
+
+						<li class="highlight2"> 
+							Il est préférable d'utiliser cette syntaxe car elle améliore la maintenabilité du code.
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fonctions = Données</h2>
+					<p>En JS, une fonction est une donnée qu'on peut affecter...</p>
+					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+						function surfaceCercle(rayon){
+							const PI = 3.1416;
+							return PI * rayon**2;
+						}
+						let sc = surfaceCercle;
+						console.log( sc(10) )
+						>> 314.16
+					</script></code></pre>
+				</section>
+
+				<section>
+					<h2>Fonctions = Données</h2>
+					<p>On peut même retourner une fonction...</p>
+					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+						let creerPuissance = function (puissance){
+							let resultat =  function(valeur){ 
+								return valeur ** puissance; 
+							}
+
+							return resultat;
+						}
+
+						carre = creerPuissance(2); 
+						// Carre est une fonction créée par creerPuissance
+						console.log( carre(10) );
+						>> 100
+					</script></code></pre>
+				</section>
+
+				<section>
+					<h2>Fonctions = Données</h2>
+					<p>Et passer une fonction en paramètre...</p>
+					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+						let calculer = function (valeur1, valeur2, operation){
+							let resultat = operation(valeur1, valeur2);
+
+							return resultat;
+						}
+
+						let somme = (v1, v2) => v1 + v2;
+						
+						console.log( calculer(10, 17, somme) );
+						>> 27
+					</script></code></pre>
+				</section>
+
+				<section>
+					<h2>Fonctions d'ordre supérieur</h2>
+					<ul>
+						<li>On appelle <strong>fonction d'ordre supérieur</strong> une fonction qui reçoit une autre fonction en argument, ou qui retourne une fonction.</li>
+						<li>Les fonctions d'ordre supérieur sont un mecanisme puissant qui offre des flexibilités et des applications intéressantes.</li>
+						<li>Spécifiquement, les fonctions itératives sur les tableaux suivantes (à connaitre): 
+							<table>
+								<tr>
+									<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank">Map</a></td>
+									<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce" target="_blank">Reduce</a></td>
+									<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank">Filter</a></td>
+									<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach" target="_blank">forEach</a></td>
+								</tr>
+							</table>
+						</li>
+					</ul>
+				</section>
+
+<!-- Plan du chapitre -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-visited">Éléments de base du langage</li>
+								<li class="plan-current">Manipulation du DOM</li>
+								<li>Programmation événementielle</li>
+								<li>Cadriciels et librairies</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul style="margin:0">
+								<li>Rappel: Document HTML = Arbre</li>
+								<li>API de parcours du DOM/BOM</li>
+								<li>Modification dynamique du DOM</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2 data-id="structure_titre">Rappel: Arborescence HTML</h2>
+					<img  data-id="structure_code" src="../ch2_html/images/html_tree.png">
+				</section>
+
+				<section>
+					<h2>DOM: Document Object Model</h2>
+					<ul>
+						<li class="fragment">Le DOM est une une structure hiérarchique qui représente le contenu d'une page sous forme d'une arborescence</li>
+						<li class="fragment">L'arbre peut-être manipulé avec du code Javascript: tout changement au DOM se reflète de façon dynamique sur le rendu de la page (à l'écran)</li>	
+						<li class="fragment">La manipulation se fait à travers une API commune à tous les navigateurs</li>
+						<li class="fragment highlight2">Le DOM est une entité qui évolue constamment dans les pages/application WEB modernes</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>API du DOM</h2>
+					<div class="two_columns_layout">
+						<div id="test_tree" class="col">
+							<script type="text/javascript">
+								let exemple_dom1 = [
+									{
+										name: 'document',
+										children: [
+											{ name: 'head',
+											children: [
+												{name: 'meta', highlight: true},
+												{name: 'meta'},
+												{name: 'title'}
+											]
+											},
+											{ 
+												name: 'body', 
+												children: [
+												{
+													name: "div", 
+													children: [
+														{name: 'p'},
+														{name: 'div'}
+													]
+												},
+												{name: "p"}
+											]
+											}
+										]
+									}
+								];
+
+								$(function(){
+									$('#test_tree').tree({
+										data: exemple_dom1,
+										autoOpen: true,
+										buttonLeft: true,
+										closedIcon: '+',
+										openedIcon: '-'
+									});
+								});
+							</script>
+						</div>
+						<div class="col r-fit-text">
+							<p>Ensemble de fonctions disponibles pour: </p>
+							<ul>
+								<li>Localiser des éléments de la page</li>
+								<li>Modifier des éléments identifiés (contenu, ajout d'enfants, suppression)</li>
+								<li>Accéder et agir sur les différentes propriétés des éléments</li>
+							</ul>
+							<p class="highlight2">Il existe plusieurs DOM (HTML, SVG, XML), mais ils partagent tous la même API normalisée par le W3C.</p>
+						</div>
+					</div>
+					
+				</section>
+
+				<section>
+					<h2>Sélection d'éléments</h2>
+					<p>Quatre approches/méthodes de sélection (démontrées en classe)</p>
+					<ul>
+						<li><em>getElementById</em></li>
+						<li><em>getElementByTagName</em></li>
+						<li><em>getElementByClassName</em></li>
+						<li><em>querySelector / querySelectorAll</em></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Parcours du DOM</h2>
+					<p>Une fois un élément sélectionné, il est souvent désirable de parcourir l'ensemble des éléments qui lui sont liés de façon hiérarchique.</p>
+					<p class="fragment">Plusieurs proprités de chaque élément permettent d'accéder - de proche en proche - aux enfants, frêres et parents, de l'élément :</p>
+					<ul class="fragment">
+						<li>parentNode</li>
+						<li>childNodes</li>
+						<li>firstChild, lastChild</li>
+						<li>nextSibling, previousSibling</li>
+					</ul>
+				</section>
+
+				<section>
+					
+				</section>
+
+<!-- FIN THE END -->
+				<section data-menu-title="Fin">
+					<img src="../images/the_end.png" >
+				</section>
+			</div>
+		</div>
+
+		
+
+		
+		<script src="../revealjs/reveal.js"></script>
+		<script src="../revealjs/plugin/notes/notes.js"></script>
+		<script src="../revealjs/plugin/markdown/markdown.js"></script>
+		<script src="../revealjs/plugin/highlight/highlight.js"></script>
+		<script src="../revealjs/plugin/menu/menu.js"></script>
+		
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMenu ], 
+				
+				menu: {
+					side: 'left',
+					width: 'wide', //'normal', 'wide', 'third', 'half', 'full', or css valid length
+					numbers: false,
+					titleSelector: 'h1, h2, h3, h4, h5, h6',
+					useTextContentForMissingTitles: true,
+					hideMissingTitles: false,
+					markers: true,
+					custom: false,
+					themes: false,
+					themesPath: 'dist/theme/',
+					transitions: false,
+					openButton: true,
+					openSlideNumber: false,
+					keyboard: true,
+					sticky: false,
+					autoOpen: true,
+					delayInit: false,
+					openOnInit: false,
+					loadIcons: true
+				}
+			});
+		</script>
+		<script src="../timeline/js/timeline.min.js"></script>
+		<script>
+			timeline(document.querySelectorAll('.timeline'));
+			
+			Reveal.on( 'slidechanged', event => {
+			// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+				let panel = document.getElementById("slide_nb");
+				if(event.currentSlide.classList.contains("slidenb")){
+					panel.textContent = event.currentSlide.dataset.slidenb;
+					panel.style.display = "block";
+				} else {
+					panel.style.display="none";
+				}
+				
+				
+			} );			
+		</script>
+		<script src="../tree.jquery.js"></script>
+		<script src="./ch4.js"></script>
+	</body>
+</html>

@@ -1,0 +1,1267 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>CH02- HTML | TCH056</title>
+
+		<link rel="stylesheet" href="../revealjs/reset.css">
+		<link rel="stylesheet" href="../revealjs/reveal.css">
+		<link rel="stylesheet" href="../revealjs/theme/ets.css" id="theme">
+		<link rel="stylesheet" href="../revealjs/theme/normalize.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../revealjs/plugin/highlight/docco.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="titre_cours">TCH056 - Programmation Web</div>
+			<div class="slides">
+				<section>
+					<img src='../images/logo_ets.png' />
+					<h4 class="">TCH056 - Programmation Web</h4>
+					<h2 class="r-fit-text">Chapitre 02: HTML</h2>
+					<br /><br />
+					<p>
+						<strong>Anis Boubaker, Ph.D.</strong><br />
+						<em>Maitre d'enseignement en informatique</em>
+					</p>
+				</section>
+
+
+<!-- Plan du chapitre -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<ul>
+						<li class="plan-current">Définition et structure d'un document HTML</li>
+						<li class="">Classification des éléments HTML</li>
+						<li class="">Principaux éléments HTML
+							<ul>
+								<li>Éléments de base</li>
+								<li>Éléments sémantiques</li>
+								<li>Listes</li>
+								<li>Tables</li>
+								<li>Formulaires</li>
+							</ul>
+						</li>
+						<li class="">Validation et bonnes pratiques</li>
+					</ul>
+				</section>
+
+<!-- Définition et structure d'un document HTML -->
+				<section>
+					<h2>Le "langage" HTML</h2>
+					<ul>
+						<li class="fragment"><strong><acronym>HTML</acronym></strong>: (<b>H</b>yper<b>T</b>ext <b>M</b>arkup <b>L</b>anguage)<br />
+						<em>Langage</em> de balisage permettant la représentation du contenu de pages Web</li>
+						<li class="fragment"><strong>Balise:</strong> Unité syntaxique permettant de délimiter du contenu
+							<pre><code class="HTML" data-trim>
+								<address>1100, rue Notre-Dame Ouest 
+										Montréal (Qc) H3C 1K3</address>
+							</code></pre>
+						</li>
+						<li class="fragment">Une balise est une instance d'un <strong>élément HTML</strong> tel que définit dans 
+							la norme (Ex.: address, p, div, etc.).
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Principale préoccupation:<br /> la sémantique</h2>
+					<ul>
+						<li>Le HTML permet de représenter et structurer le contenu affiché sur une page WEB</li>
+						<li class="fragment">On s'intéresse à la <strong>sémantique</strong> de la page WEB et non à sa <strong>présentation</strong>, ni à son <strong>comportement</strong> </li>
+						<li class="fragment"><strong>Avantages:</strong>
+							<ul>
+								<li>Améliorer la maintenabilité de la page</li>
+								<li>Améliorer l'accessibilité de la page</li>
+								<li>Maximiser les performances de référencement</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Le HTML Sémantique</h2>
+					<p class="fragment">Le HTML sémantique fût l'une des principales évolutions du HTML5.</p>
+					<p class="fragment">Plusieurs balises sont apparues ayant de hautes précisions sémantiques, 
+						pour faciliter l'interprétation des documents par les moteurs de recherche et les lecteurs d'écran.
+					</p>
+					<pre class="fragment"><code class="html" data-trim="">
+						<strong>Contenu fortement mis en emphase (strong) qui 
+							s'affiche en gras par défaut</strong>
+						<br>
+						<b>Contenu en gras (bold), sans raison interprétable</b>
+					</code></pre>
+					<div class="fragment r-frame normalize">
+						<strong>Contenu fortement mis en emphase (strong) qui 
+							s'affiche en gras par défaut</strong>
+						<br>
+						<b>Contenu en gras (bold), sans raison interprétable</b>
+					</div>
+				</section>
+
+				<section>
+					<h2>Imbrications</h2>
+					<p>Les balises sont imbriquées les unes dans les autres: </p>
+					<pre><code class="HTML"  data-trim>
+						<p>
+							<em>Carvel</em> est un 
+							<a href="https://fr.wikipedia.org/wiki/Hameau">hameau</a> 
+							en <strong>Alberta</strong> 
+						</p>
+					</code></pre>
+					<div class="fragment r-frame normalize">
+						<em>Carvel</em> est un 
+						<a href="https://fr.wikipedia.org/wiki/Hameau">hameau</a> 
+						en <strong>Alberta</strong> 
+					</div>
+					<p class="fragment"><img src="../images/warning.png" class="content_emphasis"> <strong>Pas de chevauchement entre les balises!</strong></p>
+				</section>
+
+				<section data-auto-animate>
+                    <h2 data-id="structure_titre">Structure d'un document</h2>
+                    <pre  data-id="structure_code">
+                        <code class="html" data-trim data-line-numbers>
+							&lt;!doctype html>
+							&lt;html>
+								&lt;head>
+									&lt;!-- .... -->
+								&lt;/head>	
+								&lt;body>
+									&lt;!-- .... -->
+								&lt;/body>
+							&lt;/html>
+                        </code>
+                    </pre>
+					<ul>
+						<li><strong>html</strong>: Balise qui concapsule l'intégralité du document</li>
+						<li><strong>head</strong>: Entête, contient des métadonnées sur la page</li>
+						<li><strong>body</strong>: Le corps du document, partie visible de la page</li>
+					</ul>
+                </section>
+
+				<section data-auto-animate>
+                    <h2 data-id="structure_titre">Structure d'un document</h2>
+                    <pre  data-id="structure_code">
+                        <code class="html" data-trim data-line-numbers>
+							&lt;!doctype html>
+							&lt;html>
+								&lt;head>
+									&lt;meta charset="utf-8">
+									&lt;!-- .... -->
+								&lt;/head>	
+								&lt;body>
+									&lt;!-- .... -->
+								&lt;/body>
+							&lt;/html>
+                        </code>
+                    </pre>
+					<ul>
+						<li><strong>doctype</strong>: Définit le type (langage/formalisme) de document.</li>
+						<li><strong>meta charset</strong>: Définit l'encodage du fichier (presque toujours utf-8)</li>
+					</ul>
+                </section>
+
+				<section data-auto-animate data-menu-title="">
+                    <h2 data-id="structure_titre">Structure d'un document</h2>
+                    <pre  data-id="structure_code">
+                        <code class="html" data-trim data-line-numbers="|3-8|9-22">
+							&lt;!doctype html>
+							&lt;html>
+								&lt;head>
+									&lt;meta charset="utf-8">
+									&lt;meta name="viewport" content="width=device-width...">
+									&lt;title>Carvel, Alberta&lt;/title>
+									&lt;link rel="stylesheet" href="ma_feuille_style.css">
+								&lt;/head>	
+								&lt;body>
+									&lt;h1>Carvel&lt;/h1>
+									&lt;p>
+										&lt;em>Carvel&lt;/em> est un 
+										&lt;a href="https://fr.wikipedia.org/wiki/Hameau">
+												hameau&lt;/a>en &lt;strong>Alberta&lt;/strong>,
+										dans le centre de la province.
+									&lt;/p>
+									&lt;p>
+										Sa population est estimée à environ 19 habitants 
+										(recensement de 2019) et son indicatif régional est 
+										le 780.
+									&lt;/p>
+								&lt;/body>
+							&lt;/html>
+                        </code>
+                    </pre>
+                </section>
+
+				<section>
+					<h2>Exercice</h2>
+					<ol>
+						<li>Copiez/coller le code de la diapositive précédente dans un document texte ouvert avec Notepad (ou Sublime, Notepad++, etc.)</li>
+						<li>Enregistrez le fichier sur votre disque dur, en lui donnant le nom "carvel.html"</li>
+						<li>Ouvrez votre explorateur de fichiers, naviguez vers le dossier contenant le fichier que vous avez enregistrer et double-cliquez dessus</li>
+					</ol>
+				</section>
+
+				<section data-auto-animate>
+					<h2 data-id="structure_titre">Une Structure arborescente</h2>
+					<img  data-id="structure_code" src="./images/html_tree.png">
+				</section>
+
+				<section>
+					<h2>Syntaxe d'un élément HTML</h2>
+					<pre><code class="html" data-trim>
+						&lt;nom_element attribut1="..." attribut2="...">
+								Contenu de l'élément
+						&lt;/nom_element>
+					</code></pre>
+					<h3>Exemple: élément "<em>a</em>" (<em>anchor</em>)</h3>
+					<pre><code class="html" data-trim>
+						&lt;a class="lien_extermne" href="http://www.wikipedia.org" 
+							target="_blank">Wikipedia&lt;/a>
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Syntaxe d'un élément HTML</h2>
+					<ul>
+						<li>Tout élément doit avoir une balise ouvrante:
+							<pre><code class="html" data-trim data-line-numbers="1">
+								&lt;nom_element attribut1="..." attribut2="...">
+										Contenu de l'élément
+								&lt;/nom_element>
+							</code></pre>
+						</li>
+						<li class="fragment">Certains éléments peuvent ne pas avoir de contenu:
+							<pre><code class="html" data-trim data-line-numbers>
+								&lt;script src="./js/monscript.js">&lt;/script>
+							</code></pre>
+						</li>
+						<li class="fragment">Certains éléments n'ont ni contenu, ni balise fermante:
+							<pre><code class="html" data-trim data-line-numbers="2">
+								Pour plus d'informations, voir le graphique ci-dessous: 
+								&lt;img src="./images/graphique.png" alt="Le logo">
+								Tel que le montre le graphique, ...
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Attributs d'un élément</h2>
+					<ul>
+						<li>Chaque éléments peut avoir des attributs qui décrivent l'élément.</li>
+						<li class="fragment">Un attribut est une clé/valeur qui s'écrit:
+							<pre><code class="html"><script type="text/template"><... clé="valeur" ... /></script></code></pre></li>
+						<li class="fragment">Certains attributs sont <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Global_attributes" target="_blank"><strong>universels</strong></a>: communs à tous les éléments (ex.: <em>id, class, hidden, spellcheck, lang </em>)</li>
+						<li class="fragment">Certains attributs sont <strong>restreints</strong> à certains éléments spécifiques
+							<ul><li>L'élément <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/input#attributs">INPUT</a> comporte 31 attributs spécifiques, en plus des attributs universels.</li></ul>
+						</li>
+					</ul>
+				</section>
+
+				<section data-visibility="hidden">
+					<h2>Exercice 0:</h2>
+					<div class="two_columns_layout">
+						<div class="col">
+							<p class="enonce">
+								Complétez le code HTML dans l'éditeur afin de créer une page qui affiche un paragraphe de votre choix, surmonté d'un titre. Votre page doit se terminer avec un lien vers le site de l'ETS.
+							</p>
+						</div>
+						<div class="col"><img src="./images/exercice0_resultat.png"></div>
+					</div>
+					
+					<h4>Instructions:</h6>
+					<ul class="note">
+						<li>Le titre doit être un titre de niveau 1 (h1)</li>
+						<li>Le paragraphe doit être encapsulé dans une balise</li>
+						<li>Lorsque la page s'affiche, l'onglet doit afficher le titre de la page (balide d'en-tête "title")</li>
+						<li>Le lien vers le site de l'ÉTS doit s'ouvrir dans un nouvel onglet</li>
+					</ul>
+					<a href="../editeur.html?chapitre=2&exercice=0" target="_blank" class="bouton_editeur"><img style="border: 2px solid #1270a1; padding: 4px;" src="../images/logo_editeur.png" /></a>
+				</section>
+
+
+<!-- Classification des éléments HTML -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<ul>
+						<li class="plan-visited">Définition et structure d'un document HTML</li>
+						<li class="plan-current">Classification des éléments HTML</li>
+						<li class="">Principaux éléments HTML
+							<ul>
+								<li>Éléments de base</li>
+								<li>Éléments sémantiques</li>
+								<li>Listes</li>
+								<li>Tables</li>
+								<li>Formulaires</li>
+							</ul>
+						</li>
+						<li class="">Validation et bonnes pratiques</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Classification des éléments HTML</h2>
+					<p>Plusieurs façons de classer les éléments:</p>
+					<ul>
+						<li>Selon le type syntaxique de l'élément</li>
+						<li>Selon la fonction de l'élément</li>
+						<li>Selon le modèle de contenu</li>
+					</ul>
+					<p class="fragment">La classification est généralement "Multicatégorielle" - L'intersection entre les catégories est non-vide.</p>
+				</section>
+
+				<section>
+					<h2>Classification par type syntaxique</h2>
+					<p>Six types (selon la section <a href="https://html.spec.whatwg.org/#elements-2" target="_blank">13.1.2</a> de la norme)</p>
+					<ol>
+						<li>Élements sans contenu<br />
+							<span class="exemple fragment">br, hr, img, input, link, meta...</span></li>
+						<li>Éléments de texte brut<br />
+							<span class="exemple fragment">script, style</span></li>
+						<li>L'élément <span class='exemple'>template</span></li>
+						<li>Éléments de texte brut échappables<br />
+							<span class="exemple fragment">textarea, title</span></li>
+						<li>Éléments étrangers<br />
+							<span class="exemple fragment">MathML, SVG</span></li>
+						<li>Tous les autres éléments</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Classification selon le modèle de contenu</h2>
+					<ul>
+						<li>Classification selon le type de contenu de l'élément HTML</li>
+						<li>Utilisé par la norme pour déterminer les relations entre les éléments
+							<span class="note">(ex.: quels peuvent être le parent et les enfants d'un élément donné?)</span></li>
+						<li>Les éléments sont subdivisés en 7 catégories:</li>
+					</ul>
+					<p></p>
+					<p></p>
+				</section>
+
+				<section>
+					<h2>Classification selon le modèle de contenu</h2>
+					<h3>Diagramme de Venn</h3>
+					<span class="note">Déplacez la souris sur une catégorie pour en afficher la liste des éléments.</span>
+
+					<iframe src=https://html.spec.whatwg.org/images/content-venn.svg width=1000 height=288></iframe>
+					<span class="note">Source: <a href="https://html.spec.whatwg.org/multipage/dom.html#kinds-of-content">Site du WHATWG</a></span>
+				</section>
+
+				<section data-transition="fade">
+					<h2>Catégories dans la norme</h2>
+					<img src="./images/exemple_norme_a.png">
+				</section>
+
+				<section data-transition="fade">
+					<h2>Catégories dans la norme</h2>
+					<img src="./images/exemple_norme_a_categories.jpg">
+				</section>
+
+				<section>
+					<section>
+						<h2>Classification par fonction</h2>
+						<p>Treize (13) catégories (selon la <a href="https://html.spec.whatwg.org/#semantics" target="_blank">section 4</a> de la norme)</p>
+					</section>
+					<section>
+						<h2>Classification par fonction (1/2)</h2>
+						<table>
+							<tr>
+								<td>Document</td>
+								<td>html</td>
+							</tr>
+							<tr>
+								<td>Méta-données</td>
+								<td>head, title, link, ...</td>
+							</tr>
+							<tr>
+								<td>Sections</td>
+								<td>body, article, section, ...</td>
+							</tr>
+							<tr>
+								<td>Regroupement</td>
+								<td>p, ol, ul, div, ...</td>
+							</tr>
+							<tr>
+								<td>Sémantique textuels</td>
+								<td>a, strong, data, time, ...</td>
+							</tr>
+							<tr>
+								<td>Liens</td>
+								<td>a, area</td>
+							</tr>
+							<tr>
+								<td>Éditions</td>
+								<td>ins, del</td>
+							</tr>
+						</table>
+					</section>
+
+					<section>
+						<h2>Classification par fonction (2/2)</h2>
+						<table>
+							<tr>
+								<td>Intégration de contenu</td>
+								<td>img, iframe, embed, ...</td>
+							</tr>
+							<tr>
+								<td>Données tabulaires</td>
+								<td>table, col, tr, td, ...</td>
+							</tr>
+							<tr>
+								<td>Formulaires</td>
+								<td>form, input, label, ...</td>
+							</tr>
+							<tr>
+								<td>Éléments intéractifs</td>
+								<td>a, button, summary, ...</td>
+							</tr>
+							<tr>
+								<td>Code/Scripts</td>
+								<td>script, noscript, template,...</td>
+							</tr>
+							<tr>
+								<td>Éléments personnalisés</td>
+								<td>a, strong, data, time, ...</td>
+							</tr>
+							
+						</table>
+					</section>
+				</section>
+
+				<section 
+						data-background-iframe="./table-periodique-elementsHTML/index.html" 
+						data-background-interactive
+						data-menu-title="Table périodique des éléments">
+
+				</section>
+
+<!-- Principaux éléments HTML -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<ul>
+						<li class="plan-visited">Définition et structure d'un document HTML</li>
+						<li class="plan-visited">Classification des éléments HTML</li>
+						<li class="">Principaux éléments HTML
+							<ul>
+								<li class="plan-current">Éléments de base</li>
+								<li>Éléments sémantiques</li>
+								<li>Listes</li>
+								<li>Tables</li>
+								<li>Formulaires</li>
+							</ul>
+						</li>
+						<li class="">Validation et bonnes pratiques</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Principaux éléments HTML</h2>
+					<ul>
+						<li>La norme HTML5 comporte environ 110 éléments</li>
+						<li>Nous nous intéresserons, dans ce cours, au principaux éléments. D'autres éléments seront rencontrés dans les prochains cours.</li>
+						<li>Toujours se reporter à la documentation. Le site <a href="https://developer.mozilla.org/fr/docs/Web/HTML" target="_blank">Mozilla Developer Network (MDN)</a> est fortement conseillé.</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Éléments de flux de base</h2>
+					<p>Ces éléments font partie des éléments les plus utilisés dans un document HTML de base:</p>
+					<span class="note">NOTE: Ces éléments proviennent de catégories différentes. </span>
+					<table>
+						<tr>
+							<td>--! ... --</td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/a" target="_blank">A</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/p" target="_blank">P</a></td>
+							
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/br" target="_blank">BR</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/Heading_Elements" target="_blank">H(1..6)</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/div" target="_blank">DIV</a></td>
+							
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/img" target="_blank">IMG</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/em" target="_blank">EM</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/strong" target="_blank">STRONG</a></td>
+							
+						</tr>
+					</table>
+					<p><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Content_categories#" target="_blank">Liste des éléments de flux de contenu</a></p>
+				</section>
+
+				<section>
+					<h2>Élements de sectionnement sémantiques</h2>
+					<ul>
+						<li>Un élément sémentique a pour but de définir le <strong>sens et l'intention</strong> de son contenu.</li>
+						<li>Utile autant pour la personne qui développe, le navigateur, les moteurs de recherche, les lecteurs d'écran, etc.</li>
+						<li>Permettent de structurer "logiquement" la page, plutôt que d'utiliser des éléments génériques comme DIV.</li>
+					</ul>
+					<img src="./images/elements_semantiques_sectionnement.gif">
+				</section>
+
+				<section>
+					<h2>Élements de sectionnement sémantiques (liste)</h2>
+					<table>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/article" target="_blank">ARTICLE</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/aside" target="_blank">ASIDE</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/details" target="_blank">DETAILS</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/figure" target="_blank">FIGURE</a></td>
+							
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/figcaption" target="_blank">FIGCAPTION</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/header" target="_blank">HEADER</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/footer" target="_blank">FOOTER</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/main" target="_blank">MAIN</a></td>
+							
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/mark" target="_blank">MARK</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/nav" target="_blank">NAV</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/section" target="_blank">SECTION</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/summary" target="_blank">SUMMARY</a></td>
+							
+							
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/time" target="_blank">TIME</a></td>
+							
+						</tr>
+					</table>
+				</section>
+
+				<section>
+					<h2>Élements de flux sémantiques</h2>
+					<p>Visent à décrire la nature du texte qu'elles contiennent.</p>
+					<table>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/sub" target="_blank">SUB</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/sup" target="_blank">SUP</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/em" target="_blank">EM</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/strong" target="_blank">STRONG</a></td>
+							
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/mark" target="_blank">MARK</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/s" target="_blank">S</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/u" target="_blank">U</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/small" target="_blank">SMALL</a></td>
+							
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/q" target="_blank">Q</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/dfn" target="_blank">DFN</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/abbr" target="_blank">ABBR</a></td>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/cite" target="_blank">CITE</a></td>
+							
+							
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/code" target="_blank">CODE</a></td>
+							
+						</tr>
+					</table>
+				</section>
+
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<ul>
+						<li class="plan-visited">Définition et structure d'un document HTML</li>
+						<li class="plan-visited">Classification des éléments HTML</li>
+						<li class="">Principaux éléments HTML
+							<ul>
+								<li class="plan-visited">Éléments de base</li>
+								<li class="plan-visited">Éléments sémantiques</li>
+								<li class="plan-current">Listes</li>
+								<li>Tables</li>
+								<li>Formulaires</li>
+							</ul>
+						</li>
+						<li class="">Validation et bonnes pratiques</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Les listes</h2>
+					<ul>
+					<li class="fragment">Permettent de présenter du contenu structuré sous forme d'une liste ordonnée ou non-ordonnée.</li>
+					<li class="fragment">Trois types de listes: 
+						<ul>
+							<li>Liste non-ordonnées (puces)</li>
+							<li>Liste ordonnées (ordre numérique)</li>
+							<li>Liste de descriptions</li>
+						</ul>
+					</li>
+					<li class="fragment">Les listes peuvent être imbriquées</li>
+					<li class="fragment">Le comportement d'une liste (ex.: type de numérotation, numérotation à l'envers, etc. ) peut être modifié à l'aide d'attributs spécifiques aux éléments de liste.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Listes non-ordonnées</h2>
+					<dl>
+						<dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/ul" target="_blank">UL</a></dt>
+						<dd>Unordered List</dd>
+						<dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/li" target="_blank">LI</a></dt>
+						<dd>Line Item</dd>
+					</dl>
+					<hr>
+					<div class="two_columns_layout">
+						<div class="col">
+							<pre><code class="html" data-trim><script type="text/template">
+							<ul>
+								<li>Elément 1</li>
+								<li>Elément 2</li>
+								<li>Elément 3</li>
+							</ul>
+							</script></code></pre>
+						</div>
+						<div class="col">
+							<ul>
+								<li>Elément 1</li>
+								<li>Elément 2</li>
+								<li>Elément 3</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Listes ordonnées</h2>
+					<dl>
+						<dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/ol" target="_blank">OL</a></dt>
+						<dd>Ordered List</dd>
+						<dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/li" target="_blank">LI</a></dt>
+						<dd>Line Item</dd>
+					</dl>
+					<hr>
+					<div class="two_columns_layout">
+						<div class="col">
+							<pre><code class="html" data-trim><script type="text/template">
+							<ol>
+								<li>Elément 1</li>
+								<li>Elément 2</li>
+								<li>Elément 3</li>
+							</ol>
+							</script></code></pre>
+						</div>
+						<div class="col">
+							<ol>
+								<li>Elément 1</li>
+								<li>Elément 2</li>
+								<li>Elément 3</li>
+							</ol>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Listes de menu</h2>
+					<dl>
+						<dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/menu" target="_blank">MENU</a></dt>
+						<dd>Comportement identique à <em>UL</em>, mais avec une charge sémantique.</dd>
+					</dl>
+					<hr>
+					<div class="two_columns_layout">
+						<div class="col">
+							<pre><code class="html" data-trim><script type="text/template">
+							<menu>
+								<li>Section 1</li>
+								<li>Section 2</li>
+								<li>Section 3</li>
+							</menu>
+							</script></code></pre>
+						</div>
+						<div class="col">
+							<menu>
+								<li>Section 1</li>
+								<li>Section 2</li>
+								<li>Section 3</li>
+							</menu>
+						</div>
+					</div>
+				</section>
+
+				
+
+				<section>
+					<h2>Listes de descriptions</h2>
+					<dl>
+						<dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/dl" target="_blank">DL</a></dt>
+						<dd>Description List</dd>
+						<dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/dt" target="_blank">DT</a></dt>
+						<dd>Description Term</dd>
+						<dt><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/dd" target="_blank">DD</a></dt>
+						<dd>Description Details</dd>
+					</dl>
+					<hr>
+					<div class="two_columns_layout">
+						<div class="col">
+							<pre><code class="html" data-trim><script type="text/template">
+							<dl>
+								<dt>Terme 1</dt>
+								<dd>Définition 1</dd>
+								<dt>Terme 2</dt>
+								<dd>Définition 2</dd>
+							</dl>
+							</script></code></pre>
+						</div>
+						<div class="col">
+							<dl>
+								<dt>Terme 1</dt>
+								<dd>Définition 1</dd>
+								<dt>Terme 2</dt>
+								<dd>Définition 2</dd>
+							</dl>
+						</div>
+					</div>
+				</section>
+
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<ul>
+						<li class="plan-visited">Définition et structure d'un document HTML</li>
+						<li class="plan-visited">Classification des éléments HTML</li>
+						<li class="">Principaux éléments HTML
+							<ul>
+								<li class="plan-visited">Éléments de base</li>
+								<li class="plan-visited">Éléments sémantiques</li>
+								<li class="plan-visited">Listes</li>
+								<li class="plan-current">Tables</li>
+								<li>Formulaires</li>
+							</ul>
+						</li>
+						<li class="">Validation et bonnes pratiques</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Les tables</h2>
+					<ul>
+						<li>Permettent de présenter les données au format tabulaire (lignes et colonnes)</li>
+						<li>Un tableau est structuré en lignes, puis en colonnes</li>
+					</ul>
+					<p></p>
+					<style type="text/css">
+						.tg  {border-collapse:collapse;border-color:#aaa;border-spacing:0;}
+						.tg td{background-color:#fff;border-color:#aaa;border-style:solid;border-width:1px;color:#333;
+						  overflow:hidden;padding:10px 5px;word-break:normal;}
+						.tg th{background-color:#f38630;border-color:#aaa;border-style:solid;border-width:1px;color:#fff;
+						  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+						.tg .tg-0lax{text-align:left;vertical-align:middle}
+						.tg .tg-0lax2{text-align:center;vertical-align:top; font-weight:bold}
+						</style>
+						<table class="tg">
+							<thead>
+								<tr>
+									<th class="tg-0lax" rowspan="2">Mois</th>
+									<th class="tg-0lax" rowspan="2">Jour</th>
+									<th class="tg-0lax" colspan="2">Données climatiques</th>
+								</tr>
+								<tr>
+									<td class="tg-0lax2">Temp.</td>
+									<td class="tg-0lax2">Hum.</td>
+								</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td class="tg-0lax">Juin</td>
+								<td class="tg-0lax">1</td>
+								<td class="tg-0lax">22.5</td>
+								<td class="tg-0lax">45%</td>
+							</tr>
+							<tr>
+								<td class="tg-0lax">Juin</td>
+								<td class="tg-0lax">2</td>
+								<td class="tg-0lax">19</td>
+								<td class="tg-0lax">80%</td>
+							</tr>
+							<tr>
+								<td class="tg-0lax">Juin</td>
+								<td class="tg-0lax">2</td>
+								<td class="tg-0lax">19</td>
+								<td class="tg-0lax">80%</td>
+							</tr>
+							<tr>
+								<td class="tg-0lax">Juin</td>
+								<td class="tg-0lax">2</td>
+								<td class="tg-0lax">19</td>
+								<td class="tg-0lax">80%</td>
+							</tr>
+							<tr>
+								<td class="tg-0lax">Juin</td>
+								<td class="tg-0lax">2</td>
+								<td class="tg-0lax">19</td>
+								<td class="tg-0lax">80%</td>
+							</tr>
+							</tbody>
+							</table>
+				</section>
+				
+				<section>
+					<h2>Les tables: éléments</h2>
+					<p>Les élémets HTML suivants permettent de définir une table:</p>
+					<table class="r-fit-text">
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/table" target="_blank">table</a></td>
+							<td>Délimite une table. Tous les éléments ci-dessous sont des sous-éléments de <em>table</em></td>
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/thead" target="_blank">thead</a>, 
+								<a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/tbody" target="_blank">tbody</a> et
+								<a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/tfoot" target="_blank">tfoot</a>
+							</td>
+							<td>Structurent le contenu d'une table en en-tête, corps et pied de table. Les lignes et les cellules sont des sous-éléments de <em>thead</em>, <em>tbody</em> ou <em>tfoot</em></td>
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/colgroup" target="_blank">colgroup</a> et
+								<a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/col" target="_blank">col</a>
+							</td>
+							<td>Regrouppement d'en-têtes de colonnes (pas très utile)</td>
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/tr" target="_blank">tr</a></td>
+							<td>Encapsule une ligne du tableau</td>
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/td" target="_blank">td</a> et <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/td" target="_blank">th</a></td>
+							<td>Encapsule le contenu d'une cellule d'entête (th) ou d'une cellule régulière (td) du tableau.<br />Les attributes <em>rowspan</em> et <em>colspan</em> permettent de définir sur combien de lignes ou de colonnes (resp.) une cellule s'étend.</td>
+						</tr>
+						<tr>
+							<td><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/caption" target="_blank">caption</a></td>
+							<td>Légende du tableau (affichable en haut ou en bas du tableau)</td>
+						</tr>
+					</table>
+					<aside class="notes">
+						Les colgroup/col ne sont pas très utiles cas les seules propriétés CSS applicables aux
+						élément col sont border, background, width et visibility. Il n'est pas exemple pas possible
+						de mettre un text-align différent pour les entêtes ce colonnes. Il est parfaitement possible
+						d'obtenir un résultat sémantiquement équivalent avec thead/tr/th.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Tables: Exemple</h2>
+					<div class="two_columns_layout">
+						<div class="col" style="height:max-content;">
+							<pre><code class="html" data-trim><script type="text/template">
+								<table>
+									<caption>
+										Températures mensuelles
+									</caption>
+									<thead>
+										<tr>
+											<th>Jour</th>
+											<th>Temp.</th>
+											<th>Hum.</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td>22.5</td>
+											<td>45%</td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td>19</td>
+											<td>80%</td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>24</td>
+											<td>40%</td>
+										</tr>
+									</tbody>
+								</table>
+							</script></code></pre>
+						</div>
+						<div class="col">
+							<table>
+								
+								<thead>
+								<tr>
+									<th>Jour</th>
+									<th>Temp.</th>
+									<th>Hum.</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>1</td>
+									<td>22.5</td>
+									<td>45%</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>19</td>
+									<td>80%</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>24</td>
+									<td>40%</td>
+								</tr>
+								</tbody>
+								<caption>Températures mensuelles</caption>
+							</table>
+							<p><pre></pre></p>
+						</div>
+					</div>
+				</section>
+
+
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<ul>
+						<li class="plan-visited">Définition et structure d'un document HTML</li>
+						<li class="plan-visited">Classification des éléments HTML</li>
+						<li class="">Principaux éléments HTML
+							<ul>
+								<li class="plan-visited">Éléments de base</li>
+								<li class="plan-visited">Éléments sémantiques</li>
+								<li class="plan-visited">Listes</li>
+								<li class="plan-visited">Tables</li>
+								<li class="plan-current">Formulaires</li>
+							</ul>
+						</li>
+						<li class="">Validation et bonnes pratiques</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Les formulaires</h2>
+					<p>Permettent de recceuillir de l'information depuis une page Web.</p>
+					<div class="r-stack">
+						<img class='fragment' src="./images/shot_ets.png" >
+						<img class='fragment' src="./images/shot_facebook.png" style="transform: rotate(10deg);" >
+						<img class='fragment' src="./images/shot_gmail.png" style="transform: rotate(-10deg);" >
+					</div>
+					</section>
+
+				<section data-auto-animate>
+					<h2>Les formulaires: Structure</h2>
+					<p data-id="les_formulaires_desc">Un formulaire est encapsulé au sein d'un élément form</p>
+					<pre data-id="les_formulaires"><code class="html" data-trim data-line-numbers=""><script type="text/template">
+						<form action="./nouveau_client.php" method="post">
+							...
+						</form>
+					</script></code></pre>
+					<ul>
+						<li><strong>action: </strong> URL du script qui va traiter les informations soumises et retrourner une réponse au navigateur.</li>
+						<li><strong>method: </strong> Méthode du protocole HTTP utilisée pour transmettre les informations. Seulement les méthodes <strong>get</strong> et <strong>post</strong> sont supportées.</li>
+					</ul>
+				</section>
+
+
+				<section data-auto-animate>
+					<h2>Les formulaires: Structure</h2>
+					<p data-id="les_formulaires_desc">Les "contrôles" (i.e. champs) peuvent être de plusieurs types, et décrits par un élément <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/label" target="_blank">label</a></p>
+					<pre data-id="les_formulaires"><code class="html" data-trim data-line-numbers="2-9"><script type="text/template">
+						<form action="./nouveau_client.php" method="post">		
+							<label for="nom_prenom">Nom et prénom:</label>
+							<input type="text" name="nom_prenom" id="nom_prenom">
+							<label for="adresse">Adresse:</label>
+							<textarea id="adresse" name="adresse"></textarea>
+							<label for="nom_usager">Nom d'usager:</label>
+							<input type="text" name="nom_usager" id="nom_usager">
+							<label for="mot_passe">Mot de passe:</label>
+							<input type="password" name="mot_passe" id="mot_passe">
+						</form>
+					</script></code></pre>
+				</section>
+
+				<section>
+					<h2>Les formulaires: Structure</h2>
+					<p data-id="les_formulaires_desc">Les "contrôles" (i.e. champs) peuvent être de plusieurs types, et décrits par un élément <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/label" target="_blank">label</a></p>
+					<div class="two_columns_layout">
+						<div class="col">
+							<pre data-id="les_formulaires"><code class="html" data-trim data-line-numbers="2-9"><script type="text/template">
+								<form action="./nouveau_client.php" method="post">		
+									<label for="nom_prenom">Nom et prénom:</label>
+									<input type="text" name="nom_prenom" id="nom_prenom">
+									<label for="adresse">Adresse:</label>
+									<textarea id="adresse" name="adresse"></textarea>
+									<label for="nom_usager">Nom d'usager:</label>
+									<input type="text" name="nom_usager" id="nom_usager">
+									<label for="mot_passe">Mot de passe:</label>
+									<input type="password" name="mot_passe" id="mot_passe">
+								</form>
+							</script></code></pre>
+						</div>
+						<div class="col" style="white-space: nowrap; text-align:left; border:1px solid #000; padding: 5px;">
+							<form action="./nouveau_client.php" method="post">		
+								<label for="nom_prenom" style="font-size: 0.6em;">Nom et prénom:</label>
+								<input type="text" name="nom_prenom" id="nom_prenom"><br />
+								<label for="adresse" style="font-size: 0.6em;">Adresse:</label><br />
+								<textarea id="adresse" name="adresse"></textarea><br />
+								<label for="nom_usager" style="font-size: 0.6em;">Nom d'usager:
+								<input type="text" name="nom_usager" id="nom_usager"><br />
+								<label for="mot_passe">Mot de passe:
+								<input type="password" name="mot_passe" id="mot_passe">
+							</form>
+						</div>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h2>Les formulaires: Structure</h2>
+					<p data-id="les_formulaires_desc">Les contrôles peuvent être regrouppés au sein d'un élément <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/fieldset" target="_blank">fieldset</a>. Un <em>fieldset</em> peut comporter une légende à l'aide de l'élément <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/legend" target="_blank">legend</a></p>
+					<pre data-id="les_formulaires"><code class="html" data-trim data-line-numbers="2-3,8-10,15"><script type="text/template">
+						<form action="./nouveau_client.php" method="post">		
+							<fieldset>
+								<legend>Infos personnelles</legend>
+								<label for="nom_prenom">Nom et prénom:</label>
+								<input type="text" name="nom_prenom" id="nom_prenom">
+								<label for="adresse">Adresse:</label>
+								<textarea id="adresse" name="adresse"></textarea>
+							</fieldset>
+							<fieldset>
+								<legend>Infos de connexion</legend>
+								<label for="nom_usager">Nom d'usager:</label>
+								<input type="text" name="nom_usager" id="nom_usager">
+								<label for="mot_passe">Mot de passe:</label>
+								<input type="password" name="mot_passe" id="mot_passe">
+							</fieldset>
+						</form>
+					</script></code></pre>
+				</section>
+
+				<section data-auto-animate>
+					<h2>Les formulaires: Structure</h2>
+					<p data-id="les_formulaires_desc">Les contrôles peuvent être regrouppés au sein d'un élément <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/fieldset" target="_blank">fieldset</a>. Un <em>fieldset</em> peut comporter une légende à l'aide de l'élément <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/legend" target="_blank">legend</a></p>
+					<div style="white-space: nowrap; text-align:left; border:1px solid #000; padding: 5px;font-size: 0.6em;">
+						<form action="./nouveau_client.php" method="post">		
+							<fieldset>
+								<legend>Infos personnelles</legend>
+								<label for="nom_prenom2">Nom et prénom:</label>
+								<input type="text" name="nom_prenom" id="nom_prenom2"><br>
+								<label for="adresse2">Adresse:</label>
+								<textarea id="adresse2" name="adresse2"></textarea>
+							</fieldset>
+							<fieldset>
+								<legend>Infos de connexion</legend>
+								<label for="nom_usager2">Nom d'usager:</label>
+								<input type="text" name="nom_usager" id="nom_usager2"><br>
+								<label for="mot_passe2">Mot de passe:</label>
+								<input type="password" name="mot_passe" id="mot_passe2">
+							</fieldset>
+						</form>
+					</div>
+				</section>
+
+				<section data-auto-animate>
+					<h2>Les formulaires: Les contrôles</h2>
+					<ul>
+						<li>Un contrôle est un champs de saisie d'information.</li>
+						<li>L'information saisie peut-être de plusieurs natures (ex.: textuelle, choix, fichier)</li>
+						<li>L'élément <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/input" target="_blank">input</a> permet d'afficher la plupart des contrôles disponibles, dépendamment de la valeur de l'attribut <em>type</em>.</li>
+						<li>Autres éléments que input pour afficher un champs: 
+							<ul>
+								<li><strong><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/textarea" target="_blank">textarea</a>:</strong> Zone de texte multilignes</li>
+								<li><strong><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/select" target="_blank">select</a> et <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/option" target="_blank">option</a>: </strong> Menu déroulant (<em>Dropdown</em>)</li>
+								<li><strong><a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element/button" target="_blank">button</a></strong>: Bouton (ex.: pour transmettre un formulaire)</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<ul>
+						<li class="plan-visited">Définition et structure d'un document HTML</li>
+						<li class="plan-visited">Classification des éléments HTML</li>
+						<li class="plan-visited">Principaux éléments HTML
+							<ul>
+								<li class="plan-visited">Éléments de base</li>
+								<li class="plan-visited">Éléments sémantiques</li>
+								<li class="plan-visited">Listes</li>
+								<li class="plan-visited">Tables</li>
+								<li class="plan-visited">Formulaires</li>
+							</ul>
+						</li>
+						<li class="plan-current">Validation et bonnes pratiques</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Validation: Problème 1</h2>
+					<ul>
+						<li>Le HTML a évolué rapidementm en "production"</li>
+						<li>Les navigateurs ont adopté une politique permissive: le document s'affiche même si ce dernier est mal-formé.</li>
+						<li><b>Problème:</b> Chaque navigateur interprète un document erroné à sa façon</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Outils de validation syntaxique</h2>
+					<p><a href="https://validator.w3.org" target="_blank">Le validateur syntaxique du W3C</a></p>
+					<img src="./images/shot_validator.png">
+				</section>
+
+				<section>
+					<h2>Validation: Problème 2</h2>
+					<ul>
+						<li>Les normes HTML et CSS ont souvent été ambigües</li>
+						<li>Les différents navigateur ont souvent interprété à leur manière la norme (même les éléments peu ambigüs!)</li>
+						<li>Les navigateurs n'intègrent pas les nouveautés des normes au même rythme</li>
+						<li><b>Résultat: </b>Même un document HTML conforme aux normes risque de se comporter différemment selon les navigateurs</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Outils de vérification de support</h2>
+					Exemple: <a href="https://www.caniuse.com" target="_blank">Le site caniuse.com</a>
+					<img src="./images/shot_caniuse.png">
+				</section>
+
+				<section>
+					<h2>Outils de validation automatisés</h2>
+					<p>Plusieurs outils disponibles généralement sous forme d'extensions de navigateur. Ex.:</p>
+					<ul>
+						<li><a href="https://developer.chrome.com/docs/lighthouse/overview/">Google LightHouse</a>: Outils assez complet (standards, accessibilité, performance)</li>
+						<li><a href="https://chrome.google.com/webstore/detail/html-validator/mpbelhhnfhfjnaehkcnnaknldmnocglk">HTML Validator</a>: Basé sur le validateur du W3C</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Validation: Problème 3</h2>
+					<ul>
+						<li>Les différents comportements entre navigateurs ont longtemps été une source de complexité pour les professionnel(le)s du Web</li>
+						<li>Ces dernièr(s)s ont souvent adopté des stratégies de contournement, souvent aux dépens de la séparation des préoccupations</li>
+						<li><b>Résultat: </b>Du code <strong>peu maintenable</strong> et du contenu <strong>non-accessible</strong>.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>La séparation des préoccupations</h2>
+					<div class="r-fit-text">
+					<ul>
+						<li><b>HTML:</b> 
+							<ul>
+								<li>Le contenu présenté autant à l'humain (via navigateur) qu'à une machine (moteurs de recherche, lecteurs d'écrans, etc.)</li>
+								<li>Doit se conformer à la norme, même si le navigateur l'affiche correctement!</li>
+							</ul>
+								
+						</li>
+						<li><b>CSS:</b> 
+							<ul>
+								<li>Le formattage du contenu, selon le média (écran, téléphone, tablette, etc.)</li>
+								<li>Doit se conformer à la norme, même si le navigateur l'affiche correctement!</li>
+							</ul>
+						</li>
+						<li><b>Javascript:</b>
+							<ul>
+								<li>La partie intéractive de la page (réaction aux stimuli), destinée essentiellement à l'usager humaine</li>
+								<li>Si ce n'est pas conforme, ça ne fonctionnera pas...</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				</section>
+
+				<section data-visibility="hidden">
+					<h2>Eléments de base: !-- ... --</h2>
+					<p>Ajoute un commentaire au code de la page qui ne sera pas interprété par le navigateur.</p>
+					<pre>
+						<code class="html" data-trim>
+							<!-- Ceci est un commentaire -->
+							<p>Bienvenue sur ma page!</p>
+						</code>
+					</pre>
+					<div class=" r-frame normalize">
+						<!-- Ceci est un commentaire -->
+						<p>Bienvenue sur ma page!</p>
+					</div>
+				</section>
+				
+				<section data-visibility="hidden">
+					<h2>Eléments de base: A</h2>
+					<p>Crée un lien hypertexte vers <strong>une autre page web</strong> ou vers une section de la même page.</p>
+					<pre>
+						<code class="html" data-trim>
+							Rendez-vous sur le 
+							<a href="http://www.lapresse.ca">site de La Presse</a> 
+							pour obtenir les dernières nouvelles.
+						</code>
+					</pre>
+					<div class=" r-frame normalize">
+						Rendez-vous sur le 
+						<a href="http://www.lapresse.ca">site de La Presse</a> 
+						pour obtenir les dernières nouvelles.
+					</div>
+				</section>
+
+				<section  data-visibility="hidden">
+					<h2>Eléments de base: A (ancre)</h2>
+					<p>Crée un lien hypertexte vers une autre page web ou vers <strong>une section de la même page</strong>.</p>
+					<pre>
+						<code class="html" data-trim>
+							<p>Les résultats de l'étude sont présentés dans la 
+								<a href="#demo-conclusion">conclusion</a> ci-dessous.
+							</p>
+							...
+							<h2 id="demo-conclusion">Conclusion</h2>
+						</code>
+					</pre>
+					<div class=" r-frame normalize">
+						<p>Les résultats de l'étude sont présentés dans la <a href="#demo-conclusion">conclusion</a> ci-dessous.</p>
+						...
+						<h2 id="demo-conclusion">Conclusion</h2>
+					</div>
+				</section>
+
+				
+
+
+<!-- FIN THE END -->
+				<section data-menu-title="Fin">
+					<img src="../images/the_end.png" >
+				</section>
+			</div>
+		</div>
+
+		<script src="../revealjs/reveal.js"></script>
+		<script src="../revealjs/plugin/notes/notes.js"></script>
+		<script src="../revealjs/plugin/markdown/markdown.js"></script>
+		<script src="../revealjs/plugin/highlight/highlight.js"></script>
+		<script src="../revealjs/plugin/menu/menu.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMenu ], 
+				menu: {
+					side: 'left',
+					width: 'wide', //'normal', 'wide', 'third', 'half', 'full', or css valid length
+					numbers: false,
+					titleSelector: 'h1, h2, h3, h4, h5, h6',
+					useTextContentForMissingTitles: true,
+					hideMissingTitles: false,
+					markers: true,
+					custom: false,
+					themes: false,
+					themesPath: 'dist/theme/',
+					transitions: false,
+					openButton: true,
+					openSlideNumber: false,
+					keyboard: true,
+					sticky: false,
+					autoOpen: true,
+					delayInit: false,
+					openOnInit: false,
+					loadIcons: true
+				}
+			});
+		</script>
+	</body>
+</html>

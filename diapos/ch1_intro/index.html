@@ -1,0 +1,570 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>CH01-Introduction | TCH056</title>
+
+		<link rel="stylesheet" href="../revealjs/reset.css">
+		<link rel="stylesheet" href="../revealjs/reveal.css">
+		<link rel="stylesheet" href="../revealjs/theme/ets.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../revealjs/plugin/highlight/monokai.css" id="highlight-theme">
+		<link href="../timeline/css/timeline.min.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="titre_cours">TCH056 - Programmation Web</div>
+			<div class="slides">
+				<section>
+					<img src='../images/logo_ets.png' />
+					<h4 class="">TCH056 - Programmation Web</h4>
+					<h2 class="r-fit-text">Chapitre 01: Introduction</h2>
+					<br /><br />
+					<p>
+						<strong>Anis Boubaker, Ph.D.</strong><br />
+						<em>Maitre d'enseignement en informatique</em>
+					</p>
+				</section>
+
+
+				<!-- PLAN DE LA SÉANCE -->
+				<section>
+					<h2>Plan de la séance</h2>
+					<ul class="r-fit-text">
+						<li class="plan-current">Qu’est-ce qu'application/site Web?</li>
+						<li class="">Les technologies et les langages du Web</li>
+						<li class="">Bref historique du Web</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Définitions: Qu'est-ce que le développement Web?</h2>
+					<img src="./images/edho-pratama-T6fDN60bMWY-unsplash.jpg">
+				</section>
+				
+				<section>
+					<h2>Définition: Développement Web</h2>
+					<p class="fragment" data-fragment-index="1">L'ensemble des tâches nécessaires à la conception, le développement et la mise en place de sites Web. Le développement
+						web peut aller du développement d'une simple page texte statique à des applications Web complexes, aux sites de commerce électronique
+						ou de réseaux sociaux. <cite>Source: <a href='https://en.wikipedia.org/wiki/Web_development'>Wikipedia</a></cite>
+					</p>
+					<img class="fragment" data-fragment-index="1" src='./images/conception-site-papier.jpg'>
+				</section>
+
+				<section  data-auto-animate>
+					<h2>Définition: Page Web</h2>
+					<p class="fragment">
+						Document pouvant être interprété et affiché par un navigateur.
+					</p>
+					<pre  class="fragment"><code>
+&lt;html>
+	&lt;head>&lt;title>Ma première page&lt;/title>&lt;/head>
+	&lt;body>
+		<h1>Bonjour le monde!</h1>
+		<p>Ceci est ma première page Web!</p>
+	&lt;/body>
+&lt;/html>
+					</code></pre>
+				</section>
+
+				<section  data-visibility="uncounted" data-auto-animate>
+					<h2>Définition: Page Web</h2>
+					<p>
+						Document pouvant être interprété et affiché par un navigateur.
+					</p>
+					<img src="./images/premier_page_shot.png" >
+				</section>
+
+				<section data-auto-animate>
+					<h3>Page Web: Document interprété par le navigateur</h3>
+					<ul>
+						<li class="">La structure du document est définie dans le langage <strong>de balisage</strong> HTML</li>
+					</ul>
+					<pre  class=""><code>
+&lt;html>
+	&lt;head>&lt;title>Ma première page&lt;/title>&lt;/head>
+	&lt;body>
+		<h1>Bonjour le monde!</h1>
+		<p>Ceci est ma première page Web!</p>
+	&lt;/body>
+&lt;/html>
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3>Page Web: Document interprété par le navigateur</h3>
+					<ul>
+						<li class="">La structure du document est définie dans le langage <strong>de balisage</strong> HTML</li>
+						<li>Les aspects visuels du document sont codés dans un langage <strong>déclaratif</strong>: le CSS</li>
+					</ul>
+					<pre  class=""><code class="css">
+.fancy {
+	font-weight: bold;
+	text-shadow: 4px 4px 3px #77f;
+}
+					</code></pre>
+				</section>
+				<section data-auto-animate>
+					<h3>Page Web: Document interprété par le navigateur</h3>
+					<ul>
+						<li class="">La structure du document est définie dans le langage <strong>de balisage</strong> HTML</li>
+						<li class="">Les aspects visuels du document sont codés dans un langage <strong>déclaratif</strong>: le CSS</li>
+						<li class="">Les aspects dynamiques (réaction aux évévements, modification du contenu de la page, etc.) sont codés dans un langage 
+							<strong>de programmation</strong>: le Javascript. 
+						</li>
+					</ul>
+					<pre  class="" ><code class="javascript">
+function toCelsius(fahrenheit) {
+	return (5/9) * (fahrenheit-32);
+}
+document.getElementById("temp").innerHTML = toCelsius(77);
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Définition: Site Web</h2>
+					<p class="fragment"  data-fragment-index="1">
+						Un ensemble de pages web et de ressources reliées par des hyperliens, défini et accessible par une adresse web. 
+						<cite>Souce: <a href='https://fr.wikipedia.org/wiki/Site_web'>Wikipedia</a></cite>
+					</p>
+					<img class='fragment' data-fragment-index="1" src="./images/Website-illustration.jpeg" >
+				</section>
+
+				<section>
+					<h2>Définition: Application Web</h2>
+					<p class="fragment" >
+						Une application manipulable directement en ligne grâce à un navigateur web et qui ne nécessite donc pas d'installation sur les machines clientes. 
+						<cite>Souce: <a href='https://fr.wikipedia.org/wiki/Application_web'>Wikipedia</a></cite>
+					</p>
+					<div class="r-stack">
+						<img class='fragment' src="./images/webapp-gmail.png" >
+						<img class='fragment' src="./images/webapp-trello.jpeg" style="transform: rotate(10deg);" >
+						<img class='fragment' src="./images/webapp-onshape.jpeg" style="transform: rotate(20deg);" >
+						<img class='fragment' src="./images/webapp-clipchamp.jpeg" style="transform: rotate(-10deg);" >
+						<img class='fragment' src="./images/webapp-gdocs.png" style="transform: rotate(-20deg);" >
+					</div>
+				</section>
+
+				<!-- PLAN DE LA SÉANCE -->
+				<section>
+					<h2>Plan de la séance</h2>
+					<ul class="r-fit-text">
+						<li class="plan-visited">Qu’est-ce qu'application/site Web?</li>
+						<li class="plan-current">Les technologies et les langages du Web</li>
+						<li class="">Bref historique du Web</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Technologies et préoccupations</h3>
+					<img src="./images/separation_of_concerns.png" style="">
+				</section>
+
+				<section data-background-iframe="./technos_web.html"
+						data-background-interactive
+						data-menu-title="Les technologies du Web">
+				</section>
+
+				<section data-background-iframe="./fonctionnement_web.html"
+						data-background-interactive
+						data-menu-title="Fonctionnement du Web">
+				</section>
+
+
+				<!--
+				<section>
+					<h2>Comment ça marche?</h2>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/dYgNvn98Nag" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+				</section>
+				-->
+				
+				<section>
+					<h2>URL</h2>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/HvzBCuInIDA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+				</section>
+
+				<section>
+					<h2>Anatomie d'une WebApp</h2>
+					<div class="two_columns_layout">
+						<div class="col fragment">
+							<h4>Côté-client:</h4>
+							<ul>
+								<li>HTML/DOM</li>
+								<li>CSS</li>
+								<li>JavaScript</li>
+								<li>Ressources statiques</li>
+								<li>“Navigateur” (qui fournit certains services)</li>
+							</ul>
+						</div>
+						<div class="col fragment">
+							<h4>Côté-serveur:</h4>
+							<ul>
+								<li>Infrastructure serveur web (Apache, IIS, NodeJs, etc.)</li>
+								<li>Code côté-serveur: JavaScript, PHP, ou autre langage/plate-forme</li>
+							</ul>
+						</div>
+					</div> <!-- Two columns -->
+					<aside class="notes">
+						- Communication entre le client et serveur: ajax ou transfert de données. 
+					</aside>
+				</section>
+
+				<section>
+					<h2>HTML (Hyper-Text Markup Language)</h2>
+					<div class="two_columns_layout">
+						<div class="col">
+							<img src="../images/cours01/html.jpg" />
+						</div>
+						<div class="col_larger">
+							<ul>
+								<li>Décrire la structure et le contenu de la page initiale</li>
+								<li>Contient des pointeurs vers du code JavaScript (e.g., balises &lt;script&gt;)</li>
+								<li>Est récupéré par le navigateur, analysé, puis converti sous forme d'arbre (DOM)</li>
+							</ul>
+						</div>
+				</section>
+
+
+
+
+				<section>
+					<h2>CSS (Cascading Style Sheets)</h2>
+					<div class="two_columns_layout">
+						<div class="col">
+							<img src="../images/cours01/css.png" />
+						</div>
+						<div class="col_larger">
+							<ul>
+								<li>Séparation du contenu de la page de sa présentation</li>
+								<li>Ensemble de règles déclaratives:</li>
+									<ul>
+										<li>Élément(s) visé(s) (“target”) à gauche</li>
+										<li>Actions à droite</li>
+									</ul>								
+								<li>Uniformisation par l'application de règles à tous éléments de la page dans le DOM</li>
+							</ul>
+						</div>
+				</section>
+
+
+
+				<section>
+					<h2>JavaScript</h2>
+					<div class="two_columns_layout">
+						<div class="col">
+							<img src="../images/cours01/JS.jpg" />
+						</div>
+						<div class="col_larger" style="font-size: 0.9em !important;">
+							<ul class="">
+								<li>Langage de premier plan pour les applications web modernes</li>
+								<li>Permet l'intéractivité des applications web</li>
+								<li>Exécuté lorsqu'une balise &lt;script&gt; est détectée, ou lorsque des événements du DOM sont déclenchés</li>
+								<li>Est un langage de programmation complet avec plusieurs fonctionnalités avancées (des bonnes et des mauvaises!)</li>
+							</ul>
+						</div>
+				</section>
+
+				<section>
+					<h2>Technologies côté serveur</h2>
+					<div class="two_columns_layout">
+						<div class="col">
+							<img src="../images/cours01/serveur.png" />
+						</div>
+						<div class="col_larger" style="">
+							<ul class="">
+								<li>Répondent aux requêtes HTTP (et AJAX), agnostique au langage</li>
+								<li>Logiciel ou cadriciel qui intercepte les requêtes (Apache, IIS, Node.js, Django, etc.</li>
+								<li>Langages typiquement utilisés: Java, .Net, RoR, PHP, Python, JS</li>
+								<li>JS est de plus en plus populaire (dev full stack)</li>
+							</ul>
+						</div>
+				</section>
+
+
+				<section>
+					<h2>Maintenance de l'état</h2>
+					<div class="two_columns_layout">
+						<div class="col">
+							<img src="../images/cours01/database.png" />
+						</div>
+						<div class="col_larger" style="">
+							<ul class="">
+								<li>Fichiers témoins (Cookies)</li>
+								<li>Stockage local persistant (HTML5)</li>
+								<li>Base de données et mécanismes de stockage côté serveur</li>
+							</ul>
+						</div>
+				</section>
+
+				<section  data-transition="convex" data-background-image="./images/web.jpg">
+					<h1 style="padding-top: 300px; color: white;">Bref historique...</h1>
+					<!-- Photo by Miguel Á. Padriñán: https://www.pexels.com/photo/web-text-1591060/ -->
+				</section>
+
+				<section>
+					<h2>Plan de la séance</h2>
+					<ul class="r-fit-text">
+						<li class="plan-visited">Qu’est-ce qu'application/site Web?</li>
+						<li class="plan-visited">Les technologies et les langages du Web</li>
+						<li class="plan-current">Bref historique du Web</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Historique du Web</h2>
+					<h3>Internet</h3>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/dFmTbZMGRdQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
+				</section>
+
+				<section>
+					<h2>Historique du Web</h2>
+					<h3>Le <i>World Wide Web</i></h3>
+					<span class="note">Faites défiler la ligne du temps avec la flêche.
+						<i>Rechargez la page si la ligne du temps ne s'affiche pas.</i></span>
+					<div class="timeline" data-mode="horizontal"  data-force-vertical-mode="600">
+						<div class="timeline__wrap">
+							<div class="timeline__items">
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>1989 - Invention du WWW</strong><br />
+										Par Sir Tim Berners Lee, Ingénieur au CERN<br />
+										Invention du langage <strong>HTML</strong>, du protocole <strong>HTTP</strong>
+										et des adresse <strong>URL</strong>
+									</div>
+								</div>
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>1991 - Premier navigateur Web</strong><br />
+										Publié par Tim Berners Lee
+									</div>
+								</div>
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>1993 - Mosaic, Archie</strong><br />
+										Archie: Premier moteur de recherche<br />
+										Mosaic: Premier navigateur graphique
+									</div>
+								</div>
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>1995-2000</strong><br />
+										Début du commerce électronique et apparition de sites comme Amazon et eBay.<br />
+										Introduction de Javascript et de CSS
+									</div>
+								</div>
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>Début 2000-2005</strong><br />
+										Explosion en terme d'utilisation, démocratisation des ordiateurs personnels.<br />
+										Langages côté serveur PHP et base de données MySQL ont démocratisé les sites
+										dynamiques.
+									</div>
+								</div>
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>Début 2005-2010</strong><br />
+										Exploitation du modèle de communication Asynchrone (AJAX), Multiplication des cadriciels Web
+										(Ruby on rails, Django, Zend...)
+									</div>
+								</div>
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>2010-2015</strong><br />
+										Émergence des téléphones intelligents, débuts de la conception adaptive (<i>Responsive Design</i>)
+									</div>
+								</div>
+								<div class="timeline__item">
+									<div class="timeline__content">
+										<strong>2015-Auj</strong><br />
+										Applications Web modernes qui remplacent les interfaces classiques<br />
+										Frameworks client modernes: React, Angular, Vue...<br />
+										Réification du développement front-end et back-end avec NodeJs<br />
+										Nouveaux paradigmes: Single Page Apps, Progressive Web Apps, ...
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Historique du Web</h2>
+					<h3>Les technologies</h3>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/XYTwYmOjqQs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen;" ></iframe>
+				</section>
+
+				<section>
+					<h2>Historique du Web</h2>
+					<h3>Les navigateurs</h3>
+					<ul>
+						<li>Plusieurs navigateurs se partagent le marché</li>
+						<li>Rude compétition entre navigateurs pendant des décennies</li>
+						<li>Les navigateurs ne supportent pas tous les mêmes techniques, ou les interprêtent différemment!</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Navigateurs</h2>
+					<h3>Moteurs de rendu (<i>rendering</i>)</h3>
+					
+					<table>
+						<thead>
+							<tr>
+								<th>Moteur</th>
+								<th>Navigateur</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Trident, Edge HTML</td>
+								<td>Internet Explorer</td>
+							</tr>
+							<tr>
+								<td><img src="./images/Mozillagecko-logo.gif" style="height:50px;"></td>
+								<td>Firefox</td>
+							</tr>
+							<tr>
+								<td><img src="./images/WebKit_logo.svg"></td>
+								<td>Safari</td>
+							</tr>
+							<tr>
+								<td>&lt;blink></td>
+								<td>Chrome, Opera, Edge</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Navigateurs</h2>
+					<h3>Engins d'exécution JavaScript</h3>
+					
+					<table>
+						<thead>
+							<tr>
+								<th>Engin</th>
+								<th>Navigateur</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>SpiderMonkey</td>
+								<td>Firefox</td>
+							</tr>
+							<tr>
+								<td>Nitro</td>
+								<td>Safari</td>
+							</tr>
+							<tr>
+								<td>V8</td>
+								<td>Chrome, Opera, Edge</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Gouvernance du Web</h2>
+					<h3>World Wide Web Consortium (W3C)</h3>
+					<ul>
+						<li>Le langage HTML a été normalisé par le W3C à partir de 1995</li>
+						<li>Les langages Javascript (1995) et CSS (1996) sont aussi normalisé par le W3C</li>
+						<li>Gère d'autre standards également, tels que XML, XSLT, PNG, SVG.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Gouvernance du Web</h2>
+					<h3>Web Hypertext Application Technology Working Group (WHATWG)</h3>
+					<ul>
+						<li>Fondé en 2004 par Apple, Opera et Mozilla</li>
+						<li>Motivés par la lenteur des évolutions du HTML/CSS par le W3C</li>
+						<li>Deux standards, pas toujours d'accord!</li>
+						<li>Confusions et différences entre les navigateurs</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Gouvernance du Web</h2>
+					<h3>W3C + WHATWG</h3>
+					<ul>
+						<li>2009: Les deux organismes s'entendent pour établir le standard conjointement</li>
+						<li>HTML devient un standard "vivant" maintenant par WHATWG</li>
+						<li>Les autres standards (CSS, SVG, ...) restent sout la responsabilité du W3C</li>
+					</ul>
+				</section>
+
+				<section data-background-iframe="https://html.spec.whatwg.org/multipage/"
+						 data-background-interactive="true"
+						 data-menu-title="Standard HTML du WHATWG">
+					<div style="text-align: right;padding-top: 5em;">
+						<a href="https://html.spec.whatwg.org/multipage/" target="_blank">https://html.spec.whatwg.org/</a>
+					</div>
+				</section>
+
+				<section>
+					<h2>Gouvernance du Web</h2>
+					<ul>
+						<li>Outils de validation du respect des standards (<a href="https://validator.w3.org" target="_blank">https://validator.w3.org</a>)</li>
+						<li>Chaque navigateur supporte un sous-ensemble des standards.</li>
+						<li>Outils pour vérifier quels fonctionnalités sont supportées par quels navigateurs (Outils tels que: MDN, CanIUse.com)</li>
+					</ul>
+				</section>
+
+				<section data-background-iframe="https://caniuse.com"
+						 data-background-interactive="true"
+						 data-menu-title="CanIUse.com">
+				</section>
+
+				<section data-menu-title="Fin">
+					<img src="../images/the_end.png" >
+				</section>
+			</div>
+		</div>
+
+		<script src="../revealjs/reveal.js"></script>
+		<script src="../revealjs/plugin/notes/notes.js"></script>
+		<script src="../revealjs/plugin/markdown/markdown.js"></script>
+		<script src="../revealjs/plugin/highlight/highlight.js"></script>
+		<script src="../revealjs/plugin/menu/menu.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMenu ], 
+				menu: {
+					side: 'left',
+					width: 'wide', //'normal', 'wide', 'third', 'half', 'full', or css valid length
+					numbers: false,
+					titleSelector: 'h1, h2, h3, h4, h5, h6',
+					useTextContentForMissingTitles: true,
+					hideMissingTitles: false,
+					markers: true,
+					custom: false,
+					themes: false,
+					themesPath: 'dist/theme/',
+					transitions: false,
+					openButton: true,
+					openSlideNumber: false,
+					keyboard: true,
+					sticky: false,
+					autoOpen: true,
+					delayInit: false,
+					openOnInit: false,
+					loadIcons: true
+				}
+			});
+		</script>
+		<script src="../timeline/js/timeline.min.js"></script>
+		<script>
+			timeline(document.querySelectorAll('.timeline'));
+			
+		</script>
+	</body>
+</html>
