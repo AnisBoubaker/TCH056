@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Laboratoire 3</title>
+	<link rel="stylesheet" href="../css/labos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+</head>
+<body>
+	<h1>Laboratoire 6: Javascript (JQuery)</h1>
+    <div class="container">
+        <h2>Exercice 1:</h2>
+        <p>
+            En utilisant la librairie JQuery, écrire une fonction masquerElements qui prend en paramètre un sélecteur CSS 
+            et masque tous les éléments correspondants.
+        </p>
+        <p>
+            <strong>Exemple d'utilisation:</strong>
+        </p>
+        <pre><code class="javascript">
+&lt;div class="monDiv">Texte 1&lt;/div>
+&lt;div class="monDiv">Texte 2&lt;/div>
+&lt;div class="monDiv">Texte 3&lt;/div>
+&lt;button onclick="masquerElements('.monDiv')">Masquer les divs&lt;/button>
+        </code></pre>
+    </div>
+    <div class="container">
+        <h2>Exercice 2:</h2>
+        <p>
+            En utilisant la librairie JQuery, écrire une fonction ajouterElement qui prend en paramètre un élément
+            HTML à ajouter et un sélecteur CSS du parent où l'élément doit être ajouté.
+        </p>
+        <p>
+            <strong>Exemple d'utilisation:</strong>
+        </p>
+        <pre><code class="javascript">
+            let monElement = $('<p>Mon texte</p>');
+            ajouterElement(monElement, '#monDiv');
+        </code></pre>
+    </div>
+    <div class="container">
+        <h2>Exercice 3:</h2>
+        <p>
+            En utilisant la librairie JQuery, écrire une fonction modifierStyle qui prend en paramètre un sélecteur CSS et un 
+            objet représentant les styles CSS à modifier.
+        </p>
+        <p>
+            <strong>Exemple d'utilisation:</strong>
+        </p>
+        <pre><code class="html">
+&lt;div id="monDiv">Mon texte&lt;/div>
+&lt;button onclick="modifierStyle('#monDiv', {'background-color': 'red', 'color': 'white'})">Modifier le style&lt;/button>
+        </code></pre>
+    </div>
+    <div class="container">
+        <h2>Exercice 4:</h2>
+        <p>
+            En utilisant la librairie JQuery, écrire une fonction chargerContenu qui prend en paramètre une URL de fichier et 
+            charge son contenu dans un élément HTML spécifié.
+        </p>
+        <p>
+            <strong>Exemple d'utilisation:</strong>
+        </p>
+        <pre><code class="html">
+&lt;div id="monDiv">&lt;/div>
+&lt;button onclick="chargerContenu('monFichier.txt', '#monDiv')">Charger le contenu&lt;/button>
+        </code></pre>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

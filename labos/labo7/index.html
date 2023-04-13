@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Laboratoire 7</title>
+	<link rel="stylesheet" href="../css/labos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+</head>
+<body>
+	<h1>Laboratoire 7: PHP</h1>
+    <div class="container">
+        <h2>Exercice 1:</h2>
+        <p>
+            Créer une page PHP qui génère le contenu de la page HTML automatiquement à partir d'un 
+            ensemble de mots stockés dans un tableau. Les mots sont choisis de façon aléatoire et la 
+            page doit contenir entre 500 et 800 mots (choix aléatoire).
+        </p>
+        <p>Voici un tableau contenant 100 mots à utiliser pour générer votre contenu: (<em>Copiez/collez la ligne en entier!)</em>)</p>
+        
+        <pre><code class="php">
+$mots = array("chat", "chien", "maison", "soleil", "arbre", "pomme", "voiture", "ordinateur", "livre", "musique", "avion", "mer", "plage", "montagne", "fleur", "fruit", "paysage", "enfant", "école", "professeur", "amour", "hiver", "été", "printemps", "automne", "jour", "nuit", "heure", "minute", "seconde", "bouteille", "verre", "tasse", "assiette", "cuillère", "fourchette", "couteau", "pantalon", "robe", "chemise", "chaussure", "chapeau", "parapluie", "crayon", "stylo", "feutre", "gomme", "règle", "carnet", "agenda", "journal", "carte", "timbre", "téléphone", "télévision", "radio", "vélo", "moto", "train", "avion", "bateau", "bus", "voiture", "clé", "porte", "fenêtre", "table", "chaise", "canapé", "lampe", "plante", "cadre", "horloge", "miroir", "télécommande", "coussin", "couverture", "oreiller", "serviette", "sac", "valise", "parfum", "crème", "shampooing", "savon", "dentifrice", "brosse", "mousse", "lait", "eau", "jus", "café", "thé", "bière", "vin", "chocolat", "gateau", "bonbon", "glace");
+        </code></pre>
+    </div>
+    <div class="container">
+        <h2>Exercice 2:</h2>
+        <p>
+            Créer une page Web en PHP qui affiche la table de multiplication des entiers de 1 à 10. Le résultat doit 
+            s'afficher dans un tableau de 10 lignes et 10 colonne, en ajoutant une ligne d'en-tête. 
+        </p>
+    </div>
+    <div class="container">
+        <h2>Exercice 3:</h2>
+        <p>
+            Créer une page HTML qui demande l'information sur la taille et le poids d'une personne. 
+            En soumettant le formulaire (méthode GET), votre page doit afficher l'indice de masse corporelle
+            de la personne (BMI) ainsi que l'état de la personne (maigreur, normale, en surpoids ou obèse). 
+            Le calcul doit se faire côté serveur à l'aide d'un script PHP.
+        </p>
+    </div>
+    <div class="container">
+        <h2>Exercice 4:</h2>
+        <p>
+            Écrire un script PHP qui valide le contenu d'un formulaire côté serveur. Le formulaire doit contenir les informations suivantes: 
+        </p>
+        <ul>
+            <li>Nom et prénom</li>
+            <li>Adresse de courriel</li>
+            <li>Année de naissance</li>
+        </ul>
+        <p>Votre script doit s'assurer que:</p>
+        <ul>
+            <li>Le nom et le proénom ne sont pas vides et contiennent au moins 2 caractères</li>
+            <li>L'adresse courriel n'est pas vide et contient une valeur du type xxx@xxxx.xxx</li>
+            <li>L'année de naissance est une valeur numérique comprise entre 1900 et l'année courante.</li>
+        </ul>
+        
+    
+        <p>Si les informations sont valide, une alerte doit s'afficher annoçant que les données sont valides et contenu du
+        formulaire effacé. Sinon, vous devez afficher un message d'erreur en face du ou des champs erronés et préserver
+        les informations saisies pas l'usager. </p>        
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
