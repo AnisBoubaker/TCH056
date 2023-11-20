@@ -1,0 +1,113 @@
+<!--
+    Modifier le code précédent que la page puisse s'adapter à la taille du navigateur en utilisant le principe du "Responsive design", en utilisant la librairie Bootstrap.
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Page de destination de l'application mobile</title>
+
+	<!-- Liens vers les fichiers CSS de Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- Lien vers votre fichier CSS personnalisé -->
+	<link rel="stylesheet" href="exercice2.css">
+</head>
+<body>
+
+	<!-- En-tête avec bannière d'image -->
+	<header class="bg-primary">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-md-6">
+					<h1 class="text-white">Titre de l'application</h1>
+					<p class="lead text-white">Description de l'application</p>
+					<button class="btn btn-lg btn-light">Télécharger</button>
+				</div>
+				<div class="col-md-6">
+					<img src="banner.jpg" alt="Bannière de l'application" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Section de fonctionnalités -->
+	<section class="py-5">
+		<div class="container">
+			<h2 class="text-center mb-5">Fonctionnalités</h2>
+			<div class="row">
+				<div class="col-md-4 mb-4">
+					<div class="card h-100">
+						<div class="card-body text-center">
+							<img src="feature-1.jpg" alt="Fonctionnalité 1" class="img-fluid mb-3">
+							<h3>Fonctionnalité 1</h3>
+							<p>Description de la fonctionnalité 1</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 mb-4">
+					<div class="card h-100">
+						<div class="card-body text-center">
+							<img src="feature-2.jpg" alt="Fonctionnalité 2" class="img-fluid mb-3">
+							<h3>Fonctionnalité 2</h3>
+							<p>Description de la fonctionnalité 2</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 mb-4">
+					<div class="card h-100">
+						<div class="card-body text-center">
+							<img src="feature-3.jpg" alt="Fonctionnalité 3" class="img-fluid mb-3">
+							<h3>Fonctionnalité 3</h3>
+							<p>Description de la fonctionnalité 3</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Section de témoignages -->
+	<section class="bg-light py-5">
+		<div class="container">
+            <div id="carouselTestimonials" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"C'était incroyable de pouvoir utiliser cette application. Elle a changé ma vie et m'a permis d'accomplir des choses que je n'aurais jamais cru possible."</p>
+                            <footer class="blockquote-footer">John Doe</footer>
+                        </blockquote>
+                    </div>
+                    <div class="carousel-item">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"Je suis vraiment satisfait de cette application. Elle est facile à utiliser et elle m'a aidé à atteindre mes objectifs."</p>
+                            <footer class="blockquote-footer">Jane Doe</footer>
+                        </blockquote>
+                    </div>
+                    <div class="carousel-item">
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"Cette application est tout simplement géniale! Elle m'a aidé à me concentrer sur mes tâches et à être plus productif."</p>
+                            <footer class="blockquote-footer">John Smith</footer>
+                        </blockquote>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselTestimonials" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Précédent</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselTestimonials" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Suivant</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Liens vers les fichiers JavaScript de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+    </html>

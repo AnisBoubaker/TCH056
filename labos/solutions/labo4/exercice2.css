@@ -1,0 +1,121 @@
+/* Style de base */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Style de la bannière d'en-tête */
+.header-banner {
+    position: relative;
+    height: 500px;
+    background-image: url('header-banner.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-banner h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+/* Style des fonctionnalités */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.feature {
+    width: 300px;
+    margin: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.feature:hover {
+    background-color: #f2f2f2;
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-button {
+    display: inline-block;
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* Style des témoignages */
+.testimonials {
+    background-color: #f2f2f2;
+    padding: 3rem 0;
+}
+
+.testimonial {
+    width: 300px;
+    margin: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-author {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Style responsive */
+@media only screen and (max-width: 768px) {
+    .header-banner {
+        height: 300px;
+    }
+
+    .header-banner h1 {
+        font-size: 3rem;
+    }
+
+    .feature {
+        width: 100%;
+    }
+}

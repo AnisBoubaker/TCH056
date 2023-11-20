@@ -1,0 +1,140 @@
+/* Style général */
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+/* En-tête */
+header {
+	position: relative;
+}
+
+header img {
+	width: 100%;
+}
+
+.header-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: #fff;
+}
+
+.header-text h1 {
+	font-size: 3em;
+	margin: 0;
+}
+
+.header-text p {
+	font-size: 1.5em;
+	margin: 0;
+}
+
+.header-text button {
+	background-color: #fff;
+	color: #000;
+	border: none;
+	padding: 10px 20px;
+	font-size: 1
+}
+/* Section de fonctionnalités */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px;
+    }
+    
+    .feature {
+    flex-basis: calc(33.33% - 20px);
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+    
+    .feature img {
+    display: block;
+    margin: 0 auto 20px;
+    }
+    
+    .feature h2 {
+    font-size: 1.5em;
+    margin: 0;
+    }
+    
+    .feature p {
+    font-size: 1em;
+    margin: 20px 0;
+    }
+    
+    .feature button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    }
+    
+    .feature:hover {
+    background-color: #f2f2f2;
+    }
+    
+    /* Section de témoignages */
+    .testimonials {
+    background-color: #f2f2f2;
+    padding: 50px;
+    text-align: center;
+    }
+    
+    .testimonials h2 {
+    font-size: 2em;
+    margin-bottom: 50px;
+    }
+    
+    .testimonial {
+    background-color: #fff;
+    padding: 50px;
+    margin-bottom: 50px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+    
+    .testimonial p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    }
+    
+    .testimonial .author {
+    font-size: 1em;
+    font-style: italic;
+    }
+    
+    /* Animation pour faire défiler les témoignages */
+    @keyframes testimonial-animation {
+    0% { transform: translateY(0); }
+    20% { transform: translateY(0); }
+    25% { transform: translateY(-100%); }
+    45% { transform: translateY(-100%); }
+    50% { transform: translateY(-200%); }
+    70% { transform: translateY(-200%); }
+    75% { transform: translateY(-300%); }
+    95% { transform: translateY(-300%); }
+    100% { transform: translateY(-400%); }
+    }
+    
+    .testimonial {
+    animation: testimonial-animation 10s ease infinite;
+    }
+    
+    /* Style réactif */
+    @media only screen and (max-width: 768px) {
+    .features {
+    padding: 0;
+    }
+    .feature {
+    flex-basis: calc(50% - 20px);
+    }
+    }

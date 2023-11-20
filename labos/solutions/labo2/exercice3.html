@@ -1,0 +1,65 @@
+<!--
+    Créez une page web qui utilise des tableaux pour afficher des données. 
+    Les tableaux doivent contenir des informations sur des produits, telles que leur nom, 
+    leur prix et leur disponibilité. Ajoutez des boutons pour trier les données en 
+    fonction de différents critères, tels que le nom ou le prix.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Tableau de produits</title>
+	<link rel="stylesheet" type="text/css" href="exercice3.css">
+</head>
+<body>
+	<h1>Tableau de produits</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Prix</th>
+				<th>Disponibilité</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Produit 1</td>
+				<td>10$</td>
+				<td>En stock</td>
+			</tr>
+			<tr>
+				<td>Produit 2</td>
+				<td>15$</td>
+				<td>En stock</td>
+			</tr>
+			<tr>
+				<td>Produit 3</td>
+				<td>20$</td>
+				<td>En rupture de stock</td>
+			</tr>
+			<tr>
+				<td>Produit 4</td>
+				<td>12$</td>
+				<td>En stock</td>
+			</tr>
+			<tr>
+				<td>Produit 5</td>
+				<td>18$</td>
+				<td>En rupture de stock</td>
+			</tr>
+			<tr>
+				<td>Produit 6</td>
+				<td>25$</td>
+				<td>En stock</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="buttons">
+		<button onclick="sortTable(0)">Trier par nom</button>
+		<button onclick="sortTable(1)">Trier par prix</button>
+		<button onclick="sortTable(2)">Trier par disponibilité</button>
+	</div>
+
+	<script src="exercice3.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!--
+    Créez une page web qui affiche une galerie d'images. 
+    Les images doivent être organisées en une grille avec un nombre 
+    défini de colonnes et de lignes. Lorsque l'utilisateur clique sur une image, 
+    elle doit s'agrandir et s'afficher en plein écran avec une légende.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ma galerie d'images</title>
+	<link rel="stylesheet" type="text/css" href="exercice2.css">
+</head>
+<body>
+	<div class="gallery">
+		<div class="row">
+			<div class="column">
+				<img src="./exercice2_images/image1.png" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+			</div>
+			<div class="column">
+				<img src="./exercice2_images/image2.png" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+			</div>
+			<div class="column">
+				<img src="./exercice2_images/image3.png" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+			</div>
+		</div>
+		<div class="row">
+			<div class="column">
+				<img src="./exercice2_images/image4.png" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+			</div>
+			<div class="column">
+				<img src="./exercice2_images/image5.png" onclick="openModal();currentSlide(5)" class="hover-shadow cursor">
+			</div>
+			<div class="column">
+				<img src="./exercice2_images/image6.png" onclick="openModal();currentSlide(6)" class="hover-shadow cursor">
+			</div>
+		</div>
+	</div>
+
+	<div id="myModal" class="modal">
+		<span class="close cursor" onclick="closeModal()">&times; Fermer</span>
+		<div class="modal-content">
+			<div class="mySlides">
+				<div class="numbertext">1 / 6</div>
+				<img src="./exercice2_images/image1.png" style="width:100%">
+				<div class="caption">Image 1</div>
+			</div>
+
+			<div class="mySlides">
+				<div class="numbertext">2 / 6</div>
+				<img src="./exercice2_images/image2.png" style="width:100%">
+				<div class="caption">Image 2</div>
+			</div>
+
+			<div class="mySlides">
+				<div class="numbertext">3 / 6</div>
+				<img src="./exercice2_images/image3.png" style="width:100%">
+				<div class="caption">Image 3</div>
+			</div>
+
+			<div class="mySlides">
+				<div class="numbertext">4 / 6</div>
+				<img src="./exercice2_images/image4.png" style="width:100%">
+				<div class="caption">Image 4</div>
+			</div>
+
+			<div class="mySlides">
+				<div class="numbertext">5 / 6</div>
+				<img src="./exercice2_images/image5.png" style="width:100%">
+				<div class="caption">Image 5</div>
+			</div>
+
+			<div class="mySlides">
+				<div class="numbertext">6 / 6</div>
+				<img src="./exercice2_images/image6.png" style="width:100%">
+				<div class="caption">Image 6</div>
+			</div>
+
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="./exercice2.js"></script>
+</body>
+</html>

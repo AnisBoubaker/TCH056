@@ -1,0 +1,96 @@
+/* Style de la galerie d'images */
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+/* Style de chaque image */
+.column {
+	flex: 25%;
+	max-width: 25%;
+	padding: 0 4px;
+}
+
+	.column img{
+		width: 150px;
+	}
+
+/* Style pour l'agrandissement d'image en plein écran */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+}
+
+/* Style pour les flèches gauche et droite */
+.prev, .next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	padding: 16px;
+	margin-top: -50px;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+/* Style pour la flèche gauche */
+.prev {
+	left: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+/* Style pour la flèche droite */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+/* Style pour le texte de légende */
+.caption {
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+	text-align: center;
+	color: #ccc;
+	padding: 10px 0;
+	height: 150px;
+}
+
+/* Style pour les numéros de diapositive */
+.numbertext {
+	color: #f2f2f2;
+	font-size: 12px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
+}
+
+.close {
+	color: #fff;
+	cursor: pointer;
+}

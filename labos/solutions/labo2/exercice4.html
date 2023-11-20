@@ -1,0 +1,98 @@
+<!--
+    Créez une page web qui utilise des éléments de formulaire avancés, tels 
+    que des menus déroulants, des cases à cocher et des boutons radio, pour 
+    permettre à l'utilisateur de filtrer et de trier les données. Les données doivent 
+    être affichées sous forme de liste ou de tableau, en fonction des choix de l'utilisateur.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
+	<title>Exercice de formulaire HTML</title>
+</head>
+<body>
+	<h1>Liste de produits</h1>
+
+	<form>
+		<label for="tri">Trier par :</label>
+		<select id="tri" name="tri">
+			<option value="nom_asc">Nom (A-Z)</option>
+			<option value="nom_desc">Nom (Z-A)</option>
+			<option value="prix_asc">Prix croissant</option>
+			<option value="prix_desc">Prix décroissant</option>
+		</select>
+
+		<fieldset>
+			<legend>Options de filtrage</legend>
+			<p>
+				<label for="disponibilite">Disponibilité :</label><br>
+				<input type="checkbox" name="disponibilite" id="disponibilite" value="disponible">
+				<label for="disponibilite">Disponible</label><br>
+			</p>
+			<p>
+				<label for="categorie">Catégorie :</label><br>
+				<input type="radio" name="categorie" id="tous" value="tous" checked>
+				<label for="tous">Tous</label><br>
+				<input type="radio" name="categorie" id="vetements" value="vetements">
+				<label for="vetements">Vêtements</label><br>
+				<input type="radio" name="categorie" id="electronique" value="electronique">
+				<label for="electronique">Électronique</label><br>
+			</p>
+		</fieldset>
+
+		<input type="submit" value="Filtrer">
+	</form>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Description</th>
+				<th>Catégorie</th>
+				<th>Prix</th>
+				<th>Disponibilité</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>T-shirt blanc</td>
+				<td>T-shirt en coton blanc</td>
+				<td>Vêtements</td>
+				<td>19,99 $</td>
+				<td>Disponible</td>
+			</tr>
+			<tr>
+				<td>Smartphone</td>
+				<td>Smartphone avec écran OLED</td>
+				<td>Électronique</td>
+				<td>599 $</td>
+				<td>Non disponible</td>
+			</tr>
+			<tr>
+				<td>Chemise bleue</td>
+				<td>Chemise en coton bleu</td>
+				<td>Vêtements</td>
+				<td>24,99 $</td>
+				<td>Disponible</td>
+			</tr>
+			<tr>
+				<td>Ordinateur portable</td>
+				<td>Ordinateur portable avec processeur Intel Core i7</td>
+				<td>Électronique</td>
+				<td>1099 $</td>
+				<td>Disponible</td>
+			</tr>
+			<tr>
+				<td>Veste en cuir</td>
+				<td>Veste en cuir noir pour hommes</td>
+				<td>Vêtements</td>
+				<td>199,99 $</td>
+				<td>Non disponible</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

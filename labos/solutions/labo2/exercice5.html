@@ -1,0 +1,61 @@
+<!--
+    Créez une page web qui utilise des cartes pour afficher des informations sur 
+    différents lieux. Les cartes doivent contenir des images, des descriptions 
+    et des informations de localisation. Ajoutez également des boutons pour 
+    permettre à l'utilisateur de filtrer les lieux en fonction de leur catégorie, 
+    telle que la nourriture, les activités ou l'hébergement.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cartes de lieux</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./exercice5.css">
+</head>
+<body>
+
+	<div class="filter-buttons">
+		<button data-category="all">Tout</button>
+		<button data-category="food">Nourriture</button>
+		<button data-category="activities">Activités</button>
+		<button data-category="accommodation">Hébergement</button>
+	</div>
+
+	<div class="card-container">
+		<!-- première carte -->
+		<div class="card" data-category="food">
+			<img src="https://via.placeholder.com/300x150" alt="Image de nourriture">
+			<h2>Restaurant XYZ</h2>
+			<p>Ce restaurant sert une délicieuse cuisine locale.</p>
+			<div class="category">Nourriture</div>
+		</div>
+
+		<!-- deuxième carte -->
+		<div class="card" data-category="activities">
+			<img src="https://via.placeholder.com/300x150" alt="Image d'activités">
+			<h2>Visite guidée de la ville</h2>
+			<p>Découvrez les sites les plus célèbres de la ville lors de cette visite guidée.</p>
+			<div class="category">Activités</div>
+		</div>
+
+		<!-- troisième carte -->
+		<div class="card" data-category="accommodation">
+			<img src="https://via.placeholder.com/300x150" alt="Image d'hébergement">
+			<h2>Hôtel ABC</h2>
+			<p>Cet hôtel offre un hébergement confortable à un prix abordable.</p>
+			<div class="category">Hébergement</div>
+		</div>
+
+		<!-- quatrième carte -->
+		<div class="card" data-category="food">
+			<img src="https://via.placeholder.com/300x150" alt="Image de nourriture">
+			<h2>Café 123</h2>
+			<p>Le café parfait pour un petit-déjeuner ou une pause-café.</p>
+            <div class="category">Nourriture</div>
+        </div>
+    </div>
+</body>
+</html>
+

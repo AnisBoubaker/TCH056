@@ -1,0 +1,39 @@
+<!--
+    écrire une fonction javascript qui trie le contenu 
+    d'un tableau selon la 3e colonne. La fonction reçoit l'élément du 
+    DOM de type `table` en paramètre. 
+    
+    Voici un exemple d'utilisation:  
+        trierTab(document.getElementById('mon_tableau'));
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tri de tableau HTML</title>
+    </head>
+    <body>
+        <table id="mon_tableau">
+            <tr><th>Colonne 1</th><th>Colonne 2</th><th>Colonne 3</th></tr>
+            <tr><td>1</td><td>Banane</td><td>jaune</td></tr>
+            <tr><td>2</td><td>Pomme</td><td>rouge</td></tr>
+            <tr><td>3</td><td>Orange</td><td>orange</td></tr>
+        </table>
+        
+        <button onclick="trierTab(document.getElementById('mon_tableau'))">Trier par la 3ème colonne</button>
+        <script type="text/javascript">
+            function trierTab(table) {
+                let rows = Array.from(table.rows);
+                rows.sort(function(row1, row2) {
+                    let cell1 = row1.cells[2].textContent.trim();
+                    let cell2 = row2.cells[2].textContent.trim();
+                    return cell1.localeCompare(cell2);
+                });
+                rows.forEach(function(row) {
+                    table.appendChild(row);
+                });
+            }
+
+        </script>
+    </body>
+</html>
