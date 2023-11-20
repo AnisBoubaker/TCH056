@@ -1,0 +1,375 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>CH05- Programmation Serveur | TCH056</title>
+
+		<link rel="stylesheet" href="../revealjs/reset.css">
+		<link rel="stylesheet" href="../revealjs/reveal.css">
+		<link rel="stylesheet" href="../revealjs/theme/ets.css" id="theme">
+		<link rel="stylesheet" href="../revealjs/theme/normalize.css">
+		<link rel="stylesheet" href="./css/examples_general.css">
+		<link rel="stylesheet" href="./css/examples.css">
+		<link rel="stylesheet" href="../timeline/css/timeline.min.css" />
+		<link rel="stylesheet" href="./ch4.css" />
+		<link rel="stylesheet" href="../jqtree.css" />
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../revealjs/plugin/highlight/docco.css" id="highlight-theme">
+
+		<script src="../jquery-3.6.4.min.js"></script>
+	</head>
+	<body>
+		<!--
+					
+		-->
+		<div class="reveal">
+			<div id="slide_nb" style="display:none;">Attention...</div>
+			<div class="titre_cours">TCH056 - Programmation Web</div>
+			<div class="slides">
+                <section>
+					<img src='../images/logo_ets.png' />
+					<h4 class="">TCH056 - Programmation Web</h4>
+					<h2 class="r-fit-text">Chapitre 05: Générer des pages dynamiquement côté serveur</h2>
+					<br /><br />
+					<p>
+						<strong>Anis Boubaker, Ph.D.</strong><br />
+						<em>Prof. Enseigannt en informatique</em>
+					</p>
+				</section>
+
+                <section>
+                    <h2>Introduction au Modèle Client/Serveur</h2>
+                    <p>Le modèle client/serveur est une architecture distribuée où les tâches et les charges de travail sont réparties entre les fournisseurs de ressources ou de services, appelés serveurs, et les demandeurs de service, appelés clients.</p>
+                </section>
+
+                <section>
+                    <h2>Rôle du Client</h2>
+                    <p>Le client est généralement un navigateur web qui envoie des requêtes au serveur et affiche les ressources reçues, comme les pages web.</p>
+                    <ul>
+                        <li>Envoie des requêtes HTTP au serveur</li>
+                        <li>Interprète les réponses du serveur (généralement des documents HTML, CSS, JavaScript)</li>
+                        <li>Peut demander des ressources statiques ou dynamiques</li>
+                    </ul>
+                </section>
+                  
+                <section>
+                    <h2>Rôle du Serveur</h2>
+                    <p>Le serveur traite les requêtes des clients et renvoie les réponses appropriées. Il peut s'agir de fichiers statiques, de documents générés dynamiquement, ou d'autres types de ressources.</p>
+                    <ul>
+                      <li>Traite les requêtes HTTP reçues</li>
+                      <li>Envoie des réponses aux clients</li>
+                      <li>Gère les ressources statiques et dynamiques</li>
+                      <li>Peut inclure des bases de données, des applications serveur, etc.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Communication via HTTP</h2>
+                    <p>HTTP (Hypertext Transfer Protocol) est le protocole utilisé pour la communication entre clients et serveurs dans le web.</p>
+                    <ul>
+                      <li>Protocole de communication client-serveur</li>
+                      <li>Utilise des méthodes telles que GET, POST, PUT, DELETE pour les requêtes</li>
+                      <li>Échange des données sous divers formats (HTML, JSON, XML, etc.)</li>
+                      <li>Les états de réponse (200 OK, 404 Not Found, etc.) indiquent le résultat des requêtes</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2>Exemple de Communication HTTP</h2>
+                    <pre><code>
+                      // Requête HTTP du client
+                      GET /index.html HTTP/1.1
+                      Host: www.exemple.com
+                  
+                      // Réponse HTTP du serveur
+                      HTTP/1.1 200 OK
+                      Content-Type: text/html
+                  
+                      &lt;html&gt;...&lt;/html&gt;
+                    </code></pre>
+                    <p>Cet exemple montre une requête HTTP simple pour une page web et la réponse du serveur.</p>
+                </section>
+                  
+                <section>
+                    <h2>Introduction au Cycle de Vie d'une Requête HTTP</h2>
+                    <p>Le cycle de vie d'une requête HTTP décrit le processus complet depuis l'envoi d'une requête par un client jusqu'à la réception et l'affichage de la réponse.</p>
+                </section>
+                  
+                <section>
+                    <h2>Envoi de la Requête par le Client</h2>
+                    <p>Le processus commence lorsque le client (navigateur) envoie une requête HTTP au serveur. Cette requête peut être déclenchée par l'utilisateur en chargeant une page web, en soumettant un formulaire, etc.</p>
+                    <pre><code>
+                      GET /page.php HTTP/1.1
+                      Host: www.exemple.com
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h2>Traitement par le Serveur (PHP)</h2>
+                    <p>Le serveur reçoit la requête et la traite. Si la requête demande une ressource PHP, le serveur exécute le script PHP correspondant.</p>
+                    <pre><code>
+                      &lt;?php
+                      // Traitement PHP
+                      echo "Bonjour, monde!";
+                      ?&gt;
+                    </code></pre>
+                    <p>Ce script PHP pourrait générer du contenu dynamique en fonction de la requête.</p>
+                </section>
+                  
+                <section>
+                    <h2>Réponse du Serveur</h2>
+                    <p>Après avoir traité la requête, le serveur envoie une réponse au client. Cette réponse inclut généralement un en-tête HTTP et un corps de message, qui peut être le HTML généré par le script PHP.</p>
+                    <pre><code>
+                      HTTP/1.1 200 OK
+                      Content-Type: text/html
+                  
+                      &lt;html&gt;Bonjour, monde!&lt;/html&gt;
+                    </code></pre>
+                </section>
+                
+                <section>
+                    <h2>Affichage sur le Client</h2>
+                    <p>Une fois la réponse reçue, le navigateur client l'interprète et affiche le contenu. Si la réponse est du HTML, le navigateur rend la page pour l'utilisateur.</p>
+                    <img src="path/to/screenshot.png" alt="Bonjour le monde!">
+                    <p>Cette image pourrait montrer comment le "Bonjour, monde!" est rendu dans le navigateur.</p>
+                </section>
+                  
+                <section>
+                    <h2>Introduction au PHP</h2>
+                    <p>PHP est un langage de script côté serveur utilisé pour développer des sites web dynamiques.</p>
+                </section>
+
+                <section>
+                    <h2>Structure d'un script PHP</h2>
+                    <pre><code>
+                      &lt;?php
+                      // Votre code PHP ici
+                      ?&gt;
+                    </code></pre>
+                    <p>Un script PHP commence par &lt;?php et se termine par ?&gt;</p>
+                </section>
+                  
+                
+                <section>
+                    <h2>Variables en PHP</h2>
+                    <pre><code>
+                      &lt;?php
+                      $variable = "Hello, World!";
+                      echo $variable;
+                      ?&gt;
+                    </code></pre>
+                    <p>Les variables en PHP commencent par le signe $.</p>
+                </section>
+                  
+                <section>
+                    <h2>Types de données en PHP</h2>
+                    <ul>
+                      <li>Entiers</li>
+                      <li>Flottants</li>
+                      <li>Chaînes de caractères</li>
+                      <li>Booléens</li>
+                      <li>Tableaux</li>
+                      <li>Objets</li>
+                      <!-- ... -->
+                    </ul>
+                </section>
+                  
+                <section>
+                    <h2>Opérateurs en PHP</h2>
+                    <ul>
+                      <li>Arithmétiques: +, -, *, /, %</li>
+                      <li>Comparaison: ==, !=, <, >, <=, >=</li>
+                      <li>Logiques: &&, ||, !</li>
+                      <!-- ... -->
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2>Structures de contrôle en PHP</h2>
+                    <pre><code>
+                      &lt;?php
+                      // Structure if
+                      if ($a > $b) {
+                        echo "a est plus grand que b";
+                      }
+                  
+                      // Boucle for
+                      for ($i = 0; $i < 10; $i++) {
+                        echo $i;
+                      }
+                  
+                      // Boucle while
+                      $i = 0;
+                      while ($i < 10) {
+                        echo $i;
+                        $i++;
+                      }
+                      ?&gt;
+                    </code></pre>
+                </section>
+                  
+
+                <section>
+                    <h2>Introduction aux Fonctions en PHP</h2>
+                    <p>Les fonctions en PHP sont des blocs de code réutilisables conçus pour effectuer une tâche spécifique.</p>
+                </section>
+
+                <section>
+                    <h2>Déclaration d'une Fonction</h2>
+                    <p>Une fonction est déclarée avec le mot-clé <code>function</code> suivi du nom de la fonction et des parenthèses.</p>
+                    <pre><code>
+                      &lt;?php
+                      function saluer() {
+                        echo "Bonjour, monde!";
+                      }
+                      ?&gt;
+                    </code></pre>
+                    <p>Cette fonction nommée <code>saluer</code> affiche un message.</p>
+                </section>
+                  
+                <section>
+                    <h2>Utilisation d'une Fonction</h2>
+                    <p>Une fonction est appelée en utilisant son nom suivi de parenthèses.</p>
+                    <pre><code>
+                      &lt;?php
+                      saluer(); // Affiche "Bonjour, monde!"
+                      ?&gt;
+                    </code></pre>
+                    <p>Cet exemple montre comment appeler la fonction <code>saluer</code>.</p>
+                </section>
+                  
+                <section>
+                    <h2>Fonctions avec Paramètres</h2>
+                    <p>Les fonctions peuvent prendre des paramètres pour agir différemment selon les valeurs passées.</p>
+                    <pre><code>
+                      &lt;?php
+                      function salutation($nom) {
+                        echo "Bonjour, " . $nom . "!";
+                      }
+                      salutation("Alice");
+                      ?&gt;
+                    </code></pre>
+                    <p>Cette fonction utilise un paramètre <code>$nom</code> pour personnaliser le message.</p>
+                </section>
+                
+                <section>
+                    <h2>Portée des Variables</h2>
+                    <p>En PHP, les variables peuvent avoir différentes portées (globale, locale, statique).</p>
+                    <pre><code>
+                      &lt;?php
+                      $x = 5; // Variable globale
+                  
+                      function tester() {
+                        $y = 10; // Variable locale
+                        echo $x; // Erreur: $x n'est pas accessible ici
+                      }
+                      ?&gt;
+                    </code></pre>
+                    <p>Cet exemple montre la différence entre les variables globales et locales.</p>
+                </section>
+
+                <section>
+                    <h2>Variables Globales et Locales</h2>
+                    <p>Les variables définies à l'extérieur d'une fonction ont une portée globale, tandis que celles définies à l'intérieur d'une fonction ont une portée locale.</p>
+                    <pre><code>
+                      &lt;?php
+                      $x = 5; // Variable globale
+                  
+                      function tester() {
+                        global $x; // Référence à la variable globale $x
+                        $y = 10; // Variable locale
+                        echo $x; // Affiche 5
+                      }
+                      tester();
+                      ?&gt;
+                    </code></pre>
+                    <p>Cet exemple montre comment accéder à une variable globale à l'intérieur d'une fonction.</p>
+                </section>
+                  
+                <section>
+                    <h2>Variables Statiques</h2>
+                    <p>Les variables statiques conservent leur valeur entre les appels de fonction.</p>
+                    <pre><code>
+                      &lt;?php
+                      function compter() {
+                        static $compte = 0;
+                        $compte++;
+                        echo $compte;
+                      }
+                      compter(); // 1
+                      compter(); // 2
+                      ?&gt;
+                    </code></pre>
+                    <p>Cet exemple montre comment une variable statique conserve sa valeur.</p>
+                </section>
+                  
+
+                <section data-menu-title="Fin">
+					<img src="../images/the_end.png" >
+				</section>
+			</div>
+		</div>
+
+        <script src="../revealjs/reveal.js"></script>
+		<script src="../revealjs/plugin/notes/notes.js"></script>
+		<script src="../revealjs/plugin/markdown/markdown.js"></script>
+		<script src="../revealjs/plugin/highlight/highlight.js"></script>
+		<script src="../revealjs/plugin/menu/menu.js"></script>
+		
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMenu ], 
+				
+				menu: {
+					side: 'left',
+					width: 'wide', //'normal', 'wide', 'third', 'half', 'full', or css valid length
+					numbers: false,
+					titleSelector: 'h1, h2, h3, h4, h5, h6',
+					useTextContentForMissingTitles: true,
+					hideMissingTitles: false,
+					markers: true,
+					custom: false,
+					themes: false,
+					themesPath: 'dist/theme/',
+					transitions: false,
+					openButton: true,
+					openSlideNumber: false,
+					keyboard: true,
+					sticky: false,
+					autoOpen: true,
+					delayInit: false,
+					openOnInit: false,
+					loadIcons: true
+				}
+			});
+		</script>
+		<script src="../timeline/js/timeline.min.js"></script>
+		<script>
+			timeline(document.querySelectorAll('.timeline'));
+			
+			Reveal.on( 'slidechanged', event => {
+			// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+				let panel = document.getElementById("slide_nb");
+				if(event.currentSlide.classList.contains("slidenb")){
+					panel.textContent = event.currentSlide.dataset.slidenb;
+					panel.style.display = "block";
+				} else {
+					panel.style.display="none";
+				}
+				
+				
+			} );			
+		</script>
+		<script src="../tree.jquery.js"></script>
+		<script src="./ch4.js"></script>
+	</body>
+</html>
