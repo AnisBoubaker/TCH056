@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>CH05- REST | TCH056</title>
+
+    <link rel="stylesheet" href="../revealjs/reset.css" />
+    <link rel="stylesheet" href="../revealjs/reveal.css" />
+    <link rel="stylesheet" href="../revealjs/theme/ets.css" id="theme" />
+    <link rel="stylesheet" href="../revealjs/theme/normalize.css" />
+    <link rel="stylesheet" href="./css/examples_general.css" />
+    <link rel="stylesheet" href="./css/examples.css" />
+    <link rel="stylesheet" href="../timeline/css/timeline.min.css" />
+    <link rel="stylesheet" href="./ch4.css" />
+    <link rel="stylesheet" href="../jqtree.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="../revealjs/plugin/highlight/docco.css"
+      id="highlight-theme"
+    />
+
+    <script src="../jquery-3.6.4.min.js"></script>
+  </head>
+  <body>
+    <!--
+					
+		-->
+    <div class="reveal">
+      <div id="slide_nb" style="display: none">Attention...</div>
+      <div class="titre_cours">TCH056 - Programmation Web</div>
+      <div class="slides">
+        <section>
+          <img src="../images/logo_ets.png" />
+          <h4 class="">TCH056 - Programmation Web</h4>
+          <h2 class="r-fit-text">
+            Chapitre 05: Générer des pages dynamiquement côté serveur
+          </h2>
+          <br /><br />
+          <p>
+            <strong>Anis Boubaker, Ph.D.</strong><br />
+            <em>Prof. Enseignant en informatique</em>
+          </p>
+        </section>
+
+        <!-- Plan du chapitre -->
+        <section data-transition="convex">
+          <h2>Plan du chapitre</h2>
+          <div class="two_columns_layout">
+            <div class="col menu-principal">
+              <ul class="">
+                <li class="plan-current">Introduction à REST</li>
+                <li>Conception d'une API REST</li>
+                <li>REST avec PHP</li>
+                <li>Routage</li>
+                <li>Communication avec une API REST</li>
+                <li>Authentification et sécurité</li>
+              </ul>
+            </div>
+            <div class="col sous-menu">
+              <ul style="margin: 0">
+                <li>Définition</li>
+                <li>Autres types d'API</li>
+                <li>Principes de base</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Diapositive 1: Titre -->
+        <section>
+          <h1>Introduction aux API REST</h1>
+          <p>
+            Comprendre le rôle et l'importance des API dans le développement web
+            moderne
+          </p>
+        </section>
+
+        <!-- Diapositive 2: Définition et importance des API -->
+        <section>
+          <h2>Qu'est-ce qu'une API ?</h2>
+          <p>API signifie Interface de Programmation d'Application.</p>
+          <p>Elles permettent la communication entre différents logiciels.</p>
+          <p>
+            <b>Exemple :</b> L'API de Twitter permet d'intégrer ses
+            fonctionnalités dans d'autres applications.
+          </p>
+        </section>
+
+        <!-- Diapositive 3: Différence entre API REST et autres types d'API -->
+        <section>
+          <section>
+            <h2>API REST</h2>
+            <p>REST signifie Representational State Transfer.</p>
+            <p>
+              Utilise des requêtes HTTP pour GET, POST, PUT, DELETE des données.
+            </p>
+            <p><b>Exemple :</b> API RESTful de GitHub.</p>
+          </section>
+          <section>
+            <h2>API SOAP</h2>
+            <p>SOAP signifie Simple Object Access Protocol.</p>
+            <p>Basé sur XML, plus strict et sécurisé.</p>
+            <p><b>Exemple :</b> Service web de Microsoft Exchange.</p>
+          </section>
+          <section>
+            <h2>API GraphQL</h2>
+            <p>GraphQL est une alternative à REST.</p>
+            <p>
+              Permet aux clients de demander exactement ce dont ils ont besoin.
+            </p>
+            <p><b>Exemple :</b> API de GitHub v4.</p>
+          </section>
+        </section>
+
+        <!-- Diapositive 1: Architecture sans état (Stateless) -->
+        <section>
+          <h2>Architecture sans état (Stateless)</h2>
+          <p>Chaque requête de l'API REST est indépendante des autres.</p>
+          <p>
+            Le serveur ne stocke pas d'informations sur l'état du client entre
+            les requêtes.
+          </p>
+          <p>
+            <b>Exemple :</b> Une requête GET pour récupérer des données ne
+            dépend pas des requêtes précédentes.
+          </p>
+        </section>
+
+        <!-- Diapositive 2: Utilisation des méthodes HTTP -->
+        <section>
+          <h2>Utilisation des méthodes HTTP</h2>
+          <ul>
+            <li><b>GET</b> - Récupérer des données.</li>
+            <li><b>POST</b> - Créer une nouvelle ressource.</li>
+            <li><b>PUT</b> - Mettre à jour une ressource existante.</li>
+            <li><b>DELETE</b> - Supprimer une ressource.</li>
+          </ul>
+          <p><b>Exemple :</b> POST /users pour créer un nouvel utilisateur.</p>
+        </section>
+
+        <!-- Diapositive 3: Structure des URL et des ressources -->
+        <section>
+          <h2>Structure des URL et des ressources</h2>
+          <p>
+            Les URL identifient les ressources, et la structure des URL doit
+            être logique et prévisible.
+          </p>
+          <p>
+            <b>Exemple :</b> GET /users/123 pour récupérer l'utilisateur avec
+            l'ID 123.
+          </p>
+          <p>
+            Les ressources sont souvent organisées en collections et éléments.
+          </p>
+        </section>
+
+        <!-- Diapositive 4: Formats de réponse -->
+        <section>
+          <h2>Formats de réponse</h2>
+          <p>
+            Les API REST peuvent retourner des données dans différents formats.
+          </p>
+          <ul>
+            <li>
+              <b>JSON</b> (JavaScript Object Notation) - Format léger et facile
+              à lire.
+            </li>
+            <li>
+              <b>XML</b> (eXtensible Markup Language) - Plus verbeux, utilisé
+              dans les systèmes plus anciens.
+            </li>
+          </ul>
+          <p>
+            Le format JSON est davantage utilisé que le format XML (interprété
+            nativement par JavaScript)
+          </p>
+        </section>
+
+        <!-- Diapositive: Exemple de Réponse JSON avec une Liste d'Utilisateurs -->
+        <section>
+          <h2>Exemple de Réponse JSON</h2>
+          <p>
+            Voici comment une API REST pourrait retourner une liste
+            d'utilisateurs en format JSON :
+          </p>
+          <pre><code class="json" data-trim contenteditable>
+          {
+          "users": [
+            {
+              "id": 1,
+              "name": "Alice Dupont",
+              "email": "alice.dupont@example.com",
+              "role": "admin"
+            },
+            {
+              "id": 2,
+              "name": "Bob Martin",
+              "email": "bob.martin@example.com",
+              "role": "user"
+            },
+            {
+              "id": 3,
+              "name": "Charlie Nom",
+              "email": "charlie.nom@example.com",
+              "role": "user"
+            }
+          ]
+          }
+          </code></pre>
+        </section>
+
+        <!-- Diapositive: Exemple de Réponse XML avec une Liste d'Utilisateurs -->
+        <section>
+          <h2>Exemple de Réponse XML</h2>
+          <p>
+            Voici comment une API REST pourrait retourner une liste
+            d'utilisateurs en format XML :
+          </p>
+          <pre><code class="xml" data-trim contenteditable>
+          &lt;users&gt;
+            &lt;user&gt;
+                &lt;id&gt;1&lt;/id&gt;
+                &lt;name&gt;Alice Dupont&lt;/name&gt;
+                &lt;email&gt;alice.dupont@example.com&lt;/email&gt;
+                &lt;role&gt;admin&lt;/role&gt;
+            &lt;/user&gt;
+            &lt;user&gt;
+                &lt;id&gt;2&lt;/id&gt;
+                &lt;name&gt;Bob Martin&lt;/name&gt;
+                &lt;email&gt;bob.martin@example.com&lt;/email&gt;
+                &lt;role&gt;user&lt;/role&gt;
+            &lt;/user&gt;
+            &lt;user&gt;
+                &lt;id&gt;3&lt;/id&gt;
+                &lt;name&gt;Charlie Nom&lt;/name&gt;
+                &lt;email&gt;charlie.nom@example.com&lt;/email&gt;
+                &lt;role&gt;user&lt;/role&gt;
+            &lt;/user&gt;
+          &lt;/users&gt;
+          </code></pre>
+        </section>
+
+        <section data-menu-title="Fin">
+          <img src="../images/the_end.png" />
+        </section>
+      </div>
+    </div>
+
+    <script src="../revealjs/reveal.js"></script>
+    <script src="../revealjs/plugin/notes/notes.js"></script>
+    <script src="../revealjs/plugin/markdown/markdown.js"></script>
+    <script src="../revealjs/plugin/highlight/highlight.js"></script>
+    <script src="../revealjs/plugin/menu/menu.js"></script>
+
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        slideNumber: true,
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMenu],
+
+        menu: {
+          side: "left",
+          width: "wide", //'normal', 'wide', 'third', 'half', 'full', or css valid length
+          numbers: false,
+          titleSelector: "h1, h2, h3, h4, h5, h6",
+          useTextContentForMissingTitles: true,
+          hideMissingTitles: false,
+          markers: true,
+          custom: false,
+          themes: false,
+          themesPath: "dist/theme/",
+          transitions: false,
+          openButton: true,
+          openSlideNumber: false,
+          keyboard: true,
+          sticky: false,
+          autoOpen: true,
+          delayInit: false,
+          openOnInit: false,
+          loadIcons: true,
+        },
+      });
+    </script>
+    <script src="../timeline/js/timeline.min.js"></script>
+    <script>
+      timeline(document.querySelectorAll(".timeline"));
+
+      Reveal.on("slidechanged", (event) => {
+        // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+        let panel = document.getElementById("slide_nb");
+        if (event.currentSlide.classList.contains("slidenb")) {
+          panel.textContent = event.currentSlide.dataset.slidenb;
+          panel.style.display = "block";
+        } else {
+          panel.style.display = "none";
+        }
+      });
+    </script>
+    <script src="../tree.jquery.js"></script>
+    <script src="./ch4.js"></script>
+  </body>
+</html>
