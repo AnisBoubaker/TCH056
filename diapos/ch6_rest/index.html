@@ -247,6 +247,140 @@
           </code></pre>
         </section>
 
+        <section>
+          <h1>Conception d'une API REST</h1>
+          <p>Planification et bonnes pratiques</p>
+        </section>
+
+        <!-- Diapositive 1: Planification des Ressources -->
+        <section>
+          <h2>Planification des Ressources</h2>
+          <p>
+            Identifier les principales entités de l'application (ex:
+            utilisateurs, articles, commentaires).
+          </p>
+          <p>Chaque entité devient une ressource dans l'API.</p>
+          <p>Exemples :</p>
+          <ul>
+            <li>Utilisateurs (users)</li>
+            <li>Articles (articles)</li>
+            <li>Commentaires (comments)</li>
+          </ul>
+        </section>
+
+        <!-- Diapositive 2: Définition des Routes et Méthodes -->
+        <section>
+          <h2>Définition des Routes et Méthodes</h2>
+          <p>Créer des routes pour interagir avec les ressources.</p>
+          <p>
+            Utiliser les méthodes HTTP appropriées (GET, POST, PUT, DELETE).
+          </p>
+          <p>Exemples de routes :</p>
+          <pre><code>
+          GET /users - Récupérer la liste des utilisateurs
+          POST /users - Créer un nouvel utilisateur
+          GET /users/{id} - Récupérer un utilisateur spécifique
+          PUT /users/{id} - Mettre à jour un utilisateur
+          DELETE /users/{id} - Supprimer un utilisateur
+          </code></pre>
+        </section>
+
+        <!-- Diapositive 3: Bonnes Pratiques - Naming Conventions -->
+        <section>
+          <h2>Bonnes Pratiques: Conventions de nommage</h2>
+          <p>Utiliser des noms clairs et cohérents pour les routes.</p>
+          <p>Préférer le pluriel pour les noms de ressources.</p>
+          <p>
+            Exemple : /users pour les utilisateurs, /articles pour les articles.
+          </p>
+        </section>
+
+        <!-- Diapositive 4: Bonnes Pratiques - Versioning -->
+        <section>
+          <h2>Bonnes Pratiques: Versioning</h2>
+          <ul>
+            <li>
+              Inclure la version de l'API dans l'URL pour faciliter les mises à
+              jour futures.
+            </li>
+            <li>Utiliser la technique du versionnage sémantique</li>
+          </ul>
+          <p>Exemple : /v1.1.0/users, /v2.2.1/users</p>
+        </section>
+
+        <!-- Diapositive 5: Bonnes Pratiques - Sécurité -->
+        <section>
+          <h2>Bonnes Pratiques: Sécurité</h2>
+          <p>Assurer la sécurité des données et des communications.</p>
+          <ul>
+            <li>Utiliser HTTPS pour chiffrer les données en transit.</li>
+            <li>Authentification (ex: OAuth, JWT).</li>
+            <li>
+              Validation et nettoyage des entrées pour prévenir les injections
+              SQL.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Diapositive 6: Bonnes Pratiques - Gestion des Erreurs -->
+        <section>
+          <h2>Bonnes Pratiques: Gestion des Erreurs</h2>
+          <p>Fournir des messages d'erreur clairs et informatifs.</p>
+          <ul>
+            <li>Utiliser des codes d'état HTTP appropriés.</li>
+            <li>
+              Messages d'erreur en format JSON avec code d'erreur, message et
+              éventuellement des détails.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Diapositive 7: Bonnes Pratiques - Documentation -->
+        <section>
+          <h2>Bonnes Pratiques: Documentation</h2>
+          <p>Une documentation complète et à jour est cruciale.</p>
+          <ul>
+            <li>
+              Utiliser des outils comme Swagger ou Redoc pour créer une
+              documentation interactive.
+            </li>
+            <li>Inclure des exemples de requêtes et de réponses.</li>
+          </ul>
+        </section>
+
+        <!-- Diapositive 8: Bonnes Pratiques - Performance -->
+        <section>
+          <h2>Bonnes Pratiques: Performance</h2>
+          <p>
+            Optimiser la performance de l'API pour une meilleure expérience
+            utilisateur.
+          </p>
+          <ul>
+            <li>Mise en cache des réponses lorsque c'est possible.</li>
+            <li>Limitation (rate limiting) pour prévenir l'abus de l'API.</li>
+            <li>
+              Utilisation de techniques de pagination pour les grandes
+              collections de données.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Diapositive 9: Bonnes Pratiques - Scalabilité -->
+        <section>
+          <h2>Bonnes Pratiques: Scalabilité</h2>
+          <p>
+            Concevoir l'API pour qu'elle puisse gérer l'augmentation du trafic.
+          </p>
+          <ul>
+            <li>
+              Architecture microservices pour faciliter la montée en charge.
+            </li>
+            <li>
+              Équilibrage de charge et utilisation de serveurs de réplication.
+            </li>
+          </ul>
+        </section>
+
         <section data-menu-title="Fin">
           <img src="../images/the_end.png" />
         </section>
