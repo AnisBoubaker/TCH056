@@ -923,7 +923,7 @@
 						<li>rem: Taille de la police de la racine (html) </li>
 						<li>vh: 1% de la hauteur de la partie visible de l'écran</li>
 						<li>vw: 1% de la largeur de la partie visible de l'écran</li>
-						<li>lh: hauteur de l'élément</li>
+						<li>fr: Unité fractionnaire de l'espace disponible (<em>voir Grid Layout</em>)</li>
 					</ul>
 				</section>
 
@@ -1070,14 +1070,56 @@
 						</div>
 						<div class="col sous-menu">
 							<ul>
-								<li>Historique</li>
-								<li>Divers mécanismes de positionnement</li>
-								<li>Conteneurs et éléments <em>div</em> et <em>span</em></li>
+								<li>Les bases du positionnement</li>
+								<li>Positionnement flottant</li>
 								<li>Positionnement Flex</li>
 								<li>Positionnement Grid</li>
 							</ul>
 						</div>
 					</div>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Le flux normal
+						* Mode de rendu des éléments si ceci n'a pas été explicitement modifié via CSS
+
+						![Flux normal CSS](./images/css-normal-flow.png)
+					</textarea>
+					<!-- https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Normal_Flow -->
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Le flux normal
+						* Il est possible de changer la méthode d'affichage d'un élément à l'aide de la propriété display.
+
+						```css
+						div.div-enligne {
+							display: inline;
+						}
+						span.span-en-block {
+							display: block;
+						}
+						div.div-hybride {
+							display: inline-block;
+						}
+						```
+					</textarea>
+					<!-- https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Normal_Flow -->
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+					## Bases du positionnement
+
+					* La propritété `position` permet de définir comment positionner un bloc relativement aux éléments de la page
+					* Positionnements possibles: 
+						* [static](./editeur.html?exemple=0) (par défaut)
+						* [relative](./editeur.html?exemple=1): Relatif au flux normal
+						* [absolute](./editeur.html?exemple=2): Relatif au parent
+						* [fixed](./editeur.html?exemple=3): Relatif à la fenêtre (*viewport*)
+					</textarea>
 				</section>
 
 <!-- FIN THE END -->
