@@ -574,7 +574,7 @@
 				<section>
 					<h2>Sélecteurs combinés: Descendants</h2>
 					<ul>
-						<li><strong>A B:</strong> Sélectionne tous les éléments sélectionnés pas B qui sont un 
+						<li><strong>A B:</strong> Sélectionne tous les éléments sélectionnés par B qui sont un 
 						descendant d'un élément sélectionné par A.
 							<pre class="fragment"><code class="css" data-trim><script type="text/template">
 								/* Met en rouge les éléments "em" de classe "rouge"
@@ -919,11 +919,13 @@
 				<section>
 					<h2>Unités relatives</h2>
 					<ul>
+						<li>%: Pourcentage de la taille (totale) du parent.</li>
 						<li>em: Taille de la police du parent.</li>
 						<li>rem: Taille de la police de la racine (html) </li>
 						<li>vh: 1% de la hauteur de la partie visible de l'écran</li>
 						<li>vw: 1% de la largeur de la partie visible de l'écran</li>
-						<li>fr: Unité fractionnaire de l'espace disponible (<em>voir Grid Layout</em>)</li>
+						<li>fr: Unités fractionnaires de l'espace <strong>encore disponible</strong> 
+							du parent (<em>voir Grid Layout</em>)</li>
 					</ul>
 				</section>
 
@@ -1121,6 +1123,186 @@
 						* [fixed](./editeur.html?exemple=3): Relatif à la fenêtre (*viewport*)
 					</textarea>
 				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Positionnement flottant
+
+						* Permet de "faire flotter" les **éléments suivants** autour du bloc;
+						* Largement utilisé avant le CSS3 pour la conception de pages, beaucoup moins de nos jours.
+						
+						![http://anything.codes/gdi-intermediate-html-css/class4.html#/](./images/float.webp)
+					</textarea>
+				</section>
+				
+				<section data-markdown>
+					<textarea data-template>
+						## Positionnement flottant
+
+						* On utilise la propriété `float` sur l'élément qu'on souhaite rendre flottant
+						* Valeur possibles: `right` et `left`
+						* [Exemple de bloc flottant](./editeur.html?exemple=4) 
+					</textarea>
+				</section>
+
+				<section data-markdown  data-transition="convex">
+					<textarea data-template>
+						## Positionnement FlexBox
+
+						![Positionnement FlexBox](./images/flex-illustration.png)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Positionnement FlexBox
+
+						* Permet de positionner des éléments dans **une** direction (horizontale ou verticale) 
+						* Beaucoup plus facile à maitriser que le positionnement `float`
+						
+						![Flex horizontal vs vertical](./images/flex-sens.png)
+					</textarea>
+				</section>
+
+				<section>
+					<h2>Implémentation d'un positionnement Flex</h2>
+					<div class="two_columns_layout">
+						<div class="col">
+							<pre class="fragment"><code class="html" data-trim><script type="text/template">
+							<div class="conteneur">
+								<div class="boite">A</div>
+								<div class="boite">B</div>
+								<div class="boite">C</div>
+							</div>
+							</script></code></pre>
+							
+							<pre class="fragment"><code class="css" data-trim><script type="text/template">
+							.conteneur{
+								padding: 10px;
+								border: 1px solid lightcoral;
+								display: flex;
+							}
+							.boite{
+								width: 5rem;
+								height: 5rem; 
+								margin: 10px;
+								background-color: gold;
+							}
+							</script></code></pre>
+						</div>
+						<div class="col" style="display: flex; align-items: center; justify-content: center;">
+							<div class="fragment" style="padding: 10px;display: flex; border: 1px solid lightcoral;">
+								<div style="width: 5rem;height: 5rem;margin: 10px;background-color: gold;">A</div>
+								<div style="width: 5rem;height: 5rem;margin: 10px;background-color: gold;">B</div>
+								<div style="width: 5rem;height: 5rem;margin: 10px;background-color: gold;">C</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Définir la direction</h2>
+					<div class="two_columns_layout">
+						<div class="col">
+							<pre class="fragment"><code class="html" data-trim><script type="text/template">
+							<div class="conteneur">
+								<div class="boite">A</div>
+								<div class="boite">B</div>
+								<div class="boite">C</div>
+							</div>
+							</script></code></pre>
+							
+							<pre class="fragment"><code class="css" data-trim><script type="text/template">
+							.conteneur{
+								padding: 10px;
+								border: 1px solid lightcoral;
+								display: flex;
+								/*Par défaut: row*/
+								flex-direction: column;
+							}
+							.boite{
+								width: 5rem;
+								height: 5rem; 
+								margin: 10px;
+								background-color: gold;
+							}
+							</script></code></pre>
+						</div>
+						<div class="col">
+							<div style="display: flex; align-items: center; justify-content: center;">
+							<div class="fragment" style="padding: 10px;display: flex; flex-direction: column; border: 1px solid lightcoral;">
+								<div style="width: 5rem;height: 5rem;margin: 10px;background-color: gold;">A</div>
+								<div style="width: 5rem;height: 5rem;margin: 10px;background-color: gold;">B</div>
+								<div style="width: 5rem;height: 5rem;margin: 10px;background-color: gold;">C</div>
+							</div>
+							</div>
+							<p class="fragment">D'autre valeurs possibles: <em>row-reverse</em> et <em>column-reverse</em></p>
+						</div>
+					</div>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Répartir des éléments</h2>
+						
+						* **Sur l'axe principal:** [justify-content](https://developer.mozilla.org/fr/docs/Web/CSS/justify-content) - [Démonstration](./editeur.html?exemple=5)
+						* **Sur l'axe orthogonal:** [align-items](https://developer.mozilla.org/fr/docs/Web/CSS/align-items).  - [Démonstration](./editeur.html?exemple=6)
+						* **Alignement individuel:** [align-self](https://developer.mozilla.org/fr/docs/Web/CSS/align-self).  - [Démonstration](./editeur.html?exemple=7)
+
+						Il est souvent nécessaire d'expérimenter les différentes valeurs directement dans le navigateurs (Utilisez les outils de développement du navigateur)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Débordement de la taille du conteneur</h2>
+						
+						* Si les éléments d'un conteneur `flex` ont une taille totale qui dépasse la taille
+						du conteneur sur son axe principal, la taille des éléments sera reduite pour tout englober au sein d'une même ligne.
+						* Il est possible de modifier ce comportement par défaut en utilsant la propriété [flex-wrap](https://developer.mozilla.org/fr/docs/Web/CSS/flex-wrap).
+						* Pour gérer l'alignement sur l'axe orthogonal, on utilise la propriété [align-content](https://developer.mozilla.org/fr/docs/Web/CSS/align-content).
+
+						> [Démonstration](./editeur.html?exemple=8)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Taille des éléments d'un conteneur Flex
+						
+						* [flex-basis](https://developer.mozilla.org/fr/docs/Web/CSS/flex-basis): Taille initiale d'un élément
+						* [flex-grow](https://developer.mozilla.org/fr/docs/Web/CSS/flex-basis): Taille initiale d'un élément
+						* [flex-shrink](https://developer.mozilla.org/fr/docs/Web/CSS/flex-shrink): Taille initiale d'un élément
+
+						Toutes ces propritétés peuvent être regrouppées au sein de la propriété 
+						[flex](https://developer.mozilla.org/fr/docs/Web/CSS/flex) (en une seule ligne)
+					</textarea>
+				</section>	
+
+				<section data-markdown>
+					<textarea data-template>
+						## `flex-basis`
+						
+						* Définit la taille initiale de l'élément sur l'axe principal (largeur si le flex est horizontal, hauteur si vertical)
+						* Par défaut, la valeur est `auto` et se base de la taille de l'élément telle que définie par `width` ou `height`
+						* La valeur spécifiée sera respectée tant que l'espace disponible dans le conteneur est suffisant.
+					
+						> [Démonstration](./editeur.html?exemple=9)
+					</textarea>
+				</section>	
+
+				<section data-markdown>
+					<textarea data-template>
+						## `flex-grow`
+						
+						* Définit la taille initiale de l'élément sur l'axe principal (largeur si le flex est horizontal, hauteur si vertical)
+						* Par défaut, la valeur est `auto` et se base de la taille de l'élément telle que définie par `width` ou `height`
+						* La valeur spécifiée sera respectée tant que l'espace disponible dans le conteneur est suffisant.
+
+						> [Démonstration](./editeur.html?exemple=9)
+					</textarea>
+				</section>	
+
 
 <!-- FIN THE END -->
 				<section data-menu-title="Fin">
