@@ -1303,11 +1303,258 @@
 					</textarea>
 				</section>	
 
-				<section data-markdown  data-transition="convex">
+				<section data-markdown data-transition="convex">
 					<textarea data-template>
-						## Positionnement GridBox
+						## Positionnement en grille (`Grid Layout`)
 
 						![Positionnement FlexBox](./images/gridbox-illustration.png)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Principe
+
+						* Les éléments sont positionnés dans les cases d'une grille virtuelle à deux dimensions.
+						![https://medium.com/star-gazers/css-grid-layout-ef82a7c6b85c](./images/grid_layout_exemples.webp)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Conteneur Grid
+
+						* Comme pour le positionnement `Flex`, nous devons définir un conteneur ayant la déclaration: 
+						```css
+						div.conteneur {
+							...
+							display: grid;
+							...
+						}
+						```
+						* Les éléments *enfants* du conteneur seront positionnés dans la grille. 
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Conteneur Grid
+
+						* On utilise des déclarations `grid-template-rows` et `grid-template-columns` pour définir la taille de la grille (nombre de cases) et les dimensions des cases: 
+						```css[5-7]
+						div.conteneur {
+							...
+							border: 1px solid lightcoral; 
+							display: grid;
+							/* Une grille de 3 lignes et 2 colonnes */
+							grid-template-rows: 5rem 40rem 5rem;
+							grid-template-columns: 20% 80%;
+						}
+						```
+						* La déclaration [`grid-template`](https://developer.mozilla.org/fr/docs/Web/CSS/grid-template) regrouppe ces deux déclarations. [Démonstration](./editeur.html?exemple=11)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Positionnement des éléments
+						
+						* Les éléments enfants seront placés dans les cases dans l'ordre de gauche à droite, de haut en bas.
+
+						[> Démonstration](./editeur.html?exemple=11)
+						
+						* Il est possible de changer la position d'un élément en utilisant la déclaration 
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Tailles relatives des cellules
+						
+						* Dans les déclaration `grid-template-*`, il est possible d'utiliser des valeurs relatives.
+						```css[4-5]
+						div.conteneur {
+							...
+							display: grid;
+							grid-template-columns: 20% 80%;
+							grid-template-rows: 100px auto 100px;
+						}
+						```
+						* La valeur `auto` est utile pour assigner l'espace restant. 
+						
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Tailles relatives des cellules (suite)
+						
+						* Les déclarations en pourcentage représentent la taille totale du conteneur. 
+						Ainsi, cette déclaration ferait déborder la grille du conteneur: 
+						```css[4]
+						div.conteneur {
+							...
+							display: grid;
+							grid-template-columns: 100px 20% 80%;
+							grid-template-rows: 100px 500px 100px;
+						}
+						```
+						* Utiliser l'unité `fr` plutôt que `%` dans ce cas, pour cibler l'espace restant.
+						
+						> [Démonstration](./editeur.html?exemple=14)
+						
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Alignement des éléments
+						
+						* Par défaut, les éléments sont alignés avec le coin supérieur gauche de leur case de la grille. 
+						* On utilise la déclaration [`justify-items`](https://developer.mozilla.org/fr/docs/Web/CSS/justify-items) 
+						pour aligner l'élément horizontalement, et la déclaration [`align-items`](https://developer.mozilla.org/fr/docs/Web/CSS/align-items) 
+						pour modifier l'alignement vertical.
+						* Pour changer l'alignement horizontal ou vertical d'un élément en particulier au sein de sa cellule, on utilise les déclarations 
+						[`justify-self`](https://developer.mozilla.org/fr/docs/Web/CSS/justify-items) et [`align-self`](https://developer.mozilla.org/fr/docs/Web/CSS/align-items)
+
+						> [Démonstration](./editeur.html?exemple=12)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Alignement de la grille
+						
+						* La taille de la grille peut différer de la taille du conteneur. 
+						```css
+						.conteneur{
+							...
+							height: 35rem;
+							grid-template: 5rem 20rem 5rem / 20% 40%; 
+							/* Le conteur fait 35rem de haut et 100% de large. La grille
+							fait 30rem de haut et 60% de large */
+						}
+						```
+						* On utilise la déclaration [`justify-content`](https://developer.mozilla.org/fr/docs/Web/CSS/justify-content) 
+						et [`align-content`](https://developer.mozilla.org/fr/docs/Web/CSS/align-content) 
+						pour aligner la grille au sein de son conteneur horizontalement et verticalement (resp.). [Démonstration](./editeur.html?exemple=13)
+						
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Placement des cellules
+						
+						* Rappel: Le placement par défaut: du coin supérieur gauche au coin inférieur droit.
+						* La déclaration [`grid-column`](https://developer.mozilla.org/fr/docs/Web/CSS/grid-column)
+						permet de spécifier le placement d'un élément dans une colonne ou un ensemble de colonnes sur sa ligne.
+						* La déclaration [`grid-row`](https://developer.mozilla.org/fr/docs/Web/CSS/grid-row)
+						permet de spécifier le placement d'un élément dans une ligne ou un ensemble de lignes.
+					 	
+						>[Démonstration](./editeur.html?exemple=15)
+						
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Placement "nommé" des cellules
+						
+						* On peut subdiviser la grille en régions auxquelles on affecte un nom à l'aide de 
+						la déclaration [`grid-template-areas`](https://developer.mozilla.org/fr/docs/Web/CSS/grid-template-areas) **dans le conteneur**.
+						```css
+						.conteneur{
+							display: grid;
+							grid-template-rows: 5rem 20rem 5rem;
+							grid-template-columns: 100px 20fr 80fr; 
+							grid-template-areas: /* On nomme les 9 cellules*/
+								"entete  entete   entete"
+								"menu    sousmenu principal"
+								".       baspage  principal"
+						}
+						```
+						* Une région qui s'étend sur plusieurs cellules est nommée plusieurs fois. 
+						* Une région vide est représentée par un point (.)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Placement "nommé" des cellules (suite)
+						
+						* On spécifie ensuite pour **les éléments** de la grille dans quelle région
+						ils seront placés en utilisant la déclaration [`grid-area`](https://developer.mozilla.org/fr/docs/Web/CSS/grid-area)
+						```css
+						.une_boite{
+							/*IMPORTANT: Pas de "..." autour de entete*/
+							grid-area: entete;
+						}
+						```
+
+						>[Démonstration](./editeur.html?exemple=16)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Autres déclarations liées au `grid layout`
+						
+						* [`row-gap`](https://developer.mozilla.org/fr/docs/Web/CSS/row-gap), [`column-gap`](https://developer.mozilla.org/fr/docs/Web/CSS/column-gap)
+						et [`gap`](https://developer.mozilla.org/fr/docs/Web/CSS/gap): pour définir l'espacement entre les cellules.
+						* [`grid-area`](https://developer.mozilla.org/fr/docs/Web/CSS/grid-area): qui combine les déclarations grid-column et grid-row en une seule, 
+						mais dont la syntaxe est difficile à lire (à éviter).
+					</textarea>
+				</section>
+
+
+				<section data-markdown>
+					<textarea data-template>
+						## Imbrication des positionnements
+						
+						* Il rare qu'une seule méthode de positionnement soit utilisée dans un document
+						* Typiquement, on utilise un positionnement Grid au premier niveau et (certaines) 
+						cellules adoptent à leur tout un mécanisme de positionnement de leur propre contenu (grid, flex ou float).
+
+						>[Démonstration](./editeur.html?exemple=17)
+					</textarea>
+				</section>
+
+
+				<section data-markdown data-transition="convex">
+					<textarea data-template>
+						## Conception Responsive 
+						(*Responsive Design*)
+
+						![Positionnement FlexBox](./images/responsive-design.png)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Conception responsive: définition
+						
+						> approche de conception de sites web qui vise à créer des sites qui offrent une 
+						excellente expérience utilisateur sur une variété d'appareils et de tailles d'écran.
+
+					
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Conception responsive: Éléments clés
+						* **Adaptabilité à l'écran:** s'adapter automatiquement à la taille de l'écran de l'appareil utilisé
+						* **Utilisation des Media Queries en CSS:** qui permettent de détecter la taille de l'écran et d'appliquer différents styles en fonction de ces dimensions
+						* **Flexibilité du contenu:** Les images, les vidéos et les blocs de texte sont flexibles afin qu'ils puissent se redimensionner et se réorganiser de manière optimale 
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Conception responsive: Éléments clés (suite)
+						* **Navigation intuitive:** repenser la manière dont les utilisateurs naviguent sur le site sur différents appareils, souvent avec des menus et des boutons adaptés aux écrans tactiles sur les appareils mobiles.
+						* **Performances optimisées:** optimisés pour charger rapidement et efficacement sur tous les appareils, malgré les différences de capacité et de vitesse de connexion.
 					</textarea>
 				</section>
 
