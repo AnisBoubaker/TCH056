@@ -425,6 +425,59 @@ exemples = [
         }],
         links: [],
         selected: 'app.css'
+    },
+
+    { //Exemple 10: 
+        files: [ {
+            name: 'app.css',
+            editable : true,
+            content: `
+.conteneur{
+    height: 50vh;
+    padding: 10px;
+    border: 1px solid lightcoral;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: start;
+}
+.boite{
+    /* Remarquez que les boites font 10rem de large,
+    bien que width spécifie 5rem.*/
+    flex-basis: 3rem;
+    width: 5rem;
+    margin: 10px;
+    padding: 1rem;
+    background-color: gold;
+}
+
+.un{
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.deux{
+    flex-grow: 2;
+    flex-shrink: 0;
+}
+
+.trois{
+    /* flex: grow shrink basis*/
+    flex: 1 1 4rem;
+}
+            `
+        }, {
+            name: 'app.html',
+            content: `
+<div class="conteneur">
+    <div class="boite un">A</div>
+    <div class="boite deux">B</div>
+    <div class="boite trois">C</div>
+</div>
+            `
+        }],
+        links: [],
+        selected: 'app.css'
     }
 
 

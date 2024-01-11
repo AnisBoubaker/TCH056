@@ -1271,8 +1271,8 @@
 						## Taille des éléments d'un conteneur Flex
 						
 						* [flex-basis](https://developer.mozilla.org/fr/docs/Web/CSS/flex-basis): Taille initiale d'un élément
-						* [flex-grow](https://developer.mozilla.org/fr/docs/Web/CSS/flex-basis): Taille initiale d'un élément
-						* [flex-shrink](https://developer.mozilla.org/fr/docs/Web/CSS/flex-shrink): Taille initiale d'un élément
+						* [flex-grow](https://developer.mozilla.org/fr/docs/Web/CSS/flex-basis): Facteur d'élargissement d'un élément flex
+						* [flex-shrink](https://developer.mozilla.org/fr/docs/Web/CSS/flex-shrink): Facteur de rétrécissement d'un élément flex
 
 						Toutes ces propritétés peuvent être regrouppées au sein de la propriété 
 						[flex](https://developer.mozilla.org/fr/docs/Web/CSS/flex) (en une seule ligne)
@@ -1293,15 +1293,23 @@
 
 				<section data-markdown>
 					<textarea data-template>
-						## `flex-grow`
+						## `flex-grow` et `flex-shrink`
 						
-						* Définit la taille initiale de l'élément sur l'axe principal (largeur si le flex est horizontal, hauteur si vertical)
-						* Par défaut, la valeur est `auto` et se base de la taille de l'élément telle que définie par `width` ou `height`
-						* La valeur spécifiée sera respectée tant que l'espace disponible dans le conteneur est suffisant.
+						* `flegrow` définit le facteur d'agrandissement de l'élément sur l'axe principal sur l'espace encore disponible dans le conteneur (0 par défaut).
+						* L'espace disponible est réparti sur tous les éléments en fonction du facteur d'agrandissement de tous les éléments du conteneur flex.
+						* Selon le même principe, `flex-shrink` définit le rétrécissement en deça de la valeur `flex-basis` des éléments.
 
-						> [Démonstration](./editeur.html?exemple=9)
+						> [Démonstration](./editeur.html?exemple=10)
 					</textarea>
 				</section>	
+
+				<section data-markdown  data-transition="convex">
+					<textarea data-template>
+						## Positionnement GridBox
+
+						![Positionnement FlexBox](./images/gridbox-illustration.png)
+					</textarea>
+				</section>
 
 
 <!-- FIN THE END -->
