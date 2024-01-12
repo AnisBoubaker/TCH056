@@ -817,6 +817,139 @@ exemples = [
         }],
         links: [],
         selected: 'app.css'
+    }  ,
+
+    { //Exemple 18: 
+        files: [ {
+            name: 'app.css',
+            editable : true,
+            content: `
+@media screen
+{
+    .conteneur{
+        /*height: 100vh;*/
+        border: 1px solid lightcoral;
+        display: grid;
+        grid-template-rows: 4rem auto auto auto 4rem;
+        grid-template-columns: auto; 
+        grid-template-areas: 
+            "entete"
+            "principal"
+            "menu"
+            "connexe"
+            "bas"
+    }
+    .zone-page{
+        background-color: gold;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid black;
+    }    
+
+    .entete{
+        grid-area: entete;
+        display: flex;
+        justify-content: space-between;
+        align-items: center
+    }
+
+    .logo{
+        display: none;
+    }
+
+    .login_links{
+        margin-right: 1rem;
+    }
+
+    .navigation{
+        grid-area: menu;
+    }
+
+    .connexe{
+        grid-area: connexe;
+    }
+
+    .pied-page{
+        grid-area: bas;
+    }
+}
+
+@media screen and (min-width: 600px)
+{
+    .conteneur{
+        height: 100vh;
+        border: 1px solid lightcoral;
+        display: grid;
+        grid-template-rows: 4rem auto 4rem;
+        grid-template-columns: 100px 80fr 20fr; 
+        grid-template-areas: 
+            "entete entete    entete"
+            "menu   principal connexe"
+            "bas    bas       connexe"
+    }
+    .zone-page{
+        background-color: gold;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid black;
+    }    
+
+    .entete{
+        grid-area: entete;
+        display: flex;
+        justify-content: space-between;
+        align-items: center
+    }
+
+    .logo{
+        align-self: start;
+        margin-left: 1rem;
+    }
+
+    .login_links{
+        align-self: start;
+        margin-right: 1rem;
+    }
+
+    .navigation{
+        grid-area: menu;
+    }
+
+    .connexe{
+        grid-area: connexe;
+    }
+
+    .pied-page{
+        grid-area: bas;
+    }
+}         
+            `
+        }, {
+            name: 'app.html',
+            content: `
+<div class="conteneur">
+    <header class="zone-page entete">
+        <div class='logo'>Logo</div>
+        <div>Titre du site</div>
+        <div class='login_links'>Login</div>
+    </header>
+    <nav class="zone-page navigation">Menu du site</nav>
+    <main class="zone-page principal">
+        <h2>
+        Section principale du site
+        </h2>
+        <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus facere, numquam alias doloribus amet quam nostrum, blanditiis ea voluptatem et possimus minus id voluptas omnis quae pariatur distinctio eum sapiente. Voluptatum reprehenderit aperiam quasi dolores impedit cum nam, nostrum commodi voluptas pariatur veritatis blanditiis, expedita nulla doloremque iste ad maiores!
+        </p>
+    </main>
+    <aside class="zone-page connexe">Liens et informations connexes à la page</aside>
+    <div class="zone-page pied-page">Pied de page</div>
+</div>
+            
+            `
+        }],
+        links: [],
+        selected: 'app.css'
     }  
 
 

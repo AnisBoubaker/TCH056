@@ -1558,6 +1558,79 @@
 					</textarea>
 				</section>
 
+				<!-- Diapositive 2 : Introduction -->
+				<section data-markdown>
+					<textarea data-template>
+						## Qu'est-ce qu'une Requête Média?
+						Les [requêtes média](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_media_queries/Using_media_queries) 
+						(*Media Queries*) permettent d'adapter la présentation du contenu aux différents types d'appareils.
+					</textarea>
+				</section>
+	
+				<!-- Diapositive 3 : Syntaxe -->
+				<section data-markdown>
+					<textarea data-template>
+						## Syntaxe de Base
+						```css
+						@media (max-width: 600px) {
+							body {
+								background-color: lightblue;
+							}
+						}
+						```
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Types de Media Queries
+						* `print`: pour les documents imprimés (paginés).
+						* `screen`: pour les écrans d'ordinateurs et appareils mobiles.
+	
+						```css
+						/* Règles destinées à un écran d'une taille maximale de 600px */
+						@media screen {
+							body {
+								background-color: lightblue;
+							}
+						}
+						```
+					</textarea>
+				</section>
+	
+				<!-- Diapositive 5 : Points de Rupture -->
+				<section data-markdown>
+					## Points de Rupture
+					* Définit une taille à laquelle le *media query* s'active
+					* On utilise généralement les attributs `min-width` et `max-width`
+					```css
+					@media screen {
+						boite {
+							width: 20rem;
+							background-color: lightcoral;
+						}
+					}
+					@media screen and (max-width: 600px) {
+						boite {
+							width: 50px;
+							background-color: lightgrey;
+						}
+					}
+					```
+				</section>
+
+				<!-- Diapositive 5 : Points de Rupture -->
+				<section data-markdown>
+					<textarea data-template>
+						## Exemple
+						* La démonstration ci-dessous modifie l'exemple de conception graphique précédente pour y inclure un conception pour téléphone mobile.
+						* Expérimentez avec la démonstration en modifiant la largeur de la page
+						
+						>[Démonstration](./editeur.html?exemple=18)
+					</textarea>
+				</section>
+	
+
 
 <!-- FIN THE END -->
 				<section data-menu-title="Fin">
