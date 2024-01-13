@@ -1,0 +1,14 @@
+/* Sélecteur de frère général pour cibler les paragraphes après le <h2> */
+h2 ~ p {
+    color: orange;
+}
+
+/* Sélecteur de classe pour cibler le paragraphe avec la classe "special" */
+.special {
+    border: 1px dotted;
+}
+
+/* Pseudo-classe pour changer la couleur du texte du label quand la checkbox est cochée */
+input[type="checkbox"]:checked + label {
+    color: green;
+}

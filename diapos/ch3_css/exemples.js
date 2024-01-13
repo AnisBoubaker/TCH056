@@ -950,11 +950,279 @@ exemples = [
         }],
         links: [],
         selected: 'app.css'
-    }  
+    }  ,
+    { //Exemple 19: (Exercice 1) 
+        files: [ {
+            name: 'app.css',
+            editable : true,
+            content: ``
+        }, {
+            name: 'app.html',
+            editable : false,
+            content: `
+
+<h1 id="titre-principal">Bienvenue sur Mon Site Web</h1>
+<p class="info">Ceci est une information importante.</p>
+<p class="alerte">Attention à ce message d'alerte !</p>
+<p class="succes">Vous avez réussi l'action demandée.</p>
+<ul>
+    <li>Élément 1</li>
+    <li>Élément 2</li>
+    <li>Élément 3</li>
+</ul>
+<button id="bouton-action">Cliquez ici</button>
+            
+            `
+        },{
+            name: 'instructions.txt',
+            editable : false,
+            content: `
+==== EXERCICE 1 ====
+
+Questions :
+
+1) Sélectionnez le <h1> par son ID et changez sa couleur en "violet".
+2) Appliquez une marge de "15px" à tous les paragraphes <p>.
+3) Utilisez un sélecteur de classe pour colorer le texte du paragraphe 
+avec la classe "alerte" en "orange".
+4) Donnez une couleur de fond "gris clair" à tous les éléments de liste <li>.
+5) Sélectionnez le bouton par son ID et changez son texte en gras.
+
+            `
+        }],
+        links: [],
+        selected: 'instructions.txt'
+    } ,
+    { //Exemple 20: (Exercice 2) 
+        files: [ {
+            name: 'app.css',
+            editable : true,
+            content: ``
+        }, {
+            name: 'app.html',
+            editable : false,
+            content: `
+<div class="conteneur">
+    <h1>Bienvenue</h1>
+    <p>Ceci est le paragraphe principal de la section.</p>
+    <div class="sous-section">
+        <p>Ceci est un paragraphe dans la sous-section.</p>
+        <ul>
+            <li>Liste Item 1</li>
+            <li>Liste Item 2
+                <ul>
+                    <li>Sous-liste Item 1</li>
+                    <li>Sous-liste Item 2</li>
+                </ul>
+            </li>
+            <li>Liste Item 3</li>
+        </ul>
+    </div>
+</div>
+<p>Ceci est un paragraphe en dehors de .conteneur.</p>            
+            `
+        },{
+            name: 'instructions.txt',
+            editable : false,
+            content: `
+==== EXERCICE 2 ====
+
+Questions :
+
+1) Utilisez un sélecteur descendant pour changer la couleur 
+du texte de tous les <p> à l'intérieur de la classe .conteneur 
+en bleu.
+
+2) Appliquez une bordure de 1px en pointillés aux <ul> qui 
+sont des descendants directs de .sous-section.
+
+3) Changez la couleur de fond de tous les <li> qui sont des 
+descendants de .sous-section en jaune clair.
+
+4) Utilisez un sélecteur descendant pour changer la couleur 
+du texte de tous les <li> à l'intérieur des sous-listes <ul> 
+de .sous-section en rouge.
+
+5) Assurez-vous que le <p> qui est en dehors de .conteneur 
+ne soit pas affecté par les styles appliqués aux <p> à 
+l'intérieur de .conteneur.
+            `
+        }],
+        links: [],
+        selected: 'instructions.txt'
+    },
+    { //Exemple 21: (Exercice 3) 
+        files: [ {
+            name: 'app.css',
+            editable : true,
+            content: ``
+        }, {
+            name: 'app.html',
+            editable : false,
+            content: `
+<h1>Titre Principal</h1>
+<p class="important">Ce paragraphe est important.</p>
+<p>Ce paragraphe est standard.</p>
+<p class="important">Un autre paragraphe important.</p>
+<a href="https://exemple.com" target="_blank">Lien Externe</a>
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+            `
+        },{
+            name: 'instructions.txt',
+            editable : false,
+            content: `
+==== EXERCICE 3 ====
+
+Questions :
+
+1) Utilisez le sélecteur de frère adjacent (+) pour changer la 
+couleur du paragraphe qui suit immédiatement un paragraphe avec 
+la classe "important" en vert.
+
+2) Appliquez un style aux liens (<a>) qui s'ouvrent dans un nouvel 
+onglet (attribut target="_blank") pour qu'ils soient en gras.
+
+3) Changez la couleur du premier élément de la liste (<li>) en rouge 
+en utilisant une pseudo-classe.
+            `
+        }],
+        links: [],
+        selected: 'instructions.txt'
+    },
+    { //Exemple 22: (Exercice 4) 
+        files: [ {
+            name: 'app.css',
+            editable : true,
+            content: ``
+        }, {
+            name: 'app.html',
+            editable : false,
+            content: `
+<div class="conteneur">
+    <h2>Titre de la Section</h2>
+    <p>Paragraphe 1</p>
+    <p>Paragraphe 2</p>
+    <p class="special">Paragraphe Spécial</p>
+</div>
+<p>Paragraphe hors de .conteneur</p>
+<input type="checkbox" id="check1">
+<label for="check1">Cliquez moi</label>
+            `
+        },{
+            name: 'instructions.txt',
+            editable : false,
+            content: `
+==== EXERCICE 4 ====
+
+Questions :
+
+1) Utilisez le sélecteur de frère général (~) pour changer 
+la couleur de tous les paragraphes suivant le <h2> en orange.
+
+2) Appliquez un style au paragraphe avec la classe "special" 
+pour qu'il ait une bordure en pointillés.
+
+3) Changez la couleur du texte du label lorsque la case à cocher 
+associée est cochée (utilisez une pseudo-classe).
+            `
+        }],
+        links: [],
+        selected: 'instructions.txt'
+    } ,
+    { //Exemple 23: (Exercice 5) 
+        files: [ {
+            name: 'app.css',
+            editable : true,
+            content: ``
+        }, {
+            name: 'app.html',
+            editable : false,
+            content: `
+<div class="flex-container">
+    <div class="box">Boîte 1</div>
+    <div class="box">Boîte 2</div>
+    <div class="box">Boîte 3</div>
+</div>
+            `
+        },{
+            name: 'instructions.txt',
+            editable : false,
+            content: `
+==== EXERCICE 5 ====
+
+Questions :
+
+0) Donnez une couleur de fond "lightcoral" aux 
+boites (box) de la page. 
 
 
+1) Faites en sorte que .flex-container soit un 
+conteneur Flexbox.
 
+2) Utilisez justify-content pour répartir les 
+boîtes (box) de manière égale dans le conteneur.
 
+3) Appliquez align-items pour aligner les boîtes 
+au centre du conteneur sur l'axe orthogonal.
+
+4) Définissez flex-basis pour la deuxième boîte 
+(Boîte 2) à 200px.
+            `
+        }],
+        links: [],
+        selected: 'instructions.txt'
+    },
+    { //Exemple 24: (Exercice 6) 
+        files: [ {
+            name: 'app.css',
+            editable : true,
+            content: ``
+        }, {
+            name: 'app.html',
+            editable : false,
+            content: `
+<div class="grid-container">
+    <header class="header">En-tête</header>
+    <aside class="sidebar">Barre latérale</aside>
+    <main class="main-content">Contenu principal</main>
+    <footer class="footer">Pied de page</footer>
+</div>
+            `
+        },{
+            name: 'instructions.txt',
+            editable : false,
+            content: `
+==== EXERCICE 6 ====
+
+Questions :
+
+1) Transformez .grid-container en un conteneur de grille 
+avec deux colonnes et trois lignes.
+
+2) Utilisez grid-template-areas pour structurer la grille 
+de la manière suivante :
+
+  a. La première ligne contient l'en-tête (header) qui 
+  s'étend sur deux colonnes.
+
+  b. La deuxième ligne contient la barre latérale (sidebar) 
+  dans la première colonne et le contenu principal (main-content) 
+  dans la seconde.
+
+  c. La troisième ligne contient le pied de page (footer) qui 
+  s'étend sur deux colonnes.
+
+3) Assurez-vous que chaque zone de la grille correspond à sa 
+classe respectivement nommée (par exemple, la zone "header" pour l'en-tête).
+            `
+        }],
+        links: [],
+        selected: 'instructions.txt'
+    }
 ]
 
     

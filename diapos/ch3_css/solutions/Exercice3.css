@@ -1,0 +1,14 @@
+/* Sélecteur de frère adjacent pour cibler le paragraphe suivant un .important */
+.important + p {
+    color: green;
+}
+
+/* Sélecteur par attribut pour cibler les liens qui s'ouvrent dans un nouvel onglet */
+a[target="_blank"] {
+    font-weight: bold;
+}
+
+/* Pseudo-classe pour cibler le premier élément de la liste */
+ul li:first-child {
+    color: red;
+}

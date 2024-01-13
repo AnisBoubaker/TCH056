@@ -1,0 +1,21 @@
+/* Sélecteur descendant pour changer la couleur du texte des <p> à l'intérieur de .conteneur */
+.conteneur p {
+    color: blue;
+}
+
+/* Sélecteur descendant direct pour appliquer une bordure aux <ul> directement dans .sous-section */
+.sous-section > ul {
+    border: 1px dotted;
+}
+
+/* Sélecteur descendant pour changer la couleur de fond des <li> dans .sous-section */
+.sous-section li {
+    background-color: lightyellow;
+}
+
+/* Sélecteur descendant pour changer la couleur du texte des <li> dans les sous-listes <ul> de .sous-section */
+.sous-section ul li {
+    color: red;
+}
+
+/* Aucun style supplémentaire n'est nécessaire pour le <p> hors de .conteneur, car il n'est pas ciblé par les règles ci-dessus */

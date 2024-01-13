@@ -1,0 +1,24 @@
+/* Sélectionnez le <h1> par son ID et changez sa couleur en "violet". */
+#titre-principal {
+    color: violet;
+}
+
+/* Appliquez une marge de "15px" à tous les paragraphes <p>. */
+p {
+    margin: 15px;
+}
+
+/* Utilisez un sélecteur de classe pour colorer le texte du paragraphe avec la classe "alerte" en "orange". */
+.alerte {
+    color: orange;
+}
+
+/* Donnez une couleur de fond "gris clair" à tous les éléments de liste <li>. */
+li {
+    background-color: lightgray;
+}
+
+/* Sélectionnez le bouton par son ID et changez son texte en gras. */
+#bouton-action {
+    font-weight: bold;
+}

@@ -1,0 +1,15 @@
+.box{
+    background-color: lightcoral;
+}
+
+/* Faire de .flex-container un conteneur Flexbox */
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Définir flex-basis pour la deuxième boîte */
+.flex-container .box:nth-child(2) {
+    flex-basis: 200px;
+}
