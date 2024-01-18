@@ -500,6 +500,10 @@ cite {
       color: #d3d3d3;
     }
 
+    .sous-menu .plan-current{
+      color:lightyellow;
+    }
+
 
 
   /* Hide menu button, so that ETS logo acts as a button */  

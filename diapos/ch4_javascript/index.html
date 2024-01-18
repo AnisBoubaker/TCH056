@@ -6,6 +6,8 @@
 
 		<title>CH04- Javascript | TCH056</title>
 
+		<base target="_blank">
+
 		<link rel="stylesheet" href="../revealjs/reset.css">
 		<link rel="stylesheet" href="../revealjs/reveal.css">
 		<link rel="stylesheet" href="../revealjs/theme/ets.css" id="theme">
@@ -20,6 +22,7 @@
 		<link rel="stylesheet" href="../revealjs/plugin/highlight/docco.css" id="highlight-theme">
 
 		<script src="../jquery-3.6.4.min.js"></script>
+		<script src="./ch4.js"></script>
 	</head>
 	<body>
 		<!--
@@ -47,7 +50,7 @@
 					<div class="col menu-principal">
 						<ul class="">
 							<li class="plan-current">Introduction</li>
-							<li >Éléments de base du langage</li>
+							<li>Éléments de base du langage</li>
 							<li>Manipulation du DOM</li>
 							<li>Programmation événementielle</li>
 							<li>Cadriciels et librairies</li>
@@ -275,23 +278,51 @@
 						</div>
 						<div class="col fragment">
 							<h4>Dans un fichier externe (Mieux!)</h4>
-							<pre ><code class="html" data-trim data-line-numbers="2-4">
+							<pre ><code class="html" data-trim data-line-numbers="2-4"><script type="text/template">
 								<head>
 									...
 									<script type="text/javascript" src="./mon_code.js"></script>
 								</head>
-							</code></pre>
+							</script></code></pre>
 						</div>
 						<div class="col fragment">
 							<h4>Dans un fichier externe comme module (Parfait!)</h4>
-							<pre ><code class="html" data-trim data-line-numbers="2-4">
+							<pre ><code class="html" data-trim data-line-numbers="2-4"><script type="text/template">
 								<head>
 									...
 									<script type="module" src="./mon_code.js"></script>
 								</head>
-							</code></pre>
+							</script></code></pre>
 						</div>
 					</div>
+				</section>
+
+				<section>
+					<h2>Les attributs `defer` et `async`</h2>
+					<ul>
+						<li>`defer`: Charger le script en parallèle, l'exécuter après le chargement de la page
+							<pre ><code class="html" data-trim><script type="text/template">
+								<head>
+									<script type="module" src="./mon_code.js" defer></script>
+								</head>
+							</script></code></pre>
+						</li>
+						<li>`async`: Charger le script en parallèle, l'exécuter dès qu'il est disponible
+							<pre ><code class="html" data-trim><script type="text/template">
+								<head>
+									<script type="module" src="./mon_code.js" async></script>
+								</head>
+							</script></code></pre>
+						</li>
+						<li>
+							`async` et `defer`: Le script et chargé et exécuté immédiatement, bloquant le chargement de la page
+							<pre ><code class="html" data-trim><script type="text/template">
+								<head>
+									<script type="module" src="./mon_code.js" async defer></script>
+								</head>
+							</script></code></pre>
+						</li>
+					</ul>
 				</section>
 
 <!-- Plan du chapitre -->
@@ -951,8 +982,8 @@
 							</ul>
 						</div>
 						<div class="col sous-menu">
-							<ul style="margin:0">
-								<li>Rappel: Document HTML = Arbre</li>
+							<ul style="margin-top :20px">
+								<li class="plan-current">Rappel: Document HTML = Arbre</li>
 								<li>API de parcours du DOM/BOM</li>
 								<li>Modification dynamique du DOM</li>
 							</ul>
@@ -977,87 +1008,602 @@
 
 				<section>
 					<h2>API du DOM</h2>
-					<div class="two_columns_layout">
-						<div id="test_tree" class="col">
-							<script type="text/javascript">
-								let exemple_dom1 = [
-									{
-										name: 'document',
-										children: [
-											{ name: 'head',
-											children: [
-												{name: 'meta', highlight: true},
-												{name: 'meta'},
-												{name: 'title'}
-											]
-											},
-											{ 
-												name: 'body', 
-												children: [
-												{
-													name: "div", 
-													children: [
-														{name: 'p'},
-														{name: 'div'}
-													]
-												},
-												{name: "p"}
-											]
-											}
-										]
-									}
-								];
+					<p>Ensemble de fonctions disponibles pour: </p>
+					<ul>
+						<li>Localiser des éléments de la page</li>
+						<li>Modifier des éléments identifiés (contenu, ajout d'enfants, suppression)</li>
+						<li>Accéder et agir sur les différentes propriétés des éléments</li>
+					</ul>
+					<p class="highlight2">Il existe plusieurs DOM (HTML, SVG, XML), mais ils partagent tous la même API normalisée par le W3C.</p>
+				</section>
 
-								$(function(){
-									$('#test_tree').tree({
-										data: exemple_dom1,
-										autoOpen: true,
-										buttonLeft: true,
-										closedIcon: '+',
-										openedIcon: '-'
-									});
-								});
-							</script>
+				<section>
+					<h2>Construction du DOM depuis le HTML</h2>
+					<div class="two_columns_layout" style="height: 100%; width:90%;">
+						<div id="html1_src" class="col" style="font-size: 2rem; width:70%;">
+							<pre><code class="html" data-trim></code></pre>
 						</div>
-						<div class="col r-fit-text">
-							<p>Ensemble de fonctions disponibles pour: </p>
-							<ul>
-								<li>Localiser des éléments de la page</li>
-								<li>Modifier des éléments identifiés (contenu, ajout d'enfants, suppression)</li>
-								<li>Accéder et agir sur les différentes propriétés des éléments</li>
+						<div class="col" style="min-width: 50%;">
+							<pre class="fragment"><code id="html1_json" style="font-size: 3rem; height:100%;"></code></pre>
+						</div>
+						
+						<script type="text/javascript">
+							var html1 = `
+								<!doctype html>
+								<html>
+									<head>
+										<meta />
+										<meta />
+										<link rel="stylesheet" href="./css/style.css">
+									</head>
+									<body>
+										<div id='conteneur'>
+											<p id='p1' class='important rouge'>
+												Aller au 
+												<span><a>Site de l'ETS</a>
+												</span>
+											</p>
+											<p>Du texte</p>
+											<div></div>
+										</div>
+									</body>
+								</html>`;
+							document.querySelector("#html1_src pre code").textContent = html1;
+							$(function(){
+								$('#html1_json').tree({
+									data: [htmlToJson(html1, false, false, false)],
+									autoOpen: 2,
+									buttonLeft: true,
+									selectable: false,
+									closedIcon: '+',
+									openedIcon: '-'
+								});
+							});
+						</script>
+					</div>
+				</section>
+
+				<section >
+					<h2>Métamodèle du DOM</h2>
+					<img src="./images/DOMMetaModel.png" alt="DOMMetaModel" style="" />
+				</section>
+
+				<section>
+					<h2>Types d'éléments du DOM</h2>
+					<div class="two_columns_layout" style="height: 100%; width:90%;">
+						<div id="html2_src" class="col" style="font-size: 2rem; width:70%;">
+							<pre><code class="html" data-trim></code></pre>
+						</div>
+						<div class="col" style="min-width: 50%;">
+							<pre class="fragment"><code id="html2_json" style="font-size: 3rem; height:100%;"></code></pre>
+						</div>
+						
+						<script type="text/javascript">
+							var html2 = `
+								<!doctype html>
+								<html>
+									<head>
+										<meta />
+										<meta />
+										<link rel="stylesheet" href="./css/style.css">
+									</head>
+									<body>
+										<div id='conteneur'>
+											<p id='p1' class='important rouge'>
+												Aller au 
+												<span><a>Site de l'ETS</a>
+												</span>
+											</p>
+											<p>Du texte</p>
+											<div></div>
+										</div>
+									</body>
+								</html>`;
+							document.querySelector("#html2_src pre code").textContent = html2;
+							$(function(){
+								$('#html2_json').tree({
+									data: [htmlToJson(html2, true, false, false)],
+									autoOpen: 2,
+									buttonLeft: true,
+									selectable: false,
+									closedIcon: '+',
+									openedIcon: '-'
+								});
+							});
+						</script>
+					</div>
+				</section>
+
+<!-- Plan du chapitre -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-visited">Éléments de base du langage</li>
+								<li class="plan-current">Manipulation du DOM</li>
+								<li>Programmation événementielle</li>
+								<li>Cadriciels et librairies</li>
 							</ul>
-							<p class="highlight2">Il existe plusieurs DOM (HTML, SVG, XML), mais ils partagent tous la même API normalisée par le W3C.</p>
+						</div>
+						<div class="col sous-menu">
+							<ul style="margin-top :20px">
+								<li class="plan-visited">Rappel: Document HTML = Arbre</li>
+								<li class="plan-current">API de parcours du DOM/BOM</li>
+								<li>Modification dynamique du DOM</li>
+							</ul>
 						</div>
 					</div>
-					
 				</section>
 
 				<section>
 					<h2>Sélection d'éléments</h2>
 					<p>Quatre approches/méthodes de sélection (démontrées en classe)</p>
 					<ul>
-						<li><em>getElementById</em></li>
-						<li><em>getElementByTagName</em></li>
-						<li><em>getElementByClassName</em></li>
-						<li><em>querySelector / querySelectorAll</em></li>
+						<li><em><a href="https://developer.mozilla.org/fr/docs/Web/API/Document/getElementById" target="_blank">
+									getElementById</a></em></li>
+						<li><em><a href="https://developer.mozilla.org/fr/docs/Web/API/Document/getElementsByTagName" target="_blank">
+							getElementsByTagName</a></em></li>
+						<li><em><a href="https://developer.mozilla.org/fr/docs/Web/API/Document/getElementsByClassName" target="_blank">
+							getElementsByClassName</a></em></li>
+						<li><em>
+							<a href="https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector" target="_blank">
+								querySelector</a> / 
+							<a href="https://developer.mozilla.org/fr/docs/Web/API/Document/querySelectorAll" target="_blank">
+								querySelectorAll</a></em></li>
 					</ul>
 				</section>
 
 				<section>
+					<h2>Sélection par Identifiant</h2>
+					<div class="two_columns_layout" style="height: 100%; width:90%;">
+						<div id="html3_src" class="col" style="font-size: 2rem; width:70%;">
+							<pre><code class="html" data-trim></code></pre>
+						</div>
+						<div class="col" style="min-width: 50%;">
+							<pre class="fragment"><code id="html3_json" style="font-size: 3rem; height:100%;"></code></pre>
+						</div>
+					</div>
+					<pre class="fragment"><code class="javascript" data-trim>
+						const conteneur = document.getElementById('conteneur');
+					</code></pre>	
+					<script type="text/javascript">
+						var html3 = `
+							<!doctype html>
+							<html>
+								<head>
+									<meta />
+									<meta />
+									<link rel="stylesheet" href="./css/style.css">
+								</head>
+								<body>
+									<div id='conteneur'>
+										<p id='p1' class='important rouge'>
+											Aller au 
+											<span><a>Site de l'ETS</a>
+											</span>
+										</p>
+										<p id='texte'>Du texte</p>
+										<div></div>
+									</div>
+								</body>
+							</html>`;
+						document.querySelector("#html3_src pre code").textContent = html2;
+						$(function(){
+							$('#html3_json').tree({
+								data: [htmlToJson(html3, false, true, false)],
+								autoOpen: 2,
+								buttonLeft: true,
+								selectable: false,
+								closedIcon: '+',
+								openedIcon: '-'
+							});
+						});
+					</script>
+				</section>
+
+				<section>
+					<h2>Sélection par Classe</h2>
+					<div class="two_columns_layout" style="height: 100%; width:90%;">
+						<div id="html4_src" class="col" style="font-size: 2rem; width:70%;">
+							<pre><code class="html" data-trim></code></pre>
+						</div>
+						<div class="col" style="min-width: 50%;">
+							<pre class="fragment"><code id="html4_json" style="font-size: 3rem; height:100%;"></code></pre>
+						</div>
+					</div>
+					<pre class="fragment"><code class="javascript" data-trim>
+						const hots = document.getElementsByClassName('hot');
+						//NOTE: `hots` est un tableau!!
+					</code></pre>	
+					<script type="text/javascript">
+						var html4 = `
+							<!doctype html>
+							<html>
+								<head>
+									<meta />
+									<meta />
+									<link rel="stylesheet" href="./css/style.css">
+								</head>
+								<body>
+									<div id='conteneur'>
+										<p class='para hot' class='important rouge'>
+											Aller au 
+											<span><a>Site de l'ETS</a>
+											</span>
+										</p>
+										<p id='texte'>Du texte</p>
+										<div class='hot'></div>
+									</div>
+								</body>
+							</html>`;
+						document.querySelector("#html4_src pre code").textContent = html4;
+						$(function(){
+							$('#html4_json').tree({
+								data: [htmlToJson(html4, false, false, true)],
+								autoOpen: 2,
+								buttonLeft: true,
+								selectable: false,
+								closedIcon: '+',
+								openedIcon: '-'
+							});
+						});
+					</script>
+				</section>
+
+				<section>
+					<h2>Sélection par Type</h2>
+					<div class="two_columns_layout" style="height: 100%; width:90%;">
+						<div id="html5_src" class="col" style="font-size: 2rem; width:70%;">
+							<pre><code class="html" data-trim></code></pre>
+						</div>
+						<div class="col" style="min-width: 50%;">
+							<pre class="fragment"><code id="html5_json" style="font-size: 3rem; height:100%;"></code></pre>
+						</div>
+					</div>
+					<pre class="fragment"><code class="javascript" data-trim>
+						const paragraphes = document.getElementsByTagName('p');
+						//NOTE: paragraphes est un tableau!!
+					</code></pre>	
+					<script type="text/javascript">
+						var html5 = `
+							<!doctype html>
+							<html>
+								<head>
+									<meta />
+									<meta />
+									<link rel="stylesheet" href="./css/style.css">
+								</head>
+								<body>
+									<div id='conteneur'>
+										<p class='para hot' class='important rouge'>
+											Aller au 
+											<span><a>Site de l'ETS</a>
+											</span>
+										</p>
+										<p id='texte'>Du texte</p>
+										<div class='hot'></div>
+									</div>
+								</body>
+							</html>`;
+						document.querySelector("#html5_src pre code").textContent = html5;
+						$(function(){
+							$('#html5_json').tree({
+								data: [htmlToJson(html5, false, false, false)],
+								autoOpen: 2,
+								buttonLeft: true,
+								selectable: false,
+								closedIcon: '+',
+								openedIcon: '-'
+							});
+						});
+					</script>
+				</section>
+
+				<section>
+					<h2>Sélection par Sélecteur 1/2</h2>
+					<div class="two_columns_layout" style="height: 100%; width:90%;">
+						<div id="html6_src" class="col" style="font-size: 2rem; width:70%;">
+							<pre><code class="html" data-trim></code></pre>
+						</div>
+						<div class="col" style="min-width: 50%;">
+							<pre class="fragment"><code id="html6_json" style="font-size: 3rem; height:100%;"></code></pre>
+						</div>
+					</div>
+					<pre class="fragment"><code class="javascript" data-trim>
+						const lesHot = document.querySelector('#conteneur p.hot');
+						//NOTE: Un seul élément est sélectionné (le premier 
+						// qui est satisfaisant)
+					</code></pre>	
+					<script type="text/javascript">
+						var html6 = `
+							<div id='conteneur'>
+								<p class='para hot' class='important rouge'>
+									Aller au 
+									<span><a>Site de l'ETS</a>
+									</span>
+								</p>
+								<p id='texte' class='hot'>Du texte</p>
+								<div class='hot'></div>
+							</div>`;
+						document.querySelector("#html6_src pre code").textContent = html6;
+						$(function(){
+							$('#html6_json').tree({
+								data: [htmlToJson(html6, false, true, true, true)],
+								autoOpen: true,
+								buttonLeft: true,
+								selectable: false,
+								closedIcon: '+',
+								openedIcon: '-'
+							});
+						});
+					</script>
+				</section>
+
+				<section>
+					<h2>Sélection par Sélecteur 2/2</h2>
+					<div class="two_columns_layout" style="height: 100%; width:90%;">
+						<div id="html7_src" class="col" style="font-size: 2rem; width:70%;">
+							<pre><code class="html" data-trim></code></pre>
+						</div>
+						<div class="col" style="min-width: 50%;">
+							<pre class="fragment"><code id="html7_json" style="font-size: 3rem; height:100%;"></code></pre>
+						</div>
+					</div>
+					<pre class="fragment"><code class="javascript" data-trim>
+						const lesHot = document.querySelectorAll('#conteneur p.hot');
+						//NOTE: Tous les éléments satisfaisants au sélecteur seront
+						// retournés (dans un tableau)
+					</code></pre>	
+					<script type="text/javascript">
+						var html7 = `
+							<div id='conteneur'>
+								<p class='para hot' class='important rouge'>
+									Aller au 
+									<span><a>Site de l'ETS</a>
+									</span>
+								</p>
+								<p id='texte' class='hot'>Du texte</p>
+								<div class='hot'></div>
+							</div>`;
+						document.querySelector("#html7_src pre code").textContent = html7;
+						$(function(){
+							$('#html7_json').tree({
+								data: [htmlToJson(html7, false, true, true, true)],
+								autoOpen: true,
+								buttonLeft: true,
+								selectable: false,
+								closedIcon: '+',
+								openedIcon: '-'
+							});
+						});
+					</script>
+				</section>
+
+				<section>
+					<h2>Sélection en sous-arbre</h2>
+					<ul>
+						<li>Les méthodes `getElementsByClassName`, `getElementsByTagName` et `querySelector` sont implémentées dans `Element` (sont disponibles pour tout objet de type Element)</li>
+						<li>Utiliser ces fonctions sur un élément en particulier (pas document) exécutera la requête comme si l'élémenent était la racine de l'arbre.</li>
+						<li>Les éléments retournés seront seulement ceux qui sont descendants de l'élément.</li>
+					</ul>
+					<pre class="fragment"><code class="javascript" data-trim>
+						const conteneur = document.getElementById('conteneur');
+						const paragraphes = conteneur.getElementsByTagName('p');
+						//NOTE: Seuls les paragraphes descendants du div#conteneur 
+						//seront sélectionnées!
+					</code></pre>	
+				</section>
+
+				<section class="slidenb" data-slidenb="Lecture seule!">
 					<h2>Parcours du DOM</h2>
-					<p>Une fois un élément sélectionné, il est souvent désirable de parcourir l'ensemble des éléments qui lui sont liés de façon hiérarchique.</p>
-					<p class="fragment">Plusieurs proprités de chaque élément permettent d'accéder - de proche en proche - aux enfants, frêres et parents, de l'élément :</p>
-					<ul class="fragment">
-						<li>parentNode</li>
-						<li>childNodes</li>
-						<li>firstChild, lastChild</li>
-						<li>nextSibling, previousSibling</li>
+					<ul>
+						<li>Une fois un élément sélectionné, il est souvent désirable de parcourir l'ensemble des éléments qui lui sont liés de façon hiérarchique.</li>
+						<li class="fragment">Plusieurs proprités de chaque élément permettent d'accéder - de proche en proche - aux enfants, frêres et parents, de l'élément :
+							<ul>
+								<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/parentNode">parentNode</a></li>
+								<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/childNodes">childNodes</a></li>
+								<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/firstChild">firstChild</a>, <a href="https://developer.mozilla.org/fr/docs/Web/API/Node/firstChild">lastChild</a></li>
+								<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/nextSibling">nextSibling</a>, <a href="https://developer.mozilla.org/fr/docs/Web/API/Node/previousSibling">previousSibling</a></li>
+							</ul>
+						</li>
 					</ul>
 				</section>
 
 				<section>
-					
+					<h2>Noeud parent</h2>
+					<div class="two_columns_layout" style="height: 100%; width:90%;">
+						<div id="html8_src" class="col" style="font-size: 2rem; width:70%;">
+							<pre><code class="html" data-trim></code></pre>
+						</div>
+						<div class="col" style="min-width: 50%;">
+							<pre class="fragment"><code id="html8_json" style="font-size: 3rem; height:100%;"></code></pre>
+						</div>
+					</div>
+					<pre class="fragment"><code class="javascript" data-trim>
+						const lien = document.querySelector('div p a');
+						const leSpan = lien.parentNode;
+					</code></pre>	
+					<script type="text/javascript">
+						var html8 = `
+							<div id='conteneur'>
+								<p class='para hot' class='important rouge'>
+									Aller au 
+									<span><a>Site de l'ETS</a>
+									</span>
+								</p>
+								<p id='texte' class='hot'>Du texte</p>
+								<div class='hot'></div>
+							</div>`;
+						document.querySelector("#html8_src pre code").textContent = html8;
+						$(function(){
+							$('#html8_json').tree({
+								data: [htmlToJson(html8, false, true, true, true)],
+								autoOpen: true,
+								buttonLeft: true,
+								selectable: false,
+								closedIcon: '+',
+								openedIcon: '-'
+							});
+						});
+					</script>
 				</section>
+
+				<section>
+					<h2>Noeuds Enfants</h2>
+					<div class="two_columns_layout" style="height: 100%; width:90%;">
+						<div id="html9_src" class="col" style="font-size: 2rem; width:70%;">
+							<pre><code class="html" data-trim></code></pre>
+						</div>
+						<div class="col" style="min-width: 50%;">
+							<pre><code id="html9_json" style="font-size: 3rem; height:100%;"></code></pre>
+						</div>
+					</div>
+					<pre><code class="javascript" data-trim>
+						const conteneur = document.querySelector('div#conteneur');
+						const enfants = conteneur.childNodes;
+						//Contient les noeuds p.para.hot, p#texte et div.hot
+					</code></pre>	
+					<script type="text/javascript">
+						var html9 = `
+							<div id='conteneur'>
+								<p class='para hot' class='important rouge'>
+									Aller au 
+									<span><a>Site de l'ETS</a>
+									</span>
+								</p>
+								<p id='texte' class='hot'>Du texte</p>
+								<div class='hot'></div>
+							</div>`;
+						document.querySelector("#html9_src pre code").textContent = html9;
+						$(function(){
+							$('#html9_json').tree({
+								data: [htmlToJson(html9, false, true, true, true)],
+								autoOpen: true,
+								buttonLeft: true,
+								selectable: false,
+								closedIcon: '+',
+								openedIcon: '-'
+							});
+						});
+					</script>
+				</section>
+
+				<section>
+					<h2>Premier et dernier enfants</h2>
+					<div class="two_columns_layout" style="height: 100%; width:90%;">
+						<div id="html10_src" class="col" style="font-size: 2rem; width:70%;">
+							<pre><code class="html" data-trim></code></pre>
+						</div>
+						<div class="col" style="min-width: 50%;">
+							<pre><code id="html10_json" style="font-size: 3rem; height:100%;"></code></pre>
+						</div>
+					</div>
+					<pre><code class="javascript" data-trim>
+						const conteneur = document.querySelector('div#conteneur');
+						const premier = conteneur.firstChild; //p.para.hot
+						const dernier = conteneur.lastChild; //div.hot
+					</code></pre>	
+					<script type="text/javascript">
+						var html10 = `
+							<div id='conteneur'>
+								<p class='para hot' class='important rouge'>
+									Aller au 
+									<span><a>Site de l'ETS</a>
+									</span>
+								</p>
+								<p id='texte' class='hot'>Du texte</p>
+								<div class='hot'></div>
+							</div>`;
+						document.querySelector("#html10_src pre code").textContent = html10;
+						$(function(){
+							$('#html10_json').tree({
+								data: [htmlToJson(html10, false, true, true, true)],
+								autoOpen: true,
+								buttonLeft: true,
+								selectable: false,
+								closedIcon: '+',
+								openedIcon: '-'
+							});
+						});
+					</script>
+				</section>
+
+				<section>
+					<h2>Frères précédent et suivant</h2>
+					<div class="two_columns_layout" style="height: 100%; width:90%;">
+						<div id="html11_src" class="col" style="font-size: 2rem; width:70%;">
+							<pre><code class="html" data-trim></code></pre>
+						</div>
+						<div class="col" style="min-width: 50%;">
+							<pre><code id="html11_json" style="font-size: 3rem; height:100%;"></code></pre>
+						</div>
+					</div>
+					<pre><code class="javascript" data-trim>
+						const conteneur = document.querySelector('p#texte');
+						const premier = conteneur.previousSibling; //p.para.hot
+						const dernier = conteneur.nextSibling; //div.hot
+					</code></pre>	
+					<script type="text/javascript">
+						var html11 = `
+							<div id='conteneur'>
+								<p class='para hot' class='important rouge'>
+									Aller au 
+									<span><a>Site de l'ETS</a>
+									</span>
+								</p>
+								<p id='texte' class='hot'>Du texte</p>
+								<div class='hot'></div>
+							</div>`;
+						document.querySelector("#html11_src pre code").textContent = html11;
+						$(function(){
+							$('#html11_json').tree({
+								data: [htmlToJson(html11, false, true, true, true)],
+								autoOpen: true,
+								buttonLeft: true,
+								selectable: false,
+								closedIcon: '+',
+								openedIcon: '-'
+							});
+						});
+					</script>
+				</section>
+
+				<section>
+					<h2>Contenu d'un élément</h2>
+					<p>Trois méthodes pour lire le contenu d'un élément (et pour le modifier!)</p>
+					<ul>
+						<li><a href="https://developer.mozilla.org/fr/docs/Web/API/HTMLElement/innerText">innerText</a></li>
+						<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/innerHTML">innerHTML</a></li>
+						<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/textContent">textContent</a></li>
+					</ul>
+					<blockquote><a href="./editeur.html?exemple=0">>> Démonstration</a></blockquote>
+				</section>
+
+<!-- Plan du chapitre -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-visited">Éléments de base du langage</li>
+								<li class="plan-current">Manipulation du DOM</li>
+								<li>Programmation événementielle</li>
+								<li>Cadriciels et librairies</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul style="margin-top :20px">
+								<li class="plan-visited">Rappel: Document HTML = Arbre</li>
+								<li class="plan-visited">API de parcours du DOM/BOM</li>
+								<li class="plan-current">Modification dynamique du DOM</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
 
 <!-- FIN THE END -->
 				<section data-menu-title="Fin">
@@ -1125,7 +1671,7 @@
 				
 			} );			
 		</script>
-		<script src="../tree.jquery.js"></script>
 		<script src="./ch4.js"></script>
+		<script src="../tree.jquery.js"></script>
 	</body>
 </html>

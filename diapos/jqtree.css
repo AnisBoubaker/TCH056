@@ -26,6 +26,7 @@ ul.jqtree-tree {
     ul.jqtree-tree li.jqtree_common {
         clear: both;
         list-style-type: none;
+        border-left: 1px solid #000;
     }
 
     ul.jqtree-tree .jqtree-toggler {
@@ -64,7 +65,7 @@ ul.jqtree-tree {
     }
 
     ul.jqtree-tree .jqtree-title-button-left {
-        margin-left: 1.5em;
+        margin-left: 1.1em;
     }
 
     ul.jqtree-tree .jqtree-title-button-left.jqtree-title-folder {
