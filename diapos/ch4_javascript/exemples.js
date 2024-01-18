@@ -121,6 +121,44 @@ exemples = [
         }],
         links: [],
         selected: 'app.js'
+    }, 
+    { //Exemple 1: 
+        files: [ {
+            name: 'app.css',
+            editable : true,
+            content: codeCSSBase
+        }, {
+            name: 'app.html',
+            editable : true,
+            content: codeHTMLBase
+        }, {
+            name: 'app.js',
+            editable : true,
+            content: `
+const creerArticle = function(titre, contenu){
+    const article = document.createElement("article");
+    const titreArticle = document.createElement("h2");
+    const contenuArticle = document.createElement("p");
+
+    titreArticle.textContent = titre;
+    contenuArticle.textContent = contenu;
+
+    article.append(titreArticle, contenuArticle);
+    return article;
+}
+/*
+const article4 = creerArticle("Article 4", "son contenu....");
+document.querySelector('main').appendChild(article4);
+
+const article5 = creerArticle("Article 5", "son contenu....");
+const main = document.querySelector('main');
+
+main.insertBefore(article5, main.childNodes[2]);
+*/
+            `
+        }],
+        links: [],
+        selected: 'app.js'
     }
 ]
 

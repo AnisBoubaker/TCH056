@@ -1384,7 +1384,8 @@
 				<section>
 					<h2>Sélection en sous-arbre</h2>
 					<ul>
-						<li>Les méthodes `getElementsByClassName`, `getElementsByTagName` et `querySelector` sont implémentées dans `Element` (sont disponibles pour tout objet de type Element)</li>
+						<li>Les méthodes <em>`getElementsByClassName`</em>, <em>`getElementsByTagName`</em> et <em>`querySelector`</em> sont implémentées 
+							dans <em>`Element`</em> (sont disponibles pour tout objet de type <em>Element</em>)</li>
 						<li>Utiliser ces fonctions sur un élément en particulier (pas document) exécutera la requête comme si l'élémenent était la racine de l'arbre.</li>
 						<li>Les éléments retournés seront seulement ceux qui sont descendants de l'élément.</li>
 					</ul>
@@ -1604,6 +1605,183 @@
 					</div>
 				</section>
 
+				<section>
+					<h2>Création d'un nouvel élément</h2>
+					<ul>
+						<li>La méthode document.createElement permet de créer un élénent du type spécifié.
+							<pre><code class="javascript" data-trim>
+								//Création d'un nouveau paragraphe
+								const nouveauParagraphe = document.createElement("p");
+								//Définition du contenu du paragraphe
+								nouveauParagraphe.textContent = 
+									"Ceci est le contenu du nouveau paragraphe";
+							</code></pre>
+						</li>
+						<li class="highlight2 fragment">Le nouvel élément n'est pas ajouté à la page, il faut le lier à l'arbre du DOM</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Ajout d'éléments dans le DOM</h2>
+					<ul>
+						<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/append">elt.append(...)</a>: Ajoute un ou plusieurs éléments après le dernier enfant de <em>elt</em></li>
+						<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/appendChild">elt.appendChild(...)</a>: Ajoute <strong>un</strong> élément comme dernier enfant de <em>elt</em>. L'enfant ajouté est retourné.</li>
+						<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/insertBefore">elt.insertBefore(nouv , ref)</a>: Ajoute le noeud <em>nouv</em> comme enfant de <em>elt</em> avant l'élément <em>ref</em></li>
+					</ul>
+					<blockquote><a href="./editeur.html?exemple=1">>> Démonstration</a></blockquote>
+				</section>
+
+				<section>
+					<h2>Suppression d'éléments</h2>
+					<ul>
+						<li>On utilise la méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/remove">elt.remove()</a> pour supprimer un élément de l'arbre.
+							<pre><code class="javascript" data-trim>
+								const elt = document.querySelector("#mon_element");
+								elt.remove(); //L'élément disparait de l'écran
+							</code></pre>
+						</li>
+						<li>Si on dispose du parent, on peut utiliser la méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/Node/removeChild">parent.removeChild(elt)</a>, qui retourne l'élément supprimé (pour l'ajouter ailleurs éventuellement)
+							<pre><code class="javascript" data-trim>
+								const conteneur = document.querySelector("#conteneur");
+								//On supprime le 3e enfant de conteneur
+								const supprime = 
+									conteneur.removeChild( conteneur.childNode[2] );
+							</code></pre>
+						</li>
+					</ul>
+					
+				</section>
+
+				<section>
+					<h2>Attributs HTML - Ajout/Modification</h2>
+					<p>Deux façons pour modifier les attributs d'un élément: </p>
+					<ol>
+						<li><strong>Directement en utilisant la notation point (.): </strong>
+							<pre><code class="javascript" data-trim>
+								const a = document.createElement('a');
+								a.href = "https://www.etsmtl.ca";
+								a.target = "_blank";
+								let valeur = a.target;
+							</code></pre>
+						</li>
+					</ol>
+					<ul>
+						<li class="fragment">L'approche la plus simple</li>
+						<li class="fragment">Certains attributs s'appelle différamment en JS qu'en HTML (ex.: <code>className</code>)</li>
+						<li class="fragment">Certains attributs spéciaux ne fonctionnent pas (ex.: <code>data-extra-info</code>)</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Attributs HTML - Ajout/Modification</h2>
+					<p>Deux façons pour modifier les attributs d'un élément: </p>
+					<ol>
+						<li>Directement en utilisant la notation point (.)</li>
+						<li><strong>En utilisant la méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/setAttribute"><code>setAttribute</code></a>:</strong> 
+							<pre><code class="javascript" data-trim>
+								const a = document.createElement('a');
+								a.setAttribute('href', "https://www.etsmtl.ca");
+								a.setAttribute('target', "_blank");
+							</code></pre>
+						</li>
+					</ol>
+					<ul>
+						<li class="fragment">Plus homogène: fonctionne toujours de la même façon quelque soit l'attribut</li>
+						<li class="fragment">Ne respecte pas la casse (case insensitive) contrairement à la notation (.)</li>
+						<li class="fragment">Méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/getAttribute"><code>getAttribute</code></a> pour la lecture</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Attributs HTML - Suppression</h2>
+					<ul>
+						<li><strong>En utilisant la méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/removeAttribute"><code>removeAttribute</code></a>:</strong> 
+							<pre><code class="javascript" data-trim>
+								const para = document.createElement('p');
+								para.id="un-identifiant";
+								para.removeAttribute('id');
+							</code></pre>
+						</li>
+						<li class="fragment highlight2">Définir la valeur à <code>null</code> ne supprime pas un attribut.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Modification du style 1/3</h2>
+					<h3>Propriété <code>className</code></h3>
+					<ul>
+						<li>Modifie l'attribut <code>class</code> de l'élément
+							<pre style="width: 100%"><code class="javascript" data-trim>
+								const para = document.createElement('p');
+								//Définit les classes 'important' et 'citation' au 
+								//nouvel élément créé
+								para.className = "important citation";
+								//équivalent à: 
+								//para.setAttribute('class', "important citation");
+							</code></pre>
+						</li>
+						<li>Pratique lorsqu'on doit définir une seule classe, sans conserver les classes existantes.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Modification du style 2/3</h2>
+					<h3>Le tableau <code>classList</code> d'un élément</h3>
+					<ul>
+						<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/classList">elt.classList</a>: Renvoie toutes les classes d'un élément</li>
+						<li>On utilise les méthodes <code>add</code>, <code>remove</code> et <code>replace</code> pour changer les classes de l'élément
+							<pre style="width: 100%"><code class="javascript" data-trim>
+								const conteneur = document.querySelector("#conteneur");
+								//Ajoute la classe `large` à conteneur
+								conteneur.classList.add('large');
+								//Supprime la classe `demo` de conteneur
+								conteneur.classList.remove('demo');
+							</code></pre>
+						</li>
+						<li>La méthode <code>toggle</code> est utile pour désactiver et réactiver une classe.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Modification du style 3/3</h2>
+					<h3>Ajout de style en-ligne à un élément</h3>
+					<ul>
+						<li>La propriété <code>style</code> regrouppe toutes les déclarations de style définies en-ligne sur un élément
+							<pre style="width: 100%"><code class="javascript" data-trim>
+								const conteneur = document.querySelector("#conteneur");
+								conteneur.style.width = '100fr';
+							</code></pre>
+						</li>
+						<li>Les noms des déclarations CSS doivent être convertis en `camelCase`
+							<pre style="width: 100%"><code class="javascript" data-trim>
+								  conteneur.style.backgroundColor = 'lightgreen';
+								//Au lien de: 
+								//conteneur.style.background-color = 'lightgreen'; //INCORRECT
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+
+<!-- Plan du chapitre -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-visited">Éléments de base du langage</li>
+								<li class="plan-visited">Manipulation du DOM</li>
+								<li class="plan-current">Programmation événementielle</li>
+								<li>Cadriciels et librairies</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul style="margin-top :20px">
+								
+							</ul>
+						</div>
+					</div>
+				</section>
 
 <!-- FIN THE END -->
 				<section data-menu-title="Fin">
