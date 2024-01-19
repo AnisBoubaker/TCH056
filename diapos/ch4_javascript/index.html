@@ -397,6 +397,74 @@
 				</section>
 
 				<section>
+					<h2>Les constantes 1/2</h2>
+					<p>On déclare une constante avec le mot clé <em>const</em>:</p>
+					<pre><code class="javascript" data-trim><script type="text/template">
+						const une_constante = { nom: "Valjean", prenom: "Jean" };
+					</script></code></pre>
+					<p class="fragment highlight2" data-fragment-index="2"><br />Il est possible de modifier les propritétés d'un objet, même si c'est const!</p>
+					<pre class="fragment"  data-fragment-index="2"><code class="javascript" data-trim><script type="text/template">
+						une_constante.prenom = "Marie";
+						
+						console.log(une_constante);
+						// Affiche: {nom: 'Valjean', prenom: 'Marie'}
+					</script></code></pre>
+				</section>
+
+				<section class="slidenb" data-slidenb="Bonne pratique!">
+					<h2>Les constantes 2/2</h2>
+					<ul>
+						<li>Il est conseillé de toujours commencer par déclarer les variables de type objet comme constantes</li>
+						<li class="fragment">Au besoin, changer la déclaration par un <code>let</code>.
+							<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
+								const une_constante = { nom: "Valjean", prenom: "Jean" };
+
+								une_constante = convertirEnMajuscules(une_constante);
+								//Erreur, il faut modifier la déclaration en let. 
+							</script></code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section class="slidenb" data-slidenb="Bonne pratique!">
+					<h2>Les types primitifs</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Type</th>
+								<th>Exemples de valeurs</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></td>
+								<td>42, 3.24, Infinity, -Infinity, NaN <em>(Not a Number)</em></td>
+							</tr>
+							<tr>
+								<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/BigInt">BigInt</a></td>
+								<td>9007199254740991<strong>n</strong></td>
+							</tr>
+							<tr>
+								<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></td>
+								<td>true, false</td>
+							</tr>
+							<tr>
+								<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></td>
+								<td>"Hello, world!", 'TCH056'</td>
+							</tr>
+							<tr>
+								<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Undefined">Undefined</a></td>
+								<td>Variable non définie (voir plus loin)</td>
+							</tr>
+							<tr>
+								<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Null">null</a></td>
+								<td>null= absence intentionnelle de valeur d'objet </td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
 					<h2>Booléens et vérité</h2>
 					<p>En Javascript, le type booléan existe et peut prendre la valeur <em>true</em> ou <em>false</em></p>
 					<pre><code class="javascript" data-trim><script type="text/template">
@@ -515,6 +583,42 @@
 							</td>
 						</tr>
 					</table>
+				</section>
+
+				<section>
+					<h2>Opérateur de comparaison <code>==</code></h2>
+					<ul>
+						<li>Comme en C et en Java, on compare des valeurs avec l'opérateur `<code>==</code>`
+							<pre><code class="javascript" data-trim><script type="text/template">
+								let a = 10; 
+								console.log(a == 10 ); //true
+								console.log(a == 15 ); //false
+								console.log( 'bonjour' == 'allo'); //false
+								console.log( 'bonjour' == 'bonjour'); //true
+							</script></code></pre>
+						</li>
+						<li class="fragment" data-fragment-index="2">Cependant, cet opérateur tentera de convertir les valeurs comparées si elles ne sont pas de même Type
+							<pre class="fragment"  data-fragment-index="2"><code class="javascript" data-trim><script type="text/template">
+								console.log( 0 == '0' ); //true
+								console.log( 10.0 == 10 ); //true
+								console.log( 4.5 == '4.5' ); //true
+							</script></code></pre>
+						</li>
+					</ul>
+					
+				</section>
+				<section>
+					<h2>Opérateur de comparaison <code>===</code></h2>
+					<ul>
+						<li>L'opérateur `<code>===</code>` donnera une valeur vraie si les deux valeurs sont égales ET de même type 
+							<pre class=""><code class="javascript" data-trim><script type="text/template">
+								console.log( 10 === 10 ); //true
+								console.log( 10 === '10' ); //false
+							</script></code></pre>
+						</li>
+						<li class="fragment highlight2">Il est toujours conseillé d'utilise <code>===</code> pour tester l'égalité, sauf exception où le comportement du `==` est souhaitable.</li>
+					</ul>
+					
 				</section>
 
 <!-- Plan du chapitre -->
@@ -696,9 +800,10 @@
 						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
 							let s1 = "chaine 1";
 							let s2 = "chaine 2"
-							let s3 = `chaine 3`
+							let s3 = `chaine 3 est
+								sur plusieurs lignes`;
 							let nb = 4;
-							let s4 = `chaine ${nb}`
+							let s4 = `chaine ${nb}`;
 							console.log( s4 );
 							>> chaine 4
 						</script></code></pre>
