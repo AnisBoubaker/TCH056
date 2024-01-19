@@ -353,7 +353,7 @@
 					<h2>Préambule</h2>
 					<ul>
 						<li class="fragment">On ne reviendra pas sur la syntaxe evidente (structures conditionnelles et itératives) - c.f. INF155/INF111</li>
-						<li class="fragment">Pas de conception OO (classes, prototypes, etc.) mais n'utiliserons des objets existants et leurs propriétés/méthodes</li>
+						<li class="fragment">Pas de conception OO (classes, prototypes, etc.) mais nous utiliserons des objets existants et leurs propriétés/méthodes</li>
 						<li class="fragment">Certains concepts avancés ne seront pas abordés (ex.: fermetures, promesses, async)</li>
 					</ul>
 				</section>
@@ -386,7 +386,7 @@
 					<ul>
 						<li>Ce mot clé existe encore par compatibilité ascendante</li>
 						<li>Il a un fonctionnement particulier (problématique pour le périmètre et l'élévation -- <em>hoisting</em> -- des variable)</li>
-						<li class="highlight2">Son utilisation depuis ES6 est à proscrire!</li>
+						<li class="highlight2">Utilisation à proscrire depuis ES6!</li>
 					</ul>
 					<aside class="notes">
 						<ul>
@@ -455,8 +455,8 @@
 				<section>
 					<h2>Undefined c'est aussi...</h2>
 					<ul>
-						<li>La valeur de propriétés iniexistantes dans un objet</li>
-						<li>La valeur de retour d'une fonction de type "void"</li>
+						<li>La valeur de propriétés inexistantes dans un objet</li>
+						<li>La valeur de retour d'une fonction qui ne retourne rien (de type <code>void</code>)</li>
 					</ul>
 				</section>
 
@@ -653,7 +653,7 @@
 						console.log( resultats["moyenne"] )
 						>> ????
 
-						console.log( resultats["moyenne"] )
+						console.log( resultats.moyenne )
 						>> ????
 					</script></code></pre>
 				</section>
@@ -864,7 +864,7 @@
 				<section>
 					<h2>Fonctions variadiques</h2>
 					<ul>
-						<li>On appelle une <strong>fonction variadique</strong> dont le nombre total de paramètres n'est pas défini d'avance</li>
+						<li>On appelle une <strong>fonction variadique</strong> une fonction dont le nombre total de paramètres n'est pas défini d'avance</li>
 						<li>En JS, toute fonction peut recevoir plus d'arguments que spécifié, il suffit alors d'accéder aux autres paramètres à l'aide du tableau <em><strong>arguments</strong></em>
 						<pre><code class="javascript" data-trim><script type="text/template">
 							let somme = function(val1, val2){
