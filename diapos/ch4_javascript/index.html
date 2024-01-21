@@ -1170,7 +1170,7 @@
 
 				<section >
 					<h2>Métamodèle du DOM</h2>
-					<img src="./images/DOMMetaModel.png" alt="DOMMetaModel" style="" />
+					<img src="./images/DOMMetaModel.png" alt="DOMMetaModel" />
 				</section>
 
 				<section>
@@ -1886,6 +1886,166 @@
 							</ul>
 						</div>
 					</div>
+				</section>
+
+				<section>
+					<h2>Modèle d'exécution</h2>
+					<ul>
+						<li>Le code Javascript s'éxécute de façon séquentielle, une instruction à la fois</li>
+						<li>Comme pour le langage C, tout appel de fonction est ajouté dans une pile d'exécution (<em>stack</em>) qui sera dépilée dès la fin de la fonction</li>
+					</ul>
+					<blockquote><a href="https://anisboubaker.github.io/TCH056/diapos/js_loupe/?code=ZnVuY3Rpb24gcHJvZHVpdChhLCBiKXsKICAgIHJldHVybiBhKmI7Cn0KCmZ1bmN0aW9uIGNhcnJlKGEpewogICAgcmV0dXJuIHByb2R1aXQoYSwgYSk7Cn0KCmZ1bmN0aW9uIHVuX2NhbGN1bChhLCBiKXsKICAgIGxldCByMSA9ICBjYXJyZShhKTsKICAgIAogICAgbGV0IHIyID0gIHByb2R1aXQoYSwgYik7CiAgICAKICAgIHJldHVybiByMStyMjsKfQoKY29uc29sZS5sb2codW5fY2FsY3VsKDEwLCAxMSkpOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D">
+						>> Démonstration</a></blockquote>
+				</section>
+
+				<section>
+					<h2>Exécution parallèle</h2>
+					<ul>
+						<li class="fragment">Il est possible d'exécuter des tâches en parallèle en C ou en Java (<em>Threads</em>)</li>
+						<li class="fragment">Le Javascript est un langag mono-threadé mais qui permet un semblant de parallèlisme grâce à l'exécution <strong>asynchrone</strong> et la <strong>boucle d'événements (event loop)</strong></li>
+						<p class="note">Note: L'introduction récente des <em>WebWorkers</em> permet d'effectuer un vrai parallélisme (pas au programme)</p>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Exécution Asynchrone</h2>
+					<ul>
+						<li>Veut dire: lancer l'exécution d'un traitement et ne pas attendre la réponse</li>
+						<li>La pile d'exécution poursuit son exécution normale</li>
+						<li>Lorsque la réponse est obtenue, un <strong>événement</strong> est déclenché</li>
+						<li>On traite la réponse liée à l'évènement lorsque la pile d'exécution sera terminée</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Exécution asynchrone: Pourquoi?</h2>
+					<ul>
+						<li>Certains traitements nécessitent un temps d'exécution long (> quelques ms)</li>
+						<li>Ce genre de traitements bloquent la pile d'exécution si ils étaient exécutés de façon synchrone</li>
+						<li class="highlight2">Ceci affecte la réactivité de la page: aucune mise à jour de la page ne peut avoir lieu tant que la pile d'exécution n'est pas terminée!</li>
+					</ul>
+					<blockquote><a href="https://anisboubaker.github.io/TCH056/diapos/js_loupe/?code=ZnVuY3Rpb24gcHJvZHVpdChhLCBiKXsKICAgIHJldHVybiBhKmI7Cn0KCmZ1bmN0aW9uIHRyYWl0ZW1lbnRfbGVudCgpewogICAgZm9yKGxldCBpPTA7IGk8NTsgaSsrKQogICAgewogICAgICAgIDsKICAgIH0KICAgIAp9Cgpjb25zb2xlLmxvZygnROlidXQnKTsKCnRyYWl0ZW1lbnRfbGVudCgpOwoKY29uc29sZS5sb2coJ0ZpbicpOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D">
+						>> Illustration</a></blockquote>
+				</section>
+
+				<section>
+					<h2>Exécution asynchrone: Dans quel contexte?</h2>
+					<ul>
+						<li>Exécution temporisée (avec <a href="https://developer.mozilla.org/fr/docs/Web/API/setTimeout"><code>setTimeout</code></a> 
+							et <a href="https://developer.mozilla.org/en-US/docs/Web/API/setInterval"><code>setInterval</code></a>)</li>
+						<li>Suite à des événements qui se produisent sur la page pour lesquels on a défini un gestionnaire d'événement (ex.: click, déplacement de souris, clavier, etc.)</li>
+						<li>Toute requête de communication avec une machine distante.</li>
+						<li>Tout calcul ou traitement qui nécessite un temps supérieur à la milliseconde</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2><code>setTimeout</code></h2>
+					<p>Fonction qui permet de programmer une exécution différée d'un traitement après un délai en <em>ms</em></p>
+					<p>Prend deux arguments: </p>
+					<ol>
+						<li><strong>Une fonction de rappel</strong> qui sera appelée dès que le délai sera écoulé</li>
+						<li>Un délai en millisecondes</li>
+					</ol>
+					<pre style="width: 100%"><code class="javascript" data-trim>
+						let faireQqeChose = function(){
+							alert("Délai écoulé!");
+						}
+						//Exécution après 2 secondes
+						setTimeout(faireQqeChose, 2000);
+					</code></pre>
+				</section>
+
+				<section>
+					<h2><code>setTimeout</code> - Fonction anonyme</h2>
+					<ul>
+						<li class="fragment">Il est possible de passer une fonction de rappel anonyme: 
+							<pre style="width: 100%"><code class="javascript" data-trim>
+								//Exécution après 2 secondes
+								setTimeout(function(){
+									alert("Délai écoulé!");
+								}, 2000);
+							</code></pre>
+						</li>
+						<li class="fragment">Elle peut même être flêchée: 
+							<pre style="width: 100%"><code class="javascript" data-trim>
+								//Exécution après 2 secondes
+								setTimeout( () => alert("Délai écoulé!") , 2000);
+							</code></pre>
+
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2><code>setTimeout</code> - Question</h2>
+					<ul>
+						<li>Après combien de temps le message d'alerte s'affichera?</li>
+						<li>Qu'est-ce qui s'affichera en premier (l'alerte ou dans la console?)</li>
+					</ul>
+					<pre style="width: 100%"><code class="javascript" data-trim>
+						//Exécution après 2 secondes
+						setTimeout( () => alert("Délai écoulé!") , 2000);
+						let resultat = 0n;
+						for(let i=0; i &lt; 600000000; i++){
+							resultat += BigInt(i);
+						}
+						console.log(`Le résultat est: ${resultat}`);
+					</code></pre>
+					<blockquote><a href="https://anisboubaker.github.io/TCH056/diapos/js_loupe/?code=Ly9FeOljdXRpb24gYXBy6HMgMiBzZWNvbmRlcwpmdW5jdGlvbiBhZmZpY2hlckFsZXJ0ZSgpewogICAgCiAgICBhbGVydCgiROlsYWkg6WNvdWzpISIpOwogICAgCn0KCnNldFRpbWVvdXQoIGFmZmljaGVyQWxlcnRlICwgMjAwMCk7CgpsZXQgcmVzdWx0YXQgPSAwOwoKZm9yKGxldCBpPTA7IGkgPCAxMDsgaSsrKXsKICAgIAoJcmVzdWx0YXQgKz0gaTsKCQp9CgoKY29uc29sZS5sb2coJ0xlIHLpc3VsdGF0IGVzdDogJytyZXN1bHRhdCk7!!!PGJ1dHRvbj5DbGljayBtb2khPC9idXR0b24%2B">
+						>> Illustration</a></blockquote>
+				</section>
+
+				<section>
+					<h2>Événements</h2>
+					<ul>
+						<li>Lorsque le navigateur traite et affiche un document Web, une multitude d'événements se produisent en permanence</li>
+						<li>La grande majorité des événements qui se déclenchent sont ignorés</li>
+						<li>Ceux qu'on a choisi de traiter (en fournissant un gestionnaire d'evénement) seront considérés et du code sera exécuté</li>
+					</ul>
+					<p class="note">Exemple: le timeout, défini avec setTimeout, est un événement qui se produit lorsque le délai du timeout est expiré.</p>
+				</section>
+
+				<section>
+					<h2>Exemples d'événements</h2>
+					<ul>
+						<li><strong>Souris: </strong>click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave</li>
+						<li><strong>Clavier: </strong>keydown, keypress, keyup</li>
+						<li><strong>Formulaires: </strong>blur, change, focus, focusin, focusout, input, invalid, reset, search, select, submit</li>
+						<li><strong>Presse papier: </strong>copy, cut, paste</li>
+						<li><strong>Touch: </strong>touchstart, touchmove, touchend, touchcancel</li>
+					</ul>
+					<p class="note">Note: Cette liste est loin d'être exhaustive!</p>
+				</section>
+
+				<section>
+					<h2>Gestion des événements</h2>
+					<ul>
+						<li>Pour réagir face à un événement, il faut "écouter" l'événement en définissant un gestionnaire d'événement
+							sur l'élément de la page concerné</li>
+						<li class="fragment">La méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener"><code>addEventListener()</code></a> 
+							permet d'ajouter un gestionnaire d'événement pour un événement spécifique.</li>
+						<li class="fragment">La méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/removeEventListener"><code>removeEventListener()</code></a> 
+							permet de supprimer un gestionnaire d'événement pour un événement spécifique.</li>
+						<li class="fragment">Ces méthodes sont définies dans la "classe" EventTarget (qui engloble presque tous les types!).</li>	
+					</ul>
+				</section>
+
+				<section>
+					<h2>Ajout d'un gestionnaire d'événement</h2>
+					<ul>
+						<li>La fonction <code>addEventListener</code> reçoit, par défaut, deux paramètres: (1) le type d'événement à écouter et (2) la fonction de rappel</li>
+						<li>Elle doit être définie sur un élément pour lequel on souhaite écouter l'événement</li>
+					</ul>
+					<pre style="width: 100%"><code class="javascript" data-trim>
+						let mon_bouton = document.querySelector('button#mon-bouton');
+						mon_bouton.addEventHandler(
+							'click', 
+							function(){alert("Bouton cliqué!")}
+						);
+						//La fonction anonyme sera exécutée à chaque fois qu'on 
+						//clique sur le bouton.
+					</code></pre>
 				</section>
 
 <!-- FIN THE END -->
