@@ -1,84 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>Laboratoire 3</title>
-	<link rel="stylesheet" href="../css/labos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
-</head>
-<body>
-	<h1>Laboratoire 5: Javascript</h1>
-    <div class="container">
-        <h2>Exercice 1:</h2>
-        <p>
-            Écrire une fonction <em>carre</em> qui prend en paramètre un nombre et retourne son carré.
-        </p>
-        <p>
-            <strong>Exemple d'utilisation:</strong>
-        </p>
-        <pre><code class="javascript">
-            console.log(carre(5)); // Output : 25
-            console.log(carre(3)); // Output : 9
-        </code></pre>
-    </div>
-    <div class="container">
-        <h2>Exercice 2:</h2>
-        <p>
-            Écrire une fonction <em>moyenne</em> qui prend en paramètre un tableau de nombres et retourne leur moyenne.
-        </p>
-        <p>
-            <strong>Exemple d'utilisation:</strong>
-        </p>
-        <pre><code class="javascript">
-            console.log(moyenne([1, 2, 3])); // Output : 2
-            console.log(moyenne([4, 5, 6])); // Output : 5
-        </code></pre>
-    </div>
-    <div class="container">
-        <h2>Exercice 3:</h2>
-        <p>
-            Écrire une fonction <em>changerCouleur</em> qui prend en paramètre un élément HTML et 
-            une couleur, et qui change la couleur de fond de l'élément.
-        </p>
-        <p>
-            <strong>Exemple d'utilisation:</strong>
-        </p>
-        <pre><code class="html">
-&lt;div id="monDiv">Mon texte&lt;/div>
-&lt;button onclick="changerCouleur(document.getElementById('monDiv'), 'red')">
-        Changer la couleur en rouge&lt;/button>
-        </code></pre>
-    </div>
-    <div class="container">
-        <h2>Exercice 4:</h2>
-        <p>
-            Écrire une fonction <em>supprimerElement</em> qui prend en paramètre un élément HTML 
-            et qui supprime cet élément du document.
-        </p>
-        <p>
-            <strong>Exemple d'utilisation:</strong>
-        </p>
-        <pre><code class="html">
-&lt;div id="monDiv">Mon texte&lt;/div>
-&lt;button onclick="supprimerElement(document.getElementById('monDiv'))">Supprimer l'élément&lt;/button>
-        </code></pre>
-    </div>
-    <div class="container">
-        <h2>Exercice 5:</h2>
-        <p>
-            Écrire une fonction javascript qui trie le contenu 
-            d'un tableau selon la 3e colonne. La fonction reçoit l'élément du 
-            DOM de type `table` en paramètre. 
-        </p>
-        <p>
-            <strong>Exemple d'utilisation:</strong>
-        </p>
-        <pre><code class="javascript">
-            trierTab(document.getElementById('mon_tableau'));
-        </code></pre>
-    </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Laboratoire 3</title>
+    <link rel="stylesheet" href="../css/labos.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css"
+    />
+  </head>
+  <body>
+    <h1>Laboratoire 5: Javascript</h1>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
-</body>
+    <script src="./exercices.js"></script>
+    <script src="../js/labos.js"></script>
+    <script>
+      ajouterTousLesExercices(exercices);
+      hljs.highlightAll();
+    </script>
+  </body>
 </html>
