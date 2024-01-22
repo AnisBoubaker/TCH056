@@ -34,32 +34,32 @@ function creerElementExercice(exercice, num) {
       }
     }
 
-    // Créer un bouton pour afficher/masquer les indications
-   const boutonIndications = document.createElement('button');
-   boutonIndications.textContent = 'Afficher les indications';
-   container.appendChild(boutonIndications);
+//     // Créer un bouton pour afficher/masquer les indications
+//    const boutonIndications = document.createElement('button');
+//    boutonIndications.textContent = 'Afficher les indications';
+//    container.appendChild(boutonIndications);
 
-    // Conteneur pour les indications
-   const indications = document.createElement('div');
-   indications.style.display = 'none'; // Masquer initialement
-   container.appendChild(indications);
+//     // Conteneur pour les indications
+//    const indications = document.createElement('div');
+//    indications.style.display = 'none'; // Masquer initialement
+//    container.appendChild(indications);
 
-   // Ajouter la clé
-   const cle = document.createElement('div');
-   cle.className = 'cle';
-   cle.innerHTML = "<pre><code class='javascript'>"+exercice.cle+"</code></pre>";
-   indications.appendChild(cle);
+//    // Ajouter la clé
+//    const cle = document.createElement('div');
+//    cle.className = 'cle';
+//    cle.innerHTML = "<pre><code class='javascript'>"+exercice.cle+"</code></pre>";
+//    indications.appendChild(cle);
 
-    // Gérer le clic sur le bouton
-    boutonIndications.addEventListener('click', function() {
-        if (indications.style.display === 'none') {
-            indications.style.display = 'block';
-            boutonIndications.textContent = 'Masquer les indications/solution';
-        } else {
-            indications.style.display = 'none';
-            boutonIndications.textContent = 'Afficher les indications/solution';
-        }
-    });
+//     // Gérer le clic sur le bouton
+//     boutonIndications.addEventListener('click', function() {
+//         if (indications.style.display === 'none') {
+//             indications.style.display = 'block';
+//             boutonIndications.textContent = 'Masquer les indications/solution';
+//         } else {
+//             indications.style.display = 'none';
+//             boutonIndications.textContent = 'Afficher les indications/solution';
+//         }
+//     });
 
     return container;
   }
