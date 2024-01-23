@@ -1,4 +1,4 @@
-function creerElementExercice(exercice, num) {
+function creerElementExercice(exercice, num, solutions) {
     const container = document.createElement("div");
     container.className = "container";
 
@@ -33,38 +33,38 @@ function creerElementExercice(exercice, num) {
         container.appendChild(exempleJs);
       }
     }
+    if(solutions){  
+        // Créer un bouton pour afficher/masquer les indications
+      const boutonIndications = document.createElement('button');
+      boutonIndications.textContent = 'Afficher les indications';
+      container.appendChild(boutonIndications);
 
-//     // Créer un bouton pour afficher/masquer les indications
-//    const boutonIndications = document.createElement('button');
-//    boutonIndications.textContent = 'Afficher les indications';
-//    container.appendChild(boutonIndications);
+        // Conteneur pour les indications
+      const indications = document.createElement('div');
+      indications.style.display = 'none'; // Masquer initialement
+      container.appendChild(indications);
 
-//     // Conteneur pour les indications
-//    const indications = document.createElement('div');
-//    indications.style.display = 'none'; // Masquer initialement
-//    container.appendChild(indications);
+      // Ajouter la clé
+      const cle = document.createElement('div');
+      cle.className = 'cle';
+      cle.innerHTML = "<pre><code class='javascript'>"+exercice.cle+"</code></pre>";
+      indications.appendChild(cle);
 
-//    // Ajouter la clé
-//    const cle = document.createElement('div');
-//    cle.className = 'cle';
-//    cle.innerHTML = "<pre><code class='javascript'>"+exercice.cle+"</code></pre>";
-//    indications.appendChild(cle);
-
-//     // Gérer le clic sur le bouton
-//     boutonIndications.addEventListener('click', function() {
-//         if (indications.style.display === 'none') {
-//             indications.style.display = 'block';
-//             boutonIndications.textContent = 'Masquer les indications/solution';
-//         } else {
-//             indications.style.display = 'none';
-//             boutonIndications.textContent = 'Afficher les indications/solution';
-//         }
-//     });
-
+        // Gérer le clic sur le bouton
+        boutonIndications.addEventListener('click', function() {
+            if (indications.style.display === 'none') {
+                indications.style.display = 'block';
+                boutonIndications.textContent = 'Masquer les indications/solution';
+            } else {
+                indications.style.display = 'none';
+                boutonIndications.textContent = 'Afficher les indications/solution';
+            }
+        });
+      }
     return container;
   }
 
-  function ajouterThemeAvecExercices(theme, debut = 1) {
+  function ajouterThemeAvecExercices(theme, debut = 1, solutions=0) {
     let compteur = 0;
     const containerPrincipal = document.querySelector("body");
 
@@ -76,7 +76,8 @@ function creerElementExercice(exercice, num) {
     theme.exercices.forEach((exercice) => {
       const elementExercice = creerElementExercice(
         exercice,
-        debut + compteur
+        debut + compteur,
+        solutions
       );
       containerPrincipal.appendChild(elementExercice);
       compteur++;
@@ -85,10 +86,10 @@ function creerElementExercice(exercice, num) {
     return compteur;
   }
 
-  function ajouterTousLesExercices(exercices) {
+  function ajouterTousLesExercices(exercices, solutions=0) {
     debut = 1;
     exercices.forEach((theme) => {
-      debut += ajouterThemeAvecExercices(theme, debut);
+      debut += ajouterThemeAvecExercices(theme, debut, solutions);
     });
   }
 

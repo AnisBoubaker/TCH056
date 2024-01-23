@@ -12,6 +12,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css"
     />
+    <script>
+      let params = new URLSearchParams(window.location.search);
+      let solutions = params.get("solutions");
+    </script>
   </head>
   <body>
     <h1>Laboratoire 5: Javascript</h1>
@@ -20,7 +24,7 @@
     <script src="./exercices.js"></script>
     <script src="../js/labos.js"></script>
     <script>
-      ajouterTousLesExercices(exercices);
+      ajouterTousLesExercices(exercices, solutions);
       hljs.highlightAll();
     </script>
   </body>
