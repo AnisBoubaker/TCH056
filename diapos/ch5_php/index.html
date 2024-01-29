@@ -119,6 +119,11 @@
         </section>
 
         <section>
+          <h2>Architecture n-tiers</h2>
+          <img src="./images/n-tiers.png" />
+        </section>
+
+        <section>
           <h2>Communication via HTTP</h2>
           <p>
             HTTP (Hypertext Transfer Protocol) est le protocole utilisé pour la
@@ -166,6 +171,8 @@
             depuis l'envoi d'une requête par un client jusqu'à la réception et
             l'affichage de la réponse.
           </p>
+          <img src="./images/cycle_vie.webp" />
+          <p class="note">Source: medium.com</p>
         </section>
 
         <section>
@@ -189,14 +196,18 @@
             ressource PHP, le serveur exécute le script PHP correspondant.
           </p>
           <pre><code data-trim>
-                      &lt;?php
-                      // Traitement PHP
-                      echo "Bonjour, monde!";
-                      ?&gt;
+                      &lt;html lang="fr">
+                      &lt;head>...&lt;/head>
+                      &lt;body>
+                        &lt;?php
+                        // Traitement PHP
+                        echo "&lt;h1>Bonjour, monde!&lt;/h1>";
+                        ?&gt;
+                      &lt;/body>&lt;/html>
                     </code></pre>
           <p>
             Ce script PHP pourrait générer du contenu dynamique en fonction de
-            la requête.
+            la requête (interrogation de la BD).
           </p>
         </section>
 
@@ -211,7 +222,11 @@
                       HTTP/1.1 200 OK
                       Content-Type: text/html
                   
-                      &lt;html&gt;Bonjour, monde!&lt;/html&gt;
+                      &lt;html lang="fr">
+                      &lt;head>...&lt;/head>
+                      &lt;body>
+                        &lt;h1>Bonjour, monde!&lt;/h1>
+                      &lt;/body>&lt;/html>
                     </code></pre>
         </section>
 
@@ -222,11 +237,7 @@
             affiche le contenu. Si la réponse est du HTML, le navigateur rend la
             page pour l'utilisateur.
           </p>
-          <img src="path/to/screenshot.png" alt="Bonjour le monde!" />
-          <p>
-            Cette image pourrait montrer comment le "Bonjour, monde!" est rendu
-            dans le navigateur.
-          </p>
+          <img src="./images/demo.png" alt="Bonjour le monde!" />
         </section>
         <!-- Plan du chapitre -->
         <section data-transition="convex">
