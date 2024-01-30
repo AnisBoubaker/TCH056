@@ -309,19 +309,38 @@
                       $variable = "Hello, World!";
                       echo $variable;
                       ?&gt;
-                    </code></pre>
+                      </code></pre>
           <p>Les variables en PHP commencent par le signe $.</p>
+        </section>
+
+        <section>
+          <h2>Tyage dynamique</h2>
+          <p>
+            Comme en Javascript, les variables en PHP sont typées dynamiquement.
+          </p>
+          <pre><code class="php" data-trim><script type="text/template">
+            <?php
+            $a = 10;
+            echo gettype($a)."<br>"; //integer
+            $a = "Allo";
+            echo gettype($a)."<br>"; //string
+            $a = 10.5;
+            echo gettype($a)."<br>"; //double
+            $a = [10, "Allo", 30];
+            echo gettype($a)."<br>"; //array
+            ?>
+          </script></code></pre>
         </section>
 
         <section>
           <h2>Types de données en PHP</h2>
           <ul>
-            <li>Entiers</li>
-            <li>Flottants</li>
-            <li>Chaînes de caractères</li>
-            <li>Booléens</li>
-            <li>Tableaux</li>
-            <li>Objets</li>
+            <li>Entiers (integer)</li>
+            <li>Flottants (double)</li>
+            <li>Chaînes de caractères (string)</li>
+            <li>Booléens (boolean)</li>
+            <li>Tableaux (array)</li>
+            <li>Objets (object)</li>
             <!-- ... -->
           </ul>
         </section>
@@ -358,6 +377,16 @@
                       }
                       ?&gt;
                     </code></pre>
+        </section>
+
+        <section>
+          <h2>Exercice 1: Générateur de Tableaux</h2>
+          <p>
+            Écrivez un script PHP qui génère un tableau HTML de 10x10 cellules,
+            avec des numéros de 1 à 100. Coloriez les cellules en alternance
+            pour créer un effet damier.
+          </p>
+          <img src="./images/exercice1.png" />
         </section>
 
         <section>
@@ -489,6 +518,32 @@
           </p>
         </section>
 
+        <section>
+          <h2>Exercice 2: Liste de produits</h2>
+          <ul>
+            <li>
+              Écrire une fonction <strong>produitsHTML</strong> dans un fichier
+              <em>fonctions.php</em> qui reçoit un tableau de produits et qui
+              génère le code HTML pour l'affichage du tableau.
+            </li>
+            <li>
+              Voici la structure du tableau de produits:
+              <pre><code class="php" data-trim>
+                $produits = [
+                    ["nom" => "Produit A", 
+                    "prix" => 20.99, 
+                    "categorie" => "Catégorie 1"],
+                    ["nom" => "Produit B", 
+                    "prix" => 15.69, 
+                    "categorie" => "Catégorie 2"],
+                    //...
+                ];
+              </code></pre>
+            </li>
+            <li>Modifiez votre page pour y inclure le tableau de produits.</li>
+          </ul>
+        </section>
+
         <!-- Plan du chapitre -->
         <section data-transition="convex">
           <h2>Plan du chapitre</h2>
@@ -612,6 +667,20 @@
             <li>
               $_GLOBALS: Références à toutes les variables disponibles dans la
               portée globale.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Exercice 3: Compteur de visites</h2>
+          <ul>
+            <li>
+              En utilisant la super-globale $_SESSION, créez une page Web qui
+              compte le nombre de fois qu'un utilisateur a visité la page.
+            </li>
+            <li>
+              En raffraichissant la page, le nombre de visites doit
+              s'incrémenter.
             </li>
           </ul>
         </section>
@@ -747,6 +816,41 @@
             ?&gt;
           </code></pre>
           <p>Cet exemple montre comment afficher les données traitées.</p>
+        </section>
+
+        <section>
+          <h2>Exercice 4: Formulaire POST</h2>
+          <ul>
+            <li>
+              Créez une page PHP (index.php) avec un formulaire qui demande le
+              nom et prénom. Les données du formulaire doivent être transmis par
+              la méthode POST.
+            </li>
+            <li>
+              Le serveur doit répondre avec la même page en précédant le
+              formulaire par le message: "Merci XXXX XXXX d'avoir rempli le
+              formulaire.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Exercice 5: Authentification Simple</h2>
+          <ul>
+            <li>
+              Créez deux pages PHP: une page index.php et une page login.php
+            </li>
+            <li>
+              La page login.php comporte un formulaire d'authentification et
+              envoie la requête à la même page (login.php). Si la personne est
+              déjà authentifiée, elle renvoie l'usager à la page index.php
+            </li>
+            <li>
+              La page index.php affiche seulement le message "Vous êtes
+              authentifiée". Si la personne n'est pas déjà authentifiée, elle
+              doit être renvoyée à la page login.php
+            </li>
+          </ul>
         </section>
 
         <!-- Plan du chapitre -->
