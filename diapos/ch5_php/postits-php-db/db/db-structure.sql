@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Feb 02, 2024 at 03:26 PM
+-- Generation Time: Feb 02, 2024 at 05:22 PM
 -- Server version: 11.2.2-MariaDB-1:11.2.2+maria~ubu2204
 -- PHP Version: 8.2.8
 
@@ -64,7 +64,8 @@ ALTER TABLE `postits`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQUE_USERNAME` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
