@@ -36,6 +36,6 @@ $options = [
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (\PDOException $e) {
-    throw new \PDOException($e->getMessage(), (int)$e->getCode());
+    die("Erreur de connexion à la base de données: ".$e->getMessage());
 }
 
