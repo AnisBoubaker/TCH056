@@ -9,6 +9,8 @@
 
     <title>CH05- Programmation Serveur | TCH056</title>
 
+    <base target="_blank" />
+
     <link rel="stylesheet" href="../revealjs/reset.css" />
     <link rel="stylesheet" href="../revealjs/reveal.css" />
     <link rel="stylesheet" href="../revealjs/theme/ets.css" id="theme" />
@@ -694,17 +696,17 @@
                 <li class="plan-visited">Modèle client-serveur</li>
                 <li class="plan-visited">Les bases du PHP</li>
                 <li class="plan-visited">Les variables super-globales</li>
-                <li class="plan-current">
+                <li class="plan-current">Interfaçage avec une BD</li>
+                <li class="plan-visited">
                   Traitement de requêtes et formulaire
                 </li>
-                <li>Interfaçage avec une BD</li>
               </ul>
             </div>
             <div class="col sous-menu">
               <ul style="margin: 0">
-                <li>Structure de base d'un formulaire (Rappel)</li>
-                <li>Réception des données en PHP</li>
-                <li>Validation des données</li>
+                <li>Rappel SQL</li>
+                <li>Interrogation des données avec PHP</li>
+                <li>Interfaces PDO et MySQLi</li>
               </ul>
             </div>
           </div>
@@ -726,6 +728,385 @@
             </li>
             <li>Téléchargez <a href="">l'énoncé</a></li>
           </ul>
+        </section>
+
+        <section>
+          <h2>Interrogation de Base de Données en PHP</h2>
+          <p>
+            PHP offre plusieurs moyens d'interagir avec les bases de données,
+            notamment via MySQLi et PDO (PHP Data Objects).
+          </p>
+        </section>
+
+        <section>
+          <h2>Utilisation de <code>MySQLi</code></h2>
+          <p>
+            MySQLi est une extension PHP qui permet l'interaction avec les bases
+            de données MySQL.
+          </p>
+          <pre><code data-trim>
+            &lt;?php
+            $conn = new mysqli("hostname", "username", "password",
+                 "database");
+        
+            if ($conn->connect_error) {
+              die("Connexion échouée: " . $conn->connect_error);
+            }
+            echo "Connexion réussie";
+            ?&gt;
+          </code></pre>
+          <p>
+            Cet exemple montre une connexion de base à une base de données MySQL
+            avec MySQLi.
+          </p>
+        </section>
+
+        <section>
+          <h2>Gestion des Erreurs de Connexion <code>MySQLi</code></h2>
+          <p>
+            La gestion des erreurs est cruciale pour déboguer et maintenir la
+            sécurité de l'application.
+          </p>
+          <pre><code data-trim>
+            // Exemple avec MySQLi
+            if ($conn->connect_error) {
+              die("Erreur de connexion: " . $conn->connect_error);
+            }
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Utilisation de PDO</h2>
+          <p>
+            PDO offre une couche d'abstraction pour l'accès aux bases de
+            données, permettant d'utiliser plusieurs types de bases de données.
+          </p>
+          <pre><code data-trim>
+            &lt;?php
+            try {
+              $conn = new PDO("mysql:host=hostname;dbname=database", 
+                    "username", "password");
+              $conn->setAttribute(PDO::ATTR_ERRMODE, 
+                    PDO::ERRMODE_EXCEPTION);
+              echo "Connexion réussie";
+            } catch(PDOException $e) {
+              echo "Connexion échouée: " . $e->getMessage();
+            }
+            ?&gt;
+          </code></pre>
+          <p>
+            Cet exemple montre une connexion de base à une base de données en
+            utilisant PDO.
+          </p>
+        </section>
+
+        <section>
+          <h2>Syntaxe de Base SQL</h2>
+          <p>
+            Rappels sur les commandes SQL de base pour interagir avec les bases
+            de données.
+          </p>
+          <ul>
+            <li>SELECT: Sélectionner des données</li>
+            <li>INSERT: Insérer de nouvelles données</li>
+            <li>UPDATE: Mettre à jour des données existantes</li>
+            <li>DELETE: Supprimer des données</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Exemple de Requête SELECT avec MySQLi</h2>
+          <pre><code data-trim>
+            &lt;?php
+            $result = $conn->query("SELECT * FROM table");
+            while($row = $result->fetch_assoc()) {
+              echo $row["colonne1"]." ".$row["colonne2"]."&lt;br&gt;";
+            }
+            ?&gt;
+          </code></pre>
+          <p>
+            Cet exemple montre comment exécuter une requête SELECT et afficher
+            les résultats avec MySQLi.
+          </p>
+        </section>
+
+        <section>
+          <h2>Exemple de Requête SELECT avec PDO</h2>
+          <pre><code data-trim>
+            &lt;?php
+            $stmt = $conn->query("SELECT * FROM table");
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+              echo $row["colonne1"]." ".$row["colonne2"]."&lt;br&gt;";
+            }
+            ?&gt;
+          </code></pre>
+          <p>
+            Cet exemple montre comment exécuter une requête SELECT et afficher
+            les résultats avec PDO.
+          </p>
+        </section>
+
+        <section>
+          <h2>Les requêtes préparées</h2>
+          <ul>
+            <li>
+              Préparer une requête une seule fois pour l'exécuter à plusieurs
+              reprises
+            </li>
+            <li>Améliorer l'efficacité</li>
+            <li>Se protéger contre les injection SQL</li>
+          </ul>
+          <pre><code class="php" data-trim>
+            $requete = $connexion->prepare(
+              "SELECT * FROM etudiants WHERE age > :age"
+            );
+            // Liaison des paramètres
+            $age = 30;
+            $requete->bindParam(':age', $age);
+            // Exécution de la requête
+            $requete->execute();
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Les requêtes préparées:<br /><code>bindParam</code></h2>
+          <ul>
+            <li>
+              La méthode <code>bindParam</code> relie les paramètres à une
+              variabe <span class="highlight2">par référence</span>
+            </li>
+          </ul>
+          <pre><code class="php" data-trim>
+            $requete = $connexion->prepare(
+              "SELECT * FROM etudiants WHERE age > :age"
+            );
+            // Liaison des paramètres
+            $age = 30;
+            $requete->bindParam(':age', $age);
+            $requete->execute(); //exécution avec :age = 30
+            $age = 25
+            $requete->execute(); //exécution avec :age = 25
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Les requêtes préparées:<br /><code>bindValue</code></h2>
+          <ul>
+            <li>
+              La méthode <code>bindValue</code> relie les paramètres à
+              <span class="highlight2">la valeur</span> d'une variable
+            </li>
+          </ul>
+          <pre><code class="php" data-trim>
+            $requete = $connexion->prepare(
+              "SELECT * FROM etudiants WHERE age > :age"
+            );
+            // Liaison des paramètres
+            $age = 30;
+            $requete->bindValue(':age', $age);
+            $requete->execute(); //exécution avec :age = 30
+            $age = 25
+            $requete->execute();//Aucun changement 
+                                //exécution avec :age = 30
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>
+            Les requêtes préparées:<br />Association des valeurs dans
+            <code>execute</code>
+          </h2>
+          <ul>
+            <li>
+              Permet d'éviter le <code>bindParam</code> ou
+              <code>bindValue</code>
+            </li>
+          </ul>
+          <pre><code class="php" data-trim>
+            $requete = $connexion->prepare(
+              "SELECT * FROM etudiants 
+               WHERE age > :ageMin AND age < :ageMax"
+            );
+            // Liaison des paramètres
+            $requete->execute([
+              'ageMin' => 20,
+              'ageMax' => 30
+            ]); 
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>
+            Traitement du résultat de la requête<br />
+            Méthode <code>fetch</code> 1/4
+          </h2>
+          <ul>
+            <li>
+              La méthode <code>fetch</code> permet de récupérer une ligne du
+              résultat de la requête
+            </li>
+          </ul>
+          <pre><code class="php" data-trim>
+            // Exécution de la requête
+            $requete->execute();
+
+            // Récupération d'une seule ligne
+            $ligne = $requete->fetch(PDO::FETCH_ASSOC);
+
+            if ($ligne) { 
+                print_r($ligne);
+            } else {
+                echo "Aucun résultat trouvé.";
+            }
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>
+            Traitement du résultat de la requête<br />
+            Méthode <code>fetch</code> 2/4
+          </h2>
+          <ul>
+            <li>
+              On peut itérer sur chacune des lignes résultantes en utilisant une
+              boucle <code>while</code>:
+            </li>
+          </ul>
+          <pre><code class="php" data-trim>
+            // Exécution de la requête
+            $requete->execute();
+
+            // Boucle à travers chaque ligne de résultat
+            while ($ligne = $requete->fetch(PDO::FETCH_ASSOC)) {
+                print_r($ligne);
+            }
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>
+            Traitement du résultat de la requête<br />
+            Méthode <code>fetch</code> 2/4
+          </h2>
+          <ul>
+            <li>
+              Chaque ligne retournée est un tableau associatif, où les clés
+              correspondent aux noms des colonnes de la ligne retournée
+              (<code>PDO::FETCH_ASSOC</code>):
+            </li>
+          </ul>
+          <pre><code class="php" data-trim>
+            $requete = $connexion->prepare(
+              "SELECT `nom`, `prenom`, `age` FROM etudiants"
+            );
+            // Liaison des paramètres
+            $requete->execute(); 
+            $ligne = $stmt->fetch(PDO::FETCH_ASSOC);
+            echo "Nom: ".$ligne['nom']." Prénom: ".$ligne['prenom'];
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Options de récupération avec <code>fetch</code></h2>
+          <table>
+            <tr>
+              <th>Option</th>
+              <th>Chaque ligne est...</th>
+            </tr>
+            <tr>
+              <td>PDO::FETCH_ASSOC</td>
+              <td>
+                Un tableau associatif, les clés correspondent aux noms de
+                colonnes
+              </td>
+            </tr>
+            <tr>
+              <td>PDO::FETCH_NUM</td>
+              <td>Un tableau indéxé par numéro d'ordre des colonnes</td>
+            </tr>
+            <tr>
+              <td>PDO::FETCH_OBJ</td>
+              <td>
+                Un objet anonyme, les noms des attributs qui correspondent aux
+                noms des colonnes.
+              </td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <h2>Option par défaut de <code>fetch</code></h2>
+          <ul>
+            <li>
+              À spécifier lors de la connexion pour éviter de spécifier l'option
+              à chaque appel de <code>fetch</code>
+            </li>
+          </ul>
+          <pre><code class="php" data-trim>
+            $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+            $options = [
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                //mode par défaut: FETCH_ASSOC
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+            ];
+
+            try {
+                $pdo = new PDO($dsn, $user, $pass, $options);
+            } catch (\PDOException $e) {
+                die("Erreur de connexion BD: ".$e->getMessage);
+            }
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Requêtes de modification des données</h2>
+          <ul>
+            <li>
+              Les requêtes de modification (INSERT, UPDATE et DELETE) ne
+              retournent pas de résultat, il suffit de faire
+              <code>execute</code>
+              <pre><code class="php" data-trim>
+                $req = "INSERT INTO etudiants (`nom`, `prenom`) 
+                        VALUES (:nom, :prenom)";
+                $req = $conn->prepare($sql);
+                $req->bindParam(':nom', $leNom);
+                $req->bindParam(':prenom', $lePrenom);
+                $req->execute();
+              </code></pre>
+            </li>
+            <li>
+              Après une insertion, la méthode <code>lastInsertId</code> permet
+              d'obtenir la dernière valeur d'une clé primaire auto-incrémentée
+              <pre><code class="php" data-trim>
+                $idEtudiantAjoute = $conn->lastInsertId();
+              </code></pre>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Plan du chapitre -->
+        <section data-transition="convex">
+          <h2>Plan du chapitre</h2>
+          <div class="two_columns_layout">
+            <div class="col menu-principal">
+              <ul class="">
+                <li class="plan-visited">Modèle client-serveur</li>
+                <li class="plan-visited">Les bases du PHP</li>
+                <li class="plan-visited">Les variables super-globales</li>
+                <li class="plan-visited">Interfaçage avec une BD</li>
+                <li class="plan-current">
+                  Traitement de requêtes et formulaire
+                </li>
+              </ul>
+            </div>
+            <div class="col sous-menu">
+              <ul style="margin: 0">
+                <li>Structure de base d'un formulaire (Rappel)</li>
+                <li>Réception des données en PHP</li>
+                <li>Validation des données</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section>
@@ -778,6 +1159,26 @@
         </section>
 
         <section>
+          <h2>Réception des Données en PHP (Méthode GET)</h2>
+          <p>
+            Les données soumises via GET sont accessibles via la superglobale
+            $_GET en PHP.
+          </p>
+          <pre><code data-trim>
+            &lt;?php
+            if ($_SERVER["REQUEST_METHOD"] == "GET") {
+              $parametre = $_GET['parametre'];
+              // Traiter les données...
+            }
+            ?&gt;
+          </code></pre>
+          <p>
+            Cet exemple montre comment accéder aux données envoyées via la
+            méthode GET.
+          </p>
+        </section>
+
+        <section>
           <h2>Validation des Données de Formulaire</h2>
           <p>
             Il est important de valider et de nettoyer les données reçues pour
@@ -802,225 +1203,58 @@
         </section>
 
         <section>
-          <h2>Réception des Données en PHP (Méthode GET)</h2>
-          <p>
-            Les données soumises via GET sont accessibles via la superglobale
-            $_GET en PHP.
-          </p>
-          <pre><code data-trim>
-            &lt;?php
-            if ($_SERVER["REQUEST_METHOD"] == "GET") {
-              $parametre = $_GET['parametre'];
-              // Traiter les données...
-            }
-            ?&gt;
-          </code></pre>
-          <p>
-            Cet exemple montre comment accéder aux données envoyées via la
-            méthode GET.
-          </p>
-        </section>
-
-        <section>
-          <h2>Affichage des Données Traitées</h2>
-          <p>
-            Après traitement, les données peuvent être affichées ou utilisées
-            dans l'application.
-          </p>
-          <pre><code data-trim>
-            &lt;?php
-            echo "Nom: " . $nom . "&lt;br&gt;";
-            echo "Email: " . $email;
-            ?&gt;
-          </code></pre>
-          <p>Cet exemple montre comment afficher les données traitées.</p>
-        </section>
-
-        <section>
-          <h2>Exercice 4: Formulaire POST</h2>
+          <h2>Nettoyage avec <code>htmlspecialchars</code></h2>
           <ul>
             <li>
-              Créez une page PHP (index.php) avec un formulaire qui demande le
-              nom et prénom. Les données du formulaire doivent être transmis par
-              la méthode POST.
+              La fonction <code>htmlspecialchars</code> remplace les caractères
+              (&, ", ', &lt; et &gt;) par leurs entités HTML correspondantes
             </li>
-            <li>
-              Le serveur doit répondre avec la même page en précédant le
-              formulaire par le message: "Merci XXXX XXXX d'avoir rempli le
-              formulaire.
+            <li class="fragment">
+              Ceci évite les attaques de type
+              <em>Cross Site Scripting</em> (XSS) qui consiste à injecter du
+              Javascript dans des données envoyées
+            </li>
+            <li class="fragment">
+              Devrait toujours être utilisée avant de stocker ou d'afficher des
+              données reçues (autant par GET, POST ou autres)
             </li>
           </ul>
         </section>
 
         <section>
-          <h2>Exercice 5: Authentification Simple</h2>
+          <h2>Filtrage avec <code>filter_var</code></h2>
           <ul>
             <li>
-              Créez deux pages PHP: une page index.php et une page login.php
+              <a href="https://www.php.net/manual/fr/function.filter-var.php"
+                >filter_var</a
+              >
+              permet de valider et nettoyer
+              <span class="highlight2">le format</span> des données reçues
             </li>
             <li>
-              La page login.php comporte un formulaire d'authentification et
-              envoie la requête à la même page (login.php). Si la personne est
-              déjà authentifiée, elle renvoie l'usager à la page index.php
-            </li>
-            <li>
-              La page index.php affiche seulement le message "Vous êtes
-              authentifiée". Si la personne n'est pas déjà authentifiée, elle
-              doit être renvoyée à la page login.php
-            </li>
-          </ul>
-        </section>
-
-        <!-- Plan du chapitre -->
-        <section data-transition="convex">
-          <h2>Plan du chapitre</h2>
-          <div class="two_columns_layout">
-            <div class="col menu-principal">
-              <ul class="">
-                <li class="plan-visited">Modèle client-serveur</li>
-                <li class="plan-visited">Les bases du PHP</li>
-                <li class="plan-visited">Les variables super-globales</li>
-                <li class="plan-visited">
-                  Traitement de requêtes et formulaire
+              La fonction reçoit:
+              <ul>
+                <li>La valeur à filtrer</li>
+                <li>
+                  Le
+                  <a href="https://www.php.net/manual/fr/filter.filters.php"
+                    >type de filtre</a
+                  >
+                  à appliquer
                 </li>
-                <li class="plan-current">Interfaçage avec une BD</li>
               </ul>
-            </div>
-            <div class="col sous-menu">
-              <ul style="margin: 0">
-                <li>Rappel SQL</li>
-                <li>Interrogation des données avec PHP</li>
-                <li>Interfaces PDO et MySQLi</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2>Interrogation de Base de Données en PHP</h2>
-          <p>
-            PHP offre plusieurs moyens d'interagir avec les bases de données,
-            notamment via MySQLi et PDO (PHP Data Objects).
-          </p>
-        </section>
-
-        <section>
-          <h2>Utilisation de MySQLi</h2>
-          <p>
-            MySQLi est une extension PHP qui permet l'interaction avec les bases
-            de données MySQL.
-          </p>
-          <pre><code data-trim>
-            &lt;?php
-            $conn = new mysqli("hostname", "username", "password",
-                 "database");
-        
-            if ($conn->connect_error) {
-              die("Connexion échouée: " . $conn->connect_error);
-            }
-            echo "Connexion réussie";
-            ?&gt;
-          </code></pre>
-          <p>
-            Cet exemple montre une connexion de base à une base de données MySQL
-            avec MySQLi.
-          </p>
-        </section>
-
-        <section>
-          <h2>Utilisation de PDO</h2>
-          <p>
-            PDO offre une couche d'abstraction pour l'accès aux bases de
-            données, permettant d'utiliser plusieurs types de bases de données.
-          </p>
-          <pre><code data-trim>
-            &lt;?php
-            try {
-              $conn = new PDO("mysql:host=hostname;dbname=database", 
-                    "username", "password");
-              $conn->setAttribute(PDO::ATTR_ERRMODE, 
-                    PDO::ERRMODE_EXCEPTION);
-              echo "Connexion réussie";
-            } catch(PDOException $e) {
-              echo "Connexion échouée: " . $e->getMessage();
-            }
-            ?&gt;
-          </code></pre>
-          <p>
-            Cet exemple montre une connexion de base à une base de données en
-            utilisant PDO.
-          </p>
-        </section>
-
-        <section>
-          <h2>Gestion des Erreurs de Connexion</h2>
-          <p>
-            La gestion des erreurs est cruciale pour déboguer et maintenir la
-            sécurité de l'application.
-          </p>
-          <pre><code data-trim>
-            // Exemple avec MySQLi
-            if ($conn->connect_error) {
-              die("Erreur de connexion: " . $conn->connect_error);
-            }
-        
-            // Exemple avec PDO
-            try {
-              // Tentative de connexion
-            } catch(PDOException $e) {
-              die("Erreur de connexion: " . $e->getMessage());
-            }
-          </code></pre>
-          <p>
-            Ces exemples montrent comment gérer les erreurs de connexion avec
-            MySQLi et PDO.
-          </p>
-        </section>
-
-        <section>
-          <h2>Syntaxe de Base SQL</h2>
-          <p>
-            Rappels sur les commandes SQL de base pour interagir avec les bases
-            de données.
-          </p>
-          <ul>
-            <li>SELECT: Sélectionner des données</li>
-            <li>INSERT: Insérer de nouvelles données</li>
-            <li>UPDATE: Mettre à jour des données existantes</li>
-            <li>DELETE: Supprimer des données</li>
+            </li>
           </ul>
-        </section>
+          <pre><code class="php" data-trim>
+            $email = $_POST['email'];
+            // Nettoyage
+            $emailNettoye = filter_var($email, FILTER_SANITIZE_EMAIL);
 
-        <section>
-          <h2>Exemple de Requête SELECT avec MySQLi</h2>
-          <pre><code data-trim>
-            &lt;?php
-            $result = $conn->query("SELECT * FROM table");
-            while($row = $result->fetch_assoc()) {
-              echo $row["colonne1"]." ".$row["colonne2"]."&lt;br&gt;";
+            // Validation
+            if (!filter_var($emailNettoye, FILTER_VALIDATE_EMAIL)) {
+                echo "L'adresse email n'est pas valide.";
             }
-            ?&gt;
           </code></pre>
-          <p>
-            Cet exemple montre comment exécuter une requête SELECT et afficher
-            les résultats avec MySQLi.
-          </p>
-        </section>
-
-        <section>
-          <h2>Exemple de Requête SELECT avec PDO</h2>
-          <pre><code data-trim>
-            &lt;?php
-            $stmt = $conn->query("SELECT * FROM table");
-            while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-              echo $row["colonne1"]." ".$row["colonne2"]."&lt;br&gt;";
-            }
-            ?&gt;
-          </code></pre>
-          <p>
-            Cet exemple montre comment exécuter une requête SELECT et afficher
-            les résultats avec PDO.
-          </p>
         </section>
 
         <section data-menu-title="Fin">
