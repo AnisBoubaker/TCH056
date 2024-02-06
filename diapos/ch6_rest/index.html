@@ -55,9 +55,9 @@
               <ul class="">
                 <li class="plan-current">Introduction à REST</li>
                 <li>Conception d'une API REST</li>
+                <li>Communication avec une API REST</li>
                 <li>REST avec PHP</li>
                 <li>Routage</li>
-                <li>Communication avec une API REST</li>
                 <li>Authentification et sécurité</li>
               </ul>
             </div>
@@ -111,7 +111,12 @@
             <h2>API GraphQL</h2>
             <p>GraphQL est une alternative à REST.</p>
             <p>
-              Permet aux clients de demander exactement ce dont ils ont besoin.
+              Offre aux clients de demander exactement les données dont ils ont
+              besoin.
+            </p>
+            <p>
+              Évite les problèmes de surcharges de données (overfetching) ou des
+              demandes de données insuffisantes (underfetching)
             </p>
             <p><b>Exemple :</b> API de GitHub v4.</p>
           </section>
@@ -141,6 +146,60 @@
             <li><b>DELETE</b> - Supprimer une ressource.</li>
           </ul>
           <p><b>Exemple :</b> POST /users pour créer un nouvel utilisateur.</p>
+        </section>
+
+        <section>
+          <h2>Requête REST: Méthode + Ressource</h2>
+          <img src="./images/rest-api.png" />
+          <p class="note">Source: mannhowie.com</p>
+        </section>
+
+        <section>
+          <h2>Indépendante du langages ou de la plateforme</h2>
+          <p>Une API REST permet d'intéragir avec la couche métier:</p>
+          <ul>
+            <li>Peu importe l'interface usager (Web, mobile, desktop)</li>
+            <li>
+              Peu importe la technologie sous jacente (langage de programmation,
+              cadriciels, etc.)
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Standards Ouverts</h2>
+          <ul>
+            <li>La communication se fait à travers le prototcole HTTP</li>
+            <li>
+              Les données sont échangées en utilisant des formats largement
+              supportés comme JSON (principalement) ou XML.
+            </li>
+          </ul>
+        </section>
+
+        <!-- Plan du chapitre -->
+        <section data-transition="convex">
+          <h2>Plan du chapitre</h2>
+          <div class="two_columns_layout">
+            <div class="col menu-principal">
+              <ul class="">
+                <li class="plan-visted">Introduction à REST</li>
+                <li class="plan-current">Conception d'une API REST</li>
+                <li>Communication avec une API REST en JS</li>
+                <li>REST avec PHP</li>
+                <li>Routage</li>
+                <li>Authentification et sécurité</li>
+              </ul>
+            </div>
+            <div class="col sous-menu">
+              <ul style="margin: 0">
+                <li>Ressources et URI</li>
+                <li>Formats de réponses</li>
+                <li>Planification</li>
+                <li>Bonnes pratiques</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <!-- Diapositive 3: Structure des URL et des ressources -->
@@ -243,11 +302,6 @@
             &lt;/user&gt;
           &lt;/users&gt;
           </code></pre>
-        </section>
-
-        <section>
-          <h1>Conception d'une API REST</h1>
-          <p>Planification et bonnes pratiques</p>
         </section>
 
         <!-- Diapositive 1: Planification des Ressources -->
@@ -377,6 +431,246 @@
               Équilibrage de charge et utilisation de serveurs de réplication.
             </li>
           </ul>
+        </section>
+
+        <!-- Plan du chapitre -->
+        <section data-transition="convex">
+          <h2>Plan du chapitre</h2>
+          <div class="two_columns_layout">
+            <div class="col menu-principal">
+              <ul class="">
+                <li class="plan-visited">Introduction à REST</li>
+                <li class="plan-visited">Conception d'une API REST</li>
+                <li class="plan-current">Communication avec une API REST</li>
+                <li>REST avec PHP</li>
+                <li>Routage</li>
+                <li>Authentification et sécurité</li>
+              </ul>
+            </div>
+            <div class="col sous-menu">
+              <ul style="margin: 0">
+                <li>Accès à une API REST</li>
+                <li>Communication asynchrone avec l'API</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Accès à une API REST</h2>
+          <p>
+            Tous les langages de programmation qui permettent la communication à
+            travers le port HTTP permettent de ce connecter à une API REST.
+          </p>
+          <p>
+            Lors de la conception d'une API REST, plusieurs outils permettent
+            d'y accéder aux fins de tests:
+          </p>
+          <ul>
+            <li>Postman</li>
+            <li>Insomnia</li>
+            <li>Thunder Client (VS Code)</li>
+            <li>...</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Exemples d'APIs librement accessibles</h2>
+          <ul>
+            <li>
+              <a href="https://openweathermap.org/api">OpenWeatherMap</a>:
+              Données météorologiques globales (prévidions + historiques)
+            </li>
+            <li>
+              <a href="https://developers.themoviedb.org/3"
+                >The Movie Database</a
+              >: Base de données communautaire de films et de séries TV
+            </li>
+            <li>
+              <a href="https://jokeapi.dev">JokeAPI</a>: Blagues dans diverses
+              catégories
+            </li>
+            <li>
+              <a href="https://api.nasa.gov/">NASA API</a>: Accès à une
+              multitude de données spatiales, y compris des images de la NASA,
+              des informations sur les missions, et plus encore.
+            </li>
+            <li>
+              <a href="https://randomuser.me">Random User Generator</a>: Utile
+              pour générer des profils d'utilisateurs fictifs pour des tests ou
+              des maquettes
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Communication REST avec Javascript</h2>
+          <p>
+            Pour ne pas bloquer la pile d'exécution, les communications avec une
+            API se font de façon asynchrone.
+          </p>
+          <p class="fragment">
+            Plusieurs méthodes permettent la communication HTTP asynchrone
+            (notamment avec une API REST):
+          </p>
+          <ul>
+            <li class="fragment">
+              L'objet XMLHttpRequest: Objet disponible dans tous les navigateurs
+              depuis IE5 (1999)
+            </li>
+            <li class="fragment">
+              Plusieurs librairies: Comme jQuery (généraliste) et Axios
+              (spécifique aux requêtes)
+            </li>
+            <li class="fragment">
+              La fonction <code>fetch</code>: Méthode moderne implantée dans
+              tous les navigateurs contemporains
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>La fonction <code>fetch</code></h2>
+          <ul>
+            <li>
+              <code>fetch</code> utilise les 'Promesses' qui est un mécanisme
+              d'exécution des fonctions de façon asynchrone
+            </li>
+            <li>
+              Une requête HTTP se fait en deux étapes avec fetch:
+              <pre><code class="javascript" data-trim>
+                fetch("URI", { ...options })
+                  .then((response)=>{
+                    //fonction de rappel qui traite la réponses HTTP 
+                    //et retourne les données (fonction asynchrone)
+                  })
+                  .then((data)=>{
+                    //fonction de rappel pour traiter les données 
+                  })
+                  .catch((error)=>{
+                    //fonction de rappel pour traiter les erreurs 
+                    //éventuelles. 
+                  })
+              </code></pre>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Exemple avec <code>fetch</code> (GET)</h2>
+          <pre><code class="javascript" data-trim>
+            fetch("https://jsonplaceholder.typicode.com/posts/3", 
+                  { method: "GET" })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Erreur HTTP: " + response.statusText);
+              }
+              return response.json();
+            })
+            .then((data) => {
+              if (data.error)
+                throw new Error("Erreur reçue du serveur: " + data.error);
+
+              console.log(data);
+            })
+            .catch((error) =>
+              console.error(
+                "Il y'a eu une erreur lors de l'obtention des données:" +
+                  error.message
+              )
+            );
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Exemple avec <code>fetch</code> (POST)</h2>
+          <pre><code class="javascript" data-trim>
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                title: 'Mon post',
+                body: 'Je teste si mon post sera stocké',
+                userId: 1,
+              }),
+            })
+            .then(response => {
+              if (!response.ok) {
+                throw new Error('Erreur reçue du serveur'+response.statusText);
+              }
+              return response.json();
+            })
+            .then(data => console.log(data))
+            .catch(error => console.error('Il y a eu une erreur:', error.message));
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Exemple avec <code>fetch</code> (PUT)</h2>
+          <pre><code class="javascript" data-trim>
+            // L'URL de l'API pour le post avec l'ID 1
+            const url = 'https://jsonplaceholder.typicode.com/posts/1';
+
+            // Les données que nous souhaitons mettre à jour
+            const data = {
+              id: 1, // Normalement, vous n'avez pas besoin de fournir 
+                     // l'ID dans le corps pour une requête PUT, 
+                     //mais JSONPlaceholder l'exige pour la simulation.
+              title: 'Nouveau titre',
+              body: 'Nouveau contenu',
+              userId: 1,
+            };
+
+            // Options de la requête fetch pour effectuer une opération PUT
+            const fetchOptions = {
+              method: 'PUT', // Méthode HTTP utilisée
+              headers: {
+                // Indique que le corps de la requête est au format JSON
+                'Content-Type': 'application/json', 
+              },
+              // Convertit les données de l'objet JavaScript en chaîne JSON
+              body: JSON.stringify(data), 
+            };
+
+            // Effectuer la requête PUT
+            fetch(url, fetchOptions)
+              .then(response => {
+                if (!response.ok) {
+                  // Si la réponse n'est pas dans la plage de succès HTTP (200-299),
+                  // lance une erreur avec le statut pour indiquer l'échec de la requête
+                  throw new Error('Le serveur a renvoyé une erreur');
+                }
+                return response.json(); // Parse la réponse en JSON
+              })
+              .then(updatedPost => {
+                console.log('Post mis à jour:', updatedPost); // Affiche les données du post mis à jour
+              })
+              .catch(error => {
+                console.error("Il y a eu une error lors de l'opération fetch:", error);
+              });
+
+          </code></pre>
+        </section>
+
+        <!-- Plan du chapitre -->
+        <section data-transition="convex">
+          <h2>Plan du chapitre</h2>
+          <div class="two_columns_layout">
+            <div class="col menu-principal">
+              <ul class="">
+                <li class="plan-visited">Introduction à REST</li>
+                <li class="plan-visited">Conception d'une API REST</li>
+                <li class="plan-visited">Communication avec une API REST</li>
+                <li class="plan-current">Conception d'une API REST avec PHP</li>
+                <li>Authentification et sécurité</li>
+              </ul>
+            </div>
+            <div class="col sous-menu">
+              <ul style="margin: 0"></ul>
+            </div>
+          </div>
         </section>
 
         <section data-menu-title="Fin">
