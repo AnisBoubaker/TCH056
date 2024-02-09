@@ -6,12 +6,16 @@
 
 		<title>CH03- CSS | TCH056</title>
 
+		<base target="_blank">
+
 		<link rel="stylesheet" href="../revealjs/reset.css">
 		<link rel="stylesheet" href="../revealjs/reveal.css">
 		<link rel="stylesheet" href="../revealjs/theme/ets.css" id="theme">
 		<link rel="stylesheet" href="../revealjs/theme/normalize.css">
 		<link rel="stylesheet" href="./css/examples_general.css">
 		<link rel="stylesheet" href="./css/examples.css">
+
+		
 
 		<!-- Feather -->
 		<script src="../feather.min.js"></script>
@@ -42,25 +46,11 @@
 						<div class="col menu-principal">
 							<ul class="">
 								<li class="plan-current">Introduction</li>
-								<li class="">Le DOM (<em>Document Object Model</em>)
-									<!--<ul>
-										<li>Rappel: Structure arborescente d'un document HTML</li>
-										<li>Le DOM</li>
-										<li>Relations entre les éléments du DOM</li>
-										<li>Identification des éléments: classes et identifiants</li>
-									</ul>
-									-->
-								</li>
-								<li>Construction d'une règle CSS
-								<!--	<ul>
-										<li class="">Le sélecteur</li>
-										<li class="">La déclaration</li>
-									</ul>
-								-->
-								</li>
+								<li class="">Le DOM (<em>Document Object Model</em>)</li>
+								<li>Construction d'une règle CSS</li>
 								<li class="">Algorithme de cascade</li>
 								<li class="">Le positionnement (<em>Layout</em>)</li>
-								<li>Cadriciels et pré-processeurs CSS</li>
+								<li class="">Cadriciels et pré-processeurs CSS</li>
 							</ul>
 						</div>
 						<div class="col sous-menu">
@@ -253,13 +243,7 @@
 							<ul class="">
 								<li class="plan-visited">Introduction</li>
 								<li class="plan-current">Le DOM (<em>Document Object Model</em>)</li>
-								<li>Construction d'une règle CSS
-								<!--	<ul>
-										<li class="">Le sélecteur</li>
-										<li class="">La déclaration</li>
-									</ul>
-								-->
-								</li>
+								<li>Construction d'une règle CSS</li>
 								<li class="">Algorithme de cascade</li>
 								<li class="">Le positionnement (<em>Layout</em>)</li>
 								<li>Cadriciels et pré-processeurs CSS</li>
@@ -1661,8 +1645,325 @@
 						>[Démonstration](./editeur.html?exemple=18)
 					</textarea>
 				</section>
-	
 
+<!-- CADRICIELS -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-visited">Le DOM (<em>Document Object Model</em>)</li>
+								<li class="plan-visited">Construction d'une règle CSS</li>
+								<li class="plan-visited">Algorithme de cascade</li>
+								<li class="plan-visited">Le positionnement (<em>Layout</em>)</li>
+								<li class="plan-current">Cadriciels et pré-processeurs CSS</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul>
+								<li>Librairies et cadriciels</li>
+								<li>Avantages et désavantages d'utilisation</li>
+								<li>La librairie BootStrap</li>
+								<li>Le pré-processeur SASS</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Cadriciels / Bibliothèques</h2>
+					<p>Des outils et ensembles de code réutilisables qui facilitent 
+						le développement de logiciels en fournissant des solutions prédéfinies 
+						pour des problèmes courants.</p>
+					<p class="fragment">Bien que ces deux concepts partagent le but 
+						de simplifier le développement de logiciels, ils diffèrent par leur approche et leur utilisation.</p>
+				</section>
+
+				<section>
+					<h2>Bibliothèques</h2>
+					<ul>
+						<li>Une collection de fonctions, de méthodes, ou d'autres ressources réutilisables pour réaliser des tâches spécifiques</li>
+						<li>C'est au développ-eur/euse de choisir où et quand appeler les fonctions de la bibliothèque</li>
+						<li>Généralement plus légères qu'un cadriciel et offrent plus de flexibilité dans le code.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Bibliothèques - Exemples</h2>
+					<ul>
+						<li><strong>CSS:</strong> <a href="https://getbootstrap.com">Bootstrap</a>, 
+							<a href="https://tailwindcss.com">Tailwind</a>
+						<li><strong>Javascript:</strong> <a href="https://jquery.com">jQuery</a>, <a href="https://lodash.com">Lodash</a>, 
+							<a href="https://d3js.org">D3.js</a></li>
+						<li><strong>PHP:</strong> <a href="https://docs.guzzlephp.org">Guzzle</a>, 
+							<a href="https://image.intervention.io/v3">Intervention Image</a>, <a href="https://twig.symfony.com">Twig</a>, <a href="https://www.doctrine-project.org">Doctrine</a></li>
+					</ul>
+					<p>Les librairies sont omniprésentes, dans tous les langages</p>
+				</section>
+
+				<section>
+					<h2>Cadriciels (frameworks)</h2>
+					<ul>
+						<li>Ensemble cohérent et réutilisable de code qui sert de <span class="highlight">fondation</span> pour le développement d'applications dans un domaine spécifique.</li>
+						<li class="fragment">Définit une structure et une méthodologie de développement, dictant souvent l'architecture de l'application</li>
+						<li class="fragment">Les frameworks peuvent inclure des composants logiciels, des bibliothèques, et des API pour faciliter le développement d'applications.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Cadriciels - Exemples</h2>
+					<ul>
+						<li><strong>Java:</strong> <a href="https://spring.io">Spring</a>, <a href="https://www.oracle.com/java/technologies/appmodel.html">J2EE</a>, 
+							<a href="https://struts.apache.org">Struts</a>, <a href="https://hibernate.org/orm/">Hibernate</a></li>
+						<li><strong>Développement Web FrontEnd:</strong> <a href="https://angular.io">Angular</a>, <a href="https://react.dev">React</a>, 
+							<a href="https://vuejs.org">Vue.js</a>, <a href="https://svelte.dev">Svelte</a></li>
+						<li><strong>Développement Backend:</strong> <a href="https://expressjs.com">Express</a>, <a href="https://nextjs.org">NextJs</a>, 
+							<a href="https://www.djangoproject.com">Django</a>, <a href="https://flask.palletsprojects.com/en/3.0.x/">Flask</a>, 
+							<a href="https://spring.io/projects/spring-boot">Spring Boot</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Cadriciel vs Bibliothèque</h2>
+					<ul>
+						<li>Le framework "appelle" le code et impose une structure. Une bibliothèque est "appelée" par le code.</li>
+						<li class="fragment">Un framework est <span class="highlight">en charge de l'exécution globale</span> et appelle le code au besoin.</li>
+						<li class="fragment">Les frameworks fournissent une solution complète avec une structure et une architecture prédéfinies (commodité). Les bibliothèques offrent des fonctionnalités spécifiques (flexibilité)</li>
+					</ul>
+				</section>
+
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-visited">Le DOM (<em>Document Object Model</em>)</li>
+								<li class="plan-visited">Construction d'une règle CSS</li>
+								<li class="plan-visited">Algorithme de cascade</li>
+								<li class="plan-visited">Le positionnement (<em>Layout</em>)</li>
+								<li class="plan-current">Cadriciels et pré-processeurs CSS</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul>
+								<li class="plan-visited">Librairies et cadriciels</li>
+								<li class="plan-visited">Avantages et désavantages d'utilisation</li>
+								<li class="plan-current">La librairie BootStrap</li>
+								<li>Le pré-processeur SASS</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+	
+				<section>
+					<h2>Qu'est-ce que Bootstrap?</h2>
+					<ul>
+						<li>Librairie permettant de simplifier le développement de styles</li>
+						<li>Accélère le développement et permet la construction d'interfaces élégantes avec un système de grille et des composants prêts à l'emploi</li>
+						<li>Responsive: Facilite la conception d'un site qui fonctionne aussi bien sur un téléphone portable que sur un grand écran.</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Installation et configuration</h2>
+					<p>Via CDN (Content Delivery Network): Inclure le script Javascript et la feuille de style de Bootstrap</p>
+					<pre><code class="html" data-trim>
+						&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+						&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+					</code></pre>
+					<p class="note">Les versions de Bootstrap antiéreures à la version 5 demandaient l'inclusion de jQuery également. Depuis la version 5, Bootstrap est devenu indépendant de jQuery.</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Définition du conteneur</h2>
+						<ul>
+							<li>Les éléments de la page doivent être encapsulés au sein d'un conteneur pour qu'ils soient pris en charge adéquatement par Bootstrap</li>
+							<li>Il existe deux classes de conteneurs: 
+								<ul>
+									<li><strong><code>.container</code>:</strong> Pour un conteneur adaptif à la taille du périphérique</li>
+									<li><strong><code>.container-fluid</code>:</strong>Pour un conteneur qui occupe toujours l'intégralité de l'écran.</li>
+								</ul>
+							</li>
+						</ul>
+						<p class="note">Naviguez vers le bas pour voir un exemple.</p>
+					</section>
+					<section>
+						<h2>Définition du conteneur - Exemple</h2>
+						<pre><code class="html" data-trim>
+							<!-- Barre de Navigation à Pleine Largeur -->
+							<div class="container-fluid">
+								<nav class="row">
+								<!-- Contenu de la Nav -->
+								</nav>
+							</div>
+							
+							<!-- Section de Contenu à Largeur Fixe -->
+							<div class="container">
+								<section class="row">
+								<!-- Contenu de la Section -->
+								</section>
+							</div>
+  
+						</code></pre>
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Système de grille</h2>
+						<ul>
+							<li>La disposition du contenu avec Bootstrap repose sur un système de grille à 12 colonnes</li>
+							<li class="fragment">Le conteneur (<code>container</code> ou <code>container-fluid</code>) encapsule la grille</li>
+							<li class="fragment">Les lignes de la grille sont encapsulées dans des éléments de la classe <code class="highlight2">.row</code></li>
+							<li class="fragment">Le contenu est réparti sur les colonnes au sein d'une "ligne" dans des éléments de classe <code class="highlight2">.col-*-*</code></li>
+							<li class="fragment">Les colonnes sont réactives grâce à un des points de rupture prédifinis</li>
+						</ul>
+						<p class="note">Naviguez vers le bas pour voir un exemple.</p>
+					</section>
+					<section>
+						<h2>Système de grille</h2>
+						<pre><code class="html" data-trim><script type="text/template">
+							<main>
+								<div class="row">
+									<div class="col-sm-6 col-lg-4">
+										Cette colonne prend la moitié de la page sur un écran 
+										de petite taille (sm) et le tier de l'écran sur un écran 
+										de grande taille (lg)
+									</div>
+									<div class="col-sm-6 col-lg-8">
+										Colonne qui prend la moitié de l'écran sur les écrans 
+										de petite taille et les 2/3 de l'écran sur un écran 
+										de grande taille.
+									</div>
+								</div>
+							</main>
+						</script></code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h2>Les points de rupture (<em>Breakpoints</em>)</h2>
+					Bootstrap prédéfinis 6 points de rupture: 
+					<table>
+						<thead>
+							<tr><th>Point de rupture</th><th>Classe (col-*)</th><th>Dimensions</th></tr>
+						</thead>
+						<tbody>
+							<tr><td>Extra small</td><td></td><td>&lt;576px</td></tr>
+							<tr><td>Small</td><td>sm</td><td>≥576px</td></tr>
+							<tr><td>Medium</td><td>md</td><td>≥768px</td></tr>
+							<tr><td>Large</td><td>lg</td><td>≥992px</td></tr>
+							<tr><td>Extra large</td><td>xl</td><td>≥1200px</td></tr>
+							<tr><td>Extra extra large</td><td>xxl</td><td>≥1400px</td></tr>
+						</tbody>
+					</table>
+					<p class="note">Source: <a href="https://getbootstrap.com/docs/5.3/layout/breakpoints/">Bootstrap - Breakpoints</a></p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Utilisation des points de rupture</h2>
+						<ul>
+							<li>Un point de rupture détermine la largeur d'une boite pour les périphériques correspondants</li>
+							<li>Le point de rupture <code>col-md</code> s'applique donc à tous les périphériques d'au moins 768px de large (inclus lg, xl et xxl)</li>
+							<li>Sur tous les périphériques ayant une taille inférieure, la colonne prendra toute la largeur</li>
+						</ul>
+						<p class="note">Naviguez vers le bas pour voir un exemple.</p>
+					</section>
+					<section>
+						<h2>Points de rupture - Exemple</h2>
+						<pre><code class="html" data-line-numbers="18-30"><script type="text/template">
+							<style>
+							.col1{
+								background-color: lightgrey;
+								height: 100px;
+							}
+
+							.col2{
+								background-color: dodgerblue;
+								height: 100px;
+							}
+
+							.col3{
+								background-color: gold;
+								height: 100px;
+							}
+							</style>
+							<main class="container">
+								<div class="row">
+									<div class="col-md-3 col1">
+									5 colonnes
+									</div>
+									<div class="col-md-6 col2">
+									6 colonnes
+									</div>
+									<div class="col-md-3 col3">
+									1 colonne
+									</div>
+								</div>
+							</main>						  
+						</script></code></pre>
+						<img src="./images/bs-exemple-grid.png" />
+					</section>
+				</section>
+
+				<section>
+					<h2>Personnalisation - Espacement</h2>
+					<ul>
+						<li>Bootstrap fournit un ensemble de <em>Helper classes</em> pour personnaliser l'affichage</li>
+						<li>Il est possible de contrôler les mages (<code>m-</code>) le <em>padding</em> (<code>p-</code>) à l'aide de classes ayant ce format: <code>{type}{côté}-{taille}</code></code>, où:
+							<pre><code class="html" data-trim><script type="text/template">
+								<div class="mx-3">Marge horiz. de taille 3 unités</div>
+								<div class="mp-md-3">Padding de taille 3 sur écrans md</div>
+							</script></code></pre>
+							<ul>
+								<li><strong>type</strong> peut être `m` (marge) ou `p` (padding)</li>
+								<li><strong>côté</strong> `t` (top), `b` (bottom), `l` (left), `r` (right), `x` (axe horizontal), `y` (axe vertical)</li>
+								<li><strong>taille</strong> valeur de 0 à 5 (0: aucun, 5 grand)</li>
+							</ul>
+							
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Personnalisation - couleurs et arrière plan</h2>
+					<ul>
+						<li>Des <a href="https://getbootstrap.com/docs/5.3/utilities/colors/">classes prédéfinies pour les couleurs</a> du texte (ex.: <code>text-primary</code>, <code>text-success</code>, <code>text-danger</code>)</li>
+						<li>Et <a href="https://getbootstrap.com/docs/5.3/utilities/background/">des classes pour prédéfinies pour l'arrière plan</a> (ex.: <code>bg-primary</code>, <code>bg-warning</code>, etc.)</li>
+					</ul>
+					<pre><code class="html" data-trim><script type="text/template">
+						<div class="bg-primary text-white">
+							Ce texte est blanc sur un fond bleu principal.
+						</div>
+					</script></code></pre>
+				</section>
+
+				<section>
+					<h2>Personnalisation - Autres</h2>
+					<p>Bootstrap offre une multitude d'options de personnalisation, comme notamment:  
+						<a href="https://getbootstrap.com/docs/5.3/utilities/borders/">les bordures</a>, 
+						<a href="https://getbootstrap.com/docs/5.3/utilities/opacity/">l'opacité</a>, 
+						<a href="https://getbootstrap.com/docs/5.3/utilities/shadows/">les ombres</a>, etc. 
+					</p>
+				</section>
+
+				<section>
+					<h2>Les composants Bootstrap</h2>
+					<ul>
+						<li>Bootstrap est renommé pour sa vaste bibliothèque de composants réutilisables, qui permettent aux développeurs de construire rapidement des interfaces web riches et interactives.</li>
+						<li>Il suffit de copier/coller le modèle de composant et l'adapter au besoin.</li>
+						<li>Les composants incluent: les <a href="https://getbootstrap.com/docs/5.3/components/buttons/">boutons</a>, 
+							les <a href="https://getbootstrap.com/docs/5.3/components/buttons/">cartes</a>, 
+							les <a href="https://getbootstrap.com/docs/5.3/components/carousel/">carroussels</a>, 
+							et bien d'autres</li>
+						<li>Consulter <a href="https://getbootstrap.com/docs/5.3/">la documentation de Bootstrap</a> comme référence pour les composants disponibles.</li>
+					</ul>
+				</section>
 
 <!-- FIN THE END -->
 				<section data-menu-title="Fin">
@@ -1676,6 +1977,7 @@
 		<script src="../revealjs/plugin/markdown/markdown.js"></script>
 		<script src="../revealjs/plugin/highlight/highlight.js"></script>
 		<script src="../revealjs/plugin/menu/menu.js"></script>
+		
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
