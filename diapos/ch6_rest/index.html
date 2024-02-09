@@ -9,6 +9,8 @@
 
     <title>CH05- REST | TCH056</title>
 
+    <base target="_blank" />
+
     <link rel="stylesheet" href="../revealjs/reset.css" />
     <link rel="stylesheet" href="../revealjs/reveal.css" />
     <link rel="stylesheet" href="../revealjs/theme/ets.css" id="theme" />
@@ -665,13 +667,526 @@
                 <li class="plan-visited">Conception d'une API REST</li>
                 <li class="plan-visited">Communication avec une API REST</li>
                 <li class="plan-current">Conception d'une API REST avec PHP</li>
-                <li>Authentification et sécurité</li>
               </ul>
             </div>
             <div class="col sous-menu">
-              <ul style="margin: 0"></ul>
+              <ul style="margin: 0">
+                <li>Routage et définition des routes</li>
+                <li>Authentification</li>
+                <li>Traitement des requêtes</li>
+                <li>Gestion des erreurs</li>
+                <li>Tests de l'API</li>
+              </ul>
             </div>
           </div>
+        </section>
+
+        <section>
+          <h2>Traitement normal des requêtes HTTP</h2>
+          <img src="./images/diag_no_routing.png" />
+        </section>
+
+        <section>
+          <h2>Routage</h2>
+          <ul>
+            <li>
+              <strong>Définition:</strong> Le routage est le processus qui
+              dirige les requêtes HTTP vers le bon contrôleur et la méthode de
+              contrôleur, basé sur l'URL de la requête et la méthode HTTP (GET,
+              POST, PUT, DELETE, etc.).
+            </li>
+            <li class="fragment">
+              <strong>Objectif:</strong> Permettre une interaction structurée et
+              prévisible avec une application web ou un service en utilisant des
+              URLs et des méthodes HTTP spécifiques.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Fonctionnement du routage</h2>
+          <ol>
+            <li>Le client envoie une requête (URL+méthode)</li>
+            <li class="fragment">La requête est traitée par le routeur</li>
+            <li class="fragment">
+              Le routeur valide la requête et la renvoie au contrôleur approprié
+            </li>
+            <li class="fragment">
+              Le contrôleur traite la requête et génère la réponse
+            </li>
+            <li class="fragment">La réponse est renvoyée au client</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Fonctionnement du routage (illustration)</h2>
+          <img src="./images/diag_routing.png" />
+        </section>
+
+        <section>
+          <h2>Avantages du routage</h2>
+          <ul>
+            <li>Clarté: organisation de logique des routes (ex.: web, api)</li>
+            <li>
+              Modularité: séparer les préoccupation entre la requête et le
+              contrôleur
+            </li>
+            <li>Réutilisabilité: Facilite la réutilisation de contrôleurs</li>
+            <li>
+              Évolutivité: l'ajout ou le retrait de routes est facile et
+              prévisible
+            </li>
+            <li>
+              Lisibilité: Possible de définir des routes plus faciles (ne
+              dépendent pas des noms de fichiers)
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Routage - Implémentation</h2>
+          <ul>
+            <li>
+              Utilisation du module mod_rewrite pour rediriger toutes les
+              requêtes qui ne sont pas des images vers le routeur
+            </li>
+            <li>
+              Sur Apache: ajout d'un fichier <code>.htaccess</code> à la racine
+            </li>
+            <li>
+              Ce fichier demande que toute requête autre que les images, pdf,
+              zip, css, etc. soient redirigées vers le fichiers routes.php
+            </li>
+          </ul>
+
+          <pre><code class="text" data-trim>
+            RewriteEngine On
+            RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.webp|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js|\.pdf)$
+            RewriteRule (.*) routes.php [QSA,L]% 
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Routage - Implémentation</h2>
+          <p>
+            Le fichier routes.php définit quelles sont les routes valides et
+            renvoie chacune vers le contrôleur approprié:
+          </p>
+          <pre><code class="php" data-trim="">
+            &lt;?php
+            // Obtention du chemin de l'URL après le nom de domaine
+            $request = $_SERVER['REQUEST_URI'];
+            // Routeur simple
+            switch ($request) {
+                case '/' :
+                    require __DIR__ . '/views/home.php';
+                    break;
+                case '/about' :
+                    require __DIR__ . '/views/about.php';
+                    break;
+                case '/contact' :
+                    require __DIR__ . '/views/contact.php';
+                    break;
+                default:
+                    // Gestion des pages non trouvées
+                    http_response_code(404);
+                    require __DIR__ . '/views/404.php';
+                    break;
+            }
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Types de routes</h2>
+          <p>
+            Les routes peuvent être des routes
+            <span class="highlight2">statiques</span> ou
+            <span class="highlight2">dynamiques</span>
+          </p>
+        </section>
+
+        <section>
+          <h2>Routes statiques</h2>
+          <ul>
+            <li>
+              <strong>Définition:</strong> Une route statique est un chemin
+              d'URL qui pointe vers une ressource spécifique ou un contrôleur
+              sans variation. L'URL est fixe et ne change pas.
+            </li>
+            <li class="fragment">
+              <strong>Exemple:</strong> /about ou /contact qui mènent
+              respectivement à la page À propos et à la page Contact.
+            </li>
+            <li class="fragment">
+              <strong>Utilisation:</strong> Idéal pour les pages ou les API
+              endpoints qui ne nécessitent pas de données variables dans l'URL.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Routes dynamiques</h2>
+          <ul>
+            <li>
+              <strong>Définition:</strong> utilise des parties variables dans
+              l'URL pour passer des données ou des paramètres au contrôleur. Ces
+              parties variables sont souvent appelées paramètres de route.
+            </li>
+            <li class="fragment">
+              <strong>Exemple:</strong> <code>/users/:userId</code> où
+              <code>:userId</code>
+              est un paramètre dynamique qui peut représenter l'identifiant d'un
+              utilisateur spécifique.
+            </li>
+            <li class="fragment">
+              <strong>Utilisation:</strong> Permet de construire des
+              applications et des API flexibles qui peuvent gérer une grande
+              variété de requêtes avec un nombre réduit de routes.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Routeur: Gestion des routes statiques/dynamiques</h2>
+          <pre><code class="php" data-trim="">
+            $request = $_SERVER['REQUEST_URI'];
+
+            // Utilisez preg_match pour vérifier les routes dynamiques
+            if ( $_SERVER["REQUEST_METHOD"]=="GET" &&
+              preg_match('/^\/api\/clients\/(\d+)$/', $request, $matches)) {
+                // $matches[1] contient l'ID capturé dans l'URL
+                $clientId = $matches[1];
+                require __DIR__ . '/api/getClient.php';
+            } else if(){
+              if ( $_SERVER["REQUEST_METHOD"]=="PUT" &&
+              preg_match('/^\/api\/clients\/(\d+)$/', $request, $matches)) {
+                // $matches[1] contient l'ID capturé dans l'URL
+                $clientId = $matches[1];
+                require __DIR__ . '/api/putClient.php';
+            } else {
+                switch ($request) {
+                    case '/' :
+                        require __DIR__ . '/views/home.php';
+                        break;
+                    case '/about' :
+                        require __DIR__ . '/views/about.php';
+                        break;
+                    case '/contact' :
+                        require __DIR__ . '/views/contact.php';
+                        break;
+                    default:
+                        http_response_code(404);
+                        require __DIR__ . '/views/404.php';
+                        break;
+                }
+            }
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Librairies pour le routage</h2>
+          <ul>
+            <li>
+              La logique de routage avec toutes les variations d'URL statitiques
+              et dynamiques peut rapidement devenir incontrôlable
+            </li>
+            <li>
+              Lorsqu'on utilise un cadriciel (ex.: Laravel, NextJS, etc.), des
+              outils de routage sont généralement fournis par le cadriciel
+            </li>
+            <li>
+              Sans cadriciel, il est possible d'utiliser des librairies qui
+              facilitent le routage
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Librairie PHP Router</h2>
+          <img src="./images/phprouter.png" />
+          <ul>
+            <li>
+              Disponible sur
+              <a href="https://phprouter.com">phprouter.com</a> et
+              <a href="https://github.com/phprouter/main">GitHub</a>
+            </li>
+            <li>Inconnue du grand public</li>
+            <li>Implémentation simple et efficace d'un routeur</li>
+            <li>
+              Seules les méthodes HTTP les plus communes sont implémentées
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Utilisation de PHP Router</h2>
+          <pre><code class="php" data-trim data-line-numbers="1|3-6|8-12|14-15">
+            // Syntaxe: methode(route, script);
+
+            // ***** Routes statiques *****
+            get('/', '/web/index.php');
+            post('/login', '/web/login.php');
+            any('/newUser', '/web/newUser');
+            
+            // ***** Routes dynamiques *****
+              //$id sera dispobile dans le script getClient.php
+            get('/api/clients/$id', '/api/getClient.php');
+            delete('/api/produits/$id', '/api/produits/delProduit.php');
+            post('/api/produits/$categorie/$id', '/api/produits/postProduit.php');
+
+            // ***** Routes invalide *****
+            any('/404', '/erreur.php');
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Traitement d'une requête</h2>
+          <pre><code class="php" data-trim>
+          //Utiliser les paramètres de la requête directement
+          //Toujours s'assurer de la validité des données reçues  
+          if(isset($id) && filter_var($id, FILTER_VALIDATE_INT)){
+            $stmt = $pdo->prepare("SELECT * FROM `postits` WHERE `id`=:id");
+            //...
+            $postit = $stmt->fetch();
+          } else {
+            $postit = ["error"=>"Identifiant invalide"];
+          }
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Utilisation des codes HTTP pour la réponse</h2>
+          <ul>
+            <li>
+              Les codes HTTP permettent de préciser au client la nature de la
+              réponse
+            </li>
+            <li>
+              Consulter la
+              <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Status"
+                >liste des codes HTTP</a
+              >
+              et retourner la valeur la plus appropriée
+            </li>
+            <li>
+              Le code par défaut sera 200 (OK), il n'est pas nécessaire de le
+              préciser
+            </li>
+            <li>
+              La fonction http_response_code permet de renvoyer le bon code,
+              suivi d'un message informatif:
+              <pre><code class="php" data-trim>
+                http_response_code(400);
+                echo "Requête invalide";
+                exit;
+              </code></pre>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Préparation de la réponse</h2>
+          <ul>
+            <li>
+              Généralement, une réponse à une requête dirigée vers une API REST
+              est de type JSON (objet, tableau d'objets, etc.)
+            </li>
+            <li>
+              Toujours spécifier le type de réponse et l'encodage:
+              <pre><code class="php" data-trim>
+                header('Content-Type: application/json; charset=utf-8');
+              </code></pre>
+            </li>
+            <li>
+              La fonction PHP <code>json_encode</code> permet de transformer le
+              contenu d'une variable en son équivalent JSON stocké dans une
+              chaine de caractères
+              <pre><code class="php" data-trim="">
+                echo json_encode($postits);
+              </code></pre>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Requêtes avec contenu (POST/PUT)</h2>
+          <ul>
+            <li>
+              Une requête contient souvent des données dans le corps de la
+              requête (pas dans l'URL)
+              <pre><code class="javascript" data-trim data-line-numbers="|7-8">
+                let data = {id: 10, titre:"Mon titre", contenu:"Mon contenu"};
+                fetch("/api/postiits/"+id, {
+                  method: 'PUT', // Méthode HTTP
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  // Convertir l'objet de données en chaîne JSON
+                  body:  JSON.stringify(data)
+                })
+                //...
+              </code></pre>
+            </li>
+            <li class="fragment">
+              Utiliser le flux <code class="highlight2">php://input</code> pour
+              lire le contenu du corps de la requête (body):
+              <pre><code class="php" data-trim>
+                $body = json_decode(file_get_contents("php://input"));
+              </code></pre>
+            </li>
+            <li></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Authentification REST: Méthodes</h2>
+          <ul>
+            <li>
+              Souvent, l'accès à une ressource ou une méthode via une API REST
+              requiert des privilèges
+            </li>
+            <li>
+              L'authentification se fait généralement sans intervention de
+              l'usager
+            </li>
+            <li>
+              Les données d'authentification doivent être incluses dans la
+              requête
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Authentification REST: Méthodes</h2>
+          <ul>
+            <li>
+              Données d'authentification incluses dans le corps de la requête
+            </li>
+            <li>Basic</li>
+            <li>Bearer Token (OAuth 2.0, JWT, OpenID)</li>
+            <li>Clés d'API</li>
+            <li>La session (si disponible)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Authentification: Corps de la requête</h2>
+          <pre><code class="javascript" data-trim>
+            let data = {
+              id: 10, titre:"Mon titre", contenu:"Mon contenu",
+              username: "toto",
+              password: "bonjour"
+            };
+            fetch("/api/postiits/"+id, {
+              method: 'PUT', // Méthode HTTP
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              // Convertir l'objet de données en chaîne JSON
+              body:  JSON.stringify(data)
+            })
+            //...
+          </code></pre>
+          <p class="fragment highlight">Méthode peu sécurisée!</p>
+        </section>
+
+        <section>
+          <h2>Authentification: BASIC</h2>
+          <ul>
+            <li>Une des méthodes les plus simples</li>
+            <li>
+              Utilise un nom d'utilisateur et un mot de passe encodés en Base64
+              dans l'en-tête de la requête HTTP
+            </li>
+            <li>
+              Peu sécurisée: les identifiants peuvent être facilement décodés si
+              la connexion n'est pas chiffrée
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Authentification: BASIC</h2>
+          <ul>
+            <li>
+              Codes d'authenificatiom envoyés dans l'entête
+              <code>`Authorization`</code>, encodées en Base64 (fonction
+              <a href="https://developer.mozilla.org/fr/docs/Web/API/btoa"
+                ><code>btoa</code></a
+              >)
+            </li>
+            <li>Format: <code>Basic username:password</code></li>
+          </ul>
+          <pre><code class="javascript" data-trim>
+            // Vos identifiants
+            const username = 'votre_nom_d_utilisateur';
+            const password = 'votre_mot_de_passe';
+            // Encodage en Base64
+            const base64 = btoa(username + ":" + password);
+
+            // Exécution de la requête avec l'en-tête d'authentification
+            fetch('https://votre-api.com/chemin', {
+              method: 'GET', // ou 'POST', 'PUT', 'DELETE', etc. selon le besoin
+              headers: {
+                // Ajout de l'en-tête d'authentification Basic
+                'Authorization': 'Basic ' + base64
+              }
+            }) //...
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Authentification: Bearer Token</h2>
+          <ul>
+            <li>
+              Méthode qui implique l'utilisation de tokens d'accès envoyés dans
+              l'en-tête de la requête.
+            </li>
+            <li>
+              Le client doit d'abord s'authentifier auprès du serveur
+              d'autorisation pour recevoir un token
+            </li>
+            <li>Le token utilisera ensuite pour accéder à l'API</li>
+            <li class="highlight2">
+              Une méthode sécurisée et largement adoptée, en particulier pour
+              les applications web et mobiles.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Authentification: Bearer Token</h2>
+          <p>Plusieurs implémentations:</p>
+          <ul>
+            <li>
+              <strong>JWT (JSON Web Token):</strong> des tokens encodés qui
+              peuvent stocker un ensemble de claims (par exemple, identité de
+              l'utilisateur, permissions). Ils sont vérifiés et validés par
+              l'API à chaque requête.
+            </li>
+            <li>
+              <strong>OAuth 2.0:</strong>Cadre standardisé qui permet à des
+              applications tierces d'accéder à des ressources au nom de
+              l'utilisateur, sans divulguer ses identifiants. OAuth 2.0 définit
+              plusieurs flux (grant types) pour obtenir des tokens.
+            </li>
+            <li>
+              <strong>OpenId Connect:</strong> Extension de OAuth 2.0 et JWT
+            </li>
+            <li></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Authentification: Clés d'API</h2>
+          <ul>
+            <li>Permet l'identification et non l'authentification</li>
+            <li>Clé d'accès à l'API fournie par le fournisseur</li>
+          </ul>
+          <img
+            src="./images/apikey-openai.png"
+            style="border: 1px solid #000"
+          />
         </section>
 
         <section data-menu-title="Fin">
