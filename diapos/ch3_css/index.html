@@ -1750,13 +1750,249 @@
 							<ul>
 								<li class="plan-visited">Librairies et cadriciels</li>
 								<li class="plan-visited">Avantages et désavantages d'utilisation</li>
-								<li class="plan-current">La librairie BootStrap</li>
-								<li>Le pré-processeur SASS</li>
+								<li class="plan-current">Le pré-processeur SASS</li>
+								<li class="">La librairie BootStrap</li>
 							</ul>
 						</div>
 					</div>
 				</section>
-	
+<!-- SASS -->
+				<section>
+					<h2>Qu'est-ce que SASS?</h2>
+					<ul>
+						<li class="fragment" data-fragment-index="1">
+							SASS (Syntactically Awesome Stylesheets) est un pré-processeur CSS puissant qui aide à écrire du CSS de manière plus efficace et organisée
+						</li>
+						<li class="fragment" data-fragment-index="2">
+							Il étend les fonctionnalités de CSS standard avec des fonctionnalités avancées telles que <span class="highlight2">les variables</span>, 
+							<span class="highlight2">les mixins</span>, <span class="highlight2">les fonctions</span> et <span class="highlight2">l'héritage</span>
+						</li>
+						<li class="fragment" data-fragment-index="3">
+							SCSS (Sassy CSS) est la syntaxe de SASS qui utilise la même syntaxe que CSS (mais qui l'étend)
+						</li>
+					</ul>
+					<p class="fragment note" data-fragment-index="3">Il existe deux syntaxes de SASS: la syntaxe SCSS et la syntaxe avec indentation 
+						(appelée SASS aussi). La syntaxe SCSS tend à remplacer la syntaxe avec indentation</p>
+				</section>
+
+				<section>
+					<h2>Exemple de fichier de style SCSS</h2>
+					<pre><code class="scss" data-trim data-line-numbers="1-2|4-9|11-26">
+						//Une variable
+						$main-background: #3478f7; // Bleu
+
+						//Un mixin (semblable à une fonction) 
+						@mixin border-radius($radius) {
+							-webkit-border-radius: $radius;
+							-moz-border-radius: $radius;
+							border-radius: $radius;
+						}
+
+						//Une structure hiérarchique de styles
+						.navbar {
+							background-color: $main-background;
+							@include border-radius(4px);
+
+							.nav-item {
+								display: inline-block;
+								.nav-link {
+									text-decoration: none;
+									color: white;
+									&:hover {
+										color: yellow;
+									}
+								}
+							}
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Rôle du pré-processeur</h2>
+					<p>Le code SCSS de SASS n'est pas interprétable par un navigateur. Il doit d'abord être transpilé par le pré-processeur pour le convertir en CSS</p>
+					<img src="./images/sass_illustration.png" />
+				</section>
+
+				<section>
+					<h2>Installation de SASS</h2>
+					<p>Plusieurs méthodes existent pour installer SASS, mais la plus commune et pratique est à travers NodeJs</p>
+					<ol>
+						<li>Installer <a href="https://nodejs.org/en">NodeJs</a></li>
+						<li>Exécuter la commande suivante dans un terminal: 
+							<pre><code class="shell" data-trim>
+								npm install -g sass
+							</code></pre>
+						</li>
+						<li>
+							Tester que l'exécutable est fonctionnel: 
+							<pre><code class="shell" data-trim>
+								sass --version
+							</code></pre>
+						</li>
+					</ol>
+					<p class="note">Un bug existe avec la version 21.0 de NodeJs. Si vous aviez déjà cette version, mettez à jour votre NodeJs.</p>
+				</section>
+
+				<section>
+					<h2>Définition de variables</h2>
+					<ul>
+						<li>Les précompilateur comme SASS ont permis l'introduction de valeurs ré-utilisables</li>
+						<li>Permettent d'avoir un point unique de définition d'une valeur et 
+							la ré-utiliser dans le reste du document - Utile pour la définition de thèmes</li>
+					</ul>
+					<pre><code class="scss" data-trim>
+						$couleur-principale: #3478f7; // Bleu
+						$padding: 15px;
+
+						.content {
+							background-color: $couleur-principale;
+							padding: $padding;
+						}
+					</code></pre>
+					<p class="note">
+						La version 3 de CSS a également introduit la possibilité de définir 
+						des propriétés personnalisées 
+						(<em><a href="https://developer.mozilla.org/fr/docs/Web/CSS/Using_CSS_custom_properties">custom properties</a></em>).
+					</p>
+				</section>
+
+				<section>
+					<h2>Imbrication</h2>
+					<p>SCSS permet d'imbriquer vos sélecteurs de manière hiérarchique, reflétant la structure HTML. Cela rend le CSS plus lisible et plus facile à maintenir.</p>
+					<pre><code class="scss" data-trim>
+						.navbar {
+							background-color: #333;
+							.nav-item {
+								display: inline-block;
+								.nav-link {
+									text-decoration: none;
+									color: white;
+									&:hover {
+										color: yellow;
+									}
+								}
+							}
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Les mixins</h2>
+					<p>Les mixins sont des blocs de code réutilisables que vous pouvez inclure dans n'importe quel 
+						sélecteur. Ils sont utiles pour les ensembles de propriétés CSS que vous souhaitez réutiliser.</p>
+					<pre><code class="scss" data-trim>
+						@mixin border-radius($radius) {
+							-webkit-border-radius: $radius;
+							-moz-border-radius: $radius;
+							border-radius: $radius;
+						}
+						  
+						.button {
+							@include border-radius(4px);
+							background-color: blue;
+							color: white;
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Héritage</h2>
+					<p>Un sélecteur peut "hériter" des proprités d'un autre sélecteur avec <code>@extend</code></p>
+					<pre><code class="scss" data-trim>
+						.btn {
+							padding: 10px 15px;
+							border: none;
+							display: inline-block;
+							cursor: pointer;
+						}
+						.btn-primary {
+							@extend .btn;
+							background-color: blue;
+							color: white;
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Les boucles</h2>
+					<ul>
+						<li>Les boucles permettent de générer dynamiquement des styles répétitifs ou basés sur un modèle.</li>
+							<pre><code class="scss" data-trim>
+								@for $i from 1 through 10 {
+									.m-#{$i} {
+										margin: #{$i * 5}px;
+									}
+									.mt-#{$i} {
+										margin-top: #{$i * 5}px;
+									}
+									.mr-#{$i} {
+										margin-right: #{$i * 5}px;
+									}
+									.mb-#{$i} {
+										margin-bottom: #{$i * 5}px;
+									}
+									.ml-#{$i} {
+										margin-left: #{$i * 5}px;
+									}
+								}						  
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Les conditions</h2>
+					<p>Appliquer des styles différemment selon certaines conditions. </p>
+					<pre><code class="scss" data-trim>
+						$theme: "dark"; // Essayez de changer cette valeur en "light"
+
+						.button {
+							padding: 10px 20px;
+							border: none;
+							font-weight: bold;
+							cursor: pointer;
+
+							@if $theme == "dark" {
+								background-color: black;
+								color: white;
+								border: 1px solid white;
+							} @else if $theme == "light" {
+								background-color: white;
+								color: black;
+								border: 1px solid black;
+							} @else {
+								background-color: gray;
+								color: black;
+								border: 1px solid black;
+							}
+						}
+					</code></pre>
+				</section>
+
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-visited">Le DOM (<em>Document Object Model</em>)</li>
+								<li class="plan-visited">Construction d'une règle CSS</li>
+								<li class="plan-visited">Algorithme de cascade</li>
+								<li class="plan-visited">Le positionnement (<em>Layout</em>)</li>
+								<li class="plan-current">Cadriciels et pré-processeurs CSS</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul>
+								<li class="plan-visited">Librairies et cadriciels</li>
+								<li class="plan-visited">Avantages et désavantages d'utilisation</li>
+								<li class="plan-visited">Le pré-processeur SASS</li>
+								<li class="plan-current">La librairie BootStrap</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+<!-- BOOTSTRAP -->	
 				<section>
 					<h2>Qu'est-ce que Bootstrap?</h2>
 					<ul>
