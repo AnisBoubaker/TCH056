@@ -2048,6 +2048,477 @@
 					</code></pre>
 				</section>
 
+<!-- Plan du chapitre -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-visited">Éléments de base du langage</li>
+								<li class="plan-visited">Manipulation du DOM</li>
+								<li class="plan-visited">Programmation événementielle</li>
+								<li class="plan-current">Cadriciels et librairies: JQuery et Axios</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul style="margin-top :20px">
+								<li>Qu'est-ce que JQuery?</li>
+								<li>Installation de jQuery</li>
+								<li>Sélecteurs</li>
+								<li>Manipulation du DOM</li>
+								<li>Gestion des événements</li>
+								<li>Effets et animations</li>
+								<li>Requêtes AJAX</li>
+								<li>La librairie Axios</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+
+				<section>
+					<h2>Qu'est-ce que jQuery?</h2>
+					<ul>
+						<li>Librairie JavaScript rapide, petite et riche en fonctionnalités</li>
+						<li>Vise à faciliter la manipulation du document HTML, la gestion des événements, l'animation, et les requêtes</li>
+						<li>API facile à utiliser qui fonctionne compatible avec la majorité des navigateurs</li>
+						<li>Grande communauté de développeurs et une vaste gamme de plugins disponibles</li>
+						<li>Désavantage: une API différente de celle du DOM</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Installation de jQuery</h2>
+					<p>Comme toute librairie Javascript, il est possible de: </p>
+					<ul>
+						<li>Télélcharger jQuery dans votre projet localement depuis le site de jQuery</li>
+						<li>Inclure la librairie via CDN:
+							<pre><code class="html" data-trim><script type="text/template">
+								<script src="
+								https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
+								"></script>
+							</script></code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Première utilisation de jQuery</h2>
+					<p>jQuery déclare sa fonction principale <code>$</code> qui agit comme sélecteur et est le point d'entrée à toutes les fonctionnalités offertes.</p>
+					<p class="note">En javascript, le caractère "<code>$</code>" est un caractère permis pour nommer une fonction/variable.</p>
+					<pre><code class="js" data-trim">
+						//Cache tous les éléments de type p
+						$("p").hide();
+					</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h2>Sélection des éléments</h2>
+						<ul>
+							<li>Syntaxe de base pour la sélection:
+								<pre><code class="javascript" data-trim>
+									$(selecteur)
+								</code></pre>
+							</li>
+							<li>"selecteur" peut-être une chaine de caractères avec un sélecteur de type CSS ou un élément du DOM
+								<pre><code class="javascript" data-trim>
+									$('#conteneur div>p')
+									$(document)
+								</code></pre>
+							</li>
+							<li>Le sélecteur retourne un objet jQuery (et <strong>PAS un élément du DOM</strong>). On utilise 
+								la méthode <code>get</code> pour obtenir le noeud du DOM correspondant à un objet jQuery.
+								<p class="note" style="display: inline-block">Défilez vers le bas pour voir un exemple de code. </p>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Sélection: Objets jQuery</h2>
+						<pre><code class="javascript" data-trim>
+							let header_jq = $('header#top_page');
+							let header_dom = $('header#top_page').get();
+
+							//Pour changer le contenu de top_page: 
+							header_jq.text("Allo"); //méthode 1: jQuery 
+							header_dom.textContent = "Allo"; //méthode 2: DOM
+
+							//Si le sélecteur retourne plusieurs éléments, 
+							//la méthode get prend un indice (0 par défaut)
+							let paragraphe3_dom = $('p').get(2);
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h2>Sélection: <code>jQuery</code> vs <code>querySelector</code></h2>
+					<ul>
+						<li><code>document.querySelector()</code> retourne uniquement le premier élément qui correspond au 
+							sélecteur. Si on souhaite retenir tous les éléments, il faut utiliser <code>document.querySelectorAll()</code>
+						</li>
+						<li>Si on sélectionne plusieurs éléments, il faut itérér sur les éléments avec une boucle</li>
+						<li>jQuery permet d'effectuer un traitement sur le résultat d'un sélection, indépendamment du nombre 
+							d'éléments obtenus
+							<pre><code class="javascript" data-trim>
+								//Toutes les div de classe "solution" seront cachées
+								$('div.solution').hide();
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Sélection et chainage</h2>
+					<ul>
+						<li>Un sélecteur jQuery retourne un objet jQuery</li>
+						<li>Le même objet jQuery est retourné par la majorité des fonctions</li>
+						<li>Ceci permet de réaliser des opérations en chaine, comme: 
+							<pre><code class="javascript" data-trim>
+								$('.maClasse').css('color', 'red').show();
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Manipulation du DOM avec jQuery: Contenu</h2>
+					<ul>
+						<li><strong>.html()</strong>: Obtenir ou définir le contenu HTML d'un élément
+							<pre><code class="javascript" data-trim="">
+								$('p#id1').html('<strong>Nouveau contenu</strong>');
+							</code></pre>
+						</li>
+						<li><strong>.text()</strong>: Obtenir ou définir le contenu textuel d'un élément
+							<pre><code class="javascript" data-trim="">
+								$('p').text('Texte mis à jour');
+							</code></pre>
+						</li>
+						<li><strong>.val()</strong>: Obtenir ou définir l'attribut <em>value</em> pour les éléments de formulaire
+							<pre><code class="javascript" data-trim="">
+								$("input#prenom[type='text']").val('Marie');
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Manipulation du DOM avec jQuery: Attributs</h2>
+					<ul>
+						<li><strong>.attr()</strong>: Obtenir ou définir la valeur d'un attribut
+							<pre><code class="javascript" data-trim="">
+								$('img.missing').attr('src', '/images/missing.jpg');
+
+								let alt = $('a#acceuil').attr('alt');
+							</code></pre>
+						</li>
+						<li><strong>.removeAttr()</strong>: Supprime un attribut des éléments sélectionnés
+							<pre><code class="javascript" data-trim="">
+								//Supprime l'attribut "title" de tous les éléments de type "a" 
+								//de la page 
+								$('a').removeAttr('title');
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Manipulation du DOM avec jQuery: Classes</h2>
+					<ul>
+						<li><strong>.addClass()</strong> et <strong>.removeClass()</strong>: 
+							Ajout ou suppression d'une ou plusieurs classes à tous les éléments sélectionnés
+							<pre><code class="javascript" data-trim="">
+								$("p.important").addClass("surbrillance bienVisible");
+
+								//Le chainage est très utile!
+								$("a.externe").removeClass("a-rouge").addClass("a-bleu");
+							</code></pre>
+						</li>
+						<li><strong>.toggleClass()</strong>: Active ou désactive une classe
+							<pre><code class="javascript" data-trim="">
+								/$('div').toggleClass('encadre');
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Manipulation du DOM avec jQuery: CSS</h2>
+					<ul>
+						<li><strong>.css()</strong>: Obtenir ou définir la valeur d'une propriété css
+							<pre><code class="javascript" data-trim="">
+								//change la couleur du texte de tous les div en rouge
+								$('div').css('color', 'red');
+
+								//applique plusieurs styles en même temps
+								$('div').css({'background-color': 'blue', 
+											'font-size': '14px'});
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Gestion des événement avec jQuery</h2>
+					<ul>
+						<li><strong>.on()</strong>: Attache un ou plusieurs gestionnaires d'événements pour les éléments sélectionnés. 
+							<pre><code class="javascript" data-trim="">
+								//Cache un élément si il a été cliqué
+								$('p').on('click', function() { $(this).hide(); });
+							</code></pre>
+						</li>
+
+						<li>Il es possible de définir le gestionnaire pour des événements multiples:
+							<pre><code class="javascript" data-trim="">
+								$('p').on({ 
+									mouseenter: function() { $(this).css('color', 'red'); },
+									mouseleave: function() { $(this).css('color', 'black'); } 
+								});
+							</code></pre>
+						</li>
+						<li><strong>.off()</strong>: Supprime un gestionnaire d'événement. 
+							<pre><code class="javascript" data-trim="">
+								$('#monBouton').off('click');
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Gestion des événement avec jQuery: Délégation</h2>
+					<ul>
+						<li>La délégation consiste à définir des gestionnaires d'événements pour des éléments, mais au niveau de leur parent</li>
+						<li>Le gestionnaire d'événement s'appliquera ainsi à tous les enfants concernés, actuels et futurs!</li>
+						<li>Exemple: <p class="note" style="display: inline-block;">Source: jquery.com</p>
+							<pre><code class="java" data-trim>
+								$( "#list" ).on( "click", "a[href^='http']", 
+									function( event ) {
+										$( this ).attr( "target", "_blank" );
+									}
+								);
+							</code></pre>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Effets et animations</h2>
+					<p>Quelques fonctions permettent de créer des effets d'affichage simplement</p>
+					<ul style="min-width: 90%;">
+						<li>Effets de base:
+							<pre><code class="js" data-trim="">
+								$('#monElement').hide();
+								$('#monElement').show();
+								$('#monElement').toggle();
+							</code></pre>
+						</li>
+						<li>Effets d'animation:
+							<pre><code class="js" data-trim="">
+								$('#monElement').fadeIn();
+								$('#monElement').fadeOut();
+								$('#monMenu').slideDown();
+								$('#monMenu').slideUp();
+							</code></pre>
+						</li>
+						<li><a href="https://api.jquery.com/category/effects/">Liste complète</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h2>Requêtes asynchrones</h2>
+						<ul>
+							<li>La fonction <strong>.ajax()</strong> permet d'effectuer des requêtes de façon asynchrones</li>
+							<li>Pas basé sur les Promesses comme c'est le cas avec <strong>fetch</strong> - utilise uniquement les fonctions de rappel</li>
+						</ul>
+						<p class="note">Naviguez vers le bas pour afficher un exemple de code avec .ajax()</p>
+					</section>
+					<section>
+						<h2>Exemple de requête PUT avec <code>.ajax()</code></h2>
+						<pre style="min-height: 80%;"><code class="javascript" data-trim="">
+							$.ajax({
+								url: 'https://monapi.com/utilisateurs/123', 
+								type: 'PUT',
+								data: JSON.stringify({
+									nom: 'Valjean',
+									prenom: 'Jean'
+								}),
+								//Type de donnée envoyé
+								contentType: 'application/json; charset=utf-8',
+								//Type de donnée attendu du serveur
+								dataType: 'json',
+								//Fonction de rappel exécutée (async) en cas de succés
+								success: function(response) {
+									// Traitement en cas de succès
+									// Supposons que la réponse contienne un objet utilisateur 
+									// mis à jour, avec un attribut 'message' de confirmation
+									console.log("Mise à jour réussie:", response.message);
+
+									// Affiche également le nom et le prénom mis à jour
+									console.log("Informations mises à jour:", response.nom, 
+													response.prenom);
+
+									// Par exemple, si vous voulez mettre à jour le contenu 
+									// d'un élément HTML 
+									$('#infoUtilisateur').html('<p>Mise à jour réussie: '
+													+ response.message + 
+													+ '. Nom: ' 
+													+ response.nom 
+													+ ', Prénom: ' 
+													+ response.prenom 
+													+ '.</p>');
+								},
+								//Fonction de rappel (async) exécutée en cas d'erreur
+								error: function(xhr, status, error) {
+									// Traitement en cas d'échec
+									console.error("Erreur lors de la mise à jour", 
+										status, 
+										error);
+								}
+							});
+						</code></pre>
+					</section>
+				</section>
+
+
+
+				<!-- Plan du chapitre -->
+				<section  data-transition="convex">
+					<h2>Plan du chapitre</h2>
+					<div class="two_columns_layout">
+						<div class="col menu-principal">
+							<ul class="">
+								<li class="plan-visited">Introduction</li>
+								<li class="plan-visited">Éléments de base du langage</li>
+								<li class="plan-visited">Manipulation du DOM</li>
+								<li class="plan-visited">Programmation événementielle</li>
+								<li class="plan-current">Cadriciels et librairies: JQuery et Axios</li>
+							</ul>
+						</div>
+						<div class="col sous-menu">
+							<ul style="margin-top :20px">
+								<li class="plan-visited">Qu'est-ce que JQuery?</li>
+								<li class="plan-visited">Installation de jQuery</li>
+								<li class="plan-visited">Sélecteurs</li>
+								<li class="plan-visited">Manipulation du DOM</li>
+								<li class="plan-visited">Gestion des événements</li>
+								<li class="plan-visited">Effets et animations</li>
+								<li class="plan-visited">Requêtes AJAX</li>
+								<li>La librairie Axios</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>Axios</h2>
+					<ul>
+						<li>Axios est une bibliothèque JavaScript basée sur les promesses pour effectuer des requêtes HTTP, à la fois dans les navigateurs et avec Node.js.</li>
+						<li>API simple et propre pour envoyer des requêtes HTTP asynchrone, travailler avec des promesses, et gérer les réponses.</li>
+						<li>Installation de Axios avec un CDN:</li>
+					</ul>
+					<pre><code class="javascript" data-trim>
+						&nbsp;
+						<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+						&nbsp;
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Requête GET</h2>
+					<pre><code class="javascript" data-trim="">
+						axios.get('https://api.exemple.com/data')
+						.then(function (response) {
+							// Traite la réponse
+							console.log(response.data);
+						})
+						.catch(function (error) {
+							// Gère l'erreur
+							console.error(error);
+						});
+					</code></pre>
+					<p><strong>Note:</strong> Le contenu de response.data sera automatiquement traité et converti en fonction de 
+						l'entête <code>'Content-Type'</code> envoyée par le serveur</p>
+					<p class="note">Il n'est donc pas nécessaire de faire JSON.parse(response.data) si le Content-type est envoyé correctement par le serveur.</p>
+				</section>
+
+				<section>
+					<h2>Gestion des erreurs avec Axios</h2>
+					<ul>
+						<li>Si le statut de la réponse est autre que 2xx, Axios considère cela comme une erreur et le traitement se poursuit dans le bloc <code>catch</code></li>
+					</ul>
+					<pre><code class="javascript" data-trim="">
+						axios.get('https://api.exemple.com/data-inexistante')
+						.then(function (response) {
+							// Ce code ne sera pas exécuté si le serveur répond avec 
+							// un statut d'erreur (non 2xx)
+							console.log("Réponse réussie:", response.data);
+						})
+						.catch(function (error) {
+							// Ce code est exécuté si le serveur répond avec un 
+							// statut d'erreur (non 2xx)
+							if (error.response) {
+								// La requête a été faite et le serveur a répondu 
+								// avec un statut d'erreur
+								console.log("Erreur! Statut:", error.response.status);
+							} else if (error.request) {
+								// La requête a été faite mais aucune réponse
+								// n'a été reçue
+								console.log("Erreur de requête:", error.request);
+							} else {
+								// Une erreur s'est produite lors de la mise en 
+								// place de la requête
+								console.log("Erreur:", error.message);
+							}
+						});
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Requête POST</h2>
+					<pre><code class="javascript" data-trim="">
+						axios.post('https://api.exemple.com/data', {
+							nom: 'Valjean',
+							prenom: 'Jean'
+						})
+						.then(function (response) {
+							console.log(response.data);
+						})
+						.catch(function (error) {
+							console.error(error);
+						});						
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Requête PUT</h2>
+					<pre><code class="javascript" data-trim="">
+						axios.put('https://api.exemple.com/utilisateurs/123', {
+							nom: 'Martin',
+							prenom: 'Luc'
+						})
+						.then(function (response) {
+							console.log(response.data);
+						})
+						.catch(function (error) {
+							console.error(error);
+						});											  
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Requête DELETE</h2>
+					<pre><code class="javascript" data-trim="">
+						axios.delete('https://api.exemple.com/utilisateurs/123')
+						.then(function (response) {
+							console.log("Ressource supprimée avec succès.");
+						})
+						.catch(function (error) {
+							console.error(error);
+						});									  
+					</code></pre>
+				</section>
+
 <!-- FIN THE END -->
 				<section data-menu-title="Fin">
 					<img src="../images/the_end.png" >
