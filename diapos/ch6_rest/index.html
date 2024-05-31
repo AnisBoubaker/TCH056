@@ -154,11 +154,11 @@
 
         <section>
           <h2>Indépendante du langages ou de la plateforme</h2>
-          <p>Une API REST permet d'intéragir avec la couche métier:</p>
+          <p>Une API REST permet d’interagir avec la couche métier:</p>
           <ul>
             <li>Peu importe l'interface usager (Web, mobile, desktop)</li>
             <li>
-              Peu importe la technologie sous jacente (langage de programmation,
+              Peu importe la technologie sous-jacente (langage de programmation,
               cadriciels, etc.)
             </li>
           </ul>
@@ -172,7 +172,7 @@
         <section>
           <h2>Standards Ouverts</h2>
           <ul>
-            <li>La communication se fait à travers le prototcole HTTP</li>
+            <li>La communication se fait à travers le protocole HTTP</li>
             <li>
               Les données sont échangées en utilisant des formats largement
               supportés comme JSON (principalement) ou XML.
@@ -482,7 +482,7 @@
           <ul>
             <li>
               <a href="https://openweathermap.org/api">OpenWeatherMap</a>:
-              Données météorologiques globales (prévidions + historiques)
+              Données météorologiques globales (prévisions + historiques)
             </li>
             <li>
               <a href="https://developers.themoviedb.org/3"
@@ -731,7 +731,7 @@
               Modularité: séparer les préoccupation entre la requête et le
               contrôleur
             </li>
-            <li>Réutilisabilité: Facilite la réutilisation de contrôleurs</li>
+            <li>Ré-utilisabilité: Facilite la réutilisation de contrôleurs</li>
             <li>
               Évolutivité: l'ajout ou le retrait de routes est facile et
               prévisible
@@ -887,8 +887,8 @@
           <h2>Librairies pour le routage</h2>
           <ul>
             <li>
-              La logique de routage avec toutes les variations d'URL statitiques
-              et dynamiques peut rapidement devenir incontrôlable
+              La logique de routage avec toutes les variations d'URL
+              statistiques et dynamiques peut rapidement devenir incontrôlable
             </li>
             <li>
               Lorsqu'on utilise un cadriciel (ex.: Laravel, NextJS, etc.), des
@@ -921,7 +921,7 @@
         <section>
           <h2>Utilisation de PHP Router</h2>
           <pre><code class="php" data-trim data-line-numbers="1|3-6|8-12|14-15">
-            // Syntaxe: methode(route, script);
+            // Syntaxe: method(route, script);
 
             // ***** Routes statiques *****
             get('/', '/web/index.php');
@@ -929,7 +929,7 @@
             any('/newUser', '/web/newUser');
             
             // ***** Routes dynamiques *****
-              //$id sera dispobile dans le script getClient.php
+              //$id sera disponible dans le script getClient.php
             get('/api/clients/$id', '/api/getClient.php');
             delete('/api/produits/$id', '/api/produits/delProduit.php');
             post('/api/produits/$categorie/$id', '/api/produits/postProduit.php');
@@ -1016,7 +1016,7 @@
               requête (pas dans l'URL)
               <pre><code class="javascript" data-trim data-line-numbers="|7-8">
                 let data = {id: 10, titre:"Mon titre", contenu:"Mon contenu"};
-                fetch("/api/postiits/"+id, {
+                fetch("/api/postits/"+id, {
                   method: 'PUT', // Méthode HTTP
                   headers: {
                       'Content-Type': 'application/json'
@@ -1077,7 +1077,7 @@
               username: "toto",
               password: "bonjour"
             };
-            fetch("/api/postiits/"+id, {
+            fetch("/api/postits/"+id, {
               method: 'PUT', // Méthode HTTP
               headers: {
                   'Content-Type': 'application/json'
@@ -1109,7 +1109,7 @@
           <h2>Authentification: BASIC</h2>
           <ul>
             <li>
-              Codes d'authenificatiom envoyés dans l'entête
+              Codes d’authentification envoyés dans l'entête
               <code>`Authorization`</code>, encodées en Base64 (fonction
               <a href="https://developer.mozilla.org/fr/docs/Web/API/btoa"
                 ><code>btoa</code></a
