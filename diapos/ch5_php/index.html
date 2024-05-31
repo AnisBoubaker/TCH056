@@ -298,7 +298,7 @@
                         ?&gt;
                       &lt;/p&gt;
                       &lt;p&gt;
-                        &lt;?= 'Ceci aussi est interpété en PHP'?&gt;
+                        &lt;?= 'Ceci aussi est interprété en PHP'?&gt;
                       &lt;/p&gt;
                     &lt;/html&gt;
                   </code></pre>
@@ -316,7 +316,7 @@
         </section>
 
         <section>
-          <h2>Tyage dynamique</h2>
+          <h2>Typage dynamique</h2>
           <p>
             Comme en Javascript, les variables en PHP sont typées dynamiquement.
           </p>
@@ -324,11 +324,11 @@
             <?php
             $a = 10;
             echo gettype($a)."<br>"; //integer
-            $a = "Allo";
+            $a = "Allô";
             echo gettype($a)."<br>"; //string
             $a = 10.5;
             echo gettype($a)."<br>"; //double
-            $a = [10, "Allo", 30];
+            $a = [10, "Allô", 30];
             echo gettype($a)."<br>"; //array
             ?>
           </script></code></pre>
@@ -681,7 +681,7 @@
               compte le nombre de fois qu'un utilisateur a visité la page.
             </li>
             <li>
-              En raffraichissant la page, le nombre de visites doit
+              En rafraîchissant la page, le nombre de visites doit
               s'incrémenter.
             </li>
           </ul>
@@ -879,7 +879,7 @@
           <ul>
             <li>
               La méthode <code>bindParam</code> relie les paramètres à une
-              variabe <span class="highlight2">par référence</span>
+              variable <span class="highlight2">par référence</span>
             </li>
           </ul>
           <pre><code class="php" data-trim>
@@ -1028,7 +1028,7 @@
             </tr>
             <tr>
               <td>PDO::FETCH_NUM</td>
-              <td>Un tableau indéxé par numéro d'ordre des colonnes</td>
+              <td>Un tableau indexé par numéro d'ordre des colonnes</td>
             </tr>
             <tr>
               <td>PDO::FETCH_OBJ</td>

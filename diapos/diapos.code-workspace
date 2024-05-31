@@ -1,0 +1,69 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"cSpell.language": "en,fr-FR,fr,lorem",
+		"cSpell.enableFiletypes": [
+			"!c",
+			"!cpp"
+		],
+		"cSpell.enabled": true,
+		"cSpell.words": [
+			"anguage",
+			"baspage",
+			"Berners",
+			"caniuse",
+			"categorie",
+			"chaine",
+			"creer",
+			"dbname",
+			"dernièr",
+			"eich",
+			"ERRMODE",
+			"etudiant",
+			"etudiants",
+			"fahrenheit",
+			"flegrow",
+			"gettype",
+			"gridbox",
+			"hexa",
+			"htmlspecialchars",
+			"indexh",
+			"indexv",
+			"mysqli",
+			"Nettoye",
+			"noeuds",
+			"Noeuds",
+			"nouv",
+			"Padriñán",
+			"parametre",
+			"précompilateur",
+			"prenom",
+			"requete",
+			"resultat",
+			"resultats",
+			"selecteur",
+			"slidechanged",
+			"slidenb",
+			"sousmenu",
+			"Stylage",
+			"superglobale",
+			"superglobales",
+			"Superglobales",
+			"WHATWG"
+		],
+		"cSpell.ignoreWords": [
+			"Oliveira",
+			"arkup",
+			"csszengarden",
+			"editeur",
+			"entete",
+			"etsmtl",
+			"viewbox",
+			"yper"
+		]
+	}
+}
