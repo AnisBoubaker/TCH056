@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"path": "../labos"
 		}
 	],
 	"settings": {
@@ -18,6 +21,7 @@
 			"caniuse",
 			"categorie",
 			"chaine",
+			"cliqués",
 			"creer",
 			"dbname",
 			"dernièr",
