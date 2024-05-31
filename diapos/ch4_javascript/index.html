@@ -69,7 +69,7 @@
 			</section>
 <!-- Introduction -->
 				<section style="background: fixed url(./images/eich.jpeg) bottom right no-repeat;">
-					<h2>Génèse du langage</h2>
+					<h2>Genèse du langage</h2>
 					<div style="min-height: 70vh; width: 58%; border: 10px solid #000; text-align: initial;">
 						<time style="display: inline-block; margin:0 10px 0 0; background: #000; color: #fff; padding: 5px;">1995</time>
 						<span>Créé en 10 jours par Brendan Eich, un employé de Netscape.</span><br /><br />
@@ -83,7 +83,7 @@
 
 				<section>
 					<h2>Historique</h2>
-					<span class="note">Faites défiler la ligne du temps avec la flêche.
+					<span class="note">Faites défiler la ligne du temps avec la flèche.
 						<i>Rechargez la page si la ligne du temps ne s'affiche pas.</i></span>
 					<div class="timeline" data-mode="horizontal"  data-force-vertical-mode="600">
 						<div class="timeline__wrap">
@@ -241,14 +241,14 @@
 							</ul>
 						</div>
 						<div class="col fragment">
-							<h4>Protoypal</h4>
+							<h4>Prototypal</h4>
 							<ul>
 								<li>Langage orienté-objet</li>
 								<li>Différent des langages OO traditionnels</li>
 							</ul>
 						</div>
 						<div class="col fragment">
-							<h4>Évenementiel</h4>
+							<h4>Événementiel</h4>
 							<ul>
 								<li>Cycle d'exécution non bloquant basé sur les événement</li>
 								<li>Modèle asynchrone</li>
@@ -352,7 +352,7 @@
 				<section>
 					<h2>Préambule</h2>
 					<ul>
-						<li class="fragment">On ne reviendra pas sur la syntaxe evidente (structures conditionnelles et itératives) - c.f. INF155/INF111</li>
+						<li class="fragment">On ne reviendra pas sur la syntaxe évidente (structures conditionnelles et itératives) - c.f. INF155/INF111</li>
 						<li class="fragment">Pas de conception OO (classes, prototypes, etc.) mais nous utiliserons des objets existants et leurs propriétés/méthodes</li>
 						<li class="fragment">Certains concepts avancés ne seront pas abordés (ex.: fermetures, promesses, async)</li>
 					</ul>
@@ -402,7 +402,7 @@
 					<pre><code class="javascript" data-trim><script type="text/template">
 						const une_constante = { nom: "Valjean", prenom: "Jean" };
 					</script></code></pre>
-					<p class="fragment highlight2" data-fragment-index="2"><br />Il est possible de modifier les propritétés d'un objet, même si c'est const!</p>
+					<p class="fragment highlight2" data-fragment-index="2"><br />Il est possible de modifier les propriétés d'un objet, même si c'est const!</p>
 					<pre class="fragment"  data-fragment-index="2"><code class="javascript" data-trim><script type="text/template">
 						une_constante.prenom = "Marie";
 						
@@ -466,7 +466,7 @@
 
 				<section>
 					<h2>Booléens et vérité</h2>
-					<p>En Javascript, le type booléan existe et peut prendre la valeur <em>true</em> ou <em>false</em></p>
+					<p>En Javascript, le type boolean existe et peut prendre la valeur <em>true</em> ou <em>false</em></p>
 					<pre><code class="javascript" data-trim><script type="text/template">
 						let est_majeur = true;
 						typeof(est_majeur)
@@ -540,7 +540,7 @@
 				<section class="slidenb" data-slidenb="Très mêlant!">
 					<h2>Conversion implicite de types</h2>
 					<ul>
-						<li class="fragment">Javascript étant un langage typé dynamiquement, des conversion ont lieu atomatiquement dès qu'on effectue des opérations entre données de type différents.</li>
+						<li class="fragment">Javascript étant un langage typé dynamiquement, des conversion ont lieu automatiquement dès qu'on effectue des opérations entre données de type différents.</li>
 						<li class="fragment">La logique de conversion n'est pas toujours intuitive...</li>
 					</ul>
 					<p></p>
@@ -593,7 +593,7 @@
 								let a = 10; 
 								console.log(a == 10 ); //true
 								console.log(a == 15 ); //false
-								console.log( 'bonjour' == 'allo'); //false
+								console.log( 'bonjour' == 'allô'); //false
 								console.log( 'bonjour' == 'bonjour'); //true
 							</script></code></pre>
 						</li>
@@ -717,7 +717,7 @@
 						>> {"nom": "Valjean", "prenom": "Jean", "age": 35, 
 							"moyenne": 85 }
 					</script></code></pre>
-					<aside class="notes">Il existe en réalité une structure pré-établie: le prototype d'un objet. Nous n'aborderons pas les prototypes dans le cadre de ce cours ni la conception OO qui permet de créer des objets qui partagent le même prototype. Ainsi, tout objet qu'on créera aura son propre protoype </aside>
+					<aside class="notes">Il existe en réalité une structure pré-établie: le prototype d'un objet. Nous n'aborderons pas les prototypes dans le cadre de ce cours ni la conception OO qui permet de créer des objets qui partagent le même prototype. Ainsi, tout objet qu'on créera aura son propre prototype </aside>
 				</section>
 
 				<section>
@@ -836,7 +836,7 @@
 					</ul>
 				</section>
 
-				<section  class="slidenb" data-slidenb="À connaitre!">
+				<section  class="slidenb" data-slidenb="À connaître!">
 					<h2>Chaines : Méthodes utiles</h2>
 					<p>Plusieurs méthodes sont disponibles pour manipuler les chaines de caractères</p>
 					<table>
@@ -1059,8 +1059,8 @@
 					<h2>Fonctions d'ordre supérieur</h2>
 					<ul>
 						<li>On appelle <strong>fonction d'ordre supérieur</strong> une fonction qui reçoit une autre fonction en argument, ou qui retourne une fonction.</li>
-						<li>Les fonctions d'ordre supérieur sont un mecanisme puissant qui offre des flexibilités et des applications intéressantes.</li>
-						<li>Spécifiquement, les fonctions itératives sur les tableaux suivantes (à connaitre): 
+						<li>Les fonctions d'ordre supérieur sont un mécanisme puissant qui offre des flexibilités et des applications intéressantes.</li>
+						<li>Spécifiquement, les fonctions itératives sur les tableaux suivantes (à connaître): 
 							<table>
 								<tr>
 									<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank">Map</a></td>
@@ -1169,7 +1169,7 @@
 				</section>
 
 				<section >
-					<h2>Métamodèle du DOM</h2>
+					<h2>Méta-modèle du DOM</h2>
 					<img src="./images/DOMMetaModel.png" alt="DOMMetaModel" />
 				</section>
 
@@ -1491,7 +1491,7 @@
 					<ul>
 						<li>Les méthodes <em>`getElementsByClassName`</em>, <em>`getElementsByTagName`</em> et <em>`querySelector`</em> sont implémentées 
 							dans <em>`Element`</em> (sont disponibles pour tout objet de type <em>Element</em>)</li>
-						<li>Utiliser ces fonctions sur un élément en particulier (pas document) exécutera la requête comme si l'élémenent était la racine de l'arbre.</li>
+						<li>Utiliser ces fonctions sur un élément en particulier (pas document) exécutera la requête comme si l’élément était la racine de l'arbre.</li>
 						<li>Les éléments retournés seront seulement ceux qui sont descendants de l'élément.</li>
 					</ul>
 					<pre class="fragment"><code class="javascript" data-trim>
@@ -1506,7 +1506,7 @@
 					<h2>Parcours du DOM</h2>
 					<ul>
 						<li>Une fois un élément sélectionné, il est souvent désirable de parcourir l'ensemble des éléments qui lui sont liés de façon hiérarchique.</li>
-						<li class="fragment">Plusieurs proprités de chaque élément permettent d'accéder - de proche en proche - aux enfants, frêres et parents, de l'élément :
+						<li class="fragment">Plusieurs propriétés de chaque élément permettent d'accéder - de proche en proche - aux enfants, frères et parents, de l'élément :
 							<ul>
 								<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/parentNode">parentNode</a></li>
 								<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/childNodes">childNodes</a></li>
@@ -1713,7 +1713,7 @@
 				<section>
 					<h2>Création d'un nouvel élément</h2>
 					<ul>
-						<li>La méthode document.createElement permet de créer un élénent du type spécifié.
+						<li>La méthode document.createElement permet de créer un élément du type spécifié.
 							<pre><code class="javascript" data-trim>
 								//Création d'un nouveau paragraphe
 								const nouveauParagraphe = document.createElement("p");
@@ -1742,7 +1742,7 @@
 						<li>On utilise la méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/remove">elt.remove()</a> pour supprimer un élément de l'arbre.
 							<pre><code class="javascript" data-trim>
 								const elt = document.querySelector("#mon_element");
-								elt.remove(); //L'élément disparait de l'écran
+								elt.remove(); //L'élément disparaît de l'écran
 							</code></pre>
 						</li>
 						<li>Si on dispose du parent, on peut utiliser la méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/Node/removeChild">parent.removeChild(elt)</a>, qui retourne l'élément supprimé (pour l'ajouter ailleurs éventuellement)
@@ -1772,7 +1772,7 @@
 					</ol>
 					<ul>
 						<li class="fragment">L'approche la plus simple</li>
-						<li class="fragment">Certains attributs s'appelle différamment en JS qu'en HTML (ex.: <code>className</code>)</li>
+						<li class="fragment">Certains attributs s'appelle différemment en JS qu'en HTML (ex.: <code>className</code>)</li>
 						<li class="fragment">Certains attributs spéciaux ne fonctionnent pas (ex.: <code>data-extra-info</code>)</li>
 					</ul>
 				</section>
@@ -1851,7 +1851,7 @@
 					<h2>Modification du style 3/3</h2>
 					<h3>Ajout de style en-ligne à un élément</h3>
 					<ul>
-						<li>La propriété <code>style</code> regrouppe toutes les déclarations de style définies en-ligne sur un élément
+						<li>La propriété <code>style</code> regroupe toutes les déclarations de style définies en-ligne sur un élément
 							<pre style="width: 100%"><code class="javascript" data-trim>
 								const conteneur = document.querySelector("#conteneur");
 								conteneur.style.width = '100fr';
@@ -1891,7 +1891,7 @@
 				<section>
 					<h2>Modèle d'exécution</h2>
 					<ul>
-						<li>Le code Javascript s'éxécute de façon séquentielle, une instruction à la fois</li>
+						<li>Le code Javascript s'exécute de façon séquentielle, une instruction à la fois</li>
 						<li>Comme pour le langage C, tout appel de fonction est ajouté dans une pile d'exécution (<em>stack</em>) qui sera dépilée dès la fin de la fonction</li>
 					</ul>
 					<blockquote><a href="https://anisboubaker.github.io/TCH056/diapos/js_loupe/?code=ZnVuY3Rpb24gcHJvZHVpdChhLCBiKXsKICAgIHJldHVybiBhKmI7Cn0KCmZ1bmN0aW9uIGNhcnJlKGEpewogICAgcmV0dXJuIHByb2R1aXQoYSwgYSk7Cn0KCmZ1bmN0aW9uIHVuX2NhbGN1bChhLCBiKXsKICAgIGxldCByMSA9ICBjYXJyZShhKTsKICAgIAogICAgbGV0IHIyID0gIHByb2R1aXQoYSwgYik7CiAgICAKICAgIHJldHVybiByMStyMjsKfQoKY29uc29sZS5sb2codW5fY2FsY3VsKDEwLCAxMSkpOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D">
@@ -1902,7 +1902,7 @@
 					<h2>Exécution parallèle</h2>
 					<ul>
 						<li class="fragment">Il est possible d'exécuter des tâches en parallèle en C ou en Java (<em>Threads</em>)</li>
-						<li class="fragment">Le Javascript est un langag mono-threadé mais qui permet un semblant de parallèlisme grâce à l'exécution <strong>asynchrone</strong> et la <strong>boucle d'événements (event loop)</strong></li>
+						<li class="fragment">Le Javascript est un langage mono-threadé mais qui permet un semblant de parallélisme grâce à l'exécution <strong>asynchrone</strong> et la <strong>boucle d'événements (event loop)</strong></li>
 						<p class="note">Note: L'introduction récente des <em>WebWorkers</em> permet d'effectuer un vrai parallélisme (pas au programme)</p>
 					</ul>
 				</section>
@@ -1967,7 +1967,7 @@
 								}, 2000);
 							</code></pre>
 						</li>
-						<li class="fragment">Elle peut même être flêchée: 
+						<li class="fragment">Elle peut même être fléchée: 
 							<pre style="width: 100%"><code class="javascript" data-trim>
 								//Exécution après 2 secondes
 								setTimeout( () => alert("Délai écoulé!") , 2000);
@@ -2001,7 +2001,7 @@
 					<ul>
 						<li>Lorsque le navigateur traite et affiche un document Web, une multitude d'événements se produisent en permanence</li>
 						<li>La grande majorité des événements qui se déclenchent sont ignorés</li>
-						<li>Ceux qu'on a choisi de traiter (en fournissant un gestionnaire d'evénement) seront considérés et du code sera exécuté</li>
+						<li>Ceux qu'on a choisi de traiter (en fournissant un gestionnaire d’événement) seront considérés et du code sera exécuté</li>
 					</ul>
 					<p class="note">Exemple: le timeout, défini avec setTimeout, est un événement qui se produit lorsque le délai du timeout est expiré.</p>
 				</section>
@@ -2027,7 +2027,7 @@
 							permet d'ajouter un gestionnaire d'événement pour un événement spécifique.</li>
 						<li class="fragment">La méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/removeEventListener"><code>removeEventListener()</code></a> 
 							permet de supprimer un gestionnaire d'événement pour un événement spécifique.</li>
-						<li class="fragment">Ces méthodes sont définies dans la "classe" EventTarget (qui engloble presque tous les types!).</li>	
+						<li class="fragment">Ces méthodes sont définies dans la "classe" EventTarget (qui englobe presque tous les types!).</li>	
 					</ul>
 				</section>
 
@@ -2092,7 +2092,7 @@
 					<h2>Installation de jQuery</h2>
 					<p>Comme toute librairie Javascript, il est possible de: </p>
 					<ul>
-						<li>Télélcharger jQuery dans votre projet localement depuis le site de jQuery</li>
+						<li>Télécharger jQuery dans votre projet localement depuis le site de jQuery</li>
 						<li>Inclure la librairie via CDN:
 							<pre><code class="html" data-trim><script type="text/template">
 								<script src="
@@ -2141,8 +2141,8 @@
 							let header_dom = $('header#top_page').get();
 
 							//Pour changer le contenu de top_page: 
-							header_jq.text("Allo"); //méthode 1: jQuery 
-							header_dom.textContent = "Allo"; //méthode 2: DOM
+							header_jq.text("Allô"); //méthode 1: jQuery 
+							header_dom.textContent = "Allô"; //méthode 2: DOM
 
 							//Si le sélecteur retourne plusieurs éléments, 
 							//la méthode get prend un indice (0 par défaut)
@@ -2157,7 +2157,7 @@
 						<li><code>document.querySelector()</code> retourne uniquement le premier élément qui correspond au 
 							sélecteur. Si on souhaite retenir tous les éléments, il faut utiliser <code>document.querySelectorAll()</code>
 						</li>
-						<li>Si on sélectionne plusieurs éléments, il faut itérér sur les éléments avec une boucle</li>
+						<li>Si on sélectionne plusieurs éléments, il faut itérer sur les éléments avec une boucle</li>
 						<li>jQuery permet d'effectuer un traitement sur le résultat d'un sélection, indépendamment du nombre 
 							d'éléments obtenus
 							<pre><code class="javascript" data-trim>
@@ -2169,7 +2169,7 @@
 				</section>
 
 				<section>
-					<h2>Sélection et chainage</h2>
+					<h2>Sélection et chaînage</h2>
 					<ul>
 						<li>Un sélecteur jQuery retourne un objet jQuery</li>
 						<li>Le même objet jQuery est retourné par la majorité des fonctions</li>
@@ -2209,7 +2209,7 @@
 							<pre><code class="javascript" data-trim="">
 								$('img.missing').attr('src', '/images/missing.jpg');
 
-								let alt = $('a#acceuil').attr('alt');
+								let alt = $('a#accueil').attr('alt');
 							</code></pre>
 						</li>
 						<li><strong>.removeAttr()</strong>: Supprime un attribut des éléments sélectionnés
@@ -2230,7 +2230,7 @@
 							<pre><code class="javascript" data-trim="">
 								$("p.important").addClass("surbrillance bienVisible");
 
-								//Le chainage est très utile!
+								//Le chaînage est très utile!
 								$("a.externe").removeClass("a-rouge").addClass("a-bleu");
 							</code></pre>
 						</li>
@@ -2347,7 +2347,7 @@
 								contentType: 'application/json; charset=utf-8',
 								//Type de donnée attendu du serveur
 								dataType: 'json',
-								//Fonction de rappel exécutée (async) en cas de succés
+								//Fonction de rappel exécutée (async) en cas de succès
 								success: function(response) {
 									// Traitement en cas de succès
 									// Supposons que la réponse contienne un objet utilisateur 
