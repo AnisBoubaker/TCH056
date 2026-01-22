@@ -315,7 +315,7 @@
 							</script></code></pre>
 						</li>
 						<li>
-							`async` et `defer`: Le script et chargé et exécuté immédiatement, bloquant le chargement de la page
+							`async` et `defer`: Seul `async` est considéré.
 							<pre ><code class="html" data-trim><script type="text/template">
 								<head>
 									<script type="module" src="./mon_code.js" async defer></script>
@@ -822,7 +822,7 @@
 							console.log(cours.at(0));
 							>> T
 						</script></code></pre>
-						<li>Une chaine de caractères est immutable
+						<li>Une chaine de caractères est immuable
 						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
 							let cours = "TCH016";
 							cours[5] = 9;	
@@ -2041,7 +2041,7 @@
 					</ul>
 					<pre style="width: 100%"><code class="javascript" data-trim>
 						let mon_bouton = document.querySelector('button#mon-bouton');
-						mon_bouton.addEventHandler(
+						mon_bouton.addEventListener(
 							'click', 
 							function(){alert("Bouton cliqué!")}
 						);
