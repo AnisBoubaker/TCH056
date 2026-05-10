@@ -209,7 +209,9 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal table {
   margin: auto;
   border-collapse: collapse;
-  border-spacing: 0; }
+  border-spacing: 0;
+  font-size: 0.82em;
+  line-height: 1.15; }
 
 .reveal table th {
   font-weight: bold; }
@@ -217,7 +219,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal table th,
 .reveal table td {
   text-align: left;
-  padding: 0.2em 0.5em 0.2em 0.5em;
+  padding: 0.15em 0.45em;
   border-bottom: 1px solid; }
 
 .reveal table th[align="center"],
@@ -250,7 +252,30 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   vertical-align: top; }
 
 .reveal img {
-  margin: 20px 0; }
+  margin: 20px 0;
+  width: auto;
+  max-height: 55vh;
+  object-fit: contain; }
+
+.reveal img.r-full-height {
+  max-height: 95%; }
+
+.reveal section > p:has(> img:only-child) {
+  margin: 0.3em 0; }
+
+.reveal section > p > img:only-child {
+  width: auto;
+  max-height: 42vh;
+  object-fit: contain;
+  margin: 0.3em 0; }
+
+.reveal section > ul ~ img,
+.reveal section > ol ~ img,
+.reveal section > pre ~ img,
+.reveal section > ul ~ p > img:only-child,
+.reveal section > ol ~ p > img:only-child,
+.reveal section > pre ~ p > img:only-child {
+  max-height: 32vh; }
 
 /*********************************************
  * LINKS
