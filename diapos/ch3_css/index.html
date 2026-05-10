@@ -178,6 +178,16 @@
 					</div>
 				</section>
 
+				<section>
+					<h2>Diagnostic: le style ne s'applique pas</h2>
+					<ul>
+						<li class="fragment">Est-ce que le fichier CSS est bien chargé?</li>
+						<li class="fragment">Est-ce que le sélecteur cible vraiment l'élément attendu?</li>
+						<li class="fragment">Est-ce qu'une autre règle est plus prioritaire?</li>
+						<li class="fragment">Est-ce que la propriété est valide et bien écrite?</li>
+					</ul>
+				</section>
+
 
 				<section data-auto-animate="">
 					<h2>Où placer le code CSS?</h2>
@@ -838,6 +848,15 @@
 				</section>
 
 				<section>
+					<h2>Diagnostic: les espacements</h2>
+					<ul>
+						<li class="fragment">Le problème vient-il du contenu, du <code>padding</code>, de la bordure ou du <code>margin</code>?</li>
+						<li class="fragment">L'élément est-il en ligne (<code>inline</code>) ou en boîte (<code>block</code>)?</li>
+						<li class="fragment">L'espace observé vient-il de l'élément lui-même ou de son parent?</li>
+					</ul>
+				</section>
+
+				<section>
 					<h2>Le modèle en boîte</h2>
 					<pre style="width: 100%;"><code class="css" data-trim><script type="text/template">
 						a.en_boite {/* Un lien qui s'affiche en boîte plutôt qu'en ligne */
@@ -1049,7 +1068,7 @@
 				<section>
 					<h2>Motivation</h2>
 					<ul>
-						<li class="fragment">Un document peut inclure plusieurs feuilles de style CSS, des éléments peuvent avoir des style enligne</li>
+						<li class="fragment">Un document peut inclure plusieurs feuilles de style CSS, des éléments peuvent avoir des styles en ligne</li>
 						<li class="fragment">D'autres feuilles de style sont utilisées, en plus de celles créées par la personne qui développe le site (navigateur, préférences personnelles)</li>
 						<li class="fragment">Il est fréquent que, pour un élément donné et une propriété donnée, plusieurs valeurs s'opposent</li>
 						<li class="fragment">Quelle valeur choisir? <strong>&#x21e8; Algorithme de cascade</strong></li>
@@ -1059,6 +1078,23 @@
 				<section>
 					<h2>Algorithme de cascade</h2>
 					<img  src="./images/algo_cascade.png">
+				</section>
+
+				<section>
+					<h2>Diagnostic: quelle règle gagne?</h2>
+					<pre style="width: 100%;"><code class="css" data-trim><script type="text/template">
+						h1 {
+							color: blue;
+						}
+
+						.titre {
+							color: red;
+						}
+					</script></code></pre>
+					<pre style="width: 100%;"><code class="html" data-trim><script type="text/template">
+						<h1 class="titre">Carvel</h1>
+					</script></code></pre>
+					<p class="fragment">La règle <code>.titre</code> gagne: son sélecteur est plus spécifique.</p>
 				</section>
 
 
@@ -1164,8 +1200,22 @@
 
 						* Permet de positionner des éléments dans **une** direction (horizontale ou verticale)
 						* Beaucoup plus facile à maîtriser que le positionnement `float`
+						* Utile pour aligner, répartir ou réordonner une série d'éléments.
 
 						![Flex horizontal vs vertical](./images/flex-sens.png)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Quand utiliser Flexbox?
+
+						* Barre de navigation
+						* Groupe de boutons
+						* Cartes alignées sur une rangée
+						* Centrage horizontal/vertical d'un contenu
+
+						**Question à se poser:** est-ce que j'organise surtout les éléments sur un axe?
 					</textarea>
 				</section>
 
@@ -1241,7 +1291,7 @@
 								<div style="width: 5rem;height: 5rem;margin: 10px;background-color: gold;">C</div>
 							</div>
 							</div>
-							<p class="fragment">D'autre valeurs possibles: <em>row-reverse</em> et <em>column-reverse</em></p>
+							<p class="fragment">D'autres valeurs possibles: <em>row-reverse</em> et <em>column-reverse</em></p>
 						</div>
 					</div>
 				</section>
@@ -1300,7 +1350,7 @@
 					<textarea data-template>
 						## `flex-grow` et `flex-shrink`
 
-						* `flegrow` définit le facteur d'agrandissement de l'élément sur l'axe principal sur l'espace encore disponible dans le conteneur (0 par défaut).
+						* `flex-grow` définit le facteur d'agrandissement de l'élément sur l'axe principal sur l'espace encore disponible dans le conteneur (0 par défaut).
 						* L'espace disponible est réparti sur tous les éléments en fonction du facteur d'agrandissement de tous les éléments du conteneur flex.
 						* Selon le même principe, `flex-shrink` définit le rétrécissement en deçà de la valeur `flex-basis` des éléments.
 
@@ -1327,7 +1377,21 @@
 						## Principe
 
 						* Les éléments sont positionnés dans les cases d'une grille virtuelle à deux dimensions.
+						* Utile quand la structure dépend à la fois des lignes et des colonnes.
 						![https://medium.com/star-gazers/css-grid-layout-ef82a7c6b85c](./images/grid_layout_exemples.webp)
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Quand utiliser Grid?
+
+						* Structure principale d'une page
+						* Galerie d'éléments
+						* Tableau de cartes
+						* Zones nommées: en-tête, menu, contenu, pied de page
+
+						**Question à se poser:** est-ce que j'organise des éléments sur deux axes?
 					</textarea>
 				</section>
 
@@ -1523,6 +1587,21 @@
 					<h2>Positionnement Grid Layout</h2>
 					<p>Cliquez sur le lien ci-dessous pour afficher les instructions dans l'éditeur.</p>
 					<p><a href="./editeur.html?exemple=24"><i data-feather="chevrons-right"></i> Exercice 6</a></p>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Flexbox ou Grid?
+
+						| Besoin | Choix naturel |
+						|---|---|
+						| Aligner des éléments sur une ligne ou une colonne | Flexbox |
+						| Répartir l'espace entre des éléments voisins | Flexbox |
+						| Construire une structure en lignes et colonnes | Grid |
+						| Nommer des zones de page | Grid |
+
+						En pratique, on combine souvent les deux.
+					</textarea>
 				</section>
 
 				<section data-markdown>
