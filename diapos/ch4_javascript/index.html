@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>CH04- Javascript | TCH056</title>
+		<title>CH04- JavaScript | TCH056</title>
 
 		<base target="_blank">
 
@@ -26,7 +26,7 @@
 	</head>
 	<body>
 		<!--
-					
+
 		-->
 		<div class="reveal">
 			<div id="slide_nb" style="display:none;">Attention...</div>
@@ -35,7 +35,7 @@
 				<section>
 					<img src='../images/logo_ets.png' />
 					<h4 class="">TCH056 - Programmation Web</h4>
-					<h2 class="r-fit-text">&lt;Chapitre 04&gt; Javascript</h2>
+					<h2 class="r-fit-text">&lt;Chapitre 04&gt; JavaScript</h2>
 					<br /><br />
 					<p>
 						<strong>Anis Boubaker, Ph.D.</strong><br />
@@ -44,7 +44,7 @@
 				</section>
 
 			<!-- Plan du chapitre -->
-			<section  data-transition="convex"> 
+			<section  data-transition="convex">
 				<h2>Plan du chapitre</h2>
 				<div class="two_columns_layout">
 					<div class="col menu-principal">
@@ -53,7 +53,7 @@
 							<li>Éléments de base du langage</li>
 							<li>Manipulation du DOM</li>
 							<li>Programmation événementielle</li>
-							<li>Cadriciels et librairies</li>
+							<li>Cadriciels et bibliothèques</li>
 						</ul>
 					</div>
 					<div class="col sous-menu">
@@ -62,7 +62,7 @@
 							<li>Motivation</li>
 							<li>Normes</li>
 							<li>Syntaxe de base</li>
-							<li>Comment inclure du Javascript?</li>
+							<li>Comment inclure du JavaScript?</li>
 						</ul>
 					</div>
 				</div>
@@ -77,7 +77,7 @@
 					</div>
 				</section>
 
-				<section data-menu-title="Java vs Javascript">
+				<section data-menu-title="Java vs JavaScript">
 					<img src="./images/java-vs-javascript.png" >
 				</section>
 
@@ -103,8 +103,8 @@
 								</div>
 								<div class="timeline__item">
 									<div class="timeline__content">
-										<strong>1998 - Javascript 1.3</strong><br />
-										Netscape continue le développement indépendant de Javascript pour son navigateur
+										<strong>1998 - JavaScript 1.3</strong><br />
+										Netscape continue le développement indépendant de JavaScript pour son navigateur
 									</div>
 								</div>
 								<div class="timeline__item">
@@ -115,7 +115,7 @@
 								</div>
 								<div class="timeline__item">
 									<div class="timeline__content">
-										<strong>2000 - Firefox et Javascript 1.5</strong><br />
+										<strong>2000 - Firefox et JavaScript 1.5</strong><br />
 										La fondation Mozilla effectue une refonte de Netscape: le navigateur Firefox qui inclut JS 1.5
 									</div>
 								</div>
@@ -153,7 +153,7 @@
 					<ul>
 						<li><strong>HTML</strong> nous a permis de définir le contenu</li>
 						<li><strong>CSS</strong> nous a permis de définir l'apparence des pages</li>
-						<li><strong>Javascript</strong> nous permettra d'ajouter des aspects dynamiques à nos pages. Ex.: 
+						<li><strong>JavaScript</strong> nous permettra d'ajouter des aspects dynamiques à nos pages. Ex.:
 							<ul>
 								<li>Réagir aux actions de l'usager</li>
 								<li>Charger du contenu dynamiquement</li>
@@ -189,7 +189,7 @@
 					<h2>Une syntaxe connue...</h2>
 					<div style="display:grid; grid-template-columns: repeat(2, 50%);">
 						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
-							// Instructions se terminent 
+							// Instructions se terminent
 							// par un ;
 							instruction;
 							instruction;
@@ -197,22 +197,22 @@
 							...
 						</script></code></pre>
 						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
-							/* Blocs délimités 
+							/* Blocs délimités
 								par des { } */
 							if( condition ){
 								instructions ;
 							}
 						</script></code></pre>
 						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
-							/* Les boucles 
-							   traditionnelles (for, 
+							/* Les boucles
+							   traditionnelles (for,
 							   while, do..while) */
 							for(init; cond; incr){
 								... instructions ...
 							}
 						</script></code></pre>
 						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
-							/* Le mot clé "function" 
+							/* Le mot clé "function"
 								pour définir une fonction */
 							function nom(arg1, arg2){
 								... instructions ...
@@ -250,7 +250,7 @@
 						<div class="col fragment">
 							<h4>Événementiel</h4>
 							<ul>
-								<li>Cycle d'exécution non bloquant basé sur les événement</li>
+								<li>Cycle d'exécution non bloquant basé sur les événements</li>
 								<li>Modèle asynchrone</li>
 							</ul>
 						</div>
@@ -258,7 +258,7 @@
 				</section>
 
 				<section>
-					<h2>Javascript: Où dans une page Web?</h2>
+					<h2>JavaScript: Où dans une page Web?</h2>
 					<div class="r-fit">
 						<div class="col fragment">
 							<h4>Comme attribut (très mauvais!)</h4>
@@ -335,14 +335,14 @@
 								<li class="plan-current">Éléments de base du langage</li>
 								<li>Manipulation du DOM</li>
 								<li>Programmation événementielle</li>
-								<li>Cadriciels et librairies</li>
+								<li>Cadriciels et bibliothèques</li>
 							</ul>
 						</div>
 						<div class="col sous-menu">
 							<ul style="margin:0">
 								<li class="plan-current">Variables et types de données</li>
 								<li>Objets et tableaux</li>
-								<li>Chaines de caractères</li>
+								<li>Chaînes de caractères</li>
 								<li>Fonctions</li>
 							</ul>
 						</div>
@@ -405,7 +405,7 @@
 					<p class="fragment highlight2" data-fragment-index="2"><br />Il est possible de modifier les propriétés d'un objet, même si c'est const!</p>
 					<pre class="fragment"  data-fragment-index="2"><code class="javascript" data-trim><script type="text/template">
 						une_constante.prenom = "Marie";
-						
+
 						console.log(une_constante);
 						// Affiche: {nom: 'Valjean', prenom: 'Marie'}
 					</script></code></pre>
@@ -420,7 +420,7 @@
 								const une_constante = { nom: "Valjean", prenom: "Jean" };
 
 								une_constante = convertirEnMajuscules(une_constante);
-								//Erreur, il faut modifier la déclaration en let. 
+								//Erreur, il faut modifier la déclaration en let.
 							</script></code></pre>
 						</li>
 					</ul>
@@ -466,7 +466,7 @@
 
 				<section>
 					<h2>Booléens et vérité</h2>
-					<p>En Javascript, le type boolean existe et peut prendre la valeur <em>true</em> ou <em>false</em></p>
+					<p>En JavaScript, le type boolean existe et peut prendre la valeur <em>true</em> ou <em>false</em></p>
 					<pre><code class="javascript" data-trim><script type="text/template">
 						let est_majeur = true;
 						typeof(est_majeur)
@@ -540,7 +540,7 @@
 				<section class="slidenb" data-slidenb="Très mêlant!">
 					<h2>Conversion implicite de types</h2>
 					<ul>
-						<li class="fragment">Javascript étant un langage typé dynamiquement, des conversion ont lieu automatiquement dès qu'on effectue des opérations entre données de type différents.</li>
+						<li class="fragment">JavaScript étant un langage typé dynamiquement, des conversions ont lieu automatiquement dès qu'on effectue des opérations entre données de types différents.</li>
 						<li class="fragment">La logique de conversion n'est pas toujours intuitive...</li>
 					</ul>
 					<p></p>
@@ -590,7 +590,7 @@
 					<ul>
 						<li>Comme en C et en Java, on compare des valeurs avec l'opérateur `<code>==</code>`
 							<pre><code class="javascript" data-trim><script type="text/template">
-								let a = 10; 
+								let a = 10;
 								console.log(a == 10 ); //true
 								console.log(a == 15 ); //false
 								console.log( 'bonjour' == 'allô'); //false
@@ -605,20 +605,20 @@
 							</script></code></pre>
 						</li>
 					</ul>
-					
+
 				</section>
 				<section>
 					<h2>Opérateur de comparaison <code>===</code></h2>
 					<ul>
-						<li>L'opérateur `<code>===</code>` donnera une valeur vraie si les deux valeurs sont égales ET de même type 
+						<li>L'opérateur `<code>===</code>` donnera une valeur vraie si les deux valeurs sont égales ET de même type
 							<pre class=""><code class="javascript" data-trim><script type="text/template">
 								console.log( 10 === 10 ); //true
 								console.log( 10 === '10' ); //false
 							</script></code></pre>
 						</li>
-						<li class="fragment highlight2">Il est toujours conseillé d'utilise <code>===</code> pour tester l'égalité, sauf exception où le comportement du `==` est souhaitable.</li>
+						<li class="fragment highlight2">Il est toujours conseillé d'utiliser <code>===</code> pour tester l'égalité, sauf exception où le comportement du `==` est souhaitable.</li>
 					</ul>
-					
+
 				</section>
 
 <!-- Plan du chapitre -->
@@ -631,14 +631,14 @@
 								<li class="plan-current">Éléments de base du langage</li>
 								<li>Manipulation du DOM</li>
 								<li>Programmation événementielle</li>
-								<li>Cadriciels et librairies</li>
+								<li>Cadriciels et bibliothèques</li>
 							</ul>
 						</div>
 						<div class="col sous-menu">
 							<ul style="margin:0">
 								<li class="plan-visited">Variables et types de données</li>
 								<li class="plan-current">Objets et tableaux</li>
-								<li>Chaines de caractères</li>
+								<li>Chaînes de caractères</li>
 								<li>Fonctions</li>
 							</ul>
 						</div>
@@ -691,7 +691,7 @@
 						>> [85, 76, 64.5, 92.5, 68, 80, 84.5, 89]
 						console.log( resultats.length );
 						>> 8
-						
+
 						let dernier = resultats.pop();
 						console.log( dernier )
 						>> 89
@@ -704,7 +704,7 @@
 					<h2>Modification d'un objet</h2>
 					<ul>
 						<li>Les objets en JS n'ont pas de structure pré-établie* (i.e. pas de classes, comme en Java)</li>
-						<li>Il est possible d'ajouter/supprimer des propriété à tout moment</li>
+						<li>Il est possible d'ajouter/supprimer des propriétés à tout moment</li>
 					</ul>
 					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
 						let etudiant = {
@@ -714,7 +714,7 @@
 						}
 						etudiant.moyenne = 85;
 						console.log(etudiant);
-						>> {"nom": "Valjean", "prenom": "Jean", "age": 35, 
+						>> {"nom": "Valjean", "prenom": "Jean", "age": 35,
 							"moyenne": 85 }
 					</script></code></pre>
 					<aside class="notes">Il existe en réalité une structure pré-établie: le prototype d'un objet. Nous n'aborderons pas les prototypes dans le cadre de ce cours ni la conception OO qui permet de créer des objets qui partagent le même prototype. Ainsi, tout objet qu'on créera aura son propre prototype </aside>
@@ -734,12 +734,12 @@
 						etudiant.moyenne = 85;
 						etudiant["prenom"]="Jean-Michel";
 						console.log(etudiant);
-						>> {"nom": "Valjean", "prenom": "Jean-Michel", "age": 35, 
+						>> {"nom": "Valjean", "prenom": "Jean-Michel", "age": 35,
 							"moyenne": 85 }
 						console.log(etudiant["age"]);
 						>> 35
 					</script></code></pre>
-					
+
 				</section>
 
 				<section>
@@ -747,7 +747,7 @@
 					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
 						let resultats = [85, 76, 64.5, 92.5, 68, 80, 84.5];
 						resultats.moyenne = 78.65;
-						
+
 						console.log( resultats.length );
 						>> ????
 
@@ -772,14 +772,14 @@
 								<li class="plan-current">Éléments de base du langage</li>
 								<li>Manipulation du DOM</li>
 								<li>Programmation événementielle</li>
-								<li>Cadriciels et librairies</li>
+								<li>Cadriciels et bibliothèques</li>
 							</ul>
 						</div>
 						<div class="col sous-menu">
 							<ul style="margin:0">
 								<li class="plan-visited">Variables et types de données</li>
 								<li class="plan-visited">Objets et tableaux</li>
-								<li class="plan-current">Chaines de caractères</li>
+								<li class="plan-current">Chaînes de caractères</li>
 								<li>Fonctions</li>
 							</ul>
 						</div>
@@ -787,9 +787,9 @@
 				</section>
 
 				<section>
-					<h2>Chaines de caractères</h2>
+					<h2>Chaînes de caractères</h2>
 					<ul>
-						<li>Le type chaine de caractères (<em>string</em>) est un type de base en JS<br />
+						<li>Le type chaîne de caractères (<em>string</em>) est un type de base en JS<br />
 							<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
 								let cours = "TCH016";
 								console.log(cours);
@@ -810,9 +810,9 @@
 						</li>
 					</ul>
 				</section>
-				
+
 				<section>
-					<h2>Caractères dans une chaine</h2>
+					<h2>Caractères dans une chaîne</h2>
 					<ul>
 						<li>On accède aux caractères par indice, avec la notation tableau ou la méthode <em>at</em></li>
 						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
@@ -822,10 +822,10 @@
 							console.log(cours.at(0));
 							>> T
 						</script></code></pre>
-						<li>Une chaine de caractères est immutable
+						<li>Une chaîne de caractères est immutable
 						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
 							let cours = "TCH016";
-							cours[5] = 9;	
+							cours[5] = 9;
 							console.log( cours );
 							>> TCH016
 							cours[6] = 'x'
@@ -837,8 +837,8 @@
 				</section>
 
 				<section  class="slidenb" data-slidenb="À connaître!">
-					<h2>Chaines : Méthodes utiles</h2>
-					<p>Plusieurs méthodes sont disponibles pour manipuler les chaines de caractères</p>
+					<h2>Chaînes : Méthodes utiles</h2>
+					<p>Plusieurs méthodes sont disponibles pour manipuler les chaînes de caractères</p>
 					<table>
 						<tr>
 							<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase" target="_blank">toLowerCase</a></td>
@@ -873,14 +873,14 @@
 								<li class="plan-current">Éléments de base du langage</li>
 								<li>Manipulation du DOM</li>
 								<li>Programmation événementielle</li>
-								<li>Cadriciels et librairies</li>
+								<li>Cadriciels et bibliothèques</li>
 							</ul>
 						</div>
 						<div class="col sous-menu">
 							<ul style="margin:0">
 								<li class="plan-visited">Variables et types de données</li>
 								<li class="plan-visited">Objets et tableaux</li>
-								<li class="plan-visited">Chaines de caractères</li>
+								<li class="plan-visited">Chaînes de caractères</li>
 								<li class="plan-current">Fonctions</li>
 							</ul>
 						</div>
@@ -910,7 +910,7 @@
 				<section>
 					<h2>Appel d'une fonction</h2>
 					<ul>
-						<li>Syntaxe semblable aux autres langages de la famille C: il suffit de spécifier le nom de la fonction, suivi des paramètres effectifs entre parenthèse.
+						<li>Syntaxe semblable aux autres langages de la famille C: il suffit de spécifier le nom de la fonction, suivi des paramètres effectifs entre parenthèses.
 						<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
 							let resultat = surfaceCercle( 11.5 );
 						</script></code></pre>
@@ -926,7 +926,7 @@
 				<section>
 					<h2>Paramètres d'une fonction</h2>
 					<ul>
-						<li>Aucune règle sur les paramètres: les types sont dynamiquement typés et le nombre de paramètres peut varier du nombre de paramètres défini</li>
+						<li>Aucune règle sur les paramètres: les types sont dynamiquement typés et le nombre de paramètres peut varier du nombre de paramètres définis</li>
 						<pre><code class="javascript" data-trim><script type="text/template">
 							let somme = function(a, b){
 								return a+b;
@@ -944,7 +944,7 @@
 				<section>
 					<h2>Valeurs de paramètres par défaut</h2>
 					<ul>
-						<li>Pour éviter qu'un paramètre omis lors de l'appel ait la valeur <em>undefined</em>, il est possible de donner des valeur par défaut aux paramètres: 
+						<li>Pour éviter qu'un paramètre omis lors de l'appel ait la valeur <em>undefined</em>, il est possible de donner des valeurs par défaut aux paramètres:
 						<pre><code class="javascript" data-trim><script type="text/template">
 							function direBonjour(nom="Inconnu.e"){
 								console.log("Bonjour "+nom);
@@ -974,8 +974,8 @@
 						<pre><code class="javascript" data-trim><script type="text/template">
 							let somme = function(val1, val2){
 								let resultat = val1+val2;
-								for (let i=2; i < arguments.length; i++) { 
-									resultat += arguments[ i ];	
+								for (let i=2; i < arguments.length; i++) {
+									resultat += arguments[ i ];
 								}
 								return resultat;
 							}
@@ -991,15 +991,15 @@
 							<pre><code class="javascript" data-trim><script type="text/template">
 								let somme = function(val1, val2, ...autres){
 									let resultat = val1+val2;
-									for (let i=0; i < autres.length; i++) { 
-										resultat += autres[ i ];	
+									for (let i=0; i < autres.length; i++) {
+										resultat += autres[ i ];
 									}
 									return resultat;
 								}
 							</script></code></pre>
 						</li>
 
-						<li class="highlight2"> 
+						<li class="highlight2">
 							Il est préférable d'utiliser cette syntaxe car elle améliore la maintenabilité du code.
 						</li>
 					</ul>
@@ -1024,14 +1024,14 @@
 					<p>On peut même retourner une fonction...</p>
 					<pre class="fragment"><code class="javascript" data-trim><script type="text/template">
 						let creerPuissance = function (puissance){
-							let resultat =  function(valeur){ 
-								return valeur ** puissance; 
+							let resultat =  function(valeur){
+								return valeur ** puissance;
 							}
 
 							return resultat;
 						}
 
-						carre = creerPuissance(2); 
+						carre = creerPuissance(2);
 						// Carre est une fonction créée par creerPuissance
 						console.log( carre(10) );
 						>> 100
@@ -1049,7 +1049,7 @@
 						}
 
 						let somme = (v1, v2) => v1 + v2;
-						
+
 						console.log( calculer(10, 17, somme) );
 						>> 27
 					</script></code></pre>
@@ -1060,7 +1060,7 @@
 					<ul>
 						<li>On appelle <strong>fonction d'ordre supérieur</strong> une fonction qui reçoit une autre fonction en argument, ou qui retourne une fonction.</li>
 						<li>Les fonctions d'ordre supérieur sont un mécanisme puissant qui offre des flexibilités et des applications intéressantes.</li>
-						<li>Spécifiquement, les fonctions itératives sur les tableaux suivantes (à connaître): 
+						<li>Spécifiquement, les fonctions itératives sur les tableaux suivantes (à connaître):
 							<table>
 								<tr>
 									<td><a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank">Map</a></td>
@@ -1083,7 +1083,7 @@
 								<li class="plan-visited">Éléments de base du langage</li>
 								<li class="plan-current">Manipulation du DOM</li>
 								<li>Programmation événementielle</li>
-								<li>Cadriciels et librairies</li>
+								<li>Cadriciels et bibliothèques</li>
 							</ul>
 						</div>
 						<div class="col sous-menu">
@@ -1104,10 +1104,10 @@
 				<section>
 					<h2>DOM: Document Object Model</h2>
 					<ul>
-						<li class="fragment">Le DOM est une une structure hiérarchique qui représente le contenu d'une page sous forme d'une arborescence</li>
-						<li class="fragment">L'arbre peut-être manipulé avec du code Javascript: tout changement au DOM se reflète de façon dynamique sur le rendu de la page (à l'écran)</li>	
+						<li class="fragment">Le DOM est une structure hiérarchique qui représente le contenu d'une page sous forme d'une arborescence</li>
+						<li class="fragment">L'arbre peut être manipulé avec du code JavaScript: tout changement au DOM se reflète de façon dynamique sur le rendu de la page (à l'écran)</li>
 						<li class="fragment">La manipulation se fait à travers une API commune à tous les navigateurs</li>
-						<li class="fragment highlight2">Le DOM est une entité qui évolue constamment dans les pages/application WEB modernes</li>
+						<li class="fragment highlight2">Le DOM est une entité qui évolue constamment dans les pages/applications Web modernes</li>
 					</ul>
 				</section>
 
@@ -1131,7 +1131,7 @@
 						<div class="col" style="min-width: 50%;">
 							<pre class="fragment"><code id="html1_json" style="font-size: 3rem; height:100%;"></code></pre>
 						</div>
-						
+
 						<script type="text/javascript">
 							var html1 = `
 								<!doctype html>
@@ -1144,7 +1144,7 @@
 									<body>
 										<div id='conteneur'>
 											<p id='p1' class='important rouge'>
-												Aller au 
+												Aller au
 												<span><a>Site de l'ETS</a>
 												</span>
 											</p>
@@ -1182,7 +1182,7 @@
 						<div class="col" style="min-width: 50%;">
 							<pre class="fragment"><code id="html2_json" style="font-size: 3rem; height:100%;"></code></pre>
 						</div>
-						
+
 						<script type="text/javascript">
 							var html2 = `
 								<!doctype html>
@@ -1195,7 +1195,7 @@
 									<body>
 										<div id='conteneur'>
 											<p id='p1' class='important rouge'>
-												Aller au 
+												Aller au
 												<span><a>Site de l'ETS</a>
 												</span>
 											</p>
@@ -1229,7 +1229,7 @@
 								<li class="plan-visited">Éléments de base du langage</li>
 								<li class="plan-current">Manipulation du DOM</li>
 								<li>Programmation événementielle</li>
-								<li>Cadriciels et librairies</li>
+								<li>Cadriciels et bibliothèques</li>
 							</ul>
 						</div>
 						<div class="col sous-menu">
@@ -1254,7 +1254,7 @@
 							getElementsByClassName</a></em></li>
 						<li><em>
 							<a href="https://developer.mozilla.org/fr/docs/Web/API/Document/querySelector" target="_blank">
-								querySelector</a> / 
+								querySelector</a> /
 							<a href="https://developer.mozilla.org/fr/docs/Web/API/Document/querySelectorAll" target="_blank">
 								querySelectorAll</a></em></li>
 					</ul>
@@ -1272,7 +1272,7 @@
 					</div>
 					<pre class="fragment"><code class="javascript" data-trim>
 						const conteneur = document.getElementById('conteneur');
-					</code></pre>	
+					</code></pre>
 					<script type="text/javascript">
 						var html3 = `
 							<!doctype html>
@@ -1285,7 +1285,7 @@
 								<body>
 									<div id='conteneur'>
 										<p id='p1' class='important rouge'>
-											Aller au 
+											Aller au
 											<span><a>Site de l'ETS</a>
 											</span>
 										</p>
@@ -1321,7 +1321,7 @@
 					<pre class="fragment"><code class="javascript" data-trim>
 						const hots = document.getElementsByClassName('hot');
 						//NOTE: `hots` est un tableau!!
-					</code></pre>	
+					</code></pre>
 					<script type="text/javascript">
 						var html4 = `
 							<!doctype html>
@@ -1334,7 +1334,7 @@
 								<body>
 									<div id='conteneur'>
 										<p class='para hot' class='important rouge'>
-											Aller au 
+											Aller au
 											<span><a>Site de l'ETS</a>
 											</span>
 										</p>
@@ -1370,7 +1370,7 @@
 					<pre class="fragment"><code class="javascript" data-trim>
 						const paragraphes = document.getElementsByTagName('p');
 						//NOTE: paragraphes est un tableau!!
-					</code></pre>	
+					</code></pre>
 					<script type="text/javascript">
 						var html5 = `
 							<!doctype html>
@@ -1383,7 +1383,7 @@
 								<body>
 									<div id='conteneur'>
 										<p class='para hot' class='important rouge'>
-											Aller au 
+											Aller au
 											<span><a>Site de l'ETS</a>
 											</span>
 										</p>
@@ -1418,14 +1418,14 @@
 					</div>
 					<pre class="fragment"><code class="javascript" data-trim>
 						const lesHot = document.querySelector('#conteneur p.hot');
-						//NOTE: Un seul élément est sélectionné (le premier 
+						//NOTE: Un seul élément est sélectionné (le premier
 						// qui est satisfaisant)
-					</code></pre>	
+					</code></pre>
 					<script type="text/javascript">
 						var html6 = `
 							<div id='conteneur'>
 								<p class='para hot' class='important rouge'>
-									Aller au 
+									Aller au
 									<span><a>Site de l'ETS</a>
 									</span>
 								</p>
@@ -1460,12 +1460,12 @@
 						const lesHot = document.querySelectorAll('#conteneur p.hot');
 						//NOTE: Tous les éléments satisfaisants au sélecteur seront
 						// retournés (dans un tableau)
-					</code></pre>	
+					</code></pre>
 					<script type="text/javascript">
 						var html7 = `
 							<div id='conteneur'>
 								<p class='para hot' class='important rouge'>
-									Aller au 
+									Aller au
 									<span><a>Site de l'ETS</a>
 									</span>
 								</p>
@@ -1489,7 +1489,7 @@
 				<section>
 					<h2>Sélection en sous-arbre</h2>
 					<ul>
-						<li>Les méthodes <em>`getElementsByClassName`</em>, <em>`getElementsByTagName`</em> et <em>`querySelector`</em> sont implémentées 
+						<li>Les méthodes <em>`getElementsByClassName`</em>, <em>`getElementsByTagName`</em> et <em>`querySelector`</em> sont implémentées
 							dans <em>`Element`</em> (sont disponibles pour tout objet de type <em>Element</em>)</li>
 						<li>Utiliser ces fonctions sur un élément en particulier (pas document) exécutera la requête comme si l’élément était la racine de l'arbre.</li>
 						<li>Les éléments retournés seront seulement ceux qui sont descendants de l'élément.</li>
@@ -1497,9 +1497,9 @@
 					<pre class="fragment"><code class="javascript" data-trim>
 						const conteneur = document.getElementById('conteneur');
 						const paragraphes = conteneur.getElementsByTagName('p');
-						//NOTE: Seuls les paragraphes descendants du div#conteneur 
+						//NOTE: Seuls les paragraphes descendants du div#conteneur
 						//seront sélectionnées!
-					</code></pre>	
+					</code></pre>
 				</section>
 
 				<section class="slidenb" data-slidenb="Lecture seule!">
@@ -1518,7 +1518,7 @@
 				</section>
 
 				<section>
-					<h2>Noeud parent</h2>
+					<h2>Nœud parent</h2>
 					<div class="two_columns_layout" style="height: 100%; width:90%;">
 						<div id="html8_src" class="col" style="font-size: 2rem; width:70%;">
 							<pre><code class="html" data-trim></code></pre>
@@ -1530,12 +1530,12 @@
 					<pre class="fragment"><code class="javascript" data-trim>
 						const lien = document.querySelector('div p a');
 						const leSpan = lien.parentNode;
-					</code></pre>	
+					</code></pre>
 					<script type="text/javascript">
 						var html8 = `
 							<div id='conteneur'>
 								<p class='para hot' class='important rouge'>
-									Aller au 
+									Aller au
 									<span><a>Site de l'ETS</a>
 									</span>
 								</p>
@@ -1557,7 +1557,7 @@
 				</section>
 
 				<section>
-					<h2>Noeuds Enfants</h2>
+					<h2>Nœuds enfants</h2>
 					<div class="two_columns_layout" style="height: 100%; width:90%;">
 						<div id="html9_src" class="col" style="font-size: 2rem; width:70%;">
 							<pre><code class="html" data-trim></code></pre>
@@ -1569,13 +1569,13 @@
 					<pre><code class="javascript" data-trim>
 						const conteneur = document.querySelector('div#conteneur');
 						const enfants = conteneur.childNodes;
-						//Contient les noeuds p.para.hot, p#texte et div.hot
-					</code></pre>	
+						//Contient les nœuds p.para.hot, p#texte et div.hot
+					</code></pre>
 					<script type="text/javascript">
 						var html9 = `
 							<div id='conteneur'>
 								<p class='para hot' class='important rouge'>
-									Aller au 
+									Aller au
 									<span><a>Site de l'ETS</a>
 									</span>
 								</p>
@@ -1610,12 +1610,12 @@
 						const conteneur = document.querySelector('div#conteneur');
 						const premier = conteneur.firstChild; //p.para.hot
 						const dernier = conteneur.lastChild; //div.hot
-					</code></pre>	
+					</code></pre>
 					<script type="text/javascript">
 						var html10 = `
 							<div id='conteneur'>
 								<p class='para hot' class='important rouge'>
-									Aller au 
+									Aller au
 									<span><a>Site de l'ETS</a>
 									</span>
 								</p>
@@ -1650,12 +1650,12 @@
 						const conteneur = document.querySelector('p#texte');
 						const premier = conteneur.previousSibling; //p.para.hot
 						const dernier = conteneur.nextSibling; //div.hot
-					</code></pre>	
+					</code></pre>
 					<script type="text/javascript">
 						var html11 = `
 							<div id='conteneur'>
 								<p class='para hot' class='important rouge'>
-									Aller au 
+									Aller au
 									<span><a>Site de l'ETS</a>
 									</span>
 								</p>
@@ -1697,7 +1697,7 @@
 								<li class="plan-visited">Éléments de base du langage</li>
 								<li class="plan-current">Manipulation du DOM</li>
 								<li>Programmation événementielle</li>
-								<li>Cadriciels et librairies</li>
+								<li>Cadriciels et bibliothèques</li>
 							</ul>
 						</div>
 						<div class="col sous-menu">
@@ -1718,7 +1718,7 @@
 								//Création d'un nouveau paragraphe
 								const nouveauParagraphe = document.createElement("p");
 								//Définition du contenu du paragraphe
-								nouveauParagraphe.textContent = 
+								nouveauParagraphe.textContent =
 									"Ceci est le contenu du nouveau paragraphe";
 							</code></pre>
 						</li>
@@ -1731,7 +1731,7 @@
 					<ul>
 						<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Element/append">elt.append(...)</a>: Ajoute un ou plusieurs éléments après le dernier enfant de <em>elt</em></li>
 						<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/appendChild">elt.appendChild(...)</a>: Ajoute <strong>un</strong> élément comme dernier enfant de <em>elt</em>. L'enfant ajouté est retourné.</li>
-						<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/insertBefore">elt.insertBefore(nouv , ref)</a>: Ajoute le noeud <em>nouv</em> comme enfant de <em>elt</em> avant l'élément <em>ref</em></li>
+						<li><a href="https://developer.mozilla.org/fr/docs/Web/API/Node/insertBefore">elt.insertBefore(nouv , ref)</a>: Ajoute le nœud <em>nouv</em> comme enfant de <em>elt</em> avant l'élément <em>ref</em></li>
 					</ul>
 					<blockquote><a href="./editeur.html?exemple=1">>> Démonstration</a></blockquote>
 				</section>
@@ -1749,12 +1749,12 @@
 							<pre><code class="javascript" data-trim>
 								const conteneur = document.querySelector("#conteneur");
 								//On supprime le 3e enfant de conteneur
-								const supprime = 
+								const supprime =
 									conteneur.removeChild( conteneur.childNode[2] );
 							</code></pre>
 						</li>
 					</ul>
-					
+
 				</section>
 
 				<section>
@@ -1782,7 +1782,7 @@
 					<p>Deux façons pour modifier les attributs d'un élément: </p>
 					<ol>
 						<li>Directement en utilisant la notation point (.)</li>
-						<li><strong>En utilisant la méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/setAttribute"><code>setAttribute</code></a>:</strong> 
+						<li><strong>En utilisant la méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/setAttribute"><code>setAttribute</code></a>:</strong>
 							<pre><code class="javascript" data-trim>
 								const a = document.createElement('a');
 								a.setAttribute('href', "https://www.etsmtl.ca");
@@ -1800,7 +1800,7 @@
 				<section>
 					<h2>Attributs HTML - Suppression</h2>
 					<ul>
-						<li><strong>En utilisant la méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/removeAttribute"><code>removeAttribute</code></a>:</strong> 
+						<li><strong>En utilisant la méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/Element/removeAttribute"><code>removeAttribute</code></a>:</strong>
 							<pre><code class="javascript" data-trim>
 								const para = document.createElement('p');
 								para.id="un-identifiant";
@@ -1818,10 +1818,10 @@
 						<li>Modifie l'attribut <code>class</code> de l'élément
 							<pre style="width: 100%"><code class="javascript" data-trim>
 								const para = document.createElement('p');
-								//Définit les classes 'important' et 'citation' au 
+								//Définit les classes 'important' et 'citation' au
 								//nouvel élément créé
 								para.className = "important citation";
-								//équivalent à: 
+								//équivalent à:
 								//para.setAttribute('class', "important citation");
 							</code></pre>
 						</li>
@@ -1851,7 +1851,7 @@
 					<h2>Modification du style 3/3</h2>
 					<h3>Ajout de style en-ligne à un élément</h3>
 					<ul>
-						<li>La propriété <code>style</code> regroupe toutes les déclarations de style définies en-ligne sur un élément
+						<li>La propriété <code>style</code> regroupe toutes les déclarations de style définies en ligne sur un élément
 							<pre style="width: 100%"><code class="javascript" data-trim>
 								const conteneur = document.querySelector("#conteneur");
 								conteneur.style.width = '100fr';
@@ -1860,7 +1860,7 @@
 						<li>Les noms des déclarations CSS doivent être convertis en `camelCase`
 							<pre style="width: 100%"><code class="javascript" data-trim>
 								  conteneur.style.backgroundColor = 'lightgreen';
-								//Au lien de: 
+								//Au lien de:
 								//conteneur.style.background-color = 'lightgreen'; //INCORRECT
 							</code></pre>
 						</li>
@@ -1877,14 +1877,14 @@
 								<li class="plan-visited">Éléments de base du langage</li>
 								<li class="plan-visited">Manipulation du DOM</li>
 								<li class="plan-current">Programmation événementielle</li>
-								<li>Cadriciels et librairies</li>
+								<li>Cadriciels et bibliothèques</li>
 							</ul>
 						</div>
 						<div class="col sous-menu">
 							<ul style="margin-top :20px">
 								<li>Modèle d'exécution asynchrone</li>
 								<li>Programmation événementielle et boucle d'événements</li>
-								<li>Gestion des événements en Javascript</li>
+								<li>Gestion des événements en JavaScript</li>
 							</ul>
 						</div>
 					</div>
@@ -1893,7 +1893,7 @@
 				<section>
 					<h2>Modèle d'exécution</h2>
 					<ul>
-						<li>Le code Javascript s'exécute de façon séquentielle, une instruction à la fois</li>
+						<li>Le code JavaScript s'exécute de façon séquentielle, une instruction à la fois</li>
 						<li>Comme pour le langage C, tout appel de fonction est ajouté dans une pile d'exécution (<em>stack</em>) qui sera dépilée dès la fin de la fonction</li>
 					</ul>
 					<blockquote><a href="https://anisboubaker.github.io/TCH056/diapos/js_loupe/?code=ZnVuY3Rpb24gcHJvZHVpdChhLCBiKXsKICAgIHJldHVybiBhKmI7Cn0KCmZ1bmN0aW9uIGNhcnJlKGEpewogICAgcmV0dXJuIHByb2R1aXQoYSwgYSk7Cn0KCmZ1bmN0aW9uIHVuX2NhbGN1bChhLCBiKXsKICAgIGxldCByMSA9ICBjYXJyZShhKTsKICAgIAogICAgbGV0IHIyID0gIHByb2R1aXQoYSwgYik7CiAgICAKICAgIHJldHVybiByMStyMjsKfQoKY29uc29sZS5sb2codW5fY2FsY3VsKDEwLCAxMSkpOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D">
@@ -1904,18 +1904,18 @@
 					<h2>Exécution parallèle</h2>
 					<ul>
 						<li class="fragment" data-fragment-index="1">Il est possible d'exécuter des tâches en parallèle en C ou en Java (<em>Threads</em>)</li>
-						<li class="fragment" data-fragment-index="2">Le Javascript est un langage mono-threadé mais qui permet un semblant de parallélisme grâce à l'exécution <strong>asynchrone</strong> et la <strong>boucle d'événements (event loop)</strong></li>
+						<li class="fragment" data-fragment-index="2">JavaScript est un langage mono-threadé, mais qui permet un semblant de parallélisme grâce à l'exécution <strong>asynchrone</strong> et la <strong>boucle d'événements (event loop)</strong></li>
 						<p class="fragment note" data-fragment-index="2">Note: L'introduction récente des <em>WebWorkers</em> permet d'effectuer un vrai parallélisme (pas au programme)</p>
 					</ul>
 				</section>
 
 				<section>
-					<h2>Exécution Asynchrone</h2>
+					<h2>Exécution asynchrone</h2>
 					<ul>
 						<li>Veut dire: lancer l'exécution d'un traitement et ne pas attendre la réponse</li>
 						<li>La pile d'exécution poursuit son exécution normale</li>
 						<li>Lorsque la réponse est obtenue, un <strong>événement</strong> est déclenché</li>
-						<li>On traite la réponse liée à l'évènement lorsque la pile d'exécution sera terminée</li>
+						<li>On traite la réponse liée à l'événement lorsque la pile d'exécution sera terminée</li>
 					</ul>
 				</section>
 
@@ -1923,7 +1923,7 @@
 					<h2>Exécution asynchrone: Pourquoi?</h2>
 					<ul>
 						<li>Certains traitements nécessitent un temps d'exécution long (> quelques ms)</li>
-						<li>Ce genre de traitements bloquent la pile d'exécution si ils étaient exécutés de façon synchrone</li>
+						<li>Ce genre de traitements bloquerait la pile d'exécution s'il était exécuté de façon synchrone</li>
 						<li class="highlight2">Ceci affecte la réactivité de la page: aucune mise à jour de la page ne peut avoir lieu tant que la pile d'exécution n'est pas terminée!</li>
 					</ul>
 					<blockquote><a href="https://anisboubaker.github.io/TCH056/diapos/js_loupe/?code=ZnVuY3Rpb24gcHJvZHVpdChhLCBiKXsKICAgIHJldHVybiBhKmI7Cn0KCmZ1bmN0aW9uIHRyYWl0ZW1lbnRfbGVudCgpewogICAgZm9yKGxldCBpPTA7IGk8NTsgaSsrKQogICAgewogICAgICAgIDsKICAgIH0KICAgIAp9Cgpjb25zb2xlLmxvZygnROlidXQnKTsKCnRyYWl0ZW1lbnRfbGVudCgpOwoKY29uc29sZS5sb2coJ0ZpbicpOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D">
@@ -1933,7 +1933,7 @@
 				<section>
 					<h2>Exécution asynchrone: Dans quel contexte?</h2>
 					<ul>
-						<li>Exécution temporisée (avec <a href="https://developer.mozilla.org/fr/docs/Web/API/setTimeout"><code>setTimeout</code></a> 
+						<li>Exécution temporisée (avec <a href="https://developer.mozilla.org/fr/docs/Web/API/setTimeout"><code>setTimeout</code></a>
 							et <a href="https://developer.mozilla.org/en-US/docs/Web/API/setInterval"><code>setInterval</code></a>)</li>
 						<li>Suite à des événements qui se produisent sur la page pour lesquels on a défini un gestionnaire d'événement (ex.: click, déplacement de souris, clavier, etc.)</li>
 						<li>Toute requête de communication avec une machine distante.</li>
@@ -1961,7 +1961,7 @@
 				<section>
 					<h2><code>setTimeout</code> - Fonction anonyme</h2>
 					<ul>
-						<li class="fragment">Il est possible de passer une fonction de rappel anonyme: 
+						<li class="fragment">Il est possible de passer une fonction de rappel anonyme:
 							<pre style="width: 100%"><code class="javascript" data-trim>
 								//Exécution après 2 secondes
 								setTimeout(function(){
@@ -1969,7 +1969,7 @@
 								}, 2000);
 							</code></pre>
 						</li>
-						<li class="fragment">Elle peut même être fléchée: 
+						<li class="fragment">Elle peut même être fléchée:
 							<pre style="width: 100%"><code class="javascript" data-trim>
 								//Exécution après 2 secondes
 								setTimeout( () => alert("Délai écoulé!") , 2000);
@@ -2025,11 +2025,11 @@
 					<ul>
 						<li>Pour réagir face à un événement, il faut "écouter" l'événement en définissant un gestionnaire d'événement
 							sur l'élément de la page concerné</li>
-						<li class="fragment">La méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener"><code>addEventListener()</code></a> 
+						<li class="fragment">La méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener"><code>addEventListener()</code></a>
 							permet d'ajouter un gestionnaire d'événement pour un événement spécifique.</li>
-						<li class="fragment">La méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/removeEventListener"><code>removeEventListener()</code></a> 
+						<li class="fragment">La méthode <a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget/removeEventListener"><code>removeEventListener()</code></a>
 							permet de supprimer un gestionnaire d'événement pour un événement spécifique.</li>
-						<li class="fragment">Ces méthodes sont définies dans la "classe" EventTarget (qui englobe presque tous les types!).</li>	
+						<li class="fragment">Ces méthodes sont définies dans la "classe" EventTarget (qui englobe presque tous les types!).</li>
 					</ul>
 				</section>
 
@@ -2042,10 +2042,10 @@
 					<pre style="width: 100%"><code class="javascript" data-trim>
 						let mon_bouton = document.querySelector('button#mon-bouton');
 						mon_bouton.addEventHandler(
-							'click', 
+							'click',
 							function(){alert("Bouton cliqué!")}
 						);
-						//La fonction anonyme sera exécutée à chaque fois qu'on 
+						//La fonction anonyme sera exécutée à chaque fois qu'on
 						//clique sur le bouton.
 					</code></pre>
 				</section>
@@ -2060,19 +2060,19 @@
 								<li class="plan-visited">Éléments de base du langage</li>
 								<li class="plan-visited">Manipulation du DOM</li>
 								<li class="plan-visited">Programmation événementielle</li>
-								<li class="plan-current">Cadriciels et librairies: JQuery et Axios</li>
+								<li class="plan-current">Cadriciels et bibliothèques: jQuery et Axios</li>
 							</ul>
 						</div>
 						<div class="col sous-menu">
 							<ul style="margin-top :20px">
-								<li>Qu'est-ce que JQuery?</li>
+								<li>Qu'est-ce que jQuery?</li>
 								<li>Installation de jQuery</li>
 								<li>Sélecteurs</li>
 								<li>Manipulation du DOM</li>
 								<li>Gestion des événements</li>
 								<li>Effets et animations</li>
 								<li>Requêtes AJAX</li>
-								<li>La librairie Axios</li>
+								<li>La bibliothèque Axios</li>
 							</ul>
 						</div>
 					</div>
@@ -2082,9 +2082,9 @@
 				<section>
 					<h2>Qu'est-ce que jQuery?</h2>
 					<ul>
-						<li>Librairie JavaScript rapide, petite et riche en fonctionnalités</li>
+						<li>Bibliothèque JavaScript rapide, petite et riche en fonctionnalités</li>
 						<li>Vise à faciliter la manipulation du document HTML, la gestion des événements, l'animation, et les requêtes</li>
-						<li>API facile à utiliser qui fonctionne compatible avec la majorité des navigateurs</li>
+						<li>API facile à utiliser qui est compatible avec la majorité des navigateurs</li>
 						<li>Grande communauté de développeurs et une vaste gamme de plugins disponibles</li>
 						<li>Désavantage: une API différente de celle du DOM</li>
 					</ul>
@@ -2092,10 +2092,10 @@
 
 				<section>
 					<h2>Installation de jQuery</h2>
-					<p>Comme toute librairie Javascript, il est possible de: </p>
+					<p>Comme toute bibliothèque JavaScript, il est possible de: </p>
 					<ul>
 						<li>Télécharger jQuery dans votre projet localement depuis le site de jQuery</li>
-						<li>Inclure la librairie via CDN:
+						<li>Inclure la bibliothèque via CDN:
 							<pre><code class="html" data-trim><script type="text/template">
 								<script src="
 								https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js
@@ -2108,7 +2108,7 @@
 				<section>
 					<h2>Première utilisation de jQuery</h2>
 					<p>jQuery déclare sa fonction principale <code>$</code> qui agit comme sélecteur et est le point d'entrée à toutes les fonctionnalités offertes.</p>
-					<p class="note">En javascript, le caractère "<code>$</code>" est un caractère permis pour nommer une fonction/variable.</p>
+					<p class="note">En JavaScript, le caractère "<code>$</code>" est un caractère permis pour nommer une fonction/variable.</p>
 					<pre><code class="js" data-trim">
 						//Cache tous les éléments de type p
 						$("p").hide();
@@ -2124,14 +2124,14 @@
 									$(selecteur)
 								</code></pre>
 							</li>
-							<li>"selecteur" peut-être une chaine de caractères avec un sélecteur de type CSS ou un élément du DOM
+							<li>"sélecteur" peut être une chaîne de caractères avec un sélecteur de type CSS ou un élément du DOM
 								<pre><code class="javascript" data-trim>
 									$('#conteneur div>p')
 									$(document)
 								</code></pre>
 							</li>
-							<li>Le sélecteur retourne un objet jQuery (et <strong>PAS un élément du DOM</strong>). On utilise 
-								la méthode <code>get</code> pour obtenir le noeud du DOM correspondant à un objet jQuery.
+							<li>Le sélecteur retourne un objet jQuery (et <strong>PAS un élément du DOM</strong>). On utilise
+								la méthode <code>get</code> pour obtenir le nœud du DOM correspondant à un objet jQuery.
 								<p class="note" style="display: inline-block">Défilez vers le bas pour voir un exemple de code. </p>
 							</li>
 						</ul>
@@ -2142,11 +2142,11 @@
 							let header_jq = $('header#top_page');
 							let header_dom = $('header#top_page').get();
 
-							//Pour changer le contenu de top_page: 
-							header_jq.text("Allô"); //méthode 1: jQuery 
+							//Pour changer le contenu de top_page:
+							header_jq.text("Allô"); //méthode 1: jQuery
 							header_dom.textContent = "Allô"; //méthode 2: DOM
 
-							//Si le sélecteur retourne plusieurs éléments, 
+							//Si le sélecteur retourne plusieurs éléments,
 							//la méthode get prend un indice (0 par défaut)
 							let paragraphe3_dom = $('p').get(2);
 						</code></pre>
@@ -2156,11 +2156,11 @@
 				<section>
 					<h2>Sélection: <code>jQuery</code> vs <code>querySelector</code></h2>
 					<ul>
-						<li><code>document.querySelector()</code> retourne uniquement le premier élément qui correspond au 
+						<li><code>document.querySelector()</code> retourne uniquement le premier élément qui correspond au
 							sélecteur. Si on souhaite retenir tous les éléments, il faut utiliser <code>document.querySelectorAll()</code>
 						</li>
 						<li>Si on sélectionne plusieurs éléments, il faut itérer sur les éléments avec une boucle</li>
-						<li>jQuery permet d'effectuer un traitement sur le résultat d'un sélection, indépendamment du nombre 
+						<li>jQuery permet d'effectuer un traitement sur le résultat d'une sélection, indépendamment du nombre
 							d'éléments obtenus
 							<pre><code class="javascript" data-trim>
 								//Toutes les div de classe "solution" seront cachées
@@ -2175,7 +2175,7 @@
 					<ul>
 						<li>Un sélecteur jQuery retourne un objet jQuery</li>
 						<li>Le même objet jQuery est retourné par la majorité des fonctions</li>
-						<li>Ceci permet de réaliser des opérations en chaine, comme: 
+						<li>Ceci permet de réaliser des opérations en chaîne, comme:
 							<pre><code class="javascript" data-trim>
 								$('.maClasse').css('color', 'red').show();
 							</code></pre>
@@ -2216,8 +2216,8 @@
 						</li>
 						<li><strong>.removeAttr()</strong>: Supprime un attribut des éléments sélectionnés
 							<pre><code class="javascript" data-trim="">
-								//Supprime l'attribut "title" de tous les éléments de type "a" 
-								//de la page 
+								//Supprime l'attribut "title" de tous les éléments de type "a"
+								//de la page
 								$('a').removeAttr('title');
 							</code></pre>
 						</li>
@@ -2227,7 +2227,7 @@
 				<section>
 					<h2>Manipulation du DOM avec jQuery: Classes</h2>
 					<ul>
-						<li><strong>.addClass()</strong> et <strong>.removeClass()</strong>: 
+						<li><strong>.addClass()</strong> et <strong>.removeClass()</strong>:
 							Ajout ou suppression d'une ou plusieurs classes à tous les éléments sélectionnés
 							<pre><code class="javascript" data-trim="">
 								$("p.important").addClass("surbrillance bienVisible");
@@ -2253,7 +2253,7 @@
 								$('div').css('color', 'red');
 
 								//applique plusieurs styles en même temps
-								$('div').css({'background-color': 'blue', 
+								$('div').css({'background-color': 'blue',
 											'font-size': '14px'});
 							</code></pre>
 						</li>
@@ -2261,24 +2261,24 @@
 				</section>
 
 				<section>
-					<h2>Gestion des événement avec jQuery</h2>
+					<h2>Gestion des événements avec jQuery</h2>
 					<ul>
-						<li><strong>.on()</strong>: Attache un ou plusieurs gestionnaires d'événements pour les éléments sélectionnés. 
+						<li><strong>.on()</strong>: Attache un ou plusieurs gestionnaires d'événements pour les éléments sélectionnés.
 							<pre><code class="javascript" data-trim="">
-								//Cache un élément si il a été cliqué
+								//Cache un élément s'il a été cliqué
 								$('p').on('click', function() { $(this).hide(); });
 							</code></pre>
 						</li>
 
-						<li>Il es possible de définir le gestionnaire pour des événements multiples:
+						<li>Il est possible de définir le gestionnaire pour des événements multiples:
 							<pre><code class="javascript" data-trim="">
-								$('p').on({ 
+								$('p').on({
 									mouseenter: function() { $(this).css('color', 'red'); },
-									mouseleave: function() { $(this).css('color', 'black'); } 
+									mouseleave: function() { $(this).css('color', 'black'); }
 								});
 							</code></pre>
 						</li>
-						<li><strong>.off()</strong>: Supprime un gestionnaire d'événement. 
+						<li><strong>.off()</strong>: Supprime un gestionnaire d'événement.
 							<pre><code class="javascript" data-trim="">
 								$('#monBouton').off('click');
 							</code></pre>
@@ -2287,13 +2287,13 @@
 				</section>
 
 				<section>
-					<h2>Gestion des événement avec jQuery: Délégation</h2>
+					<h2>Gestion des événements avec jQuery: Délégation</h2>
 					<ul>
 						<li>La délégation consiste à définir des gestionnaires d'événements pour des éléments, mais au niveau de leur parent</li>
 						<li>Le gestionnaire d'événement s'appliquera ainsi à tous les enfants concernés, actuels et futurs!</li>
 						<li>Exemple: <p class="note" style="display: inline-block;">Source: jquery.com</p>
 							<pre><code class="java" data-trim>
-								$( "#list" ).on( "click", "a[href^='http']", 
+								$( "#list" ).on( "click", "a[href^='http']",
 									function( event ) {
 										$( this ).attr( "target", "_blank" );
 									}
@@ -2339,7 +2339,7 @@
 						<h2>Exemple de requête PUT avec <code>.ajax()</code></h2>
 						<pre style="min-height: 80%;"><code class="javascript" data-trim="">
 							$.ajax({
-								url: 'https://monapi.com/utilisateurs/123', 
+								url: 'https://monapi.com/utilisateurs/123',
 								type: 'PUT',
 								data: JSON.stringify({
 									nom: 'Valjean',
@@ -2352,29 +2352,29 @@
 								//Fonction de rappel exécutée (async) en cas de succès
 								success: function(response) {
 									// Traitement en cas de succès
-									// Supposons que la réponse contienne un objet utilisateur 
+									// Supposons que la réponse contienne un objet utilisateur
 									// mis à jour, avec un attribut 'message' de confirmation
 									console.log("Mise à jour réussie:", response.message);
 
 									// Affiche également le nom et le prénom mis à jour
-									console.log("Informations mises à jour:", response.nom, 
+									console.log("Informations mises à jour:", response.nom,
 													response.prenom);
 
-									// Par exemple, si vous voulez mettre à jour le contenu 
-									// d'un élément HTML 
+									// Par exemple, si vous voulez mettre à jour le contenu
+									// d'un élément HTML
 									$('#infoUtilisateur').html('<p>Mise à jour réussie: '
-													+ response.message + 
-													+ '. Nom: ' 
-													+ response.nom 
-													+ ', Prénom: ' 
-													+ response.prenom 
+													+ response.message +
+													+ '. Nom: '
+													+ response.nom
+													+ ', Prénom: '
+													+ response.prenom
 													+ '.</p>');
 								},
 								//Fonction de rappel (async) exécutée en cas d'erreur
 								error: function(xhr, status, error) {
 									// Traitement en cas d'échec
-									console.error("Erreur lors de la mise à jour", 
-										status, 
+									console.error("Erreur lors de la mise à jour",
+										status,
 										error);
 								}
 							});
@@ -2394,19 +2394,19 @@
 								<li class="plan-visited">Éléments de base du langage</li>
 								<li class="plan-visited">Manipulation du DOM</li>
 								<li class="plan-visited">Programmation événementielle</li>
-								<li class="plan-current">Cadriciels et librairies: JQuery et Axios</li>
+								<li class="plan-current">Cadriciels et bibliothèques: jQuery et Axios</li>
 							</ul>
 						</div>
 						<div class="col sous-menu">
 							<ul style="margin-top :20px">
-								<li class="plan-visited">Qu'est-ce que JQuery?</li>
+								<li class="plan-visited">Qu'est-ce que jQuery?</li>
 								<li class="plan-visited">Installation de jQuery</li>
 								<li class="plan-visited">Sélecteurs</li>
 								<li class="plan-visited">Manipulation du DOM</li>
 								<li class="plan-visited">Gestion des événements</li>
 								<li class="plan-visited">Effets et animations</li>
 								<li class="plan-visited">Requêtes AJAX</li>
-								<li>La librairie Axios</li>
+								<li>La bibliothèque Axios</li>
 							</ul>
 						</div>
 					</div>
@@ -2439,8 +2439,8 @@
 							console.error(error);
 						});
 					</code></pre>
-					<p><strong>Note:</strong> Le contenu de response.data sera automatiquement traité et converti en fonction de 
-						l'entête <code>'Content-Type'</code> envoyée par le serveur</p>
+					<p><strong>Note:</strong> Le contenu de response.data sera automatiquement traité et converti en fonction de
+						l'en-tête <code>'Content-Type'</code> envoyé par le serveur</p>
 					<p class="note">Il n'est donc pas nécessaire de faire JSON.parse(response.data) si le Content-type est envoyé correctement par le serveur.</p>
 				</section>
 
@@ -2452,15 +2452,15 @@
 					<pre><code class="javascript" data-trim="">
 						axios.get('https://api.exemple.com/data-inexistante')
 						.then(function (response) {
-							// Ce code ne sera pas exécuté si le serveur répond avec 
+							// Ce code ne sera pas exécuté si le serveur répond avec
 							// un statut d'erreur (non 2xx)
 							console.log("Réponse réussie:", response.data);
 						})
 						.catch(function (error) {
-							// Ce code est exécuté si le serveur répond avec un 
+							// Ce code est exécuté si le serveur répond avec un
 							// statut d'erreur (non 2xx)
 							if (error.response) {
-								// La requête a été faite et le serveur a répondu 
+								// La requête a été faite et le serveur a répondu
 								// avec un statut d'erreur
 								console.log("Erreur! Statut:", error.response.status);
 							} else if (error.request) {
@@ -2468,7 +2468,7 @@
 								// n'a été reçue
 								console.log("Erreur de requête:", error.request);
 							} else {
-								// Une erreur s'est produite lors de la mise en 
+								// Une erreur s'est produite lors de la mise en
 								// place de la requête
 								console.log("Erreur:", error.message);
 							}
@@ -2488,7 +2488,7 @@
 						})
 						.catch(function (error) {
 							console.error(error);
-						});						
+						});
 					</code></pre>
 				</section>
 
@@ -2504,7 +2504,7 @@
 						})
 						.catch(function (error) {
 							console.error(error);
-						});											  
+						});
 					</code></pre>
 				</section>
 
@@ -2517,7 +2517,7 @@
 						})
 						.catch(function (error) {
 							console.error(error);
-						});									  
+						});
 					</code></pre>
 				</section>
 
@@ -2528,15 +2528,15 @@
 			</div>
 		</div>
 
-		
 
-		
+
+
 		<script src="../revealjs/reveal.js"></script>
 		<script src="../revealjs/plugin/notes/notes.js"></script>
 		<script src="../revealjs/plugin/markdown/markdown.js"></script>
 		<script src="../revealjs/plugin/highlight/highlight.js"></script>
 		<script src="../revealjs/plugin/menu/menu.js"></script>
-		
+
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -2545,8 +2545,8 @@
 				hash: true,
 				slideNumber: true,
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMenu ], 
-				
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMenu ],
+
 				menu: {
 					side: 'left',
 					width: 'wide', //'normal', 'wide', 'third', 'half', 'full', or css valid length
@@ -2573,7 +2573,7 @@
 		<script src="../timeline/js/timeline.min.js"></script>
 		<script>
 			timeline(document.querySelectorAll('.timeline'));
-			
+
 			Reveal.on( 'slidechanged', event => {
 			// event.previousSlide, event.currentSlide, event.indexh, event.indexv
 				let panel = document.getElementById("slide_nb");
@@ -2583,9 +2583,9 @@
 				} else {
 					panel.style.display="none";
 				}
-				
-				
-			} );			
+
+
+			} );
 		</script>
 		<script src="./ch4.js"></script>
 		<script src="../tree.jquery.js"></script>

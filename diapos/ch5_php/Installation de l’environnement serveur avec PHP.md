@@ -24,4 +24,4 @@ docker-compose down
 ## Validation de l’installation:
 
 1. Dans un navigateur, saisir l’URL suivante: http://localhost:8080. Vous deviez obtenir le site de gestion de la base de données PhpMyAdmin
-2. Dans un navigateur, saisir l’URL suivante: http://localhost:8000. Vous obtiendrez la page index.html de votre site web. Si vous obtenez la page “Forbidden”, votre installation fonctionne, vous n’avez simplement pas de document index.html ou index.php dans votre dossier de projet.
+2. Dans un navigateur, saisir l’URL suivante: http://localhost:8000. Vous obtiendrez la page index.html de votre site Web. Si vous obtenez la page “Forbidden”, votre installation fonctionne, vous n’avez simplement pas de document index.html ou index.php dans votre dossier de projet.

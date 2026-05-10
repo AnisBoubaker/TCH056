@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=1024" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
-    
+
     <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
     <meta name="author" content="Bartek Szopka" />
 
@@ -14,7 +14,7 @@
 
     <link href="../impress/impress-demo.css" rel="stylesheet" />
     <link href="../impress/impress-common.css" rel="stylesheet" />
-    
+
     <link rel="shortcut icon" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 </head>
@@ -29,20 +29,20 @@
 
 <div id="impress"
     data-transition-duration="1000"
-    
+
     data-width="1024"
     data-height="768"
     data-max-scale="3"
     data-min-scale="0"
     data-perspective="1000"
-    
+
     data-autoplay="0">
 
 
     <div id="titre_pres" class="step" data-x="2000" data-y="-500" data-autoplay="0"  data-scale="4" data-rotate="90">
         <h1>Le Web...<br /> Ça fonctionne comment au juste?</h1>
     </div>
-   
+
     <div id="url_saisie" class="step slide" data-x="1000" data-y="-2000" data-autoplay="0" >
         <q>
             <ol>
@@ -58,7 +58,7 @@
 
     <div class="step slide" data-x="0" data-y="-2000">
         <q>
-            La requête est transmise au serveur selon le prototocole HTTP qui décrit ce qui est demandé au serveur comme action. 
+            La requête est transmise au serveur selon le prototocole HTTP qui décrit ce qui est demandé au serveur comme action.
             <img src="./images/http_get_request.png" style="width: 100%;height: auto;">
         </q>
     </div>
@@ -69,7 +69,7 @@
 
     <div class="step slide" data-x="-1000" data-y="-2000">
         <q>
-            Le serveur reçoit la requête et retourne une réponse HTTP contenant la ressource demandée. 
+            Le serveur reçoit la requête et retourne une réponse HTTP contenant la ressource demandée.
         </q>
     </div>
 
@@ -84,7 +84,7 @@
 
     <div class="step slide" data-x="-1500" data-y="0" data-z="0">
         <q>
-            La réponse obtenue peut nécessiter d'autres ressources: des images, des scripts qui décrivent le formattage ou l'interactivité de la page, des données, ... 
+            La réponse obtenue peut nécessiter d'autres ressources: des images, des scripts qui décrivent le formatage ou l'interactivité de la page, des données, ...
         </q>
     </div>
 
@@ -113,7 +113,7 @@
     <p>Cliquez sur la page pour activer l'animation, puis utilisez la barre d'espacement pour naviguer.</p>
 </div>
 <script>
-if ("ontouchstart" in document.documentElement) { 
+if ("ontouchstart" in document.documentElement) {
     document.querySelector(".hint").innerHTML = "<p>Swipe left or right to navigate</p>";
 }
 </script>
@@ -125,5 +125,4 @@ if ("ontouchstart" in document.documentElement) {
 
 </body>
 </html>
-
 

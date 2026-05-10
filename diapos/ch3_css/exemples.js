@@ -1,5 +1,5 @@
 exemples = [
-    { //Exemple 0: 
+    { //Exemple 0:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -35,9 +35,9 @@ exemples = [
         }],
         links: [],
         selected: 'app.css'
-    }, 
+    },
 
-    { //Exemple 1: 
+    { //Exemple 1:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -58,7 +58,7 @@ exemples = [
     position: relative;
     left: 3rem;
     top: -2rem;
-    /* Remarquez que l'espace normalement occupé par le div selon 
+    /* Remarquez que l'espace normalement occupé par le div selon
     le flux normal reste réservé, mais vide.*/
 }
 
@@ -78,16 +78,16 @@ exemples = [
         }],
         links: [],
         selected: 'app.css'
-    }, 
+    },
 
-    { //Exemple 2: 
+    { //Exemple 2:
         files: [ {
             name: 'app.css',
             editable : true,
             content: `
 .boxes{
     border: 3px solid lightgrey;
-    /*IMPORTANT: Le conteneur doit avoir une position relative pour que le 
+    /*IMPORTANT: Le conteneur doit avoir une position relative pour que le
     positionnement absolute fonctionne!*/
     position: relative;
 }
@@ -104,7 +104,7 @@ exemples = [
     position: absolute;
     right: 0;
     bottom: 0;
-    /* Remarquez que l'espace normalement occupé par le div selon 
+    /* Remarquez que l'espace normalement occupé par le div selon
     le flux normal n'est PAS réservé.*/
 }
 
@@ -126,7 +126,7 @@ exemples = [
         selected: 'app.css'
     },
 
-    { //Exemple 3: 
+    { //Exemple 3:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -178,7 +178,7 @@ exemples = [
         selected: 'app.css'
     } ,
 
-    { //Exemple 4: 
+    { //Exemple 4:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -196,25 +196,25 @@ exemples = [
             content: `
 <div class="conteneur">
     <div class="une_image"></div>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-    Libero necessitatibus adipisci tempore distinctio nisi, quidem 
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Libero necessitatibus adipisci tempore distinctio nisi, quidem
     animi numquam et molestias alias hic nemo facilis atque amet a
-    similique maiores quisquam consequatur saepe sunt. Distinctio 
-    libero aperiam totam commodi alias, modi temporibus quis quas? 
-    Ratione quos assumenda ut at exercitationem nemo quibusdam officia tempore, 
-    fugiat aspernatur recusandae voluptatem velit, blanditiis a sed minima suscipit 
-    aliquam soluta autem nihil fugit veniam doloribus? Porro architecto officiis cumque 
-    odit cum nisi et eligendi, possimus, consequatur ratione, eveniet dicta error itaque. 
-    Provident nobis eum beatae rerum laboriosam dolorum voluptate, necessitatibus 
-    sed tempore quas architecto odio omnis qui quo minus maiores rem praesentium 
-    optio ea dolores! Sed, consequatur amet. Veniam distinctio voluptate ipsam ad 
-    voluptates ducimus minima dolorem sed magnam earum placeat perferendis sint quis 
-    quidem, minus et voluptatibus? Nesciunt cum perspiciatis, praesentium earum impedit 
-    esse numquam odit rerum modi dolore possimus animi illo exercitationem. Animi aut 
-    voluptate optio. Nisi quidem laboriosam modi enim esse quo necessitatibus, 
-    quisquam odit! Autem adipisci eaque maiores impedit alias nobis quo eum reiciendis, 
-    ab explicabo sapiente id doloribus, atque quia molestias voluptatibus. 
-    Magnam accusamus voluptates, inventore, modi dolores debitis praesentium 
+    similique maiores quisquam consequatur saepe sunt. Distinctio
+    libero aperiam totam commodi alias, modi temporibus quis quas?
+    Ratione quos assumenda ut at exercitationem nemo quibusdam officia tempore,
+    fugiat aspernatur recusandae voluptatem velit, blanditiis a sed minima suscipit
+    aliquam soluta autem nihil fugit veniam doloribus? Porro architecto officiis cumque
+    odit cum nisi et eligendi, possimus, consequatur ratione, eveniet dicta error itaque.
+    Provident nobis eum beatae rerum laboriosam dolorum voluptate, necessitatibus
+    sed tempore quas architecto odio omnis qui quo minus maiores rem praesentium
+    optio ea dolores! Sed, consequatur amet. Veniam distinctio voluptate ipsam ad
+    voluptates ducimus minima dolorem sed magnam earum placeat perferendis sint quis
+    quidem, minus et voluptatibus? Nesciunt cum perspiciatis, praesentium earum impedit
+    esse numquam odit rerum modi dolore possimus animi illo exercitationem. Animi aut
+    voluptate optio. Nisi quidem laboriosam modi enim esse quo necessitatibus,
+    quisquam odit! Autem adipisci eaque maiores impedit alias nobis quo eum reiciendis,
+    ab explicabo sapiente id doloribus, atque quia molestias voluptatibus.
+    Magnam accusamus voluptates, inventore, modi dolores debitis praesentium
     aliquam perferendis eveniet, porro culpa animi tenetur vitae dolorem veniam incidunt.</p>
 </div>
             `
@@ -223,7 +223,7 @@ exemples = [
         selected: 'app.css'
     } ,
 
-    { //Exemple 5: 
+    { //Exemple 5:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -234,7 +234,7 @@ exemples = [
     display: flex;
     flex-direction: row;
     justify-content: flex-start; /* Valeur par défaut */
-    /*Expérimentez avec les valeurs: 
+    /*Expérimentez avec les valeurs:
     - flex-start
     - flex-end
     - center
@@ -244,7 +244,7 @@ exemples = [
 }
 .boite{
     width: 5rem;
-    height: 5rem; 
+    height: 5rem;
     margin: 10px;
     background-color: gold;
 }
@@ -263,7 +263,7 @@ exemples = [
         selected: 'app.css'
     } ,
 
-    { //Exemple 6: 
+    { //Exemple 6:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -274,9 +274,9 @@ exemples = [
     border: 1px solid lightcoral;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     align-items: start;
-    /* Expérimentez avec les valeurs: 
+    /* Expérimentez avec les valeurs:
     - start
     - end
     - center
@@ -304,7 +304,7 @@ exemples = [
         selected: 'app.css'
     } ,
 
-    { //Exemple 7: 
+    { //Exemple 7:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -315,7 +315,7 @@ exemples = [
     border: 1px solid lightcoral;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     align-items: center;
 }
 .boite{
@@ -343,7 +343,7 @@ exemples = [
         selected: 'app.css'
     },
 
-    { //Exemple 8: 
+    { //Exemple 8:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -354,11 +354,11 @@ exemples = [
     border: 1px solid lightcoral;
     display: flex;
     flex-direction: row;
-    justify-content: center; 
+    justify-content: center;
     align-items: start;
     /* Décommentez et expérimentez avec les lignes ci-dessous */
     /*
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     align-content: center;
     */
 }
@@ -389,7 +389,7 @@ exemples = [
         selected: 'app.css'
     } ,
 
-    { //Exemple 9: 
+    { //Exemple 9:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -400,11 +400,11 @@ exemples = [
     border: 1px solid lightcoral;
     display: flex;
     flex-direction: row;
-    justify-content: center; 
+    justify-content: center;
     align-items: start;
 }
 .boite{
-    /* Remarquez que les boites font 10rem de large,
+    /* Remarquez que les boîtes font 10rem de large,
     bien que width spécifie 5rem.*/
     flex-basis: 10rem;
     width: 5rem;
@@ -427,7 +427,7 @@ exemples = [
         selected: 'app.css'
     },
 
-    { //Exemple 10: 
+    { //Exemple 10:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -438,11 +438,11 @@ exemples = [
     border: 1px solid lightcoral;
     display: flex;
     flex-direction: row;
-    justify-content: center; 
+    justify-content: center;
     align-items: start;
 }
 .boite{
-    /* Remarquez que les boites font 10rem de large,
+    /* Remarquez que les boîtes font 10rem de large,
     bien que width spécifie 5rem.*/
     flex-basis: 3rem;
     width: 5rem;
@@ -480,7 +480,7 @@ exemples = [
         selected: 'app.css'
     },
 
-    { //Exemple 11: 
+    { //Exemple 11:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -518,7 +518,7 @@ exemples = [
         selected: 'app.css'
     },
 
-    { //Exemple 12: 
+    { //Exemple 12:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -526,8 +526,8 @@ exemples = [
 .conteneur{
     border: 1px solid lightcoral;
     display: grid;
-    grid-template: 5rem 20rem 5rem / 20% 80%; 
-    
+    grid-template: 5rem 20rem 5rem / 20% 80%;
+
     /* Notez que la valeur par défaut ici c'est stretch, ce qui grossit
     l'élément pour atteindre la taille de la cellule (sauf si l'élément a
     une taille déjà définie.) */
@@ -541,8 +541,8 @@ exemples = [
     font-weight: bold;
     text-align: center;
     border: 1px solid black;
-    
-    /* Il est aussi possible de le faire l'alignement directement dans 
+
+    /* Il est aussi possible de faire l'alignement directement dans
     la cellule concernée avec ces deux déclarations */
     /*justify-self: center;
     align-self: center;*/
@@ -565,7 +565,7 @@ exemples = [
         selected: 'app.css'
     } ,
 
-    { //Exemple 13: 
+    { //Exemple 13:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -574,12 +574,12 @@ exemples = [
     border: 1px solid lightcoral;
     display: grid;
     height: 35rem;
-    grid-template: 5rem 20rem 5rem / 20% 40%; 
-    
+    grid-template: 5rem 20rem 5rem / 20% 40%;
+
     justify-items: center;
     align-items: end;
 
-    /* Utilisez l'inspecteur pour afficher l'overlay de la grille 
+    /* Utilisez l'inspecteur pour afficher l'overlay de la grille
     pour bien apprécier ce qui se passe */
     justify-content: center;
     align-content: top;
@@ -610,7 +610,7 @@ exemples = [
         selected: 'app.css'
     },
 
-    { //Exemple 14: 
+    { //Exemple 14:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -620,19 +620,19 @@ exemples = [
     border: 1px solid lightcoral;
     display: grid;
     grid-template-rows: 5rem 20rem 5rem;
-    /* 
+    /*
     Constatez que la grille dépasse les limtes du conteneur
     (qui a un bord couleur corail)
     Remplacez les % par des fr et observez
     le résultat*/
-    grid-template-columns: 100px 20% 80%; 
+    grid-template-columns: 100px 20% 80%;
 }
 .boite{
     background-color: gold;
     font-weight: bold;
     text-align: center;
     border: 1px solid black;
-}    
+}
             `
         }, {
             name: 'app.html',
@@ -651,7 +651,7 @@ exemples = [
         selected: 'app.css'
     } ,
 
-    { //Exemple 15: 
+    { //Exemple 15:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -661,14 +661,14 @@ exemples = [
     border: 1px solid lightcoral;
     display: grid;
     grid-template-rows: 5rem 20rem 5rem;
-    grid-template-columns: 100px 20fr 80fr; 
+    grid-template-columns: 100px 20fr 80fr;
 }
 .boite{
     background-color: gold;
     font-weight: bold;
     text-align: center;
     border: 1px solid black;
-}    
+}
 
 .boite-a{
     grid-column: 2 / 4;
@@ -692,7 +692,7 @@ exemples = [
         selected: 'app.css'
     } ,
 
-    { //Exemple 16: 
+    { //Exemple 16:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -702,8 +702,8 @@ exemples = [
     border: 1px solid lightcoral;
     display: grid;
     grid-template-rows: 4rem auto 4rem;
-    grid-template-columns: 100px 80fr 20fr; 
-    grid-template-areas: 
+    grid-template-columns: 100px 80fr 20fr;
+    grid-template-areas:
         "entete entete    entete"
         "menu   principal connexe"
         "bas    bas       connexe"
@@ -713,7 +713,7 @@ exemples = [
     font-weight: bold;
     text-align: center;
     border: 1px solid black;
-}    
+}
 
 .entete{
     grid-area: entete;
@@ -747,7 +747,7 @@ exemples = [
         selected: 'app.css'
     },
 
-    { //Exemple 17: 
+    { //Exemple 17:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -757,8 +757,8 @@ exemples = [
     border: 1px solid lightcoral;
     display: grid;
     grid-template-rows: 4rem auto 4rem;
-    grid-template-columns: 100px 80fr 20fr; 
-    grid-template-areas: 
+    grid-template-columns: 100px 80fr 20fr;
+    grid-template-areas:
         "entete entete    entete"
         "menu   principal connexe"
         "bas    bas       connexe"
@@ -768,7 +768,7 @@ exemples = [
     font-weight: bold;
     text-align: center;
     border: 1px solid black;
-}    
+}
 
 .entete{
     grid-area: entete;
@@ -819,7 +819,7 @@ exemples = [
         selected: 'app.css'
     }  ,
 
-    { //Exemple 18: 
+    { //Exemple 18:
         files: [ {
             name: 'app.css',
             editable : true,
@@ -831,8 +831,8 @@ exemples = [
         border: 1px solid lightcoral;
         display: grid;
         grid-template-rows: 4rem auto auto auto 4rem;
-        grid-template-columns: auto; 
-        grid-template-areas: 
+        grid-template-columns: auto;
+        grid-template-areas:
             "entete"
             "principal"
             "menu"
@@ -844,7 +844,7 @@ exemples = [
         font-weight: bold;
         text-align: center;
         border: 1px solid black;
-    }    
+    }
 
     .entete{
         grid-area: entete;
@@ -881,8 +881,8 @@ exemples = [
         border: 1px solid lightcoral;
         display: grid;
         grid-template-rows: 4rem auto 4rem;
-        grid-template-columns: 100px 80fr 20fr; 
-        grid-template-areas: 
+        grid-template-columns: 100px 80fr 20fr;
+        grid-template-areas:
             "entete entete    entete"
             "menu   principal connexe"
             "bas    bas       connexe"
@@ -892,7 +892,7 @@ exemples = [
         font-weight: bold;
         text-align: center;
         border: 1px solid black;
-    }    
+    }
 
     .entete{
         grid-area: entete;
@@ -922,7 +922,7 @@ exemples = [
     .pied-page{
         grid-area: bas;
     }
-}         
+}
             `
         }, {
             name: 'app.html',
@@ -945,13 +945,13 @@ exemples = [
     <aside class="zone-page connexe">Liens et informations connexes à la page</aside>
     <div class="zone-page pied-page">Pied de page</div>
 </div>
-            
+
             `
         }],
         links: [],
         selected: 'app.css'
     }  ,
-    { //Exemple 19: (Exercice 1) 
+    { //Exemple 19: (Exercice 1)
         files: [ {
             name: 'app.css',
             editable : true,
@@ -971,7 +971,7 @@ exemples = [
     <li>Élément 3</li>
 </ul>
 <button id="bouton-action">Cliquez ici</button>
-            
+
             `
         },{
             name: 'instructions.txt',
@@ -983,7 +983,7 @@ Questions :
 
 1) Sélectionnez le <h1> par son ID et changez sa couleur en "violet".
 2) Appliquez une marge de "15px" à tous les paragraphes <p>.
-3) Utilisez un sélecteur de classe pour colorer le texte du paragraphe 
+3) Utilisez un sélecteur de classe pour colorer le texte du paragraphe
 avec la classe "alerte" en "orange".
 4) Donnez une couleur de fond "gris clair" à tous les éléments de liste <li>.
 5) Sélectionnez le bouton par son ID et changez son texte en gras.
@@ -993,7 +993,7 @@ avec la classe "alerte" en "orange".
         links: [],
         selected: 'instructions.txt'
     } ,
-    { //Exemple 20: (Exercice 2) 
+    { //Exemple 20: (Exercice 2)
         files: [ {
             name: 'app.css',
             editable : true,
@@ -1019,7 +1019,7 @@ avec la classe "alerte" en "orange".
         </ul>
     </div>
 </div>
-<p>Ceci est un paragraphe en dehors de .conteneur.</p>            
+<p>Ceci est un paragraphe en dehors de .conteneur.</p>
             `
         },{
             name: 'instructions.txt',
@@ -1029,29 +1029,29 @@ avec la classe "alerte" en "orange".
 
 Questions :
 
-1) Utilisez un sélecteur descendant pour changer la couleur 
-du texte de tous les <p> à l'intérieur de la classe .conteneur 
+1) Utilisez un sélecteur descendant pour changer la couleur
+du texte de tous les <p> à l'intérieur de la classe .conteneur
 en bleu.
 
-2) Appliquez une bordure de 1px en pointillés aux <ul> qui 
+2) Appliquez une bordure de 1px en pointillés aux <ul> qui
 sont des descendants directs de .sous-section.
 
-3) Changez la couleur de fond de tous les <li> qui sont des 
+3) Changez la couleur de fond de tous les <li> qui sont des
 descendants de .sous-section en jaune clair.
 
-4) Utilisez un sélecteur descendant pour changer la couleur 
-du texte de tous les <li> à l'intérieur des sous-listes <ul> 
+4) Utilisez un sélecteur descendant pour changer la couleur
+du texte de tous les <li> à l'intérieur des sous-listes <ul>
 de .sous-section en rouge.
 
-5) Assurez-vous que le <p> qui est en dehors de .conteneur 
-ne soit pas affecté par les styles appliqués aux <p> à 
+5) Assurez-vous que le <p> qui est en dehors de .conteneur
+ne soit pas affecté par les styles appliqués aux <p> à
 l'intérieur de .conteneur.
             `
         }],
         links: [],
         selected: 'instructions.txt'
     },
-    { //Exemple 21: (Exercice 3) 
+    { //Exemple 21: (Exercice 3)
         files: [ {
             name: 'app.css',
             editable : true,
@@ -1079,21 +1079,21 @@ l'intérieur de .conteneur.
 
 Questions :
 
-1) Utilisez le sélecteur de frère adjacent (+) pour changer la 
-couleur du paragraphe qui suit immédiatement un paragraphe avec 
+1) Utilisez le sélecteur de frère adjacent (+) pour changer la
+couleur du paragraphe qui suit immédiatement un paragraphe avec
 la classe "important" en vert.
 
-2) Appliquez un style aux liens (<a>) qui s'ouvrent dans un nouvel 
+2) Appliquez un style aux liens (<a>) qui s'ouvrent dans un nouvel
 onglet (attribut target="_blank") pour qu'ils soient en gras.
 
-3) Changez la couleur du premier élément de la liste (<li>) en rouge 
+3) Changez la couleur du premier élément de la liste (<li>) en rouge
 en utilisant une pseudo-classe.
             `
         }],
         links: [],
         selected: 'instructions.txt'
     },
-    { //Exemple 22: (Exercice 4) 
+    { //Exemple 22: (Exercice 4)
         files: [ {
             name: 'app.css',
             editable : true,
@@ -1120,20 +1120,20 @@ en utilisant une pseudo-classe.
 
 Questions :
 
-1) Utilisez le sélecteur de frère général (~) pour changer 
+1) Utilisez le sélecteur de frère général (~) pour changer
 la couleur de tous les paragraphes suivant le <h2> en orange.
 
-2) Appliquez un style au paragraphe avec la classe "special" 
+2) Appliquez un style au paragraphe avec la classe "special"
 pour qu'il ait une bordure en pointillés.
 
-3) Changez la couleur du texte du label lorsque la case à cocher 
+3) Changez la couleur du texte du label lorsque la case à cocher
 associée est cochée (utilisez une pseudo-classe).
             `
         }],
         links: [],
         selected: 'instructions.txt'
     } ,
-    { //Exemple 23: (Exercice 5) 
+    { //Exemple 23: (Exercice 5)
         files: [ {
             name: 'app.css',
             editable : true,
@@ -1156,27 +1156,27 @@ associée est cochée (utilisez une pseudo-classe).
 
 Questions :
 
-0) Donnez une couleur de fond "lightcoral" aux 
-boites (box) de la page. 
+0) Donnez une couleur de fond "lightcoral" aux
+boîtes (box) de la page.
 
 
-1) Faites en sorte que .flex-container soit un 
+1) Faites en sorte que .flex-container soit un
 conteneur Flexbox.
 
-2) Utilisez justify-content pour répartir les 
+2) Utilisez justify-content pour répartir les
 boîtes (box) de manière égale dans le conteneur.
 
-3) Appliquez align-items pour aligner les boîtes 
+3) Appliquez align-items pour aligner les boîtes
 au centre du conteneur sur l'axe orthogonal.
 
-4) Définissez flex-basis pour la deuxième boîte 
+4) Définissez flex-basis pour la deuxième boîte
 (Boîte 2) à 200px.
             `
         }],
         links: [],
         selected: 'instructions.txt'
     },
-    { //Exemple 24: (Exercice 6) 
+    { //Exemple 24: (Exercice 6)
         files: [ {
             name: 'app.css',
             editable : true,
@@ -1200,23 +1200,23 @@ au centre du conteneur sur l'axe orthogonal.
 
 Questions :
 
-1) Transformez .grid-container en un conteneur de grille 
+1) Transformez .grid-container en un conteneur de grille
 avec deux colonnes et trois lignes.
 
-2) Utilisez grid-template-areas pour structurer la grille 
+2) Utilisez grid-template-areas pour structurer la grille
 de la manière suivante :
 
-  a. La première ligne contient l'en-tête (header) qui 
+  a. La première ligne contient l'en-tête (header) qui
   s'étend sur deux colonnes.
 
-  b. La deuxième ligne contient la barre latérale (sidebar) 
-  dans la première colonne et le contenu principal (main-content) 
+  b. La deuxième ligne contient la barre latérale (sidebar)
+  dans la première colonne et le contenu principal (main-content)
   dans la seconde.
 
-  c. La troisième ligne contient le pied de page (footer) qui 
+  c. La troisième ligne contient le pied de page (footer) qui
   s'étend sur deux colonnes.
 
-3) Assurez-vous que chaque zone de la grille correspond à sa 
+3) Assurez-vous que chaque zone de la grille correspond à sa
 classe respectivement nommée (par exemple, la zone "header" pour l'en-tête).
             `
         }],
@@ -1225,4 +1225,4 @@ classe respectivement nommée (par exemple, la zone "header" pour l'en-tête).
     }
 ]
 
-    
+

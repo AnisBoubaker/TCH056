@@ -43,8 +43,8 @@
    // Création d'un hash du mot de passe en utilisant l'algorithme de hachage par défaut
    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
    ```
-3. Si le nom d'utilisateur existe déjà, l'insertion de l'usager echéoura (contrainte d'unicité ). Traitez cette erreur en affichant un message d'erreur dans la balise `div` prévue pour cet effet. Le nom d'usager (erronné) déjà saisi doit apparaitre dans le `input` correspondant.
-4. Si l'ajout du nouvel usager a fonctionné, rediriger vers la page d'authentification. Pour rediriger vers une page, ajoutez une en-tête à la réponse HTTP avec la fonction `header`:
+3. Si le nom d'utilisateur existe déjà, l'insertion de l'usager échouera (contrainte d'unicité). Traitez cette erreur en affichant un message d'erreur dans la balise `div` prévue à cet effet. Le nom d'usager (erroné) déjà saisi doit apparaître dans le `input` correspondant.
+4. Si l'ajout du nouvel usager a fonctionné, redirigez vers la page d'authentification. Pour rediriger vers une page, ajoutez un en-tête à la réponse HTTP avec la fonction `header`:
    ```php
    header("Location: page_de_redirection.php");
    exit;
@@ -53,11 +53,11 @@
 ## D. Authentification
 
 1. Modifiez la page de login pour traiter les données d'authentification reçues par la méthode `POST`
-2. Si le couple nom d'utilisateur et mot de passe sont valides, ajouter le champs `usager` à la session et rediriger l'usager vers la page d'acceuil de l'application (`index.php`)
-3. Si l'authentification échoue, affichez un message d'erreur dans la balise `div` prévue à cet effet et pré-remplir le nom d'usager reçu dans le champs texte correspondant.
+2. Si le couple nom d'utilisateur et mot de passe est valide, ajoutez le champ `usager` à la session et redirigez l'usager vers la page d'accueil de l'application (`index.php`)
+3. Si l'authentification échoue, affichez un message d'erreur dans la balise `div` prévue à cet effet et préremplissez le nom d'usager reçu dans le champ texte correspondant.
 
 ## E. Page du babillard
 
 1. Modifiez vos scripts pour que la page `index.php` ne s'affiche que si la personne est authentifiée. Si ce n'est pas le cas, l'usager doit être redirigé vers la page d'authentification.
 
-2. Présentement, les PostIts affichés sont prédéfinis dans une variable Javascript `postIts`. Modifiez le code de sorte que le contenu de cette variable provienne de la base de données et que seuls les PostIts de la personne authentifiée soient affichés.
+2. Présentement, les PostIts affichés sont prédéfinis dans une variable JavaScript `postIts`. Modifiez le code de sorte que le contenu de cette variable provienne de la base de données et que seuls les PostIts de la personne authentifiée soient affichés.
