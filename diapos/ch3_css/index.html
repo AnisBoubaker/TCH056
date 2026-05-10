@@ -65,11 +65,11 @@
 
 
 				<section> 
-					<h2>CSS: <em>Cascade Style Sheet</em></h2>
+					<h2>CSS: <em>Cascading Style Sheets</em></h2>
 					<ul>
 						<li class="fragment">Feuille de style en cascade</li>
 						<li class="fragment">Langage permettant de définir l'apparence (le&nbsp;<em>style</em>) des éléments d'un document HTML.</li>
-						<li class="fragment">On s'intéresse à la <strong>présentation</strong> de la page WEB et non à son <strong>contenu/sémantique</strong>, ni à son <strong>comportement</strong> </li>
+						<li class="fragment">On s'intéresse à la <strong>présentation</strong> de la page Web et non à son <strong>contenu/sémantique</strong>, ni à son <strong>comportement</strong> </li>
 						<li class="fragment">Plusieurs styles (<em>règles</em>) peuvent s'appliquer "en&nbsp;cascade" au même élément HTML: l'algorithme de cascade lève l'ambiguïté</li>
 					</ul>
 				</section>
@@ -270,9 +270,9 @@
 					<h2>Le Document Object Model</h2>
 					<ul>
 						<li class="fragment">Le navigateur stocke les éléments d'une page Web sous forme d'arborescence en mémoire</li>
-						<li class="fragment">Cette représentation permet au navigateur d'analyser et de traiter le contenu la page en vue d'en faire le rendu à l'écran</li>
+						<li class="fragment">Cette représentation permet au navigateur d'analyser et de traiter le contenu de la page en vue d'en faire le rendu à l'écran</li>
 						<li class="fragment">Cette <strong>représentation mémoire de l'arborescence des éléments HTML</strong> d'une page est ce qu'on appelle le DOM (Document Object Model)</li>
-						<li class="fragment">Le DOM est accessible aux développeu.rs.ses pour cibler des éléments de la page (en CSS et en Javascript)
+						<li class="fragment">Le DOM est accessible aux développeurs et développeuses pour cibler des éléments de la page (en CSS et en JavaScript)
 					</ul>
 				</section>
 
@@ -441,7 +441,7 @@
 								<li class="">La déclaration
 									<ul>
 										<li>Stylage du texte</li>
-										<li>Stylage des boites et le modèle en boite</li>
+										<li>Stylage des boîtes et le modèle en boîte</li>
 										<li>Unités de mesure</li>
 										<li>L'héritage de styles</li>
 									</ul>
@@ -595,7 +595,7 @@
 				<section>
 					<h2>Sélecteurs combinés: Enfants</h2>
 					<ul>
-						<li><strong>A > B:</strong> Sélectionne tous les éléments sélectionnés pas B qui sont un 
+						<li><strong>A > B:</strong> Sélectionne tous les éléments sélectionnés par B qui sont un 
 						enfant (direct) d'un élément sélectionné par A.
 							<pre class="fragment"><code class="css" data-trim><script type="text/template">
 								/* Les liens qui sont un enfant direct d'un élément 
@@ -718,7 +718,7 @@
 
 				<section>
 					<h2>Sujet d'un sélecteur</h2>
-					<p><strong>Dans le cas d'un sélecteur combiné:</strong> Ce sont toujours les éléments correspond à <span class="highlight2">la partie la plus à droite</span> du sélecteur qui seront sélectionnés!</p>
+					<p><strong>Dans le cas d'un sélecteur combiné:</strong> Ce sont toujours les éléments correspondant à <span class="highlight2">la partie la plus à droite</span> du sélecteur qui seront sélectionnés!</p>
 					<pre class="fragment"><code class="css" data-trim><script type="text/template">
 						ul > li a[href*="etsmtl.ca"] { ... }	
 					</script></code></pre>
@@ -757,7 +757,7 @@
 								<li class="plan-current">La déclaration
 									<ul>
 										<li>Stylage du texte</li>
-										<li>Stylage des boites et le modèle en boite</li>
+										<li>Stylage des boîtes et le modèle en boîte</li>
 										<li>Valeurs: unités de mesure et couleurs</li>
 										<li>L'héritage de styles</li>
 									</ul>
@@ -824,11 +824,11 @@
 				</section>
 
 				<section>
-					<h2>Le modèle en boite</h2>
+					<h2>Le modèle en boîte</h2>
 					<p>Le rendu des éléments à l'écran s'effectue de deux manières:</p>
 					<ul>
 						<li><strong>En ligne:</strong> À la suite de l'élément qui le suit (le texte, les liens, les span, ...)</li>
-						<li><strong>En boite:</strong> Le contenu est encapsulé au sein d'une boite englobante qui se détache (par défaut) du flux normal du contenu (i.e. revient à la ligne)</li>
+						<li><strong>En boîte:</strong> Le contenu est encapsulé au sein d'une boîte englobante qui se détache (par défaut) du flux normal du contenu (i.e. revient à la ligne)</li>
 						<li>Il est possible d'altérer le style par défaut en modifiant la propriété <strong>display</strong>: <em>inline</em> ou <em>block</em>:
 							
 						</li>
@@ -838,9 +838,9 @@
 				</section>
 
 				<section>
-					<h2>Le modèle en boite</h2>
+					<h2>Le modèle en boîte</h2>
 					<pre style="width: 100%;"><code class="css" data-trim><script type="text/template">
-						a.en_boite {/* Un lien qui s'affiche en boite plutôt qu'en-ligne */
+						a.en_boite {/* Un lien qui s'affiche en boîte plutôt qu'en ligne */
 							display: block;
 							...
 						}
@@ -848,15 +848,15 @@
 				</section>
 
 				<section>
-					<h2>Structure d'une boite</h2>
+					<h2>Structure d'une boîte</h2>
 					<img src="./images/modeleBoite.jpeg" >
 					<p class="note">Source: Vincent De Oliveira, Formation Microsoft tech-days 2014</p>
 				</section>
 
 				<section>
-					<h2>Stylage de boites</h2>
+					<h2>Stylage de boîtes</h2>
 					<ul>
-						<li>Nous pouvons agir de façons indépendante sur chaque constituante de la boite:</li>
+						<li>Nous pouvons agir de façon indépendante sur chaque constituante de la boîte:</li>
 					</ul>
 					<pre style="width: 100%;"><code class="css" data-trim><script type="text/template">
 						p.beau_paragraphe {
@@ -1528,9 +1528,9 @@
 					<textarea data-template>
 						## Imbrication des positionnements
 						
-						* Il rare qu'une seule méthode de positionnement soit utilisée dans un document
+						* Il est rare qu'une seule méthode de positionnement soit utilisée dans un document
 						* Typiquement, on utilise un positionnement Grid au premier niveau et (certaines) 
-						cellules adoptent à leur tout un mécanisme de positionnement de leur propre contenu (grid, flex ou float).
+						cellules adoptent à leur tour un mécanisme de positionnement de leur propre contenu (grid, flex ou float).
 
 						>[Démonstration](./editeur.html?exemple=17)
 					</textarea>
@@ -1550,7 +1550,7 @@
 					<textarea data-template>
 						## Conception responsive: définition
 						
-						> approche de conception de sites web qui vise à créer des sites qui offrent une 
+						> approche de conception de sites Web qui vise à créer des sites qui offrent une 
 						excellente expérience utilisateur sur une variété d'appareils et de tailles d'écran.
 
 					
@@ -1662,9 +1662,9 @@
 						</div>
 						<div class="col sous-menu">
 							<ul>
-								<li>Librairies et cadriciels</li>
+								<li>Bibliothèques et cadriciels</li>
 								<li>Avantages et désavantages d'utilisation</li>
-								<li>La librairie BootStrap</li>
+								<li>La bibliothèque Bootstrap</li>
 								<li>Le pré-processeur SASS</li>
 							</ul>
 						</div>
@@ -1694,12 +1694,12 @@
 					<ul>
 						<li><strong>CSS:</strong> <a href="https://getbootstrap.com">Bootstrap</a>, 
 							<a href="https://tailwindcss.com">Tailwind</a>
-						<li><strong>Javascript:</strong> <a href="https://jquery.com">jQuery</a>, <a href="https://lodash.com">Lodash</a>, 
+						<li><strong>JavaScript:</strong> <a href="https://jquery.com">jQuery</a>, <a href="https://lodash.com">Lodash</a>, 
 							<a href="https://d3js.org">D3.js</a></li>
 						<li><strong>PHP:</strong> <a href="https://docs.guzzlephp.org">Guzzle</a>, 
 							<a href="https://image.intervention.io/v3">Intervention Image</a>, <a href="https://twig.symfony.com">Twig</a>, <a href="https://www.doctrine-project.org">Doctrine</a></li>
 					</ul>
-					<p>Les librairies sont omniprésentes, dans tous les langages</p>
+					<p>Les bibliothèques sont omniprésentes, dans tous les langages</p>
 				</section>
 
 				<section>
@@ -1716,7 +1716,7 @@
 					<ul>
 						<li><strong>Java:</strong> <a href="https://spring.io">Spring</a>, <a href="https://www.oracle.com/java/technologies/appmodel.html">J2EE</a>, 
 							<a href="https://struts.apache.org">Struts</a>, <a href="https://hibernate.org/orm/">Hibernate</a></li>
-						<li><strong>Développement Web FrontEnd:</strong> <a href="https://angular.io">Angular</a>, <a href="https://react.dev">React</a>, 
+						<li><strong>Développement Web front-end:</strong> <a href="https://angular.io">Angular</a>, <a href="https://react.dev">React</a>, 
 							<a href="https://vuejs.org">Vue.js</a>, <a href="https://svelte.dev">Svelte</a></li>
 						<li><strong>Développement Backend:</strong> <a href="https://expressjs.com">Express</a>, <a href="https://nextjs.org">NextJs</a>, 
 							<a href="https://www.djangoproject.com">Django</a>, <a href="https://flask.palletsprojects.com/en/3.0.x/">Flask</a>, 
@@ -1748,10 +1748,10 @@
 						</div>
 						<div class="col sous-menu">
 							<ul>
-								<li class="plan-visited">Librairies et cadriciels</li>
+								<li class="plan-visited">Bibliothèques et cadriciels</li>
 								<li class="plan-visited">Avantages et désavantages d'utilisation</li>
 								<li class="plan-current">Le pré-processeur SASS</li>
-								<li class="">La librairie BootStrap</li>
+								<li class="">La bibliothèque Bootstrap</li>
 							</ul>
 						</div>
 					</div>
@@ -1815,9 +1815,9 @@
 
 				<section>
 					<h2>Installation de SASS</h2>
-					<p>Plusieurs méthodes existent pour installer SASS, mais la plus commune et pratique est à travers NodeJs</p>
+					<p>Plusieurs méthodes existent pour installer SASS, mais la plus commune et pratique passe par Node.js</p>
 					<ol>
-						<li>Installer <a href="https://nodejs.org/en">NodeJs</a></li>
+						<li>Installer <a href="https://nodejs.org/en">Node.js</a></li>
 						<li>Exécuter la commande suivante dans un terminal: 
 							<pre><code class="shell" data-trim>
 								npm install -g sass
@@ -1830,15 +1830,15 @@
 							</code></pre>
 						</li>
 					</ol>
-					<p class="note">Un bug existe avec la version 21.0 de NodeJs. Si vous aviez déjà cette version, mettez à jour votre NodeJs.</p>
+					<p class="note">Un bug existe avec la version 21.0 de Node.js. Si vous aviez déjà cette version, mettez à jour votre installation de Node.js.</p>
 				</section>
 
 				<section>
 					<h2>Définition de variables</h2>
 					<ul>
-						<li>Les précompilateur comme SASS ont permis l'introduction de valeurs ré-utilisables</li>
+						<li>Les précompilateurs comme SASS ont permis l'introduction de valeurs réutilisables</li>
 						<li>Permettent d'avoir un point unique de définition d'une valeur et 
-							la ré-utiliser dans le reste du document - Utile pour la définition de thèmes</li>
+							la réutiliser dans le reste du document - Utile pour la définition de thèmes</li>
 					</ul>
 					<pre><code class="scss" data-trim>
 						$couleur-principale: #3478f7; // Bleu
@@ -1984,10 +1984,10 @@
 						</div>
 						<div class="col sous-menu">
 							<ul>
-								<li class="plan-visited">Librairies et cadriciels</li>
+								<li class="plan-visited">Bibliothèques et cadriciels</li>
 								<li class="plan-visited">Avantages et désavantages d'utilisation</li>
 								<li class="plan-visited">Le pré-processeur SASS</li>
-								<li class="plan-current">La librairie BootStrap</li>
+								<li class="plan-current">La bibliothèque Bootstrap</li>
 							</ul>
 						</div>
 					</div>
@@ -2004,7 +2004,7 @@
 
 				<section>
 					<h2>Installation et configuration</h2>
-					<p>Via CDN (Content Delivery Network): Inclure le script Javascript et la feuille de style de Bootstrap</p>
+					<p>Via CDN (Content Delivery Network): Inclure le script JavaScript et la feuille de style de Bootstrap</p>
 					<pre><code class="html" data-trim>
 						&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 						&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -2083,7 +2083,7 @@
 
 				<section>
 					<h2>Les points de rupture (<em>Breakpoints</em>)</h2>
-					Bootstrap prédéfinis 6 points de rupture: 
+					Bootstrap prédéfinit 6 points de rupture: 
 					<table>
 						<thead>
 							<tr><th>Point de rupture</th><th>Classe (col-*)</th><th>Dimensions</th></tr>
@@ -2104,8 +2104,8 @@
 					<section>
 						<h2>Utilisation des points de rupture</h2>
 						<ul>
-							<li>Un point de rupture détermine la largeur d'une boite pour les périphériques correspondants</li>
-							<li>Le point de rupture <code>col-md</code> s'applique donc à tous les périphériques d'au moins 768px de large (inclus lg, xl et xxl)</li>
+							<li>Un point de rupture détermine la largeur d'une boîte pour les périphériques correspondants</li>
+							<li>Le point de rupture <code>col-md</code> s'applique donc à tous les périphériques d'au moins 768px de large (incluant lg, xl et xxl)</li>
 							<li>Sur tous les périphériques ayant une taille inférieure, la colonne prendra toute la largeur</li>
 						</ul>
 						<p class="note">Naviguez vers le bas pour voir un exemple.</p>
@@ -2151,7 +2151,7 @@
 					<h2>Personnalisation - Espacement</h2>
 					<ul>
 						<li>Bootstrap fournit un ensemble de <em>Helper classes</em> pour personnaliser l'affichage</li>
-						<li>Il est possible de contrôler les mages (<code>m-</code>) le <em>padding</em> (<code>p-</code>) à l'aide de classes ayant ce format: <code>{type}{côté}-{taille}</code></code>, où:
+						<li>Il est possible de contrôler les marges (<code>m-</code>) et le <em>padding</em> (<code>p-</code>) à l'aide de classes ayant ce format: <code>{type}{côté}-{taille}</code>, où:
 							<pre><code class="html" data-trim><script type="text/template">
 								<div class="mx-3">Marge horiz. de taille 3 unités</div>
 								<div class="mp-md-3">Padding de taille 3 sur écrans md</div>
@@ -2170,7 +2170,7 @@
 					<h2>Personnalisation - couleurs et arrière plan</h2>
 					<ul>
 						<li>Des <a href="https://getbootstrap.com/docs/5.3/utilities/colors/">classes prédéfinies pour les couleurs</a> du texte (ex.: <code>text-primary</code>, <code>text-success</code>, <code>text-danger</code>)</li>
-						<li>Et <a href="https://getbootstrap.com/docs/5.3/utilities/background/">des classes pour prédéfinies pour l'arrière plan</a> (ex.: <code>bg-primary</code>, <code>bg-warning</code>, etc.)</li>
+						<li>Et <a href="https://getbootstrap.com/docs/5.3/utilities/background/">des classes prédéfinies pour l'arrière-plan</a> (ex.: <code>bg-primary</code>, <code>bg-warning</code>, etc.)</li>
 					</ul>
 					<pre><code class="html" data-trim><script type="text/template">
 						<div class="bg-primary text-white">
@@ -2191,10 +2191,10 @@
 				<section>
 					<h2>Les composants Bootstrap</h2>
 					<ul>
-						<li>Bootstrap est renommé pour sa vaste bibliothèque de composants réutilisables, qui permettent aux développeurs de construire rapidement des interfaces web riches et interactives.</li>
+						<li>Bootstrap est reconnu pour sa vaste bibliothèque de composants réutilisables, qui permettent aux développeurs de construire rapidement des interfaces Web riches et interactives.</li>
 						<li>Il suffit de copier/coller le modèle de composant et l'adapter au besoin.</li>
 						<li>Les composants incluent: les <a href="https://getbootstrap.com/docs/5.3/components/buttons/">boutons</a>, 
-							les <a href="https://getbootstrap.com/docs/5.3/components/buttons/">cartes</a>, 
+							les <a href="https://getbootstrap.com/docs/5.3/components/card/">cartes</a>, 
 							les <a href="https://getbootstrap.com/docs/5.3/components/carousel/">carroussels</a>, 
 							et bien d'autres</li>
 						<li>Consulter <a href="https://getbootstrap.com/docs/5.3/">la documentation de Bootstrap</a> comme référence pour les composants disponibles.</li>
