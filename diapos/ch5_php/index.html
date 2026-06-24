@@ -1007,7 +1007,7 @@
             );
             // Liaison des paramètres
             $requete->execute(); 
-            $ligne = $stmt->fetch(PDO::FETCH_ASSOC);
+            $ligne = $requete->fetch(PDO::FETCH_ASSOC);
             echo "Nom: ".$ligne['nom']." Prénom: ".$ligne['prenom'];
           </code></pre>
         </section>
