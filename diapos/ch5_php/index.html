@@ -1072,7 +1072,7 @@
               retournent pas de résultat, il suffit de faire
               <code>execute</code>
               <pre><code class="php" data-trim>
-                $req = "INSERT INTO etudiants (`nom`, `prenom`) 
+                $sql = "INSERT INTO etudiants (`nom`, `prenom`)
                         VALUES (:nom, :prenom)";
                 $req = $conn->prepare($sql);
                 $req->bindParam(':nom', $leNom);
